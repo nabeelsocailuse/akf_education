@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-17 11:58:34.839430",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subjects",
+  "obtained_mark",
+  "total_marksout_of",
+  "percentage"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "subjects",
+   "fieldtype": "Data",
+   "label": "Subjects"
+  },
+  {
+   "fieldname": "obtained_mark",
+   "fieldtype": "Int",
+   "label": "Obtained Mark"
+  },
+  {
+   "fieldname": "total_marksout_of",
+   "fieldtype": "Data",
+   "label": "Total Marks/Out of "
+  },
+  {
+   "fieldname": "percentage",
+   "fieldtype": "Data",
+   "label": "Percentage"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-17 12:52:17.682967",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "career counselling child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

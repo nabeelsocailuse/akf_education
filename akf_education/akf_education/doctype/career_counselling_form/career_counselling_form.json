@@ -1,0 +1,551 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-02-17 11:30:24.522284",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_information_section",
+  "name1",
+  "class",
+  "gender",
+  "number_of_sibling",
+  "father_name",
+  "cause_of_death",
+  "mother_name",
+  "village__city",
+  "district",
+  "guardian_name",
+  "guardian_occupation",
+  "marital_status_of_mother",
+  "column_break_rwsf",
+  "date",
+  "birth_place",
+  "family_system",
+  "birth_order",
+  "father_occupation",
+  "date_of_death",
+  "mother_occupation",
+  "tehsil",
+  "province",
+  "relationship",
+  "aghosh_address",
+  "brothers_and_sisters_section",
+  "table_lmwv",
+  "academic_highest_marks_of_three_subjects_section",
+  "table_wrka",
+  "subject_of_interest_section",
+  "table_ykje",
+  "subject_of_least_interest_section",
+  "table_mrfp",
+  "academic_status_section",
+  "pervious_class",
+  "current_class",
+  "column_break_cdgc",
+  "obtained_marks__total_marks",
+  "obtained_marks__total_mark",
+  "column_break_bqmo",
+  "percentage",
+  "percentag",
+  "section_break_ftpy",
+  "hobbies",
+  "aim_of_life",
+  "careers_goal_what_i_want_to_become",
+  "potential_career_select_only_3_section",
+  "join_pak_army",
+  "economist",
+  "accountant_______ccaccaacma",
+  "agricultural_medicine",
+  "microbiology",
+  "physics",
+  "pilots",
+  "cyber_security",
+  "column_break_jram",
+  "engineering",
+  "lawyer",
+  "govt_job",
+  "designing_degree",
+  "biotechnology",
+  "mass_communication",
+  "anatomy",
+  "psychology",
+  "column_break_kgkk",
+  "doctor_medical_filed",
+  "it_professional",
+  "political_science",
+  "architect",
+  "pharmacy",
+  "mathematics",
+  "social_worker",
+  "others",
+  "column_break_gcnf",
+  "chemistry",
+  "teachingprofessor",
+  "business_administration",
+  "industrial_and_manufacturing",
+  "geography",
+  "genetics",
+  "police"
+ ],
+ "fields": [
+  {
+   "fieldname": "personal_information_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Information"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Data",
+   "label": "Class"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale"
+  },
+  {
+   "fieldname": "number_of_sibling",
+   "fieldtype": "Data",
+   "label": "Number of Sibling"
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father Name"
+  },
+  {
+   "fieldname": "cause_of_death",
+   "fieldtype": "Data",
+   "label": "Cause Of death"
+  },
+  {
+   "fieldname": "mother_name",
+   "fieldtype": "Data",
+   "label": "Mother Name"
+  },
+  {
+   "fieldname": "village__city",
+   "fieldtype": "Data",
+   "label": "Village / City"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District"
+  },
+  {
+   "fieldname": "guardian_name",
+   "fieldtype": "Data",
+   "label": "Guardian Name"
+  },
+  {
+   "fieldname": "guardian_occupation",
+   "fieldtype": "Data",
+   "label": "Guardian Occupation"
+  },
+  {
+   "fieldname": "marital_status_of_mother",
+   "fieldtype": "Select",
+   "label": "Marital Status of Mother",
+   "options": "Married\nSeparated\nDivorced\nWidowed"
+  },
+  {
+   "fieldname": "column_break_rwsf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "birth_place",
+   "fieldtype": "Data",
+   "label": "Birth Place"
+  },
+  {
+   "fieldname": "family_system",
+   "fieldtype": "Select",
+   "label": "Family System",
+   "options": "Nuclear\nJoint"
+  },
+  {
+   "fieldname": "birth_order",
+   "fieldtype": "Data",
+   "label": "Birth Order"
+  },
+  {
+   "fieldname": "father_occupation",
+   "fieldtype": "Data",
+   "label": "Father Occupation"
+  },
+  {
+   "fieldname": "date_of_death",
+   "fieldtype": "Date",
+   "label": "Date Of death"
+  },
+  {
+   "fieldname": "mother_occupation",
+   "fieldtype": "Data",
+   "label": "Mother Occupation"
+  },
+  {
+   "fieldname": "tehsil",
+   "fieldtype": "Data",
+   "label": "Tehsil"
+  },
+  {
+   "fieldname": "province",
+   "fieldtype": "Data",
+   "label": "Province"
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Data",
+   "label": "Relationship"
+  },
+  {
+   "fieldname": "aghosh_address",
+   "fieldtype": "Data",
+   "label": "Aghosh address"
+  },
+  {
+   "fieldname": "brothers_and_sisters_section",
+   "fieldtype": "Section Break",
+   "label": "Brothers and Sisters"
+  },
+  {
+   "fieldname": "table_lmwv",
+   "fieldtype": "Table",
+   "options": "Brothers and Sisters"
+  },
+  {
+   "fieldname": "academic_highest_marks_of_three_subjects_section",
+   "fieldtype": "Section Break",
+   "label": "Academic Highest Marks of Three Subjects"
+  },
+  {
+   "fieldname": "table_wrka",
+   "fieldtype": "Table",
+   "options": "career counselling child"
+  },
+  {
+   "fieldname": "subject_of_interest_section",
+   "fieldtype": "Section Break",
+   "label": "Subject of Interest"
+  },
+  {
+   "fieldname": "table_ykje",
+   "fieldtype": "Table",
+   "options": "career counselling child"
+  },
+  {
+   "fieldname": "subject_of_least_interest_section",
+   "fieldtype": "Section Break",
+   "label": "Subject of Least Interest"
+  },
+  {
+   "fieldname": "table_mrfp",
+   "fieldtype": "Table",
+   "options": "career counselling child"
+  },
+  {
+   "fieldname": "academic_status_section",
+   "fieldtype": "Section Break",
+   "label": "Academic Status"
+  },
+  {
+   "fieldname": "pervious_class",
+   "fieldtype": "Data",
+   "label": "Pervious class"
+  },
+  {
+   "fieldname": "current_class",
+   "fieldtype": "Data",
+   "label": "Current Class"
+  },
+  {
+   "fieldname": "column_break_cdgc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "obtained_marks__total_marks",
+   "fieldtype": "Data",
+   "label": "Obtained Marks / Total Marks"
+  },
+  {
+   "fieldname": "obtained_marks__total_mark",
+   "fieldtype": "Data",
+   "label": "Obtained Marks / Total Marks"
+  },
+  {
+   "fieldname": "column_break_bqmo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "percentage",
+   "fieldtype": "Data",
+   "label": "Percentage"
+  },
+  {
+   "fieldname": "percentag",
+   "fieldtype": "Data",
+   "label": "percentage"
+  },
+  {
+   "fieldname": "section_break_ftpy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "hobbies",
+   "fieldtype": "Small Text",
+   "label": "Hobbies"
+  },
+  {
+   "fieldname": "aim_of_life",
+   "fieldtype": "Small Text",
+   "label": "Aim of Life"
+  },
+  {
+   "fieldname": "careers_goal_what_i_want_to_become",
+   "fieldtype": "Small Text",
+   "label": "Careers Goal (What I want to become)"
+  },
+  {
+   "fieldname": "potential_career_select_only_3_section",
+   "fieldtype": "Section Break",
+   "label": "Potential Career (select only 3)"
+  },
+  {
+   "default": "0",
+   "fieldname": "join_pak_army",
+   "fieldtype": "Check",
+   "label": "Join Pak Army"
+  },
+  {
+   "default": "0",
+   "fieldname": "economist",
+   "fieldtype": "Check",
+   "label": "Economist"
+  },
+  {
+   "default": "0",
+   "fieldname": "accountant_______ccaccaacma",
+   "fieldtype": "Check",
+   "label": "Accountant       CC/ACCA/ACMA"
+  },
+  {
+   "fieldname": "column_break_jram",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "engineering",
+   "fieldtype": "Check",
+   "label": "Engineering"
+  },
+  {
+   "default": "0",
+   "fieldname": "lawyer",
+   "fieldtype": "Check",
+   "label": "Lawyer"
+  },
+  {
+   "fieldname": "column_break_kgkk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "doctor_medical_filed",
+   "fieldtype": "Check",
+   "label": "Doctor/ Medical Filed"
+  },
+  {
+   "default": "0",
+   "fieldname": "it_professional",
+   "fieldtype": "Check",
+   "label": "IT Professional"
+  },
+  {
+   "fieldname": "column_break_gcnf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "chemistry",
+   "fieldtype": "Check",
+   "label": "Chemistry"
+  },
+  {
+   "default": "0",
+   "fieldname": "teachingprofessor",
+   "fieldtype": "Check",
+   "label": "Teaching/Professor"
+  },
+  {
+   "default": "0",
+   "fieldname": "agricultural_medicine",
+   "fieldtype": "Check",
+   "label": "Agricultural Medicine"
+  },
+  {
+   "default": "0",
+   "fieldname": "microbiology",
+   "fieldtype": "Check",
+   "label": " Microbiology"
+  },
+  {
+   "default": "0",
+   "fieldname": "physics",
+   "fieldtype": "Check",
+   "label": "Physics"
+  },
+  {
+   "default": "0",
+   "fieldname": "pilots",
+   "fieldtype": "Check",
+   "label": "Pilots"
+  },
+  {
+   "default": "0",
+   "fieldname": "cyber_security",
+   "fieldtype": "Check",
+   "label": "Cyber security"
+  },
+  {
+   "default": "0",
+   "fieldname": "govt_job",
+   "fieldtype": "Check",
+   "label": "Govt Job"
+  },
+  {
+   "default": "0",
+   "fieldname": "designing_degree",
+   "fieldtype": "Check",
+   "label": "Designing Degree"
+  },
+  {
+   "default": "0",
+   "fieldname": "biotechnology",
+   "fieldtype": "Check",
+   "label": " Biotechnology"
+  },
+  {
+   "default": "0",
+   "fieldname": "mass_communication",
+   "fieldtype": "Check",
+   "label": "Mass Communication"
+  },
+  {
+   "default": "0",
+   "fieldname": "anatomy",
+   "fieldtype": "Check",
+   "label": "Anatomy"
+  },
+  {
+   "default": "0",
+   "fieldname": "psychology",
+   "fieldtype": "Check",
+   "label": "Psychology"
+  },
+  {
+   "default": "0",
+   "fieldname": "political_science",
+   "fieldtype": "Check",
+   "label": " Political Science"
+  },
+  {
+   "default": "0",
+   "fieldname": "architect",
+   "fieldtype": "Check",
+   "label": "Architect"
+  },
+  {
+   "default": "0",
+   "fieldname": "pharmacy",
+   "fieldtype": "Check",
+   "label": "Pharmacy"
+  },
+  {
+   "default": "0",
+   "fieldname": "mathematics",
+   "fieldtype": "Check",
+   "label": " Mathematics"
+  },
+  {
+   "default": "0",
+   "fieldname": "social_worker",
+   "fieldtype": "Check",
+   "label": "Social Worker"
+  },
+  {
+   "default": "0",
+   "fieldname": "others",
+   "fieldtype": "Check",
+   "label": "Others"
+  },
+  {
+   "default": "0",
+   "fieldname": "business_administration",
+   "fieldtype": "Check",
+   "label": "Business Administration"
+  },
+  {
+   "default": "0",
+   "fieldname": "industrial_and_manufacturing",
+   "fieldtype": "Check",
+   "label": "Industrial and Manufacturing "
+  },
+  {
+   "default": "0",
+   "fieldname": "geography",
+   "fieldtype": "Check",
+   "label": "Geography"
+  },
+  {
+   "default": "0",
+   "fieldname": "genetics",
+   "fieldtype": "Check",
+   "label": " Genetics"
+  },
+  {
+   "default": "0",
+   "fieldname": "police",
+   "fieldtype": "Check",
+   "label": "Police"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-17 17:33:14.541957",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Career Counselling Form",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name1"
+}

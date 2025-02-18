@@ -1,0 +1,160 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-02-17 13:03:32.150004",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "registration_number",
+  "column_break_ltgc",
+  "student_name",
+  "column_break_lxyz",
+  "date",
+  "section_break_qtej",
+  "head",
+  "i_see_myself_as_a_person_who",
+  "lives_within_oneself",
+  "generally_trustworthy",
+  "tends_towards_laziness",
+  "remains_calm_deals_well_with_anxiety",
+  "column_break_apzu",
+  "has_less_creative_hobbies",
+  "outgoing_and_sociable",
+  "i_find_faults_in_others_i_disagree",
+  "completes_work_in_detail",
+  "gets_nervous_quickly",
+  "possesses_strong_ideas"
+ ],
+ "fields": [
+  {
+   "fieldname": "registration_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Registration Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ltgc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name"
+  },
+  {
+   "fieldname": "column_break_lxyz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "section_break_qtej",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "head",
+   "fieldtype": "Heading",
+   "label": "Keeping your personality in mind, please select the most appropriate option for each statement."
+  },
+  {
+   "fieldname": "lives_within_oneself",
+   "fieldtype": "Select",
+   "label": "Lives within oneself.",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "i_see_myself_as_a_person_who",
+   "fieldtype": "Heading",
+   "label": "I see myself as a person who..."
+  },
+  {
+   "fieldname": "generally_trustworthy",
+   "fieldtype": "Select",
+   "label": "Generally trustworthy.",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "tends_towards_laziness",
+   "fieldtype": "Select",
+   "label": "Tends towards laziness.",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "remains_calm_deals_well_with_anxiety",
+   "fieldtype": "Select",
+   "label": "Remains calm, deals well with anxiety.",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "has_less_creative_hobbies",
+   "fieldtype": "Select",
+   "label": "Has less creative hobbies.",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "outgoing_and_sociable",
+   "fieldtype": "Select",
+   "label": "Outgoing and sociable",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "i_find_faults_in_others_i_disagree",
+   "fieldtype": "Select",
+   "label": "I find faults in others, I disagree.",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "completes_work_in_detail",
+   "fieldtype": "Select",
+   "label": "Completes work in detail.",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "gets_nervous_quickly",
+   "fieldtype": "Select",
+   "label": "Gets nervous quickly.",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "possesses_strong_ideas",
+   "fieldtype": "Select",
+   "label": "Possesses strong ideas.",
+   "options": "Strongly Disagree\nSomewhat Disagree\nNeutral\nSomewhat Agree\nStrongly Agree"
+  },
+  {
+   "fieldname": "column_break_apzu",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-17 17:36:24.123724",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Personal Assessment",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "registration_number"
+}

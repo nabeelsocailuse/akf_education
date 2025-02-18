@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-17 15:23:35.113925",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "date",
+  "presenting_issues",
+  "column_break_yzcc",
+  "age",
+  "grade",
+  "section_break_tqaa",
+  "session_number",
+  "column_break_xpmj",
+  "dat",
+  "section_break_cmdk",
+  "session_goals",
+  "session_feedback",
+  "section_break_xyep",
+  "name2",
+  "signature"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "presenting_issues",
+   "fieldtype": "Small Text",
+   "label": "Presenting Issue(s)"
+  },
+  {
+   "fieldname": "column_break_yzcc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "grade",
+   "fieldtype": "Data",
+   "label": "Grade"
+  },
+  {
+   "fieldname": "section_break_tqaa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "session_number",
+   "fieldtype": "Data",
+   "label": "Session Number"
+  },
+  {
+   "fieldname": "column_break_xpmj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dat",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "section_break_cmdk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "session_goals",
+   "fieldtype": "Small Text",
+   "label": "Session Goal(s)"
+  },
+  {
+   "fieldname": "session_feedback",
+   "fieldtype": "Small Text",
+   "label": "Session Feedback"
+  },
+  {
+   "fieldname": "section_break_xyep",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Signature"
+  },
+  {
+   "fieldname": "name2",
+   "fieldtype": "Data",
+   "label": "Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-18 11:45:44.631773",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Session Report",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

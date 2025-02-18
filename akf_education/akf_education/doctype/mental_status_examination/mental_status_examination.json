@@ -1,0 +1,239 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "MSE-EXAM-.####",
+ "creation": "2025-02-14 16:20:12.506632",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "column_break_kxdq",
+  "date",
+  "observations_section",
+  "appearance_points",
+  "conversation",
+  "eye_contact",
+  "physical_connection",
+  "facial_expressions",
+  "obserb_additional_info",
+  "mode",
+  "mode_additional_info",
+  "mental_health_section",
+  "impairment_in_mental_affairs_and_awareness",
+  "memory_impairment",
+  "attention",
+  "mental_health_additional_info",
+  "detachment_from_reality",
+  "additional_information",
+  "thinking_section",
+  "fear_of_personal_harm",
+  "concern_for_others_harm",
+  "unrealistic_thoughts",
+  "behaviourattitude",
+  "insight",
+  "decision_making",
+  "section_break_wird",
+  "staff_concerned",
+  "signature",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "column_break_kxdq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "observations_section",
+   "fieldtype": "Section Break",
+   "label": "Observations"
+  },
+  {
+   "fieldname": "appearance_points",
+   "fieldtype": "Select",
+   "label": "Appearance points",
+   "options": "Clean\nDirty\nInappropriate\nWeird\nOthers"
+  },
+  {
+   "fieldname": "conversation",
+   "fieldtype": "Select",
+   "label": "Conversation",
+   "options": "Suitable\nUnder Pressure\nFast\nWeak"
+  },
+  {
+   "fieldname": "eye_contact",
+   "fieldtype": "Select",
+   "label": "Eye Contact",
+   "options": "Suitable\nAvoid eye contact\nStareing\nOthers"
+  },
+  {
+   "fieldname": "physical_connection",
+   "fieldtype": "Select",
+   "label": "Physical connection",
+   "options": "Suitable\nDisturb\nSlow\nIrrelevance"
+  },
+  {
+   "fieldname": "facial_expressions",
+   "fieldtype": "Select",
+   "label": "Facial expressions",
+   "options": "Suitable\nStretches on Face\nInappropriate\nNo Expressions"
+  },
+  {
+   "fieldname": "mode",
+   "fieldtype": "Select",
+   "label": "Mode",
+   "options": "Suitable\nWorried\nIrritated\nIn anger\nUpset\nMore enthusiastic than normal children"
+  },
+  {
+   "fieldname": "mental_health_section",
+   "fieldtype": "Section Break",
+   "label": "Mental Health"
+  },
+  {
+   "fieldname": "impairment_in_mental_affairs_and_awareness",
+   "fieldtype": "Select",
+   "label": "Impairment in mental affairs and awareness",
+   "options": "Not Present\nTime\nPlace\nPerson"
+  },
+  {
+   "fieldname": "memory_impairment",
+   "fieldtype": "Select",
+   "label": "Memory impairment",
+   "options": "Not Present\nShort Term\nLong Term\nOthers"
+  },
+  {
+   "fieldname": "attention",
+   "fieldtype": "Select",
+   "label": "Attention",
+   "options": "Suitable\nLost\nOthers"
+  },
+  {
+   "fieldname": "detachment_from_reality",
+   "fieldtype": "Select",
+   "label": "Detachment from reality",
+   "options": "Not Present\nPertaining listening\nPertaining to seeing"
+  },
+  {
+   "fieldname": "additional_information",
+   "fieldtype": "Small Text",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "thinking_section",
+   "fieldtype": "Section Break",
+   "label": "Thinking"
+  },
+  {
+   "fieldname": "fear_of_personal_harm",
+   "fieldtype": "Select",
+   "label": "Fear of personal harm",
+   "options": "Not Present\nThinking About\nThere is personal violence\nIt is intended\nThere is a plan"
+  },
+  {
+   "fieldname": "concern_for_others_harm",
+   "fieldtype": "Select",
+   "label": "Concern for others' harm",
+   "options": "No\nThere is anger\nIntended to\nThere is a plan"
+  },
+  {
+   "fieldname": "unrealistic_thoughts",
+   "fieldtype": "Select",
+   "label": "Unrealistic thoughts",
+   "options": "Yes\nNo\nDoubt\nA sense of superiority\nOf a religious nature"
+  },
+  {
+   "fieldname": "behaviourattitude",
+   "fieldtype": "Select",
+   "label": "Behaviour/Attitude",
+   "options": "Collaborative\nDefensive\nAnger Issue\nMore excited\nAnxious\nTerrified\nStrange and unusual"
+  },
+  {
+   "fieldname": "insight",
+   "fieldtype": "Select",
+   "label": "Insight",
+   "options": "Good\nFair\nBad/unsuitable"
+  },
+  {
+   "fieldname": "decision_making",
+   "fieldtype": "Select",
+   "label": "Decision Making",
+   "options": "Good\nFair\nBad/unsuitable"
+  },
+  {
+   "fieldname": "section_break_wird",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "staff_concerned",
+   "fieldtype": "Data",
+   "label": "Staff concerned"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Signature"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "MENTAL STATUS EXAMINATION",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "obserb_additional_info",
+   "fieldtype": "Small Text",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "mode_additional_info",
+   "fieldtype": "Small Text",
+   "label": "Additional Information About Mode"
+  },
+  {
+   "fieldname": "mental_health_additional_info",
+   "fieldtype": "Small Text",
+   "label": "Additional Information"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-02-18 11:43:33.312074",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "MENTAL STATUS EXAMINATION",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name1"
+}

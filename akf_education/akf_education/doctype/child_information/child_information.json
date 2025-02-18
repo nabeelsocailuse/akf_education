@@ -1,0 +1,353 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Child-Info-.####",
+ "creation": "2025-02-17 15:38:40.984090",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "child_personal_info_section",
+  "name1",
+  "child_id",
+  "mother_name",
+  "father_name",
+  "class",
+  "column_break_cvph",
+  "gender",
+  "weight_now",
+  "height",
+  "age",
+  "aghosh",
+  "child_general_physical_examination_section",
+  "tempf",
+  "resp_rate",
+  "eye_ltnab",
+  "gait",
+  "ears_ltnab",
+  "nose",
+  "throatnab",
+  "teethnab",
+  "handsnailsnab",
+  "jaundice",
+  "cyanosis",
+  "nutrition_status",
+  "general_physical_apperance",
+  "column_break_gfum",
+  "pulsemin",
+  "bpmm_of_hg",
+  "eye_rtnab",
+  "posture",
+  "ears_rtnab",
+  "nose2",
+  "tonguenab",
+  "gumsnab",
+  "jaundice2",
+  "clubbing",
+  "any_murmur",
+  "dental_hygiene",
+  "child_personal_hygiene_score_section",
+  "hair",
+  "clothing",
+  "ears",
+  "column_break_sndn",
+  "nail",
+  "skin",
+  "eyes",
+  "section_break_irfm",
+  "hygiene_score",
+  "column_break_wquh",
+  "hygiene_score2"
+ ],
+ "fields": [
+  {
+   "fieldname": "child_personal_info_section",
+   "fieldtype": "Section Break",
+   "label": "Child Personal Info"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Data",
+   "label": "Child ID"
+  },
+  {
+   "fieldname": "mother_name",
+   "fieldtype": "Data",
+   "label": "Mother Name"
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father Name"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Data",
+   "label": "Class"
+  },
+  {
+   "fieldname": "column_break_cvph",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale"
+  },
+  {
+   "fieldname": "weight_now",
+   "fieldtype": "Data",
+   "label": "Weight Now"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Data",
+   "label": "Height"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
+  },
+  {
+   "fieldname": "aghosh",
+   "fieldtype": "Data",
+   "label": "Aghosh"
+  },
+  {
+   "fieldname": "child_general_physical_examination_section",
+   "fieldtype": "Section Break",
+   "label": "Child General Physical Examination"
+  },
+  {
+   "fieldname": "tempf",
+   "fieldtype": "Data",
+   "label": "Temp(F)"
+  },
+  {
+   "fieldname": "resp_rate",
+   "fieldtype": "Data",
+   "label": "Resp Rate"
+  },
+  {
+   "fieldname": "eye_ltnab",
+   "fieldtype": "Data",
+   "label": "Eye Lt(N.AB)"
+  },
+  {
+   "fieldname": "gait",
+   "fieldtype": "Data",
+   "label": "Gait"
+  },
+  {
+   "fieldname": "ears_ltnab",
+   "fieldtype": "Data",
+   "label": "Ears Lt(N.AB)"
+  },
+  {
+   "fieldname": "nose",
+   "fieldtype": "Data",
+   "label": "Nose +ve"
+  },
+  {
+   "fieldname": "throatnab",
+   "fieldtype": "Data",
+   "label": "Throat(N.AB)"
+  },
+  {
+   "fieldname": "teethnab",
+   "fieldtype": "Data",
+   "label": "Teeth(N.AB)"
+  },
+  {
+   "fieldname": "handsnailsnab",
+   "fieldtype": "Data",
+   "label": "Hands/Nails(N.AB)"
+  },
+  {
+   "fieldname": "jaundice",
+   "fieldtype": "Data",
+   "label": "Jaundice +ve"
+  },
+  {
+   "fieldname": "cyanosis",
+   "fieldtype": "Data",
+   "label": "Cyanosis"
+  },
+  {
+   "fieldname": "nutrition_status",
+   "fieldtype": "Select",
+   "label": "Nutrition Status",
+   "options": "Good\nSatisfactory\nPoor"
+  },
+  {
+   "fieldname": "general_physical_apperance",
+   "fieldtype": "Small Text",
+   "label": "General Physical Apperance"
+  },
+  {
+   "fieldname": "column_break_gfum",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pulsemin",
+   "fieldtype": "Data",
+   "label": "Pulse(min)"
+  },
+  {
+   "fieldname": "bpmm_of_hg",
+   "fieldtype": "Data",
+   "label": "BP(mm of Hg)"
+  },
+  {
+   "fieldname": "eye_rtnab",
+   "fieldtype": "Data",
+   "label": "Eye Rt(N.AB)"
+  },
+  {
+   "fieldname": "posture",
+   "fieldtype": "Data",
+   "label": "Posture"
+  },
+  {
+   "fieldname": "ears_rtnab",
+   "fieldtype": "Data",
+   "label": "Ears Rt(N.AB)"
+  },
+  {
+   "fieldname": "tonguenab",
+   "fieldtype": "Data",
+   "label": "Tongue(N.AB)"
+  },
+  {
+   "fieldname": "gumsnab",
+   "fieldtype": "Data",
+   "label": "Gums(N.AB)"
+  },
+  {
+   "fieldname": "clubbing",
+   "fieldtype": "Data",
+   "label": "Clubbing"
+  },
+  {
+   "fieldname": "any_murmur",
+   "fieldtype": "Data",
+   "label": "Any Murmur"
+  },
+  {
+   "fieldname": "dental_hygiene",
+   "fieldtype": "Select",
+   "label": "Dental Hygiene",
+   "options": "Good\nSatisfactory\nPoor"
+  },
+  {
+   "fieldname": "child_personal_hygiene_score_section",
+   "fieldtype": "Section Break",
+   "label": "Child Personal Hygiene Score"
+  },
+  {
+   "default": "Not Cleaned/Combed:0",
+   "fieldname": "hair",
+   "fieldtype": "Select",
+   "label": "Hair",
+   "options": "Cleaned/Combed:1\nNot Cleaned/Combed:0"
+  },
+  {
+   "default": "Dirty:0",
+   "fieldname": "clothing",
+   "fieldtype": "Select",
+   "label": "Clothing",
+   "options": "Cleaned:1\nDirty:0"
+  },
+  {
+   "default": "Pinna/Dirty:0",
+   "fieldname": "ears",
+   "fieldtype": "Select",
+   "label": "Ears",
+   "options": "Pinna/Clean:1\nPinna/Dirty:0\nwax:1\nWAX:0"
+  },
+  {
+   "fieldname": "column_break_sndn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Not Cleaned/cut:0",
+   "fieldname": "nail",
+   "fieldtype": "Select",
+   "label": "Nail",
+   "options": "Cleaned/cut:1\nNot Cleaned/cut:0"
+  },
+  {
+   "default": "Unhealthy:0",
+   "fieldname": "skin",
+   "fieldtype": "Select",
+   "label": "Skin",
+   "options": "Healthy/shinning:1\nUnhealthy:0"
+  },
+  {
+   "default": "Dirty:0",
+   "fieldname": "eyes",
+   "fieldtype": "Select",
+   "label": "Eyes",
+   "options": "Clean:1\nDirty:0"
+  },
+  {
+   "fieldname": "hygiene_score",
+   "fieldtype": "Data",
+   "label": "Hygiene_score"
+  },
+  {
+   "fieldname": "section_break_irfm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wquh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hygiene_score2",
+   "fieldtype": "Data",
+   "label": "Hygiene_score"
+  },
+  {
+   "fieldname": "nose2",
+   "fieldtype": "Data",
+   "label": "Nose -ve"
+  },
+  {
+   "fieldname": "jaundice2",
+   "fieldtype": "Data",
+   "label": "Jaundice -ve"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-18 11:41:39.570726",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Child Information",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

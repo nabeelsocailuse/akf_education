@@ -7,7 +7,7 @@ from frappe.model.document import Document
 # from frappe.utils import getdate
 
 class AdmissionTool(Document):
-	
+	# Nabeel Saleem, 06-03-2025
 	@frappe.whitelist()
 	def create_admissions(self):
 		if(not self.admission_table): frappe.throw("First, fetch aghosh homes detail to proceed.", title="Admission Table")

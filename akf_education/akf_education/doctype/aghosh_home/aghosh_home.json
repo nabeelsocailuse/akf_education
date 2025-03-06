@@ -1,26 +1,143 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-11-29 18:24:10.678062",
+ "autoname": "format:AH-{region_abbr}- {district_abbr}-{####}",
+ "creation": "2025-03-04 13:21:34.237027",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "location"
+  "section_break_swkc",
+  "name1",
+  "address",
+  "column_break_tavq",
+  "status_enum",
+  "head_of_aghosh_home_section",
+  "name3",
+  "date_of_joining2",
+  "column_break_abth",
+  "dresignation",
+  "address_of_aghosh_section",
+  "region",
+  "region_abbr",
+  "tahsil",
+  "latitude",
+  "column_break_dzja",
+  "district",
+  "district_abbr",
+  "longitude"
  ],
  "fields": [
   {
-   "fieldname": "location",
+   "fieldname": "section_break_swkc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_tavq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status_enum",
+   "fieldtype": "Select",
+   "label": "Status ",
+   "options": "\nActive\nInactive"
+  },
+  {
+   "fieldname": "head_of_aghosh_home_section",
+   "fieldtype": "Section Break",
+   "label": "Head Of Aghosh Home"
+  },
+  {
+   "fieldname": "name3",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "date_of_joining2",
+   "fieldtype": "Date",
+   "label": "Date Of Joining"
+  },
+  {
+   "fieldname": "column_break_abth",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_of_aghosh_section",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "region",
    "fieldtype": "Link",
-   "label": "Location",
-   "options": "City"
+   "in_list_view": 1,
+   "label": "Region",
+   "options": "Region",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "region.abbr",
+   "fieldname": "region_abbr",
+   "fieldtype": "Data",
+   "label": "Region Abbr",
+   "options": "Region",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tahsil",
+   "fieldtype": "Data",
+   "label": "Tehsil"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Data",
+   "label": "Latitude"
+  },
+  {
+   "fieldname": "column_break_dzja",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "district.abbr",
+   "fieldname": "district_abbr",
+   "fieldtype": "Data",
+   "label": "District Abbr"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Data",
+   "label": "Longitude"
+  },
+  {
+   "fieldname": "dresignation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 18:25:22.093104",
+ "modified": "2025-03-04 15:03:08.504214",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,0 +1,139 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-28 17:05:08.425145",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "filters_section",
+  "region",
+  "get_aghosh_homes",
+  "column_break_vttq",
+  "district",
+  "other_detail_section",
+  "column_break_gyrl",
+  "academic_year",
+  "admission_start_date",
+  "admission_end_date",
+  "column_break_crwh",
+  "publish_on_website",
+  "enable_admission_application",
+  "section_break_esau",
+  "introduction",
+  "section_break_tzzy",
+  "admission_table"
+ ],
+ "fields": [
+  {
+   "fieldname": "filters_section",
+   "fieldtype": "Section Break",
+   "label": "Filters"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "label": "Region",
+   "options": "Region"
+  },
+  {
+   "fieldname": "column_break_vttq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "get_aghosh_homes",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Get Aghosh Homes"
+  },
+  {
+   "fieldname": "other_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Other Detail"
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year"
+  },
+  {
+   "fieldname": "admission_start_date",
+   "fieldtype": "Date",
+   "label": "Admission Start Date"
+  },
+  {
+   "fieldname": "admission_end_date",
+   "fieldtype": "Date",
+   "label": "Admission End Date"
+  },
+  {
+   "fieldname": "column_break_crwh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "publish_on_website",
+   "fieldtype": "Check",
+   "label": " Publish on website"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_admission_application",
+   "fieldtype": "Check",
+   "label": "Enable Admission Application"
+  },
+  {
+   "fieldname": "introduction",
+   "fieldtype": "Text Editor",
+   "label": "Introduction"
+  },
+  {
+   "fieldname": "column_break_gyrl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_tzzy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "admission_table",
+   "fieldtype": "Table",
+   "label": "Admission Table",
+   "options": "Admission Table"
+  },
+  {
+   "fieldname": "section_break_esau",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-03-04 12:36:00.941905",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Admission Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

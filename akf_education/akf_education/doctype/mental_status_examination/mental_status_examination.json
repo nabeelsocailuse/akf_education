@@ -6,48 +6,49 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "name1",
+  "observation_tab",
+  "orphan_name",
   "column_break_kxdq",
   "date",
   "observations_section",
   "appearance_points",
   "conversation",
+  "facial_expressions",
+  "column_break_tpwk",
   "eye_contact",
   "physical_connection",
-  "facial_expressions",
-  "obserb_additional_info",
-  "mode",
+  "section_break_bpbu",
+  "mental_health_additional_info",
+  "mood",
   "mode_additional_info",
+  "mental_health_tab",
   "mental_health_section",
   "impairment_in_mental_affairs_and_awareness",
   "memory_impairment",
+  "column_break_mcjg",
   "attention",
-  "mental_health_additional_info",
+  "section_break_wboi",
+  "adtional1",
+  "section_break_pcrs",
   "detachment_from_reality",
-  "additional_information",
+  "additiona2",
+  "thinking_tab",
   "thinking_section",
   "fear_of_personal_harm",
   "concern_for_others_harm",
   "unrealistic_thoughts",
+  "column_break_iwxq",
   "behaviourattitude",
   "insight",
-  "decision_making",
-  "section_break_wird",
-  "staff_concerned",
-  "signature",
-  "amended_from"
+  "decision_making"
  ],
  "fields": [
-  {
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name"
-  },
   {
    "fieldname": "column_break_kxdq",
    "fieldtype": "Column Break"
   },
   {
+   "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date"
@@ -61,7 +62,7 @@
    "fieldname": "appearance_points",
    "fieldtype": "Select",
    "label": "Appearance points",
-   "options": "Clean\nDirty\nInappropriate\nWeird\nOthers"
+   "options": "\nClean\nDirty\nInappropriate\nWeird\nOthers"
   },
   {
    "fieldname": "conversation",
@@ -73,7 +74,7 @@
    "fieldname": "eye_contact",
    "fieldtype": "Select",
    "label": "Eye Contact",
-   "options": "Suitable\nAvoid eye contact\nStareing\nOthers"
+   "options": "\nSuitable\nAvoid eye contact\nStaring\nOthers"
   },
   {
    "fieldname": "physical_connection",
@@ -84,14 +85,8 @@
   {
    "fieldname": "facial_expressions",
    "fieldtype": "Select",
-   "label": "Facial expressions",
+   "label": "Facial Expressions",
    "options": "Suitable\nStretches on Face\nInappropriate\nNo Expressions"
-  },
-  {
-   "fieldname": "mode",
-   "fieldtype": "Select",
-   "label": "Mode",
-   "options": "Suitable\nWorried\nIrritated\nIn anger\nUpset\nMore enthusiastic than normal children"
   },
   {
    "fieldname": "mental_health_section",
@@ -102,30 +97,25 @@
    "fieldname": "impairment_in_mental_affairs_and_awareness",
    "fieldtype": "Select",
    "label": "Impairment in mental affairs and awareness",
-   "options": "Not Present\nTime\nPlace\nPerson"
+   "options": "\nNot Present\nTime\nPlace\nPerson"
   },
   {
    "fieldname": "memory_impairment",
    "fieldtype": "Select",
    "label": "Memory impairment",
-   "options": "Not Present\nShort Term\nLong Term\nOthers"
+   "options": "\nNot Present\nShort Term\nLong Term\nOthers"
   },
   {
    "fieldname": "attention",
    "fieldtype": "Select",
    "label": "Attention",
-   "options": "Suitable\nLost\nOthers"
+   "options": "\nSuitable\nLost\nOthers"
   },
   {
    "fieldname": "detachment_from_reality",
    "fieldtype": "Select",
    "label": "Detachment from reality",
-   "options": "Not Present\nPertaining listening\nPertaining to seeing"
-  },
-  {
-   "fieldname": "additional_information",
-   "fieldtype": "Small Text",
-   "label": "Additional Information"
+   "options": "\nNot Present\nPertaining listening\nPertaining to seeing"
   },
   {
    "fieldname": "thinking_section",
@@ -136,66 +126,37 @@
    "fieldname": "fear_of_personal_harm",
    "fieldtype": "Select",
    "label": "Fear of personal harm",
-   "options": "Not Present\nThinking About\nThere is personal violence\nIt is intended\nThere is a plan"
+   "options": "\nNot Present\nThinking About\nThere is personal violence\nIt is intended\nThere is a plan"
   },
   {
    "fieldname": "concern_for_others_harm",
    "fieldtype": "Select",
    "label": "Concern for others' harm",
-   "options": "No\nThere is anger\nIntended to\nThere is a plan"
+   "options": "\nNo\nThere is anger\nIntended to\nThere is a plan"
   },
   {
    "fieldname": "unrealistic_thoughts",
    "fieldtype": "Select",
    "label": "Unrealistic thoughts",
-   "options": "Yes\nNo\nDoubt\nA sense of superiority\nOf a religious nature"
+   "options": "\nYes\nNo\nDoubt\nA sense of superiority\nOf a religious nature"
   },
   {
    "fieldname": "behaviourattitude",
    "fieldtype": "Select",
    "label": "Behaviour/Attitude",
-   "options": "Collaborative\nDefensive\nAnger Issue\nMore excited\nAnxious\nTerrified\nStrange and unusual"
+   "options": "\nCollaborative\nDefensive\nAnger Issue\nMore excited\nAnxious\nTerrified\nStrange and unusual"
   },
   {
    "fieldname": "insight",
    "fieldtype": "Select",
    "label": "Insight",
-   "options": "Good\nFair\nBad/unsuitable"
+   "options": "\nGood\nFair\nBad/unsuitable"
   },
   {
    "fieldname": "decision_making",
    "fieldtype": "Select",
    "label": "Decision Making",
-   "options": "Good\nFair\nBad/unsuitable"
-  },
-  {
-   "fieldname": "section_break_wird",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "staff_concerned",
-   "fieldtype": "Data",
-   "label": "Staff concerned"
-  },
-  {
-   "fieldname": "signature",
-   "fieldtype": "Signature",
-   "label": "Signature"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "MENTAL STATUS EXAMINATION",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
-   "fieldname": "obserb_additional_info",
-   "fieldtype": "Small Text",
-   "label": "Additional Information"
+   "options": "\nGood\nFair\nBad/unsuitable"
   },
   {
    "fieldname": "mode_additional_info",
@@ -206,15 +167,76 @@
    "fieldname": "mental_health_additional_info",
    "fieldtype": "Small Text",
    "label": "Additional Information"
+  },
+  {
+   "fieldname": "orphan_name",
+   "fieldtype": "Link",
+   "label": "Orphan Name",
+   "options": "Orphan"
+  },
+  {
+   "fieldname": "column_break_tpwk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_bpbu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_mcjg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_iwxq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mood",
+   "fieldtype": "Select",
+   "label": "Mood",
+   "options": "\nSuitable\nWorried\nIrritated\nIn anger\nUpset\nMore enthusiastic than normal children"
+  },
+  {
+   "fieldname": "observation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Observation"
+  },
+  {
+   "fieldname": "mental_health_tab",
+   "fieldtype": "Tab Break",
+   "label": "Mental Health"
+  },
+  {
+   "fieldname": "thinking_tab",
+   "fieldtype": "Tab Break",
+   "label": "Thinking"
+  },
+  {
+   "fieldname": "section_break_wboi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "adtional1",
+   "fieldtype": "Small Text",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "section_break_pcrs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "additiona2",
+   "fieldtype": "Small Text",
+   "label": "Additional Information"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-18 11:43:33.312074",
+ "modified": "2025-02-27 11:46:31.915102",
  "modified_by": "Administrator",
  "module": "Akf Education",
- "name": "MENTAL STATUS EXAMINATION",
+ "name": "Mental Status Examination",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
@@ -235,5 +257,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "name1"
+ "title_field": "orphan_name"
 }

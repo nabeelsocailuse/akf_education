@@ -1,0 +1,93 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:bed_number",
+ "creation": "2025-02-20 16:05:08.467492",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_qxqe",
+  "room_id",
+  "bed_number",
+  "building",
+  "column_break_wepk",
+  "type_enum",
+  "occupied_status",
+  "aghosh_home"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_qxqe",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "room_id",
+   "fieldtype": "Link",
+   "label": "Room ID",
+   "options": "Rooms"
+  },
+  {
+   "fieldname": "bed_number",
+   "fieldtype": "Int",
+   "label": "Bed Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "type_enum",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nSingle\nBunk\nQueen\nKing"
+  },
+  {
+   "fieldname": "occupied_status",
+   "fieldtype": "Select",
+   "label": "Occupancy Status",
+   "options": "\nVacant\nOccupied\nReserved"
+  },
+  {
+   "fieldname": "column_break_wepk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "room_id.building",
+   "fieldname": "building",
+   "fieldtype": "Link",
+   "label": "Building",
+   "options": "Building",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "room_id.aghosh_home",
+   "fieldname": "aghosh_home",
+   "fieldtype": "Link",
+   "label": "Aghosh Home",
+   "options": "Aghosh Home",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-05 10:50:01.633606",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Beds",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

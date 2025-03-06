@@ -5,29 +5,18 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "name1",
+  "orphan_name",
   "date",
-  "presenting_issues",
   "column_break_yzcc",
   "age",
   "grade",
-  "section_break_tqaa",
-  "session_number",
-  "column_break_xpmj",
-  "dat",
+  "section_break_bxal",
+  "presenting_issues",
   "section_break_cmdk",
   "session_goals",
-  "session_feedback",
-  "section_break_xyep",
-  "name2",
-  "signature"
+  "session_feedback"
  ],
  "fields": [
-  {
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name"
-  },
   {
    "fieldname": "date",
    "fieldtype": "Date",
@@ -53,24 +42,6 @@
    "label": "Grade"
   },
   {
-   "fieldname": "section_break_tqaa",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "session_number",
-   "fieldtype": "Data",
-   "label": "Session Number"
-  },
-  {
-   "fieldname": "column_break_xpmj",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "dat",
-   "fieldtype": "Date",
-   "label": "Date"
-  },
-  {
    "fieldname": "section_break_cmdk",
    "fieldtype": "Section Break"
   },
@@ -85,26 +56,22 @@
    "label": "Session Feedback"
   },
   {
-   "fieldname": "section_break_xyep",
+   "fieldname": "orphan_name",
+   "fieldtype": "Link",
+   "label": "Orphan Name",
+   "options": "Orphan"
+  },
+  {
+   "fieldname": "section_break_bxal",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "signature",
-   "fieldtype": "Signature",
-   "label": "Signature"
-  },
-  {
-   "fieldname": "name2",
-   "fieldtype": "Data",
-   "label": "Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-18 11:45:44.631773",
+ "modified": "2025-02-27 14:48:05.419661",
  "modified_by": "Administrator",
  "module": "Akf Education",
- "name": "Session Report",
+ "name": "Counsling Session",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [

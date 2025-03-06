@@ -1,0 +1,545 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-23 17:36:13.548466",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "child_personal_info_section",
+  "orphan",
+  "aghosh_home",
+  "gender",
+  "age",
+  "weight_now",
+  "height",
+  "encounter_type",
+  "column_break_cprt",
+  "child_id",
+  "class",
+  "mother_name",
+  "father_name",
+  "encounter_datetime",
+  "healthcare_practitioner",
+  "encounter_impression_section",
+  "symptoms",
+  "column_break_zmsr",
+  "diagnosis",
+  "medications_section",
+  "table_zdxg",
+  "investigations_section",
+  "table_ihqq",
+  "procedures_section",
+  "table_vxye",
+  "follow_up_section",
+  "follow_up_date",
+  "column_break_tbbo",
+  "follow_up_notes",
+  "examination_details_section",
+  "local_findings",
+  "section_break_hoxw",
+  "special_remarks",
+  "child_general_physical_examination_tab",
+  "general_physical_examination_section",
+  "tempf",
+  "eye_ltnab",
+  "ears_ltnab",
+  "throatnab",
+  "handsnailsnab",
+  "cyanosis",
+  "birth_history",
+  "column_break_qmbi",
+  "pulsemin",
+  "eye_rtnab",
+  "ears_rtnab",
+  "tonguenab",
+  "jaundice2",
+  "any_murmur",
+  "column_break_jbup",
+  "resp_rate",
+  "gait",
+  "nose1",
+  "teethnab",
+  "jaundice1",
+  "nutrition_status",
+  "column_break_thoz",
+  "bpmm_of_hg",
+  "posture",
+  "nose2",
+  "gumsnab",
+  "clubbing",
+  "dental_hygiene",
+  "section_break_oqtk",
+  "general_physical_apperance",
+  "personal_hygiene_score_tab",
+  "child_personal_hygiene_score_section",
+  "hair",
+  "clothing",
+  "ears",
+  "column_break_xbmg",
+  "nails",
+  "skin",
+  "eyes",
+  "section_break_ubza",
+  "hygiene_score1",
+  "diagnosis_and_treatment_tab",
+  "date",
+  "section_break_uwdt",
+  "diagnosis_and_treatment",
+  "column_break_yqzf",
+  "medicine_prescription",
+  "section_break_fogn",
+  "specific_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "orphan",
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "Orphan"
+  },
+  {
+   "fieldname": "column_break_cprt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "encounter_datetime",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Encounter Date & Time"
+  },
+  {
+   "fieldname": "encounter_type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Encounter Type",
+   "options": "Normal Checkup"
+  },
+  {
+   "fieldname": "healthcare_practitioner",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Healthcare practitioner"
+  },
+  {
+   "fieldname": "encounter_impression_section",
+   "fieldtype": "Section Break",
+   "label": "Encounter Impression"
+  },
+  {
+   "fieldname": "symptoms",
+   "fieldtype": "Table MultiSelect",
+   "label": "Symptoms",
+   "options": "Patient Encounter Symptom"
+  },
+  {
+   "fieldname": "column_break_zmsr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "diagnosis",
+   "fieldtype": "Table MultiSelect",
+   "label": "Diagnosis",
+   "options": "Patient Encounter Diagnosis"
+  },
+  {
+   "description": "Drug Prescription",
+   "fieldname": "medications_section",
+   "fieldtype": "Section Break",
+   "label": "Medications"
+  },
+  {
+   "fieldname": "investigations_section",
+   "fieldtype": "Section Break",
+   "label": "Investigations"
+  },
+  {
+   "fieldname": "procedures_section",
+   "fieldtype": "Section Break",
+   "label": "Procedures"
+  },
+  {
+   "fieldname": "follow_up_section",
+   "fieldtype": "Section Break",
+   "label": "Follow Up"
+  },
+  {
+   "fieldname": "follow_up_date",
+   "fieldtype": "Date",
+   "label": "Follow Up Date"
+  },
+  {
+   "fieldname": "column_break_tbbo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "follow_up_notes",
+   "fieldtype": "Small Text",
+   "label": "Follow Up Notes"
+  },
+  {
+   "fieldname": "examination_details_section",
+   "fieldtype": "Section Break",
+   "label": "Examination Details"
+  },
+  {
+   "fieldname": "local_findings",
+   "fieldtype": "Small Text",
+   "label": "Local Findings"
+  },
+  {
+   "fieldname": "table_zdxg",
+   "fieldtype": "Table",
+   "options": "Medication Child"
+  },
+  {
+   "fieldname": "table_ihqq",
+   "fieldtype": "Table",
+   "options": "Investigation Child"
+  },
+  {
+   "fieldname": "table_vxye",
+   "fieldtype": "Table",
+   "options": "Procedures Child"
+  },
+  {
+   "fieldname": "child_general_physical_examination_tab",
+   "fieldtype": "Tab Break",
+   "label": "General Physical Examination"
+  },
+  {
+   "fieldname": "tempf",
+   "fieldtype": "Data",
+   "label": "Temp(F)"
+  },
+  {
+   "fieldname": "resp_rate",
+   "fieldtype": "Data",
+   "label": "Resp Rate"
+  },
+  {
+   "fieldname": "eye_ltnab",
+   "fieldtype": "Data",
+   "label": "Eye Lt(N.AB)"
+  },
+  {
+   "fieldname": "gait",
+   "fieldtype": "Data",
+   "label": "Gait"
+  },
+  {
+   "fieldname": "ears_ltnab",
+   "fieldtype": "Data",
+   "label": "Ears Lt(N.AB)"
+  },
+  {
+   "fieldname": "column_break_qmbi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "throatnab",
+   "fieldtype": "Data",
+   "label": "Throat(N.AB)"
+  },
+  {
+   "fieldname": "teethnab",
+   "fieldtype": "Data",
+   "label": "Teeth(N.AB)"
+  },
+  {
+   "fieldname": "handsnailsnab",
+   "fieldtype": "Data",
+   "label": "Hands/Nails(N.AB)"
+  },
+  {
+   "fieldname": "jaundice2",
+   "fieldtype": "Data",
+   "label": "Jaundice +ve"
+  },
+  {
+   "fieldname": "cyanosis",
+   "fieldtype": "Data",
+   "label": "Cyanosis"
+  },
+  {
+   "fieldname": "column_break_jbup",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pulsemin",
+   "fieldtype": "Data",
+   "label": "Pulse(min)"
+  },
+  {
+   "fieldname": "bpmm_of_hg",
+   "fieldtype": "Data",
+   "label": "BP(mm of Hg)"
+  },
+  {
+   "fieldname": "eye_rtnab",
+   "fieldtype": "Data",
+   "label": "Eye Rt(N.AB)"
+  },
+  {
+   "fieldname": "posture",
+   "fieldtype": "Data",
+   "label": "Posture"
+  },
+  {
+   "fieldname": "ears_rtnab",
+   "fieldtype": "Data",
+   "label": "Ears Rt(N.AB)"
+  },
+  {
+   "fieldname": "column_break_thoz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tonguenab",
+   "fieldtype": "Data",
+   "label": "Tongue(N.AB)"
+  },
+  {
+   "fieldname": "gumsnab",
+   "fieldtype": "Data",
+   "label": "Gums(N.AB)"
+  },
+  {
+   "fieldname": "jaundice1",
+   "fieldtype": "Data",
+   "label": "Jaundice -ve"
+  },
+  {
+   "fieldname": "clubbing",
+   "fieldtype": "Data",
+   "label": "clubbing"
+  },
+  {
+   "fieldname": "any_murmur",
+   "fieldtype": "Data",
+   "label": "Any Murmur"
+  },
+  {
+   "fieldname": "nose1",
+   "fieldtype": "Data",
+   "label": "Nose +ve"
+  },
+  {
+   "fieldname": "nutrition_status",
+   "fieldtype": "Data",
+   "label": "Nutrition Status"
+  },
+  {
+   "fieldname": "nose2",
+   "fieldtype": "Data",
+   "label": "Nose -ve"
+  },
+  {
+   "fieldname": "dental_hygiene",
+   "fieldtype": "Data",
+   "label": "Dental Hygiene"
+  },
+  {
+   "fieldname": "section_break_oqtk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "general_physical_apperance",
+   "fieldtype": "Small Text",
+   "label": "General Physical Apperance"
+  },
+  {
+   "fieldname": "child_personal_hygiene_score_section",
+   "fieldtype": "Section Break",
+   "label": "Child Personal Hygiene Score"
+  },
+  {
+   "fieldname": "hair",
+   "fieldtype": "Select",
+   "label": "Hair",
+   "options": "\nCleaned/Combed:1\nNot Cleaned/Combed:0"
+  },
+  {
+   "fieldname": "clothing",
+   "fieldtype": "Select",
+   "label": "Clothing",
+   "options": "\nCleaned:1\nDirty:0"
+  },
+  {
+   "fieldname": "ears",
+   "fieldtype": "Select",
+   "label": "Ears",
+   "options": "\nPinna/Clean:1\nPinna/Dirty:0\nwax:1\nWAX:0"
+  },
+  {
+   "fieldname": "column_break_xbmg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "nails",
+   "fieldtype": "Select",
+   "label": "Nails",
+   "options": "\nCleaned/cut:1\nNot Cleaned/cut:0"
+  },
+  {
+   "fieldname": "skin",
+   "fieldtype": "Select",
+   "label": "Skin",
+   "options": "\nHealthy/shinning:1\nUnhealthy:0"
+  },
+  {
+   "fieldname": "eyes",
+   "fieldtype": "Select",
+   "label": "Eyes",
+   "options": "\nClean:1\nDirty:0"
+  },
+  {
+   "fieldname": "section_break_ubza",
+   "fieldtype": "Section Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "hygiene_score1",
+   "fieldtype": "Data",
+   "label": "Hygiene Score"
+  },
+  {
+   "fieldname": "diagnosis_and_treatment_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Diagnosis And Treatment"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "section_break_uwdt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "diagnosis_and_treatment",
+   "fieldtype": "Small Text",
+   "label": "Treatment & Diagnosis"
+  },
+  {
+   "fieldname": "column_break_yqzf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "medicine_prescription",
+   "fieldtype": "Small Text",
+   "label": "Medicine/Prescription"
+  },
+  {
+   "fieldname": "section_break_fogn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "specific_remarks",
+   "fieldtype": "Small Text",
+   "label": "Specific Remarks"
+  },
+  {
+   "fieldname": "child_personal_info_section",
+   "fieldtype": "Section Break",
+   "label": "Child Personal Info"
+  },
+  {
+   "fieldname": "aghosh_home",
+   "fieldtype": "Link",
+   "label": "Aghosh home",
+   "options": "Aghosh Home"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "weight_now",
+   "fieldtype": "Data",
+   "label": "Weight Now"
+  },
+  {
+   "fieldname": "mother_name",
+   "fieldtype": "Data",
+   "label": "Mother Name"
+  },
+  {
+   "fieldname": "child_id",
+   "fieldtype": "Data",
+   "label": "Child ID"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Data",
+   "label": "Class"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Data",
+   "label": "Height"
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father Name"
+  },
+  {
+   "fieldname": "birth_history",
+   "fieldtype": "Data",
+   "label": "Birth History"
+  },
+  {
+   "fieldname": "personal_hygiene_score_tab",
+   "fieldtype": "Tab Break",
+   "label": "Personal Hygiene Score"
+  },
+  {
+   "fieldname": "section_break_hoxw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "special_remarks",
+   "fieldtype": "Small Text",
+   "label": "Special Remarks"
+  },
+  {
+   "fieldname": "general_physical_examination_section",
+   "fieldtype": "Section Break",
+   "label": "General Physical Examination"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-04 13:19:27.477439",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Health Checkup",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

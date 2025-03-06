@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-23 15:55:26.316689",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_school",
+  "principle_name",
+  "gender",
+  "distance_from_aghosh",
+  "column_break_qfle",
+  "type_of_school",
+  "address",
+  "contact_number",
+  "region_section",
+  "region",
+  "tehsil",
+  "school_latitude",
+  "column_break_mjuw",
+  "district",
+  "uc",
+  "school_longitude"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_school",
+   "fieldtype": "Data",
+   "label": "Name Of School"
+  },
+  {
+   "fieldname": "principle_name",
+   "fieldtype": "Data",
+   "label": "Principle Name"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender Composition",
+   "options": "\nMale\nFemale\nOthers"
+  },
+  {
+   "fieldname": "column_break_qfle",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "school_latitude",
+   "fieldtype": "Data",
+   "label": "Latitude"
+  },
+  {
+   "fieldname": "school_longitude",
+   "fieldtype": "Data",
+   "label": "Longitude"
+  },
+  {
+   "fieldname": "region_section",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Data",
+   "label": "Region"
+  },
+  {
+   "fieldname": "tehsil",
+   "fieldtype": "Data",
+   "label": "Tehsil"
+  },
+  {
+   "fieldname": "column_break_mjuw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District"
+  },
+  {
+   "fieldname": "uc",
+   "fieldtype": "Data",
+   "label": "UC"
+  },
+  {
+   "fieldname": "distance_from_aghosh",
+   "fieldtype": "Data",
+   "label": "Distance From Aghosh"
+  },
+  {
+   "fieldname": "type_of_school",
+   "fieldtype": "Select",
+   "label": "Type Of School",
+   "options": "\nGovt School\nPrivate School"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-26 12:38:30.982173",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "External School",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

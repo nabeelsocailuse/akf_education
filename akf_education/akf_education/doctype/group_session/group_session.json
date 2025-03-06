@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-27 14:53:54.391252",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "name_of_instructure",
+  "present_students",
+  "column_break_fzkt",
+  "date",
+  "section_break_yakz",
+  "goal_of_group_session",
+  "section_break_vpgj",
+  "session_feedback"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "name_of_instructure",
+   "fieldtype": "Data",
+   "label": "Name of Instructure"
+  },
+  {
+   "fieldname": "present_students",
+   "fieldtype": "Link",
+   "label": "Present Students",
+   "options": "Orphan"
+  },
+  {
+   "fieldname": "column_break_fzkt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date "
+  },
+  {
+   "fieldname": "section_break_yakz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "goal_of_group_session",
+   "fieldtype": "Small Text",
+   "label": "Goal Of Group Session"
+  },
+  {
+   "fieldname": "section_break_vpgj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "session_feedback",
+   "fieldtype": "Small Text",
+   "label": "Session Feedback"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-27 14:57:37.425838",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Group Session",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

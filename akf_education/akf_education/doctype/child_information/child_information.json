@@ -7,7 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "child_personal_info_section",
-  "name1",
+  "orphan_name",
   "child_id",
   "mother_name",
   "father_name",
@@ -25,13 +25,13 @@
   "gait",
   "ears_ltnab",
   "nose",
+  "column_break_ybrv",
   "throatnab",
   "teethnab",
   "handsnailsnab",
   "jaundice",
   "cyanosis",
   "nutrition_status",
-  "general_physical_apperance",
   "column_break_gfum",
   "pulsemin",
   "bpmm_of_hg",
@@ -39,12 +39,15 @@
   "posture",
   "ears_rtnab",
   "nose2",
+  "column_break_gysm",
   "tonguenab",
   "gumsnab",
   "jaundice2",
   "clubbing",
   "any_murmur",
   "dental_hygiene",
+  "section_break_oxqp",
+  "general_physical_apperance",
   "child_personal_hygiene_score_section",
   "hair",
   "clothing",
@@ -56,18 +59,21 @@
   "section_break_irfm",
   "hygiene_score",
   "column_break_wquh",
-  "hygiene_score2"
+  "hygiene_score2",
+  "diagnosis_and_treatment_tab",
+  "date",
+  "section_break_cvkv",
+  "diagnosis_and_treatment",
+  "column_break_twdg",
+  "medicineprescription",
+  "section_break_jlvc",
+  "specific_remarks"
  ],
  "fields": [
   {
    "fieldname": "child_personal_info_section",
    "fieldtype": "Section Break",
    "label": "Child Personal Info"
-  },
-  {
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name"
   },
   {
    "fieldname": "child_id",
@@ -323,11 +329,67 @@
    "fieldname": "jaundice2",
    "fieldtype": "Data",
    "label": "Jaundice -ve"
+  },
+  {
+   "fieldname": "orphan_name",
+   "fieldtype": "Link",
+   "label": "Orphan Name",
+   "options": "Orphan"
+  },
+  {
+   "fieldname": "column_break_ybrv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_gysm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_oxqp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "diagnosis_and_treatment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Diagnosis And Treatment"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "section_break_cvkv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "diagnosis_and_treatment",
+   "fieldtype": "Small Text",
+   "label": "Diagnosis And Treatment"
+  },
+  {
+   "fieldname": "column_break_twdg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "medicineprescription",
+   "fieldtype": "Small Text",
+   "label": "Medicine/Prescription"
+  },
+  {
+   "fieldname": "section_break_jlvc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "specific_remarks",
+   "fieldtype": "Small Text",
+   "label": "Specific Remarks"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-18 11:41:39.570726",
+ "modified": "2025-02-23 16:32:17.962253",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Child Information",

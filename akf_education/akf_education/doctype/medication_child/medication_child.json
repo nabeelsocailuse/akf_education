@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-24 16:14:26.255484",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "drug",
+  "drug_name__description",
+  "dosage",
+  "period"
+ ],
+ "fields": [
+  {
+   "fieldname": "drug",
+   "fieldtype": "Data",
+   "label": "Drug"
+  },
+  {
+   "fieldname": "drug_name__description",
+   "fieldtype": "Data",
+   "label": "Drug Name / Description"
+  },
+  {
+   "fieldname": "dosage",
+   "fieldtype": "Data",
+   "label": "Dosage"
+  },
+  {
+   "fieldname": "period",
+   "fieldtype": "Data",
+   "label": "Period"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-24 16:16:48.511241",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Medication Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

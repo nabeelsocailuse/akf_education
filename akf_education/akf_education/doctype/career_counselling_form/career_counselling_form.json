@@ -5,39 +5,66 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "personal_information_tab",
   "personal_information_section",
-  "name1",
-  "class",
-  "gender",
-  "number_of_sibling",
-  "father_name",
-  "cause_of_death",
-  "mother_name",
-  "village__city",
-  "district",
-  "guardian_name",
-  "guardian_occupation",
-  "marital_status_of_mother",
-  "column_break_rwsf",
-  "date",
+  "orphan_name",
   "birth_place",
+  "gender",
   "family_system",
   "birth_order",
-  "father_occupation",
-  "date_of_death",
-  "mother_occupation",
+  "village__city",
+  "district",
+  "column_break_rwsf",
+  "date",
+  "age",
+  "class",
+  "number_of_sibling",
   "tehsil",
   "province",
-  "relationship",
   "aghosh_address",
+  "father_details_section",
+  "father_name",
+  "date_of_death",
+  "attach_death_certificate",
+  "column_break_cgby",
+  "father_occupation",
+  "cause_of_death",
+  "mother_details_section",
+  "mother_name",
+  "marital_status_of_mother",
+  "column_break_qcis",
+  "mother_occupation",
+  "guardian_details_section",
+  "guardian_name",
+  "guardian_occupation",
+  "column_break_efoc",
+  "cnic",
+  "relation_with_child",
   "brothers_and_sisters_section",
   "table_lmwv",
-  "academic_highest_marks_of_three_subjects_section",
-  "table_wrka",
+  "financial_statusfamily_section",
+  "monthly_family_income",
+  "residences",
+  "supportive_relative_member",
+  "dependent_members",
+  "column_break_phbx",
+  "sources_of_incomes",
+  "earning_members_of_family",
+  "support_from_other_ngo",
+  "relatives_support_details_section",
+  "name1",
+  "data_ttub",
+  "column_break_mhhp",
+  "relationship",
+  "section_break_riby",
+  "hobbies",
+  "academic_information_tab",
+  "capability_in_academic_section",
+  "table_sden",
   "subject_of_interest_section",
-  "table_ykje",
+  "table_obsg",
   "subject_of_least_interest_section",
-  "table_mrfp",
+  "table_otnt",
   "academic_status_section",
   "pervious_class",
   "current_class",
@@ -47,8 +74,7 @@
   "column_break_bqmo",
   "percentage",
   "percentag",
-  "section_break_ftpy",
-  "hobbies",
+  "career_goals_tab",
   "aim_of_life",
   "careers_goal_what_i_want_to_become",
   "potential_career_select_only_3_section",
@@ -94,11 +120,6 @@
    "label": "Personal Information"
   },
   {
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name"
-  },
-  {
    "fieldname": "class",
    "fieldtype": "Data",
    "label": "Class"
@@ -107,7 +128,7 @@
    "fieldname": "gender",
    "fieldtype": "Select",
    "label": "Gender",
-   "options": "Male\nFemale"
+   "options": "\nMale\nFemale"
   },
   {
    "fieldname": "number_of_sibling",
@@ -153,7 +174,7 @@
    "fieldname": "marital_status_of_mother",
    "fieldtype": "Select",
    "label": "Marital Status of Mother",
-   "options": "Married\nSeparated\nDivorced\nWidowed"
+   "options": "\nMarried\nSeparated\nDivorced\nWidowed"
   },
   {
    "fieldname": "column_break_rwsf",
@@ -173,7 +194,7 @@
    "fieldname": "family_system",
    "fieldtype": "Select",
    "label": "Family System",
-   "options": "Nuclear\nJoint"
+   "options": "\nNuclear\nJoint"
   },
   {
    "fieldname": "birth_order",
@@ -206,11 +227,6 @@
    "label": "Province"
   },
   {
-   "fieldname": "relationship",
-   "fieldtype": "Data",
-   "label": "Relationship"
-  },
-  {
    "fieldname": "aghosh_address",
    "fieldtype": "Data",
    "label": "Aghosh address"
@@ -218,7 +234,7 @@
   {
    "fieldname": "brothers_and_sisters_section",
    "fieldtype": "Section Break",
-   "label": "Brothers and Sisters"
+   "label": "Siblings Details"
   },
   {
    "fieldname": "table_lmwv",
@@ -226,34 +242,14 @@
    "options": "Brothers and Sisters"
   },
   {
-   "fieldname": "academic_highest_marks_of_three_subjects_section",
-   "fieldtype": "Section Break",
-   "label": "Academic Highest Marks of Three Subjects"
-  },
-  {
-   "fieldname": "table_wrka",
-   "fieldtype": "Table",
-   "options": "career counselling child"
-  },
-  {
    "fieldname": "subject_of_interest_section",
    "fieldtype": "Section Break",
-   "label": "Subject of Interest"
-  },
-  {
-   "fieldname": "table_ykje",
-   "fieldtype": "Table",
-   "options": "career counselling child"
+   "label": "Subject Of Interest"
   },
   {
    "fieldname": "subject_of_least_interest_section",
    "fieldtype": "Section Break",
    "label": "Subject of Least Interest"
-  },
-  {
-   "fieldname": "table_mrfp",
-   "fieldtype": "Table",
-   "options": "career counselling child"
   },
   {
    "fieldname": "academic_status_section",
@@ -297,15 +293,6 @@
    "fieldname": "percentag",
    "fieldtype": "Data",
    "label": "percentage"
-  },
-  {
-   "fieldname": "section_break_ftpy",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "hobbies",
-   "fieldtype": "Small Text",
-   "label": "Hobbies"
   },
   {
    "fieldname": "aim_of_life",
@@ -519,11 +506,176 @@
    "fieldname": "police",
    "fieldtype": "Check",
    "label": "Police"
+  },
+  {
+   "fieldname": "orphan_name",
+   "fieldtype": "Link",
+   "label": "Orphan Name",
+   "options": "Orphan"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "father_details_section",
+   "fieldtype": "Section Break",
+   "label": "Father Details"
+  },
+  {
+   "fieldname": "attach_death_certificate",
+   "fieldtype": "Attach Image",
+   "label": "Attach Death Certificate"
+  },
+  {
+   "fieldname": "column_break_cgby",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mother_details_section",
+   "fieldtype": "Section Break",
+   "label": "Mother Details"
+  },
+  {
+   "fieldname": "column_break_qcis",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "guardian_details_section",
+   "fieldtype": "Section Break",
+   "label": "Guardian details"
+  },
+  {
+   "fieldname": "column_break_efoc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cnic",
+   "fieldtype": "Int",
+   "label": "CNIC"
+  },
+  {
+   "fieldname": "relation_with_child",
+   "fieldtype": "Data",
+   "label": "Relation With child"
+  },
+  {
+   "fieldname": "academic_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Academic Information"
+  },
+  {
+   "fieldname": "capability_in_academic_section",
+   "fieldtype": "Section Break",
+   "label": "Capability in Academic "
+  },
+  {
+   "fieldname": "table_sden",
+   "fieldtype": "Table",
+   "options": "career counselling child"
+  },
+  {
+   "fieldname": "table_obsg",
+   "fieldtype": "Table",
+   "options": "career counselling child"
+  },
+  {
+   "fieldname": "table_otnt",
+   "fieldtype": "Table",
+   "options": "career counselling child"
+  },
+  {
+   "fieldname": "career_goals_tab",
+   "fieldtype": "Tab Break",
+   "label": "Career Goals"
+  },
+  {
+   "fieldname": "financial_statusfamily_section",
+   "fieldtype": "Section Break",
+   "label": "Financial Status(Family)"
+  },
+  {
+   "fieldname": "monthly_family_income",
+   "fieldtype": "Data",
+   "label": "Monthly Family Income"
+  },
+  {
+   "fieldname": "residences",
+   "fieldtype": "Data",
+   "label": "Residences"
+  },
+  {
+   "fieldname": "supportive_relative_member",
+   "fieldtype": "Data",
+   "label": "Supportive Relative Member"
+  },
+  {
+   "fieldname": "dependent_members",
+   "fieldtype": "Data",
+   "label": "Dependent Members"
+  },
+  {
+   "fieldname": "column_break_phbx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sources_of_incomes",
+   "fieldtype": "Data",
+   "label": "Sources Of Incomes"
+  },
+  {
+   "fieldname": "earning_members_of_family",
+   "fieldtype": "Data",
+   "label": "Earning Members Of Family"
+  },
+  {
+   "fieldname": "support_from_other_ngo",
+   "fieldtype": "Data",
+   "label": "Support From Other NGO"
+  },
+  {
+   "fieldname": "relatives_support_details_section",
+   "fieldtype": "Section Break",
+   "label": "Relatives Support Details"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "data_ttub",
+   "fieldtype": "Data",
+   "label": "Nature Of Support"
+  },
+  {
+   "fieldname": "column_break_mhhp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Data",
+   "label": "Relationship"
+  },
+  {
+   "fieldname": "section_break_riby",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "hobbies",
+   "fieldtype": "Small Text",
+   "label": "Hobbies"
+  },
+  {
+   "fieldname": "personal_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Personal Information"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-17 17:33:14.541957",
+ "modified": "2025-02-27 13:05:30.458502",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Career Counselling Form",
@@ -547,5 +699,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "name1"
+ "title_field": "orphan_name"
 }

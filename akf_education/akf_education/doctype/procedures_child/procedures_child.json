@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-24 16:35:24.651090",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "clinical_procedure",
+  "procedure_name",
+  "referring_practitioner",
+  "date"
+ ],
+ "fields": [
+  {
+   "fieldname": "clinical_procedure",
+   "fieldtype": "Data",
+   "label": "Clinical Procedure"
+  },
+  {
+   "fieldname": "procedure_name",
+   "fieldtype": "Data",
+   "label": "Procedure Name"
+  },
+  {
+   "fieldname": "referring_practitioner",
+   "fieldtype": "Data",
+   "label": "Referring Practitioner"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-24 16:36:55.513427",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Procedures Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

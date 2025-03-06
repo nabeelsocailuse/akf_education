@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-20 15:52:36.644607",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_zcbg",
+  "aghosh_home_id",
+  "name1",
+  "principle_name",
+  "type_enum",
+  "column_break_crae",
+  "capacity",
+  "status_enum"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_zcbg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home"
+  },
+  {
+   "fetch_from": "principle_name.employee_name",
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name Of School"
+  },
+  {
+   "fieldname": "type_enum",
+   "fieldtype": "Select",
+   "label": "Type ",
+   "options": "\nHostel\nSchool"
+  },
+  {
+   "fieldname": "capacity",
+   "fieldtype": "Int",
+   "label": "Maximum Capacity"
+  },
+  {
+   "fieldname": "status_enum",
+   "fieldtype": "Select",
+   "label": "Status ",
+   "options": "\nActive\nInactive"
+  },
+  {
+   "fieldname": "principle_name",
+   "fieldtype": "Link",
+   "label": "Principle Name",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_crae",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-04 13:19:26.992196",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Building",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

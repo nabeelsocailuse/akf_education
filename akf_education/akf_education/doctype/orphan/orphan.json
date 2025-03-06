@@ -1,0 +1,432 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-18 17:28:46.282505",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_info_tab",
+  "child_details_section",
+  "child_name",
+  "old_child_id",
+  "current_aghosh_id",
+  "date_of_birth",
+  "gender",
+  "address",
+  "any_special_abled_children",
+  "column_break_kmzu",
+  "age_round",
+  "age",
+  "disability",
+  "date_of_admission",
+  "contact_number1",
+  "hifz",
+  "parent_details_section",
+  "father_name",
+  "father_date_of_death",
+  "attach_death_certificate",
+  "column_break_ekwv",
+  "father_cnic",
+  "father_death_reason",
+  "mother_details",
+  "mother_name",
+  "mother_cnic",
+  "contact_number",
+  "column_break_pluh",
+  "mother_date_of_death",
+  "place_of_death",
+  "cause_of_death",
+  "siblings_details_section",
+  "name1",
+  "relation_with_child",
+  "qualification",
+  "monthly_income",
+  "column_break_erbr",
+  "cnic",
+  "contact_number3",
+  "profession",
+  "finicitional_status",
+  "tab_3_tab",
+  "details_section",
+  "child_height",
+  "collar_size",
+  "column_break_ruwx",
+  "child_waist",
+  "foot_size",
+  "orphan_history_tab",
+  "personal_information_section",
+  "early_development",
+  "medicalphysical_illnesses_and_history",
+  "language_and_speech_history",
+  "traumatic_experiences",
+  "column_break_joec",
+  "early_exposure_to_drugs_if_any",
+  "tentative_diagnosis",
+  "small_text_eujx",
+  "psychological_problems",
+  "section_break_izcq",
+  "psychological_assessment"
+ ],
+ "fields": [
+  {
+   "fieldname": "child_details_section",
+   "fieldtype": "Section Break",
+   "label": "Child Details"
+  },
+  {
+   "fetch_from": "child_id.dental_hygiene",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fetch_from": "child_id.gender",
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale"
+  },
+  {
+   "fieldname": "column_break_kmzu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "child_id.name1",
+   "fieldname": "child_name",
+   "fieldtype": "Data",
+   "label": "Child Name"
+  },
+  {
+   "fetch_from": "child_id.age",
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "disability",
+   "fieldtype": "Data",
+   "label": "Disability"
+  },
+  {
+   "fieldname": "parent_details_section",
+   "fieldtype": "Section Break",
+   "label": "Father's Details"
+  },
+  {
+   "fieldname": "father_cnic",
+   "fieldtype": "Int",
+   "label": "Father CNIC"
+  },
+  {
+   "fieldname": "father_date_of_death",
+   "fieldtype": "Date",
+   "label": "Father Date Of Death"
+  },
+  {
+   "fieldname": "mother_cnic",
+   "fieldtype": "Int",
+   "label": "Mother CNIC"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Phone",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "mother_date_of_death",
+   "fieldtype": "Select",
+   "label": "Mother Alive Status",
+   "options": "\nAlive\nDeath"
+  },
+  {
+   "fieldname": "column_break_ekwv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "child_id.father_name",
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father Name"
+  },
+  {
+   "fieldname": "father_death_reason",
+   "fieldtype": "Data",
+   "label": "Cause Of Death "
+  },
+  {
+   "fieldname": "mother_name",
+   "fieldtype": "Data",
+   "label": "Mother Name"
+  },
+  {
+   "depends_on": "eval:doc.mother_date_of_death==\"Death\"\n",
+   "fieldname": "cause_of_death",
+   "fieldtype": "Data",
+   "label": "Cause Of Death"
+  },
+  {
+   "fieldname": "age_round",
+   "fieldtype": "Int",
+   "label": "Age Round"
+  },
+  {
+   "fieldname": "child_waist",
+   "fieldtype": "Data",
+   "label": "Child Waist"
+  },
+  {
+   "fieldname": "foot_size",
+   "fieldtype": "Data",
+   "label": "Foot Size"
+  },
+  {
+   "fieldname": "any_special_abled_children",
+   "fieldtype": "Data",
+   "label": "Any Special Abled Children"
+  },
+  {
+   "fieldname": "child_height",
+   "fieldtype": "Data",
+   "label": "Child Height"
+  },
+  {
+   "fieldname": "collar_size",
+   "fieldtype": "Data",
+   "label": "Collar Size"
+  },
+  {
+   "fieldname": "hifz",
+   "fieldtype": "Select",
+   "label": "Hifz",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "old_child_id",
+   "fieldtype": "Data",
+   "label": "Old Aghosh ID"
+  },
+  {
+   "fieldname": "mother_details",
+   "fieldtype": "Section Break",
+   "label": "Mother's Details"
+  },
+  {
+   "fieldname": "column_break_pluh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "siblings_details_section",
+   "fieldtype": "Section Break",
+   "label": "Guardian Details"
+  },
+  {
+   "fieldname": "orphan_history_tab",
+   "fieldtype": "Tab Break",
+   "label": "Orphan History",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "personal_information_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Information"
+  },
+  {
+   "fieldname": "early_development",
+   "fieldtype": "Small Text",
+   "label": "Early Development"
+  },
+  {
+   "fieldname": "medicalphysical_illnesses_and_history",
+   "fieldtype": "Small Text",
+   "label": "Medical/Physical illnesses and History"
+  },
+  {
+   "fieldname": "language_and_speech_history",
+   "fieldtype": "Small Text",
+   "label": "Language and Speech History"
+  },
+  {
+   "fieldname": "traumatic_experiences",
+   "fieldtype": "Small Text",
+   "label": "Traumatic Experiences"
+  },
+  {
+   "fieldname": "column_break_joec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "psychological_problems",
+   "fieldtype": "Small Text",
+   "label": "Psychological Problems"
+  },
+  {
+   "fieldname": "early_exposure_to_drugs_if_any",
+   "fieldtype": "Small Text",
+   "label": "Early Exposure to Drugs, If Any"
+  },
+  {
+   "fieldname": "tentative_diagnosis",
+   "fieldtype": "Small Text",
+   "label": "Tentative Diagnosis"
+  },
+  {
+   "fieldname": "small_text_eujx",
+   "fieldtype": "Small Text",
+   "label": "Psychologists Opinion"
+  },
+  {
+   "fieldname": "tab_3_tab",
+   "fieldtype": "Tab Break",
+   "label": "Outfit Measurment "
+  },
+  {
+   "fieldname": "column_break_ruwx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_admission",
+   "fieldtype": "Date",
+   "label": "Date Of Admission"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "attach_death_certificate",
+   "fieldtype": "Attach Image",
+   "label": "Attach Death Certificate"
+  },
+  {
+   "fieldname": "contact_number1",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "relation_with_child",
+   "fieldtype": "Data",
+   "label": "Relation With Child"
+  },
+  {
+   "fieldname": "qualification",
+   "fieldtype": "Data",
+   "label": "Qualification"
+  },
+  {
+   "fieldname": "monthly_income",
+   "fieldtype": "Data",
+   "label": "Monthly Income"
+  },
+  {
+   "fieldname": "column_break_erbr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "CNIC"
+  },
+  {
+   "fieldname": "contact_number3",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "profession",
+   "fieldtype": "Data",
+   "label": "Profession"
+  },
+  {
+   "fieldname": "finicitional_status",
+   "fieldtype": "Data",
+   "label": "Finicitional Status"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "current_aghosh_id",
+   "fieldtype": "Data",
+   "label": "Current Aghosh ID"
+  },
+  {
+   "fieldname": "details_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details Info"
+  },
+  {
+   "fieldname": "psychological_assessment",
+   "fieldtype": "Select",
+   "label": "Psychological Assessment",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "section_break_izcq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.mother_date_of_death==\"Death\"\n",
+   "fieldname": "place_of_death",
+   "fieldtype": "Date",
+   "label": "Date Of Death"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Personal Assessment",
+   "link_fieldname": "orphan",
+   "table_fieldname": "Personal Assessment"
+  },
+  {
+   "link_doctype": "Past and Present Information",
+   "link_fieldname": "orphan",
+   "table_fieldname": "Past and Present Information"
+  },
+  {
+   "link_doctype": "Career Counselling Form",
+   "link_fieldname": "orphan_name",
+   "table_fieldname": "Career Counselling Form"
+  },
+  {
+   "link_doctype": "Mental Status Examination",
+   "link_fieldname": "orphan_name",
+   "table_fieldname": "MENTAL STATUS EXAMINATION"
+  },
+  {
+   "link_doctype": "Counsling Session",
+   "link_fieldname": "orphan_name",
+   "table_fieldname": "Session Report"
+  }
+ ],
+ "modified": "2025-02-27 15:17:07.674086",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Orphan",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -5,7 +5,7 @@
 from frappe.model.document import Document
 
 
-class MENTALSTATUSEXAMINATION(Document):
+class MentalStatusExamination(Document):
 	# begin: auto-generated types
 	# This code is auto-generated. Do not modify anything in this block.
 

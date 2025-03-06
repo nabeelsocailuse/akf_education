@@ -5,8 +5,10 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "orphan",
+  "section_break_ujiq",
   "registration_number",
-  "column_break_deoi",
+  "column_break_yiid",
   "date",
   "section_break_vsag",
   "student_name",
@@ -32,6 +34,7 @@
   "section_break_ntmo",
   "physical_and_hereditary_diseases_in_the_family",
   "psychological_or_mental_illnesses_in_the_family",
+  "personal_information_tab",
   "personal_information_section",
   "date_of_birt",
   "early_development",
@@ -53,10 +56,6 @@
    "in_list_view": 1,
    "label": "Registration Number",
    "reqd": 1
-  },
-  {
-   "fieldname": "column_break_deoi",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "date",
@@ -192,7 +191,7 @@
   {
    "fieldname": "date_of_birt",
    "fieldtype": "Date",
-   "label": "Date Of birt"
+   "label": "Date Of birth"
   },
   {
    "fieldname": "early_development",
@@ -246,11 +245,30 @@
    "fieldname": "signature",
    "fieldtype": "Signature",
    "label": "Signature"
+  },
+  {
+   "fieldname": "orphan",
+   "fieldtype": "Link",
+   "label": "Orphan",
+   "options": "Orphan"
+  },
+  {
+   "fieldname": "section_break_ujiq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_yiid",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "personal_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Personal Information"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-17 17:37:22.004977",
+ "modified": "2025-02-18 21:55:18.309726",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Past and Present Information",

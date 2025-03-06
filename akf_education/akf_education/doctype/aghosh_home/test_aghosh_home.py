@@ -1,4 +1,4 @@
-# Copyright (c) 2024, Mubarrim Iqbal and Contributors
+# Copyright (c) 2025, Mubarrim Iqbal and Contributors
 # See license.txt
 
 # import frappe

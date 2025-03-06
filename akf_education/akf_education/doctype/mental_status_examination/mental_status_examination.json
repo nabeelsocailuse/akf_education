@@ -12,14 +12,30 @@
   "date",
   "observations_section",
   "appearance_points",
+  "column_break_gcwb",
   "conversation",
+<<<<<<< Updated upstream
   "facial_expressions",
   "column_break_tpwk",
+=======
+  "column_break_wzzn",
+>>>>>>> Stashed changes
   "eye_contact",
+  "column_break_dwuw",
   "physical_connection",
+<<<<<<< Updated upstream
   "section_break_bpbu",
   "mental_health_additional_info",
   "mood",
+=======
+  "column_break_xima",
+  "facial_expressions",
+  "section_break_qmsj",
+  "obserb_additional_info",
+  "section_break_hcpw",
+  "mode",
+  "column_break_gtfw",
+>>>>>>> Stashed changes
   "mode_additional_info",
   "mental_health_tab",
   "mental_health_section",
@@ -228,12 +244,44 @@
    "fieldname": "additiona2",
    "fieldtype": "Small Text",
    "label": "Additional Information"
+  },
+  {
+   "fieldname": "column_break_gcwb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wzzn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dwuw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xima",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_qmsj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_hcpw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_gtfw",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
+<<<<<<< Updated upstream
  "modified": "2025-02-27 11:46:31.915102",
+=======
+ "modified": "2025-02-18 17:42:15.455711",
+>>>>>>> Stashed changes
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Mental Status Examination",

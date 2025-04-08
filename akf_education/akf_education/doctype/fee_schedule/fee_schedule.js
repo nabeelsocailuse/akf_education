@@ -132,7 +132,8 @@ frappe.ui.form.on('Fee Schedule', {
     if (frm.doc.fee_structure) {
       frappe.call({
         method:
-          'education.education.doctype.fee_schedule.fee_schedule.get_fee_structure',
+          'akf_education.akf_education.doctype.fee_schedule.fee_schedule.get_fee_structure',
+          
         args: {
           target_doc: frm.doc.name,
           source_name: frm.doc.fee_structure,
@@ -152,7 +153,7 @@ frappe.ui.form.on('Fee Schedule Student Group', {
     if (row.student_group && frm.doc.academic_year) {
       frappe.call({
         method:
-          'education.education.doctype.fee_schedule.fee_schedule.get_total_students',
+          'akf_education.akf_education.doctype.fee_schedule.fee_schedule.get_total_students',
         args: {
           student_group: row.student_group,
           academic_year: frm.doc.academic_year,

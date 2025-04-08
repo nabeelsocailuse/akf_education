@@ -34,7 +34,7 @@ serverCall = {
 design = {
     cards: function (page, data) {
         $("#demopage_id").remove();
-        const content = frappe.render_template("demopage", data);
+        const content = frappe.render_template("executive_dashboard", data);
         const main = page.main;
         $(content).appendTo(main);
     }

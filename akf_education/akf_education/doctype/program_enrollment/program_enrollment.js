@@ -30,16 +30,16 @@ frappe.ui.form.on('Program Enrollment', {
       };
 
       // Set query for course based on program selection
-      if (frm.doc.program) {
-          frm.set_query('course', 'courses', function () {
-              return {
-                  query: 'education.education.doctype.program_enrollment.program_enrollment.get_program_courses',
-                  filters: {
-                      program: frm.doc.program,
-                  },
-              };
-          });
-      }
+    //   if (frm.doc.program) {
+    //       frm.set_query('course', 'courses', function () {
+    //           return {
+    //               query: 'education.education.doctype.program_enrollment.program_enrollment.get_program_courses',
+    //               filters: {
+    //                   program: frm.doc.program,
+    //               },
+    //           };
+    //       });
+    //   }
 
       // Fetch Fee Schedules when form loads (if program & academic_year exist)
     //   if (frm.doc.program && frm.doc.academic_year) {

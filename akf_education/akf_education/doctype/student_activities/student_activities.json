@@ -12,8 +12,8 @@
   "activities_section",
   "activity_name",
   "location",
-  "category",
   "organizer",
+  "category",
   "column_break_qzxa",
   "start_date_time",
   "end_date_time",
@@ -24,9 +24,9 @@
   "activity_videos_section",
   "table_vedio",
   "activity_images_section",
-  "table_pjpa",
+  "table_images",
   "children_drawings_section",
-  "table_jsrx"
+  "table_drawing"
  ],
  "fields": [
   {
@@ -81,19 +81,9 @@
    "label": "Activity Images"
   },
   {
-   "fieldname": "table_pjpa",
-   "fieldtype": "Table",
-   "options": "Activity Images"
-  },
-  {
    "fieldname": "children_drawings_section",
    "fieldtype": "Section Break",
    "label": "Children Drawings"
-  },
-  {
-   "fieldname": "table_jsrx",
-   "fieldtype": "Table",
-   "options": "Children Drawings"
   },
   {
    "fieldname": "description_section",
@@ -134,11 +124,21 @@
    "fieldname": "table_vedio",
    "fieldtype": "Table",
    "options": "Activity Videos"
+  },
+  {
+   "fieldname": "table_images",
+   "fieldtype": "Table",
+   "options": "Activity Images"
+  },
+  {
+   "fieldname": "table_drawing",
+   "fieldtype": "Table",
+   "options": "Children Drawings"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-07 16:47:07.302892",
+ "modified": "2025-04-08 16:02:39.309185",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Activities",

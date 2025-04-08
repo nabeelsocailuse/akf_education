@@ -1,0 +1,220 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-03-18 14:13:06.949802",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "incident_details_section",
+  "incident_id",
+  "reported_by",
+  "incident_type",
+  "detailed_description",
+  "column_break_kuwi",
+  "location",
+  "severity_level",
+  "incident_date_time",
+  "attachment",
+  "persons_involved_tab",
+  "affected_person",
+  "emergency_contact_notified",
+  "column_break_dvcb",
+  "witnesses",
+  "immediate_actions_taken",
+  "investigation",
+  "invistigated_by",
+  "corrective_action_taken",
+  "resolution_summary",
+  "column_break_wwrp",
+  "status",
+  "closure_date",
+  "investigation_notes",
+  "approval_and_escalation",
+  "reviewed_by",
+  "check_ksmu",
+  "column_break_cszy",
+  "escalation_level"
+ ],
+ "fields": [
+  {
+   "fieldname": "incident_details_section",
+   "fieldtype": "Section Break",
+   "label": "Incident Details"
+  },
+  {
+   "fieldname": "incident_id",
+   "fieldtype": "Int",
+   "label": "Incident ID"
+  },
+  {
+   "fieldname": "reported_by",
+   "fieldtype": "Link",
+   "label": "Reported By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "incident_type",
+   "fieldtype": "Select",
+   "label": "Incident Type",
+   "options": "\nSafety\nSecurity\nMedical\nBehavioral\nProperty Damage\nOthers"
+  },
+  {
+   "fieldname": "detailed_description",
+   "fieldtype": "Small Text",
+   "label": "Detailed Description"
+  },
+  {
+   "fieldname": "column_break_kuwi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "incident_date_time",
+   "fieldtype": "Datetime",
+   "label": "Date & Time Of Incident"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Select",
+   "label": "Location",
+   "options": "\nDormitory\nDining Area\nCommon Area\nMedical Room\nSecurity Gate\nOthers"
+  },
+  {
+   "fieldname": "severity_level",
+   "fieldtype": "Select",
+   "label": "Severity Level ",
+   "options": "\nLow\nMedium\nHigh\nCritical"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach Image",
+   "label": "Attachment"
+  },
+  {
+   "fieldname": "persons_involved_tab",
+   "fieldtype": "Tab Break",
+   "label": "Persons Involved"
+  },
+  {
+   "fieldname": "affected_person",
+   "fieldtype": "Link",
+   "label": "Affected Person",
+   "options": "Orphan"
+  },
+  {
+   "fieldname": "column_break_dvcb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "emergency_contact_notified",
+   "fieldtype": "Select",
+   "label": "Emergency Contact Notified",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "witnesses",
+   "fieldtype": "Link",
+   "label": "Witnesses",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "immediate_actions_taken",
+   "fieldtype": "Select",
+   "label": "Immediate Actions Taken",
+   "options": "\nFirst Aid\nIntervention\nIsolation\nSecurity Call\nOthers"
+  },
+  {
+   "fieldname": "investigation",
+   "fieldtype": "Tab Break",
+   "label": "Investigation & Resolution"
+  },
+  {
+   "fieldname": "invistigated_by",
+   "fieldtype": "Select",
+   "label": "Invistigated By",
+   "options": "\nSecurity Officer\nSupervisor\nManagement"
+  },
+  {
+   "fieldname": "corrective_action_taken",
+   "fieldtype": "Data",
+   "label": "Corrective Action Taken",
+   "options": "\n"
+  },
+  {
+   "fieldname": "resolution_summary",
+   "fieldtype": "Small Text",
+   "label": "Resolution Summary"
+  },
+  {
+   "fieldname": "column_break_wwrp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "investigation_notes",
+   "fieldtype": "Small Text",
+   "label": "Investigation Notes"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nIn-progress\nResolved\nEscalated"
+  },
+  {
+   "fieldname": "closure_date",
+   "fieldtype": "Datetime",
+   "label": "Closure Date"
+  },
+  {
+   "fieldname": "approval_and_escalation",
+   "fieldtype": "Tab Break",
+   "label": "Approval & Escalation"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Select",
+   "label": "Reviewed By",
+   "options": "\nSupervisor\nHead Of Security"
+  },
+  {
+   "fieldname": "column_break_cszy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "escalation_level",
+   "fieldtype": "Select",
+   "label": "Escalation Level",
+   "options": "\nSupervisor\nManagement\nLegal\nExternal Authorities\nNone"
+  },
+  {
+   "default": "0",
+   "description": "Mark if further monitoring is needed",
+   "fieldname": "check_ksmu",
+   "fieldtype": "Check",
+   "label": "Follow-up Required"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-18 15:42:17.539510",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Incident Report",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

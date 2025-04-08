@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestAghoshHomes(FrappeTestCase):
+class TestActivityVideos(FrappeTestCase):
 	pass

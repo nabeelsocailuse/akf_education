@@ -10,6 +10,7 @@ frappe.ui.form.on("Admission Tool", {
         frm.add_custom_button('Create Admissions', function () {
             create_admissions_func(frm);
         });
+       
     }
 });
 
@@ -26,6 +27,7 @@ function get_aghosh_homes(frm) {
         callback: function (r) {
             if (!r.exc) {
                 const data = r.message;
+               
                 frm.set_value('admission_table', data);
             }
         }

@@ -41,7 +41,11 @@
   "column_break_iwxq",
   "behaviourattitude",
   "insight",
-  "decision_making"
+  "decision_making",
+  "facial_expressions",
+  "column_break_tpwk",
+  "column_break_xima",
+  "amended_from"
  ],
  "fields": [
   {
@@ -69,7 +73,7 @@
    "fieldname": "conversation",
    "fieldtype": "Select",
    "label": "Conversation",
-   "options": "Suitable\nUnder Pressure\nFast\nWeak"
+   "options": "\nSuitable\nUnder Pressure\nFast\nWeak"
   },
   {
    "fieldname": "eye_contact",
@@ -81,13 +85,13 @@
    "fieldname": "physical_connection",
    "fieldtype": "Select",
    "label": "Physical connection",
-   "options": "Suitable\nDisturb\nSlow\nIrrelevance"
+   "options": "\nSuitable\nDisturb\nSlow\nIrrelevance"
   },
   {
    "fieldname": "facial_expressions",
    "fieldtype": "Select",
    "label": "Facial Expressions",
-   "options": "Suitable\nStretches on Face\nInappropriate\nNo Expressions"
+   "options": "\nSuitable\nStretches on Face\nInappropriate\nNo Expressions"
   },
   {
    "fieldname": "mental_health_section",
@@ -247,22 +251,20 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_qmsj",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "section_break_hcpw",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_gtfw",
-   "fieldtype": "Column Break"
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Mental Status Examination",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-18 17:42:15.455711",
+ "modified": "2025-04-08 14:59:25.945330",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Mental Status Examination",

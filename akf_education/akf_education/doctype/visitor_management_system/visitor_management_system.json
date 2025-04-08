@@ -1,0 +1,221 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-03-17 14:16:46.379919",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "visitor_details_section",
+  "visitor_name",
+  "contact_no",
+  "purpose_of_visit",
+  "column_break_wwtc",
+  "cnicpassport_no",
+  "date_of_visit",
+  "others",
+  "section_break_angl",
+  "temporary",
+  "column_break_godz",
+  "check_hnyd",
+  "column_break_oslp",
+  "datetime_okhv",
+  "column_break_zoxg",
+  "check_ukyt",
+  "secutity_tab",
+  "check_in",
+  "column_break_lpot",
+  "check_out",
+  "vehical_details_section",
+  "registration_no",
+  "column_break_hpkw",
+  "makemodel",
+  "security_checks_tab",
+  "items_brought_if_any",
+  "authorized_by_name_and_signature",
+  "column_break_fmbn",
+  "visitor_badge_issued",
+  "name_and_signature"
+ ],
+ "fields": [
+  {
+   "fieldname": "visitor_details_section",
+   "fieldtype": "Section Break",
+   "label": "Visitor Details"
+  },
+  {
+   "fieldname": "visitor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Visitor Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_no",
+   "fieldtype": "Int",
+   "label": "Contact No"
+  },
+  {
+   "fieldname": "column_break_wwtc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cnicpassport_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "CNIC/Passport No",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "purpose_of_visit",
+   "fieldtype": "Select",
+   "label": "Purpose Of Visit",
+   "options": "\nMeeting Resident\nDonation Delivery\nOfficial Visit\nMaintenance/Service\nOthers"
+  },
+  {
+   "fieldname": "date_of_visit",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date Of Visit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "secutity_tab",
+   "fieldtype": "Tab Break",
+   "label": "Security Details "
+  },
+  {
+   "fieldname": "check_in",
+   "fieldtype": "Datetime",
+   "label": "Check-in Time"
+  },
+  {
+   "fieldname": "column_break_lpot",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "check_out",
+   "fieldtype": "Datetime",
+   "label": "Check-out Time"
+  },
+  {
+   "fieldname": "vehical_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vehical Details"
+  },
+  {
+   "fieldname": "registration_no",
+   "fieldtype": "Data",
+   "label": "Registration No"
+  },
+  {
+   "fieldname": "column_break_hpkw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "makemodel",
+   "fieldtype": "Data",
+   "label": "Make/Model"
+  },
+  {
+   "depends_on": "eval:doc.purpose_of_visit==\"Others\"\n",
+   "fieldname": "others",
+   "fieldtype": "Data",
+   "label": "Specify"
+  },
+  {
+   "fieldname": "security_checks_tab",
+   "fieldtype": "Tab Break",
+   "label": "Security Checks"
+  },
+  {
+   "fieldname": "items_brought_if_any",
+   "fieldtype": "Data",
+   "label": "Items Brought (if any)"
+  },
+  {
+   "fieldname": "authorized_by_name_and_signature",
+   "fieldtype": "Data",
+   "label": "Authorized By "
+  },
+  {
+   "fieldname": "column_break_fmbn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "visitor_badge_issued",
+   "fieldtype": "Select",
+   "label": "Visitor Badge Issued",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "name_and_signature",
+   "fieldtype": "Data",
+   "label": "Name And Signature"
+  },
+  {
+   "depends_on": "eval:doc.purpose_of_visit==\"Meeting Resident\"",
+   "fieldname": "datetime_okhv",
+   "fieldtype": "Datetime",
+   "label": "Pickup (Taking Child Home) "
+  },
+  {
+   "depends_on": "eval:doc.purpose_of_visit==\"Meeting Resident\"\n",
+   "fieldname": "temporary",
+   "fieldtype": "Datetime",
+   "label": "Temporary Visit (Meeting Only)"
+  },
+  {
+   "fieldname": "section_break_angl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_godz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.purpose_of_visit==\"Meeting Resident\"\n",
+   "fieldname": "check_hnyd",
+   "fieldtype": "Check"
+  },
+  {
+   "fieldname": "column_break_oslp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zoxg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.purpose_of_visit==\"Meeting Resident\"\n",
+   "fieldname": "check_ukyt",
+   "fieldtype": "Check"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-18 14:11:47.954906",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Visitor Management System",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

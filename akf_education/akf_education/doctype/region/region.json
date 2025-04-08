@@ -24,12 +24,13 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Abbr",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-05 12:18:30.960686",
+ "modified": "2025-03-21 15:40:13.282285",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Region",

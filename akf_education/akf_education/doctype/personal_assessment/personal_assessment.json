@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "autoincrement",
+ "autoname": "format:PA-{registration_number}",
  "creation": "2025-02-17 13:03:32.150004",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -130,11 +130,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-27 11:54:09.643702",
+ "modified": "2025-03-06 13:44:02.744388",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Personal Assessment",
- "naming_rule": "Autoincrement",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

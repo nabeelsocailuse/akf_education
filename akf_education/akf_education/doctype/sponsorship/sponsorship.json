@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:SP-{donor_id}-{donor_name}-{#####}",
  "creation": "2025-02-21 19:01:40.893788",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -17,19 +18,19 @@
   "donor_address",
   "gender",
   "column_break_jcgk",
-  "donor_contact",
   "email",
   "donor_category",
-  "donor_child_table_section",
-  "table_jwim",
+  "sponsorship_abbr",
   "section_break_jyyj",
-  "child_name",
+  "student_applicant",
+  "orphan_name",
   "aghosh_home",
   "father_name",
   "mother_name",
   "mother_alive_status",
   "column_break_rduq",
-  "child_id",
+  "orphan_id",
+  "student_id",
   "date_of_death",
   "name_of_school",
   "date_of_birth"
@@ -39,7 +40,7 @@
    "fieldname": "sponsorship_tenure",
    "fieldtype": "Select",
    "label": "Sponsorship Tenure",
-   "options": "Monthly\nQuartly\nYearly"
+   "options": "\nMonthly\nQuarterly\nYearly"
   },
   {
    "fieldname": "column_break_kvqm",
@@ -76,18 +77,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "child_id",
-   "fieldtype": "Link",
-   "label": "Child ID",
-   "options": "Orphan"
-  },
-  {
-   "fetch_from": "child_id.child_name",
-   "fieldname": "child_name",
-   "fieldtype": "Data",
-   "label": "Child Name"
-  },
-  {
    "fieldname": "start_date",
    "fieldtype": "Date",
    "label": "Start Date"
@@ -98,7 +87,7 @@
    "label": "End Date"
   },
   {
-   "fetch_from": "child_id.father_name",
+   "fetch_from": "student_id.father_name",
    "fieldname": "father_name",
    "fieldtype": "Data",
    "label": "Father Name"
@@ -161,12 +150,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "donor_id.contact_no",
-   "fieldname": "donor_contact",
-   "fieldtype": "Phone",
-   "label": "Donor Contact"
-  },
-  {
    "fetch_from": "donor_id.email",
    "fieldname": "email",
    "fieldtype": "Data",
@@ -180,22 +163,46 @@
    "options": "\nFOA\nINGO\nIND\nCO"
   },
   {
-   "fieldname": "donor_child_table_section",
-   "fieldtype": "Section Break",
-   "label": "Donor Child Table"
+   "fieldname": "student_applicant",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Student Applicant",
+   "options": "Student Applicant"
   },
   {
-   "fieldname": "table_jwim",
-   "fieldtype": "Table",
-   "options": "Donor Multiselect"
+   "fieldname": "orphan_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Orphan ID",
+   "options": "Orphan"
+  },
+  {
+   "fetch_from": "child_id.child_name",
+   "fieldname": "orphan_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Orphan Name"
+  },
+  {
+   "fieldname": "student_id",
+   "fieldtype": "Link",
+   "label": "Student ID",
+   "options": "Student"
+  },
+  {
+   "fieldname": "sponsorship_abbr",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sponsorship Abbr"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-24 19:22:10.475830",
+ "modified": "2025-03-25 12:00:36.722207",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

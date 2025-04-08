@@ -1,0 +1,164 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SA-{YYYY}-{###}",
+ "creation": "2025-04-07 15:42:32.111146",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "student_id",
+  "column_break_klaj",
+  "aghosh_home",
+  "activities_section",
+  "activity_name",
+  "location",
+  "category",
+  "organizer",
+  "column_break_qzxa",
+  "start_date_time",
+  "end_date_time",
+  "status",
+  "description_section",
+  "small_text_qkzd",
+  "column_break_ipiw",
+  "activity_videos_section",
+  "table_vedio",
+  "activity_images_section",
+  "table_pjpa",
+  "children_drawings_section",
+  "table_jsrx"
+ ],
+ "fields": [
+  {
+   "fetch_from": "student_id.current_aghosh_id",
+   "fieldname": "aghosh_home",
+   "fieldtype": "Data",
+   "label": "Aghosh Home"
+  },
+  {
+   "fieldname": "activities_section",
+   "fieldtype": "Section Break",
+   "label": "Activity"
+  },
+  {
+   "fieldname": "column_break_qzxa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "activity_name",
+   "fieldtype": "Data",
+   "label": "Activity Name"
+  },
+  {
+   "fieldname": "end_date_time",
+   "fieldtype": "Datetime",
+   "label": "End Date & Time"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "\nSports\nCultural\nEducational\nEntertainment\nOther"
+  },
+  {
+   "fieldname": "start_date_time",
+   "fieldtype": "Datetime",
+   "label": "Start Date & Time"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "activity_videos_section",
+   "fieldtype": "Section Break",
+   "label": "Activity Videos"
+  },
+  {
+   "fieldname": "activity_images_section",
+   "fieldtype": "Section Break",
+   "label": "Activity Images"
+  },
+  {
+   "fieldname": "table_pjpa",
+   "fieldtype": "Table",
+   "options": "Activity Images"
+  },
+  {
+   "fieldname": "children_drawings_section",
+   "fieldtype": "Section Break",
+   "label": "Children Drawings"
+  },
+  {
+   "fieldname": "table_jsrx",
+   "fieldtype": "Table",
+   "options": "Children Drawings"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "small_text_qkzd",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "column_break_ipiw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "student_id",
+   "fieldtype": "Link",
+   "label": "Student ID",
+   "options": "Student"
+  },
+  {
+   "fieldname": "column_break_klaj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPlanned\nOngoing\nCompleted\nCanceled"
+  },
+  {
+   "fieldname": "organizer",
+   "fieldtype": "Link",
+   "label": "Organizer",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "table_vedio",
+   "fieldtype": "Table",
+   "options": "Activity Videos"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-04-07 16:47:07.302892",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Student Activities",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

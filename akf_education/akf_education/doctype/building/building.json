@@ -1,18 +1,21 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:AH-{aghosh_home_name}-B-{#####}",
  "creation": "2025-02-20 15:52:36.644607",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_zcbg",
   "aghosh_home_id",
-  "name1",
+  "aghosh_home_name",
+  "name_of_school",
   "principle_name",
-  "type_enum",
+  "type",
   "column_break_crae",
   "capacity",
-  "status_enum"
+  "status",
+  "building_abbr"
  ],
  "fields": [
   {
@@ -22,31 +25,17 @@
   {
    "fieldname": "aghosh_home_id",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Aghosh Home ID",
-   "options": "Aghosh Home"
-  },
-  {
-   "fetch_from": "principle_name.employee_name",
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name Of School"
-  },
-  {
-   "fieldname": "type_enum",
-   "fieldtype": "Select",
-   "label": "Type ",
-   "options": "\nHostel\nSchool"
+   "options": "Aghosh Home",
+   "reqd": 1
   },
   {
    "fieldname": "capacity",
    "fieldtype": "Int",
-   "label": "Maximum Capacity"
-  },
-  {
-   "fieldname": "status_enum",
-   "fieldtype": "Select",
-   "label": "Status ",
-   "options": "\nActive\nInactive"
+   "in_list_view": 1,
+   "label": "Maximum Capacity",
+   "reqd": 1
   },
   {
    "fieldname": "principle_name",
@@ -57,14 +46,53 @@
   {
    "fieldname": "column_break_crae",
    "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.type==\"School\"",
+   "fieldname": "name_of_school",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name Of School"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status ",
+   "options": "\nActive\nInactive"
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fetch_if_empty": 1,
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Aghosh Home Name",
+   "options": "Aghosh Home",
+   "read_only": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type ",
+   "options": "\nHostel\nSchool",
+   "reqd": 1
+  },
+  {
+   "fieldname": "building_abbr",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Building Abbr",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-04 13:19:26.992196",
+ "modified": "2025-03-28 12:18:11.579417",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

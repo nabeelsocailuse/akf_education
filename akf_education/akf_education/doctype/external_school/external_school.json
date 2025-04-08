@@ -1,11 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:EX-{name_of_school}-{#####}",
  "creation": "2025-02-23 15:55:26.316689",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "name_of_school",
+  "aghosh_home",
   "principle_name",
   "gender",
   "distance_from_aghosh",
@@ -26,12 +28,13 @@
   {
    "fieldname": "name_of_school",
    "fieldtype": "Data",
-   "label": "Name Of School"
+   "label": "Name Of School",
+   "unique": 1
   },
   {
    "fieldname": "principle_name",
    "fieldtype": "Data",
-   "label": "Principle Name"
+   "label": "Principal Name"
   },
   {
    "fieldname": "gender",
@@ -102,14 +105,21 @@
    "fieldtype": "Select",
    "label": "Type Of School",
    "options": "\nGovt School\nPrivate School"
+  },
+  {
+   "fieldname": "aghosh_home",
+   "fieldtype": "Link",
+   "label": "Aghosh Home",
+   "options": "Aghosh Home"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-26 12:38:30.982173",
+ "modified": "2025-04-08 12:12:50.140839",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "External School",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

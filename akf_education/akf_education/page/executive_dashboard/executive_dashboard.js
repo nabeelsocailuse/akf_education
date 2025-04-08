@@ -217,7 +217,6 @@ function renderPakistanMap() {
 window.onload = renderPakistanMap;
 
 function renderIcons() {
-
     this.series.forEach(series => {
         if (!series.icon) {
             series.icon = this.renderer
@@ -388,9 +387,6 @@ Highcharts.chart("container-aghosh", {
 // Aghosh Homes Chart
 
 
-
- 
-
 Highcharts.chart("children-statistics", {
     chart: { 
         type: "pie"
@@ -399,7 +395,7 @@ Highcharts.chart("children-statistics", {
         text: null 
     },
     tooltip: {
-        pointFormat: '{series.name}: <b>{point.y}</b> ({point.percentage:.1f}%)'
+        pointFormat: '{series.name}: <b>{point.y}</b>({point.percentage:.2f}%)'
     },
     plotOptions: {
         pie: {
@@ -545,6 +541,5 @@ Highcharts.chart('speedygauge', {
 
 
 
-   
- 
+
 }

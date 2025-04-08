@@ -1,19 +1,23 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:bed_number",
+ "autoname": "format:{room_id}-Bed-{#####}",
  "creation": "2025-02-20 16:05:08.467492",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_qxqe",
   "room_id",
+  "room_abbr",
   "bed_number",
   "building",
+  "building_abbr",
   "column_break_wepk",
   "type_enum",
   "occupied_status",
-  "aghosh_home"
+  "aghosh_home",
+  "floor",
+  "bed_abbr"
  ],
  "fields": [
   {
@@ -63,15 +67,42 @@
    "label": "Aghosh Home",
    "options": "Aghosh Home",
    "read_only": 1
+  },
+  {
+   "fieldname": "floor",
+   "fieldtype": "Select",
+   "label": "Floor",
+   "options": "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+  },
+  {
+   "fieldname": "bed_abbr",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Bed Abbr",
+   "unique": 1
+  },
+  {
+   "fetch_from": "room_id.room_abbr",
+   "fieldname": "room_abbr",
+   "fieldtype": "Data",
+   "label": "Room Abbr",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "building.building_abbr",
+   "fieldname": "building_abbr",
+   "fieldtype": "Data",
+   "label": "Building Abbr",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-05 10:50:01.633606",
+ "modified": "2025-03-27 13:00:02.631289",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Beds",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

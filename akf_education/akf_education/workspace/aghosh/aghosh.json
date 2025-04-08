@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh\",\"col\":4}},{\"id\":\"TT1WmR1Z5z\",\"type\":\"card\",\"data\":{\"card_name\":\"Child Information\",\"col\":4}},{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kR1KsRALK2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Project Approval Form\",\"col\":3}},{\"id\":\"_frU2Pro1I\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Enrollment\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"8kC4G5H_G1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Enrollment\",\"col\":3}}]",
+ "content": "[{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh\",\"col\":4}},{\"id\":\"TT1WmR1Z5z\",\"type\":\"card\",\"data\":{\"card_name\":\"Child Information\",\"col\":4}},{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kR1KsRALK2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Project Approval Form\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"GO3xJCuNsT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9a8zjYSZ9n\",\"type\":\"card\",\"data\":{\"card_name\":\"Dashbaords\",\"col\":4}},{\"id\":\"_6GQzCddTG\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"gqXX3hzh98\",\"type\":\"card\",\"data\":{\"card_name\":\"Admission & Enrollment\",\"col\":4}},{\"id\":\"fwOriggX-K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports Master\",\"col\":4}}]",
  "creation": "2025-02-25 20:22:56.988393",
  "custom_blocks": [],
  "docstatus": 0,
@@ -9,7 +9,7 @@
  "hide_custom": 0,
  "icon": "project-1",
  "idx": 0,
- "indicator_color": "green",
+ "indicator_color": "",
  "is_hidden": 0,
  "label": "Aghosh",
  "links": [
@@ -110,9 +110,105 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Dashbaords",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Executive Dashboard",
+   "link_count": 0,
+   "link_to": "executive-dashboard",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tools",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Admission Tool",
+   "link_count": 0,
+   "link_to": "Admission Tool",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Program Enrollment Tool",
+   "link_count": 0,
+   "link_to": "Program Enrollment Tool",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Admission & Enrollment",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Student Admission",
+   "link_count": 0,
+   "link_to": "Student Admission",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Program Enrollment",
+   "link_count": 0,
+   "link_to": "Program Enrollment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports Master",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sponsorship Details",
+   "link_count": 0,
+   "link_to": "Sponsorship Details",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
   }
  ],
- "modified": "2025-03-06 11:47:58.668667",
+ "modified": "2025-03-20 16:32:16.891902",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh",
@@ -137,14 +233,6 @@
    "doc_view": "List",
    "label": "Student Applicant",
    "link_to": "Student Applicant",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Program Enrollment",
-   "link_to": "Program Enrollment",
    "stats_filter": "[]",
    "type": "DocType"
   },

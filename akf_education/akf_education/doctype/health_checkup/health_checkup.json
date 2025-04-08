@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:AH-{child_id}-{orphan}",
  "creation": "2025-02-23 17:36:13.548466",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -520,10 +521,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-04 13:19:27.477439",
+ "modified": "2025-03-06 13:35:46.622175",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

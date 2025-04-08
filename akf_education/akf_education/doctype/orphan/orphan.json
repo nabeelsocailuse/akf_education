@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:AH-{child_name}-{#####}",
  "creation": "2025-02-18 17:28:46.282505",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -94,7 +95,8 @@
    "fetch_from": "child_id.name1",
    "fieldname": "child_name",
    "fieldtype": "Data",
-   "label": "Child Name"
+   "label": "Child Name",
+   "unique": 1
   },
   {
    "fetch_from": "child_id.age",
@@ -407,10 +409,11 @@
    "table_fieldname": "Session Report"
   }
  ],
- "modified": "2025-02-27 15:17:07.674086",
+ "modified": "2025-04-08 15:07:45.008532",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Orphan",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

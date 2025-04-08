@@ -11,7 +11,15 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/akf_education/css/akf_education.css"
-# app_include_js = "/assets/akf_education/js/akf_education.js"
+# app_include_js = [
+#     "/assets/akf_education/js/highcharts.js",
+#     "/assets/akf_education/js/highcharts-more.js",
+#     "/assets/akf_education/js/solid-gauge.js",
+#     "/assets/akf_education/js/exporting.js",
+#     "/assets/akf_education/js/export-data.js",
+#     "/assets/akf_education/js/accessibility.js",
+
+# ]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/akf_education/css/akf_education.css"

@@ -1,21 +1,23 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:AH-{region_abbr}- {district_abbr}-{####}",
+ "autoname": "format:AH- {region_abbr}-{district_abbr}-{#####}",
  "creation": "2025-03-04 13:21:34.237027",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_swkc",
-  "name1",
+  "aghosh_home_name",
   "address",
   "column_break_tavq",
-  "status_enum",
+  "status",
+  "established_date",
   "head_of_aghosh_home_section",
   "name3",
   "date_of_joining2",
   "column_break_abth",
   "dresignation",
+  "ah_name",
   "address_of_aghosh_section",
   "region",
   "region_abbr",
@@ -32,11 +34,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name"
-  },
-  {
    "fieldname": "address",
    "fieldtype": "Data",
    "label": "Address"
@@ -46,22 +43,18 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "status_enum",
-   "fieldtype": "Select",
-   "label": "Status ",
-   "options": "\nActive\nInactive"
-  },
-  {
    "fieldname": "head_of_aghosh_home_section",
    "fieldtype": "Section Break",
    "label": "Head Of Aghosh Home"
   },
   {
    "fieldname": "name3",
-   "fieldtype": "Data",
-   "label": "Name"
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "Employee"
   },
   {
+   "fetch_from": "name3.date_of_joining",
    "fieldname": "date_of_joining2",
    "fieldtype": "Date",
    "label": "Date Of Joining"
@@ -125,15 +118,38 @@
    "label": "Longitude"
   },
   {
+   "fetch_from": "name3.designation",
    "fieldname": "dresignation",
-   "fieldtype": "Link",
-   "label": "Designation",
-   "options": "Designation"
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "name3.employee_name",
+   "fieldname": "ah_name",
+   "fieldtype": "Data",
+   "label": "AH Name"
+  },
+  {
+   "fieldname": "established_date",
+   "fieldtype": "Date",
+   "label": "Established Date"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status ",
+   "options": "\nUnder Construction\nOperational\nInactive"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-04 15:03:08.504214",
+ "modified": "2025-03-27 12:32:07.681239",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

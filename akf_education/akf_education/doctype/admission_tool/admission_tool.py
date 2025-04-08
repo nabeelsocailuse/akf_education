@@ -7,7 +7,7 @@ from frappe.model.document import Document
 # from frappe.utils import getdate
 
 class AdmissionTool(Document):
-	# Nabeel Saleem, 06-03-2025
+	
 	@frappe.whitelist()
 	def create_admissions(self):
 		if(not self.admission_table): frappe.throw("First, fetch aghosh homes detail to proceed.", title="Admission Table")
@@ -16,11 +16,16 @@ class AdmissionTool(Document):
 			"academic_year": self.academic_year,
 			"admission_start_date": self.admission_start_date,
 			"admission_end_date": self.admission_end_date,
-			"publish_on_website": self.publish_on_website,
+			"published": self.publish_on_website,
 			"enable_admission_application": self.enable_admission_application,
 			"introduction": self.introduction
 		})
 		for row in self.admission_table:
+			if not row.program:
+				frappe.throw("Program is missing for Aghosh Home.")
+			if not row.minimum_age or not row.maximum_age:
+				frappe.throw ("Age limit missing")
+    
 			fargs.update({
 				"name_of_aghosh": row.aghosh_home_id,
 				"title": row.aghosh_home_name,
@@ -32,8 +37,8 @@ class AdmissionTool(Document):
 			else:
 				args = {"program_details": [{
 					"program":  row.program,
-					"minimum_age":  row.minimum_age,
-					"maximum_age":  row.maximum_age,
+					"min_age":  row.minimum_age,
+					"max_age":  row.maximum_age,
 				}]}
 				args.update(fargs)
 				doc = frappe.get_doc(args)
@@ -46,7 +51,7 @@ def get_aghosh_homes(filters=None):
 	conditions = get_conditions(filters)
 
 	data = frappe.db.sql(f"""
-		Select (name) as aghosh_home_id, (name1) as aghosh_home_name from `tabAghosh Home`
+		Select (name) as aghosh_home_id, (aghosh_home_name) as aghosh_home_name from `tabAghosh Home`
 		Where docstatus=0
 		{conditions}
 	""", filters, as_dict=1)

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class AghoshHomes(Document):
+class ChildrenDrawings(Document):
 	pass

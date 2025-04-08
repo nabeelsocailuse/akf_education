@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{aghosh_home}-B-{building}-R-{#####}",
  "creation": "2025-02-20 15:59:28.034985",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,10 +11,12 @@
   "building",
   "room_number",
   "type_enum",
+  "building_abbr",
   "column_break_vnhu",
   "capacity",
   "occupied_status",
-  "floor_number"
+  "floor_number",
+  "room_abbr"
  ],
  "fields": [
   {
@@ -62,14 +65,30 @@
    "fieldtype": "Link",
    "label": "Aghosh Home",
    "options": "Aghosh Home"
+  },
+  {
+   "fieldname": "room_abbr",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Room Abbr",
+   "unique": 1
+  },
+  {
+   "fetch_from": "building.building_abbr",
+   "fieldname": "building_abbr",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Building Abbr",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-04 13:19:26.583235",
+ "modified": "2025-03-25 11:48:33.582646",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Rooms",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

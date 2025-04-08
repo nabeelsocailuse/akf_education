@@ -141,24 +141,23 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-scheduler_events = {
-    "all": [
-        "akf_education.tasks.all"
-    ],
-    "daily": [
-        "akf_education.doctype.medicine.medicine.update_medicine_stock"
-    ],
-    "hourly": [
-        "akf_education.tasks.hourly"
-    ],
-    "weekly": [
-        "akf_education.tasks.weekly"
-    ],
-    "monthly": [
-        "akf_education.tasks.monthly"
-    ],
-}
-
+# scheduler_events = {
+# 	"all": [
+# 		"akf_education.tasks.all"
+# 	],
+# 	"daily": [
+# 		"akf_education.tasks.daily"
+# 	],
+# 	"hourly": [
+# 		"akf_education.tasks.hourly"
+# 	],
+# 	"weekly": [
+# 		"akf_education.tasks.weekly"
+# 	],
+# 	"monthly": [
+# 		"akf_education.tasks.monthly"
+# 	],
+# }
 
 # Testing
 # -------

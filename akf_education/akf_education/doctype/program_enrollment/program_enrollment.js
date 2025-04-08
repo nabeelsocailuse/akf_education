@@ -90,7 +90,7 @@ school_type: function (frm) {
       if (frm.doc.program) {
           frm.set_query('course', 'courses', function () {
               return {
-                  query: 'education.education.doctype.program_enrollment.program_enrollment.get_program_courses',
+                  query: 'akf_education.akf_education.doctype.program_enrollment.program_enrollment.get_program_courses',
                   filters: {
                       program: frm.doc.program,
                   },
@@ -156,7 +156,7 @@ function fetch_fee_components(frm) {
     if (!frm.doc.program || !frm.doc.school_type) return;
 
     frappe.call({
-        method: "education.education.doctype.program_enrollment.program_enrollment.get_fee_structure_components",
+        method: "akf_education.akf_education.doctype.program_enrollment.program_enrollment.get_fee_structure_components",
         args: { 
             program: frm.doc.program,
             aghosh_home: frm.doc.aghosh_home || null,

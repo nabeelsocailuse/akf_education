@@ -16,8 +16,20 @@ def guardian_details(cnic_number):
 	if not data:
 		return "<p style='color:red;'>No guardian found for this CNIC.</p>"
 
-	html = "<ul>"
+	# Start building styled HTML
+	html = """
+		<div style="margin-top: 10px;">
+			<h4>Student Details</h4>
+			<div style="border: 1px solid #ccc; border-radius: 6px; padding: 10px;">
+	"""
+
 	for row in data:
-		html += f"<li><strong>ID:</strong> {row.student_id}, <strong>Name:</strong> {row.first_name}</li>"
-	html += "</ul>"
+		html += f"""
+			<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee;">
+				<div><strong>Student ID:</strong> {row.student_id}</div>
+				<div><strong>Name:</strong> {row.first_name}</div>
+			</div>
+		"""
+
+	html += "</div></div>"
 	return html

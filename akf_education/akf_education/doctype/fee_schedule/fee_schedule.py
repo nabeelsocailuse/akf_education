@@ -178,8 +178,8 @@ def generate_fees(fee_schedule):
 				student_id = student.student
 				if create_so:
 					create_sales_order(fee_schedule, student_id)
-				else:
-					create_sales_invoice(fee_schedule, student_id)
+				# else:
+				# 	create_sales_invoice(fee_schedule, student_id)
 				created_records += 1
 				frappe.publish_realtime(
 					"fee_schedule_progress",
@@ -212,30 +212,30 @@ def generate_fees(fee_schedule):
 	)
 
 
-def create_sales_invoice(fee_schedule, student_id, create_sales_order=False):
-	customer = get_customer_from_student(student_id)
+# def create_sales_invoice(fee_schedule, student_id, create_sales_order=False):
+# 	customer = get_customer_from_student(student_id)
 
-	sales_invoice_doc = get_fees_mapped_doc(
-		fee_schedule=fee_schedule,
-		doctype="Sales Invoice",
-		student_id=student_id,
-		customer=customer,
-	)
+# 	sales_invoice_doc = get_fees_mapped_doc(
+# 		fee_schedule=fee_schedule,
+# 		doctype="Sales Invoice",
+# 		student_id=student_id,
+# 		customer=customer,
+# 	)
 
-	if frappe.db.get_single_value(
-		"Education Settings", "sales_invoice_posting_date_fee_schedule"
-	):
-		sales_invoice_doc.set_posting_time = 1
+# 	if frappe.db.get_single_value(
+# 		"Education Settings", "sales_invoice_posting_date_fee_schedule"
+# 	):
+# 		sales_invoice_doc.set_posting_time = 1
 
-	for item in sales_invoice_doc.items:
-		item.qty = 1
-		item.cost_center = ""
+# 	for item in sales_invoice_doc.items:
+# 		item.qty = 1
+# 		item.cost_center = ""
 
-	sales_invoice_doc.save()
-	if frappe.db.get_single_value("Education Settings", "auto_submit_sales_invoice"):
-		sales_invoice_doc.submit()
+# 	sales_invoice_doc.save()
+# 	if frappe.db.get_single_value("Education Settings", "auto_submit_sales_invoice"):
+# 		sales_invoice_doc.submit()
 
-	return sales_invoice_doc.name
+# 	return sales_invoice_doc.name
 
 
 def create_sales_order(fee_schedule, student_id):

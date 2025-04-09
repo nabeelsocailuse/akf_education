@@ -19,3 +19,4 @@ def guardian_details():
 	
 	return data
 
+akf_education.akf_education.doctype.visitor_management_system.test_visitor_management_system.guardian_details

@@ -1,9 +1,6 @@
-# Copyright (c) 2025, Mubarrim Iqbal and Contributors
-# See license.txt
-
-# import frappe
-from frappe.tests.utils import FrappeTestCase
+import frappe
 
 
-class TestVisitorManagementSystem(FrappeTestCase):
-	pass
+def guardian_details():
+	frappe.db.sql("""
+	

@@ -143,7 +143,7 @@ app_license = "mit"
 
 # scheduler_events = {
 # 	"all": [
-# 		"akf_education.tasks.all"
+# 		"akf_education.tasks.daily"
 # 	],
 # 	"daily": [
 # 		"akf_education.tasks.daily"

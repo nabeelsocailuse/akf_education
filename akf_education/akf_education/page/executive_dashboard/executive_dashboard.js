@@ -472,14 +472,14 @@ function renderHighcharts(data) {
 
     function aghosh_homes_per_week(){
         const ahic = chartData.aghosh_homes_interval_count;
-        const areaspline = ahic.map(row => [ `Week ${row.Week_No}`, row.Total_Homes]);
+        const areaspline = ahic.map(row => [ `Year ${row.Year}`, row.aghosh_home]);
 
         Highcharts.chart("container-aghosh", {
             chart: { type: "areaspline" },
-            title: { text: "Aghosh Homes per Week" },
+            title: { text: "Aghosh Homes per Year" },
             xAxis: {
                 type: "category",
-                title: { text: "Week Number" }
+                title: { text: "Year" }
             },
             yAxis: {
                 title: { text: "Total Homes Established" }
@@ -523,15 +523,15 @@ function renderHighcharts(data) {
     function childens_registrations(){
         let cregister = chartData.childens_registration;
 
-        let weeks = cregister.map(row => "Week " + row.week_no);
+        let weeks = cregister.map(row => row.Year);
         let totals = cregister.map(row => row.total_students);
 
         Highcharts.chart("container-children", {
             chart: { type: "areaspline" },
-            title: { text: "Weekly Student Registrations" },
+            title: { text: null },
             xAxis: {
                 categories: weeks,
-                title: { text: "Week Number" }
+                title: { text: "Year" }
             },
             yAxis: {
                 title: { text: "Total Students" }

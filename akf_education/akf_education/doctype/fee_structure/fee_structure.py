@@ -9,7 +9,11 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.model.mapper import get_mapped_doc
 from frappe.utils import flt
-from education.education.doctype.fee_category.fee_category import create_item
+from akf_education.akf_education.doctype.fee_category.fee_category import create_item
+
+
+
+
 
 
 class FeeStructure(Document):

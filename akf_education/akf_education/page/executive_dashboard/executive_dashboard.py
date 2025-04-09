@@ -14,7 +14,7 @@ def get_executive_dashboard():
         "activity_pictures": student_activity_pictures(),
         "activity_videos": student_activity_videos(),
         "drawing_activity": student_activity_drawing(),
-        "student_with_psychological_assessment"
+        "student_with_psychological_assessment": student_with_psychological_assessment(),
         "charts_data": { 
             "aghosh_homes_interval_count": num_of_aghosh_homes_present(),
             "aghosh_home_status": get_aghosh_home_status(),
@@ -37,25 +37,25 @@ def get_aghosh_home_status():
 def num_of_aghosh_homes_present():
     data = frappe.db.sql("""
         SELECT
-            WEEK(Established_Date) AS Week_No,
-            COUNT(*) AS Total_Homes
+            YEAR(Established_Date) AS Year, 
+            COUNT(*) AS aghosh_home
         FROM 
             `tabAghosh Home`
-        WHERE 
-            MONTH(Established_Date) = MONTH(CURRENT_DATE)  
-            AND YEAR(Established_Date) = YEAR(CURRENT_DATE)  
+        WHERE
+            Established_Date IS NOT NULL
         GROUP BY 
-            WEEK(Established_Date)
+            YEAR(Established_Date)
         ORDER BY 
-            WEEK(Established_Date)
+            YEAR(Established_Date) ASC;
     """, as_dict=True)
     return data
+
 
 @frappe.whitelist()
 def childens_registration_intervals():
     data = frappe.db.sql("""
         SELECT
-            WEEK(joining_date) AS week_no,
+        YEAR(joining_date) AS Year,
             COUNT(*) AS total_students
         FROM 
             `tabStudent`

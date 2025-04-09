@@ -13,6 +13,8 @@
   "cnicpassport_no",
   "date_of_visit",
   "others",
+  "section_break_rylb",
+  "guardian_info",
   "section_break_angl",
   "temporary",
   "column_break_godz",
@@ -192,11 +194,20 @@
    "depends_on": "eval:doc.purpose_of_visit==\"Meeting Resident\"\n",
    "fieldname": "check_ukyt",
    "fieldtype": "Check"
+  },
+  {
+   "fieldname": "section_break_rylb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "guardian_info",
+   "fieldtype": "HTML",
+   "label": "Guardian Info"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-18 14:11:47.954906",
+ "modified": "2025-04-09 12:59:48.381792",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Visitor Management System",

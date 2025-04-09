@@ -35,5 +35,24 @@ frappe.ui.form.on('Visitor Management System', {
             });
         });
     }
-    
+
 });
+
+frappe.ui.form.on('Visitor Management System', {
+    validate: function(frm) {
+        if (frm.doc.cnicpassport_no) {
+            frappe.call({
+                method: 'akf_education.akf_education.doctype.visitor_management_system.test_visitor_management_system.guardian_details',
+                args: {
+                    cnic_number: frm.doc.cnicpassport_no
+                },
+                callback: function(r) {
+                    if (r.message) {
+                        frm.fields_dict.guardian_info.$wrapper.html(r.message);
+                    }
+                }
+            });
+        }
+    }
+});
+

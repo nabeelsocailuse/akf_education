@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-03-17 14:16:46.379919",
+ "creation": "2025-04-09 16:24:36.574758",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -15,6 +15,8 @@
   "others",
   "section_break_rylb",
   "guardian_info",
+  "section_break_mtxk",
+  "table",
   "section_break_angl",
   "temporary",
   "column_break_godz",
@@ -62,7 +64,7 @@
   },
   {
    "fieldname": "cnicpassport_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "CNIC/Passport No",
    "non_negative": 1,
@@ -203,11 +205,20 @@
    "fieldname": "guardian_info",
    "fieldtype": "HTML",
    "label": "Guardian Info"
+  },
+  {
+   "fieldname": "section_break_mtxk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table",
+   "fieldtype": "Table",
+   "options": "Student Details Child"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-09 12:59:48.381792",
+ "modified": "2025-04-09 16:24:36.574758",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Visitor Management System",

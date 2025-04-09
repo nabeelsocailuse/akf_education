@@ -1,0 +1,139 @@
+{
+ "actions": [],
+ "creation": "2016-06-10 03:29:02.539914",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "student_applicant",
+  "student",
+  "student_name",
+  "column_break_3",
+  "student_batch_name",
+  "student_category",
+  "building",
+  "room",
+  "bed",
+  "type",
+  "school_type1",
+  "internal",
+  "external",
+  "donor_list",
+  "selected_donors"
+ ],
+ "fields": [
+  {
+   "fieldname": "student_applicant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student Applicant",
+   "options": "Student Applicant"
+  },
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student",
+   "options": "Student"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "student_batch_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student Batch Name",
+   "options": "Student Batch Name"
+  },
+  {
+   "fieldname": "student_category",
+   "fieldtype": "Link",
+   "label": "Student Category",
+   "options": "Student Category",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "bed.building",
+   "fieldname": "building",
+   "fieldtype": "Link",
+   "label": "Building",
+   "options": "Building"
+  },
+  {
+   "fetch_from": "bed.room_id",
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Room",
+   "options": "Rooms"
+  },
+  {
+   "fieldname": "bed",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Bed",
+   "options": "Beds"
+  },
+  {
+   "fetch_from": "bed.type_enum",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "\nSingle\nBunk\nQueen\nKing"
+  },
+  {
+   "depends_on": "eval:doc.school_type1==\"Internal\"",
+   "fieldname": "internal",
+   "fieldtype": "Link",
+   "label": "Internal",
+   "options": "Building"
+  },
+  {
+   "depends_on": "eval:doc.school_type1==\"External\"",
+   "fieldname": "external",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "External",
+   "options": "External School"
+  },
+  {
+   "fieldname": "school_type1",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "School Type",
+   "options": "\nInternal\nExternal"
+  },
+  {
+   "fieldname": "donor_list",
+   "fieldtype": "Button",
+   "label": "Donor List"
+  },
+  {
+   "fieldname": "selected_donors",
+   "fieldtype": "Small Text",
+   "label": "Selected Donors"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2025-03-21 10:57:04.021002",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Program Enrollment Tool Student",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

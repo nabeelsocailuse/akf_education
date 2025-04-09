@@ -157,6 +157,7 @@ app_license = "mit"
 # 	"monthly": [
 # 		"akf_education.tasks.monthly"
 # 	],
+    
 # }
 
 # Testing

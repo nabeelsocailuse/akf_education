@@ -7,7 +7,6 @@ frappe.ui.form.on('Visitor Management System', {
                 return;
             }
 
-            // Check if Guardian exists
             frappe.call({
                 method: "frappe.client.get_list",
                 args: {
@@ -24,27 +23,26 @@ frappe.ui.form.on('Visitor Management System', {
                             indicator: 'green'
                         }, 5);
 
-                        // Load related guardian info into HTML field
                         frappe.call({
-                            method: "akf_education.akf_education.doctype.visitor_management_system.test_visitor_management_system.guardian_details",
+                            method: "akf_education.akf_education.doctype.visitor_management_system.visitor_management_system.guardian_details",
                             args: {
-                                cnic_number: frm.doc.cnicpassport_no
+                                cnic_number: frm.doc.cnicpassport_no,
+                                parent_docname: frm.doc.name  
                             },
                             callback: function (res) {
                                 if (res.message) {
-                                    frm.fields_dict.guardian_info.$wrapper.html(res.message);
+                                    frappe.msgprint(res.message); 
+                                    resolve(); 
                                 }
                             }
                         });
-
-                        resolve(); // Allow save
                     } else {
                         frappe.msgprint({
                             title: "Guardian Status",
                             message: "❌ Guardian not available. Cannot save this entry.",
                             indicator: "red"
                         });
-                        reject(); // Prevent save
+                        reject(); 
                     }
                 }
             });

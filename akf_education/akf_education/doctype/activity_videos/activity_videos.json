@@ -11,7 +11,7 @@
  "fields": [
   {
    "fieldname": "vedio",
-   "fieldtype": "Attach Image",
+   "fieldtype": "Data",
    "label": "Vedio"
   },
   {
@@ -23,7 +23,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-04-07 16:57:30.943709",
+ "modified": "2025-04-09 17:41:38.372520",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Activity Videos",

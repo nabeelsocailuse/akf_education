@@ -14,6 +14,7 @@ def get_executive_dashboard():
         "activity_pictures": student_activity_pictures(),
         "activity_videos": student_activity_videos(),
         "drawing_activity": student_activity_drawing(),
+        "student_with_psychological_assessment"
         "charts_data": { 
             "aghosh_homes_interval_count": num_of_aghosh_homes_present(),
             "aghosh_home_status": get_aghosh_home_status(),
@@ -101,5 +102,16 @@ def student_activity_drawing():
             `tabChildren Drawings` 
         WHERE 
             parenttype = 'Student Activities';
+    """, as_dict=True)
+    return data
+
+
+@frappe.whitelist()
+def student_with_psychological_assessment():
+    data = frappe.db.sql("""
+        SELECT COUNT(s.name) AS student_count
+        FROM `tabStudent` s
+        JOIN `tabMental Status Examination` mse ON s.name = mse.orphan_name
+        WHERE mse.docstatus = 1;
     """, as_dict=True)
     return data

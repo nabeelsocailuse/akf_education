@@ -13,9 +13,6 @@ from akf_education.akf_education.doctype.fee_category.fee_category import create
 
 
 
-
-
-
 class FeeStructure(Document):
 	def validate(self):
 		self.calculate_total()

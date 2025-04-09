@@ -12,7 +12,7 @@
   {
    "fieldname": "vedio",
    "fieldtype": "Data",
-   "label": "Vedio"
+   "label": "Video"
   },
   {
    "fieldname": "title",
@@ -23,7 +23,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-04-09 17:41:38.372520",
+ "modified": "2025-04-09 18:33:27.203527",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Activity Videos",

@@ -55,18 +55,18 @@ def num_of_aghosh_homes_present():
 def childens_registration_intervals():
     data = frappe.db.sql("""
         SELECT
-        YEAR(joining_date) AS Year,
-            COUNT(*) AS total_students
-        FROM 
+            YEAR(joining_date) AS Year,
+            COUNT(*) AS student_count
+        FROM
             `tabStudent`
-        WHERE 
-            MONTH(joining_date) = MONTH(CURRENT_DATE)  
-            AND YEAR(joining_date) = YEAR(CURRENT_DATE)  
-        GROUP BY 
-            WEEK(joining_date)
-        ORDER BY 
-            WEEK(joining_date)
+        WHERE
+            joining_date IS NOT NULL
+        GROUP BY
+            YEAR(joining_date)
+        ORDER BY
+            YEAR(joining_date) ASC;
     """, as_dict=True)
+    
     return data
 
 @frappe.whitelist()

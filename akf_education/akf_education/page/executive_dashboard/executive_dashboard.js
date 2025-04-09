@@ -523,14 +523,14 @@ function renderHighcharts(data) {
     function childens_registrations(){
         let cregister = chartData.childens_registration;
 
-        let weeks = cregister.map(row => row.Year);
-        let totals = cregister.map(row => row.total_students);
+        let years = cregister.map(row => row.Year);
+        let totals = cregister.map(row => row.student_count);
 
         Highcharts.chart("container-children", {
             chart: { type: "areaspline" },
             title: { text: null },
             xAxis: {
-                categories: weeks,
+                categories: years,
                 title: { text: "Year" }
             },
             yAxis: {

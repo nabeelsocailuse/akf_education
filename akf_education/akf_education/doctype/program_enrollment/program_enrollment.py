@@ -8,7 +8,7 @@ from frappe.desk.reportview import get_match_cond
 from frappe.model.document import Document
 from frappe.query_builder.functions import Min
 from frappe.utils import comma_and, get_link_to_form, getdate
-from education.education.doctype.fee_schedule.fee_schedule import (
+from akf_education.akf_education.doctype.fee_schedule.fee_schedule import (
 	create_sales_invoice,
 	create_sales_order,
 )

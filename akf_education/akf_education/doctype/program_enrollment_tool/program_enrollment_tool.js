@@ -30,8 +30,9 @@ frappe.ui.form.on('Program Enrollment Tool', {
       frm.doc.academic_term ? 'term_start_date' : 'year_start_date',
       'enrollment_date'
     )
-    // let value = frm.doc.aghosh_home1;
-    // console.log("Current value of aghosh_home1:", value);
+    
+    let value = frm.doc.aghosh_home1;
+    console.log("Current value of aghosh_home1:", value);
   
     // if (frm.doc.students && frm.doc.students.length > 0) {
     //     frm.doc.students.forEach(row => {

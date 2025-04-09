@@ -77,7 +77,8 @@ frappe.ui.form.on("Program Enrollment Tool Student", {
 
       if (row.school_type1 === "Internal") {
           frappe.call({
-              method: 'education.education.doctype.program_enrollment_tool.program_enrollment_tool.get_buildings_by_aghosh_home',
+              method: 'akf_education.akf_education.doctype.program_enrollment_tool.program_enrollment_tool.get_buildings_by_aghosh_home',
+
               args: {
                   aghosh_home1: frm.doc.aghosh_home1
               },

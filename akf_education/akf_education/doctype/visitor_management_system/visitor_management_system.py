@@ -5,7 +5,7 @@ import frappe
 from frappe.model.document import Document
 
 class VisitorManagementSystem(Document):
-    pass  # No logic here unless needed (e.g., def before_save)
+    pass  
 
 @frappe.whitelist()
 def guardian_details(cnic_number, parent_docname):
@@ -23,18 +23,11 @@ def guardian_details(cnic_number, parent_docname):
     if not data:
         return "<p style='color:red;'>No guardian found for this CNIC.</p>"
 
-    # Ensure parent_doc exists and is not new
     if not frappe.db.exists("Visitor Management System", parent_docname):
         return "<p style='color:red;'>Document not found. Please save the form before fetching guardian data.</p>"
 
     parent_doc = frappe.get_doc("Visitor Management System", parent_docname)
 
-    # Check if 'table' field exists (your child table fieldname)
-    if not hasattr(parent_doc, "table"):
-        return "<p style='color:red;'>Child table field 'table' not found in the parent document.</p>"
-
-    # Clear old rows (optional – remove this if you want to append instead of replacing)
-    parent_doc.set("table", [])
 
     for row in data:
         parent_doc.append("table", {

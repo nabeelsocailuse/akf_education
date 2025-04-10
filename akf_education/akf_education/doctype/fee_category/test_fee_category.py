@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.tests.utils import FrappeTestCase
-from education.education.test_utils import (
+from akf_education.akf_education.test_utils import (
 	create_fee_category,
 	create_company,
 	get_defaults,

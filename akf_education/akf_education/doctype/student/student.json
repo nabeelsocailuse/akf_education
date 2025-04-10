@@ -1,0 +1,648 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2015-09-07 13:00:55.938280",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1",
+  "enabled",
+  "section_break_7",
+  "first_name",
+  "middle_name",
+  "last_name",
+  "old_aghosh_id",
+  "current_aghosh_id",
+  "date_of_birth",
+  "gender",
+  "any_special_abled_children",
+  "student_email_id",
+  "joining_date",
+  "blood_group",
+  "column_break_3",
+  "age_round",
+  "age",
+  "disability",
+  "date_of_admission",
+  "hifz",
+  "student_mobile_number",
+  "naming_series",
+  "user",
+  "student_applicant",
+  "nationality",
+  "image",
+  "address_tab",
+  "section_break_22",
+  "address_line_1",
+  "address_line_2",
+  "pincode",
+  "column_break_20",
+  "city",
+  "state",
+  "country",
+  "relations_tab",
+  "fathers_detail_section",
+  "father_name",
+  "father_cnic",
+  "attach_death_certificate",
+  "column_break_sfmz",
+  "father_date_of_death",
+  "cause_of_death",
+  "mothers_details_section",
+  "mother_name",
+  "mother_cnic",
+  "column_break_o7lm",
+  "contact_number",
+  "mother_alive_status",
+  "section_break_18",
+  "guardians",
+  "section_break_20",
+  "siblings",
+  "customer_details_tab",
+  "customer_details_section",
+  "customer",
+  "column_break_rgpi",
+  "customer_group",
+  "exit_tab",
+  "exit",
+  "date_of_leaving",
+  "leaving_certificate_number",
+  "column_break_31",
+  "reason_for_leaving",
+  "student_name",
+  "connections_tab",
+  "outfit_measurment_tab",
+  "child_height",
+  "child_waist",
+  "column_break_ynqs",
+  "collar_size",
+  "foot_size",
+  "orphan_history_tab",
+  "connections_section",
+  "early_development",
+  "medicalphysical_illnesses",
+  "language_and_speech_history",
+  "traumatic_experience",
+  "column_break_yzdd",
+  "early_exposure_drugs_if_any",
+  "tentative_diagnosis",
+  "psychological_problems",
+  "psychological_opinion",
+  "section_break_yc9c",
+  "psychological_assessment"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User ID",
+   "options": "User"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "no_copy": 1,
+   "options": "EDU-STU-.YYYY.-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "student_email_id",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Student Email Address",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "student_mobile_number",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Student Mobile Number"
+  },
+  {
+   "default": "Today",
+   "fieldname": "joining_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Joining Date"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image",
+   "width": "10"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Personal Details"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "blood_group",
+   "fieldtype": "Select",
+   "label": "Blood Group",
+   "options": "\nA+\nA-\nB+\nB-\nO+\nO-\nAB+\nAB-"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "label": "Nationality"
+  },
+  {
+   "fieldname": "student_applicant",
+   "fieldtype": "Link",
+   "label": "Student Applicant",
+   "options": "Student Applicant",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_22",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break",
+   "label": "Guardian Details"
+  },
+  {
+   "fieldname": "guardians",
+   "fieldtype": "Table",
+   "label": "Guardians",
+   "options": "Student Guardian"
+  },
+  {
+   "fieldname": "section_break_20",
+   "fieldtype": "Section Break",
+   "label": "Sibling Details",
+   "options": "Country"
+  },
+  {
+   "fieldname": "siblings",
+   "fieldtype": "Table",
+   "label": "Siblings",
+   "options": "Student Sibling"
+  },
+  {
+   "fieldname": "exit",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "date_of_leaving",
+   "fieldtype": "Date",
+   "label": "Date of Leaving"
+  },
+  {
+   "fieldname": "leaving_certificate_number",
+   "fieldtype": "Data",
+   "label": "Leaving Certificate Number"
+  },
+  {
+   "fieldname": "column_break_31",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reason_for_leaving",
+   "fieldtype": "Text",
+   "label": "Reason For Leaving"
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Student Name"
+  },
+  {
+   "fieldname": "address_tab",
+   "fieldtype": "Tab Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "relations_tab",
+   "fieldtype": "Tab Break",
+   "label": "Relations"
+  },
+  {
+   "fieldname": "exit_tab",
+   "fieldtype": "Tab Break",
+   "label": "Exit"
+  },
+  {
+   "fieldname": "connections_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connections",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "customer_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_group",
+   "fieldtype": "Link",
+   "label": "Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "column_break_rgpi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "outfit_measurment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Outfit Measurment"
+  },
+  {
+   "fieldname": "child_height",
+   "fieldtype": "Data",
+   "label": "Child Height"
+  },
+  {
+   "fieldname": "child_waist",
+   "fieldtype": "Data",
+   "label": "Child Waist"
+  },
+  {
+   "fieldname": "column_break_ynqs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "collar_size",
+   "fieldtype": "Data",
+   "label": "Collar Size"
+  },
+  {
+   "fieldname": "foot_size",
+   "fieldtype": "Data",
+   "label": "Foot Size"
+  },
+  {
+   "fieldname": "orphan_history_tab",
+   "fieldtype": "Tab Break",
+   "label": "Orphan History"
+  },
+  {
+   "fieldname": "connections_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Information"
+  },
+  {
+   "fieldname": "early_development",
+   "fieldtype": "Small Text",
+   "label": "Early Development"
+  },
+  {
+   "fieldname": "medicalphysical_illnesses",
+   "fieldtype": "Small Text",
+   "label": "Medical/Physical illnesses"
+  },
+  {
+   "fieldname": "language_and_speech_history",
+   "fieldtype": "Small Text",
+   "label": "Language and Speech History"
+  },
+  {
+   "fieldname": "traumatic_experience",
+   "fieldtype": "Small Text",
+   "label": "Traumatic Experience"
+  },
+  {
+   "fieldname": "column_break_yzdd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "early_exposure_drugs_if_any",
+   "fieldtype": "Small Text",
+   "label": "Early Exposure Drugs if Any"
+  },
+  {
+   "fieldname": "tentative_diagnosis",
+   "fieldtype": "Small Text",
+   "label": "Tentative Diagnosis"
+  },
+  {
+   "fieldname": "psychological_problems",
+   "fieldtype": "Small Text",
+   "label": "Psychological Problems"
+  },
+  {
+   "fieldname": "psychological_opinion",
+   "fieldtype": "Small Text",
+   "label": "Psychological Opinion"
+  },
+  {
+   "fieldname": "section_break_yc9c",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "psychological_assessment",
+   "fieldtype": "Select",
+   "label": "Psychological Assessment",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father Name"
+  },
+  {
+   "fieldname": "father_cnic",
+   "fieldtype": "Int",
+   "label": "Father CNIC"
+  },
+  {
+   "fieldname": "father_date_of_death",
+   "fieldtype": "Data",
+   "label": "Father Date of Death"
+  },
+  {
+   "fieldname": "attach_death_certificate",
+   "fieldtype": "Attach",
+   "label": "Attach Death Certificate"
+  },
+  {
+   "fieldname": "column_break_sfmz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cause_of_death",
+   "fieldtype": "Data",
+   "label": "Cause of Death"
+  },
+  {
+   "fieldname": "hifz",
+   "fieldtype": "Select",
+   "label": "Hifz",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "any_special_abled_children",
+   "fieldtype": "Data",
+   "label": "Any Special Abled Children"
+  },
+  {
+   "fieldname": "fathers_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Father's Detail"
+  },
+  {
+   "fieldname": "mothers_details_section",
+   "fieldtype": "Section Break",
+   "label": "Mother's Details"
+  },
+  {
+   "fieldname": "mother_name",
+   "fieldtype": "Data",
+   "label": "Mother Name"
+  },
+  {
+   "fieldname": "mother_cnic",
+   "fieldtype": "Int",
+   "label": "Mother CNIC"
+  },
+  {
+   "fieldname": "column_break_o7lm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Phone",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "mother_alive_status",
+   "fieldtype": "Select",
+   "label": "Mother Alive Status",
+   "options": "\nAlive\nDeath"
+  },
+  {
+   "fieldname": "old_aghosh_id",
+   "fieldtype": "Data",
+   "label": "Old Aghosh ID"
+  },
+  {
+   "fieldname": "current_aghosh_id",
+   "fieldtype": "Link",
+   "label": "Current Aghosh ID",
+   "options": "Aghosh Home"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "disability",
+   "fieldtype": "Data",
+   "label": "Disability"
+  },
+  {
+   "fieldname": "age_round",
+   "fieldtype": "Data",
+   "label": "Age Round"
+  },
+  {
+   "fieldname": "date_of_admission",
+   "fieldtype": "Date",
+   "label": "Date Of Admission"
+  }
+ ],
+ "image_field": "image",
+ "links": [
+  {
+   "group": "Admission",
+   "link_doctype": "Program Enrollment",
+   "link_fieldname": "student"
+  },
+  {
+   "group": "Admission",
+   "link_doctype": "Course Enrollment",
+   "link_fieldname": "student"
+  },
+  {
+   "group": "Student Activity",
+   "link_doctype": "Student Log",
+   "link_fieldname": "student"
+  },
+  {
+   "group": "Student Activity",
+   "link_doctype": "Student Group",
+   "link_fieldname": "student"
+  },
+  {
+   "group": "Assessment",
+   "link_doctype": "Assessment Result",
+   "link_fieldname": "student"
+  },
+  {
+   "group": "Attendance",
+   "link_doctype": "Student Attendance",
+   "link_fieldname": "student"
+  },
+  {
+   "group": "Attendance",
+   "link_doctype": "Student Leave Application",
+   "link_fieldname": "student"
+  },
+  {
+   "custom": 1,
+   "link_doctype": "Personal Assessment",
+   "link_fieldname": "orphan"
+  },
+  {
+   "custom": 1,
+   "link_doctype": "Past and Present Information",
+   "link_fieldname": "orphan"
+  },
+  {
+   "custom": 1,
+   "link_doctype": "Career Counselling Form",
+   "link_fieldname": "orphan_name"
+  },
+  {
+   "custom": 1,
+   "link_doctype": "Mental Status Examination",
+   "link_fieldname": "orphan_name"
+  },
+  {
+   "custom": 1,
+   "link_doctype": "Counsling Session",
+   "link_fieldname": "orphan_name"
+  }
+ ],
+ "modified": "2025-04-07 16:31:01.109424",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Student",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "read": 1,
+   "role": "Instructor"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academics User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "student_name"
+}

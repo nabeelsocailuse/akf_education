@@ -66,6 +66,7 @@
   {
    "fieldname": "academic_term",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Academic Term",
@@ -193,7 +194,7 @@
    "link_fieldname": "fee_structure"
   }
  ],
- "modified": "2025-03-28 12:12:31.488075",
+ "modified": "2025-04-10 14:47:04.376215",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fee Structure",

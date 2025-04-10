@@ -18,7 +18,7 @@ def get_executive_dashboard():
         "charts_data": { 
             "aghosh_homes_interval_count": num_of_aghosh_homes_present(),
             "aghosh_home_status": get_aghosh_home_status(),
-            "childens_registration": childens_registration_intervals()
+            "childens_registration": childens_registration_intervals(),
         }
     }
 
@@ -115,3 +115,23 @@ def student_with_psychological_assessment():
         WHERE mse.docstatus = 1;
     """, as_dict=True)
     return data
+
+
+@frappe.whitelist()
+def get_aghosh_home_locations():
+    data = frappe.db.sql("""
+        SELECT district, longitude, latitude
+        FROM `tabAghosh Home`
+        WHERE district IS NOT NULL
+          AND longitude IS NOT NULL
+          AND latitude IS NOT NULL;
+    """, as_dict=True)
+
+    locations = []
+    for record in data:
+        locations.append({
+            "coords": [record["latitude"], record["longitude"]],
+            "name": record["district"]
+        })
+
+    return locations

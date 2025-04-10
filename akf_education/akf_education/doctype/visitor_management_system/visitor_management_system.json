@@ -13,8 +13,6 @@
   "cnicpassport_no",
   "date_of_visit",
   "others",
-  "section_break_rylb",
-  "guardian_info",
   "section_break_mtxk",
   "table",
   "section_break_angl",
@@ -55,7 +53,7 @@
   },
   {
    "fieldname": "contact_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Contact No"
   },
   {
@@ -74,7 +72,8 @@
    "fieldname": "purpose_of_visit",
    "fieldtype": "Select",
    "label": "Purpose Of Visit",
-   "options": "\nMeeting Resident\nDonation Delivery\nOfficial Visit\nMaintenance/Service\nOthers"
+   "options": "\nMeeting Resident\nDonation Delivery\nOfficial Visit\nMaintenance/Service\nOthers",
+   "reqd": 1
   },
   {
    "fieldname": "date_of_visit",
@@ -198,15 +197,6 @@
    "fieldtype": "Check"
   },
   {
-   "fieldname": "section_break_rylb",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "guardian_info",
-   "fieldtype": "HTML",
-   "label": "Guardian Info"
-  },
-  {
    "fieldname": "section_break_mtxk",
    "fieldtype": "Section Break"
   },
@@ -218,7 +208,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-09 16:24:36.574758",
+ "modified": "2025-04-10 17:32:44.056542",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Visitor Management System",

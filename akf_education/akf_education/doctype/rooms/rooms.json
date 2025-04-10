@@ -9,6 +9,7 @@
   "section_break_k16j",
   "aghosh_home",
   "building",
+  "building_name",
   "room_number",
   "type_enum",
   "building_abbr",
@@ -80,11 +81,17 @@
    "hidden": 1,
    "label": "Building Abbr",
    "read_only": 1
+  },
+  {
+   "fetch_from": "building.building_name",
+   "fieldname": "building_name",
+   "fieldtype": "Data",
+   "label": "Building Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-25 11:48:33.582646",
+ "modified": "2025-04-10 13:14:18.362538",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Rooms",

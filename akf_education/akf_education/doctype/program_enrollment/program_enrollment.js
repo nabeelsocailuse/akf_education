@@ -11,8 +11,7 @@ frappe.ui.form.on('Program Enrollment', {
               },
           };
       });
-    
-
+      
       frm.set_query('academic_term', 'fees', function () {
           return {
               filters: {

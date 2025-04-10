@@ -8,6 +8,7 @@
  "field_order": [
   "section_break_zcbg",
   "aghosh_home_id",
+  "building_name",
   "aghosh_home_name",
   "name_of_school",
   "principle_name",
@@ -84,11 +85,16 @@
    "hidden": 1,
    "label": "Building Abbr",
    "unique": 1
+  },
+  {
+   "fieldname": "building_name",
+   "fieldtype": "Data",
+   "label": "Building Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-28 12:18:11.579417",
+ "modified": "2025-04-10 13:08:18.544848",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",

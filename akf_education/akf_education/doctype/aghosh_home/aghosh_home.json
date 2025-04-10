@@ -86,8 +86,9 @@
   },
   {
    "fieldname": "tahsil",
-   "fieldtype": "Data",
-   "label": "Tehsil"
+   "fieldtype": "Link",
+   "label": "Tehsil",
+   "options": "Tehsil"
   },
   {
    "fieldname": "latitude",
@@ -149,7 +150,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-27 12:32:07.681239",
+ "modified": "2025-04-10 13:24:03.259661",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

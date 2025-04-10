@@ -30,6 +30,7 @@
   {
    "fieldname": "route",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Route",
    "no_copy": 1,
    "unique": 1
@@ -101,7 +102,7 @@
  "has_web_view": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2025-03-04 13:19:25.067590",
+ "modified": "2025-04-10 14:46:05.629012",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Admission",

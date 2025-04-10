@@ -1,0 +1,561 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2015-09-11 11:50:09.740807",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "first_name",
+  "middle_name",
+  "last_name",
+  "date_of_birth1",
+  "place_of_birth",
+  "permanent_address",
+  "date_of_admission",
+  "mother_language",
+  "gender1",
+  "academic_year",
+  "column_break_8",
+  "naming_series",
+  "application_date",
+  "application_status",
+  "number_of_siblings",
+  "brothers",
+  "sisters",
+  "program",
+  "blood_group",
+  "student_email_id",
+  "section_break_lwec",
+  "aghosh_home",
+  "aghosh_home_name",
+  "section_break_xuzu",
+  "student_admission",
+  "student_category",
+  "image",
+  "column_break_lvby",
+  "academic_term",
+  "paid",
+  "father_details",
+  "name1",
+  "father_occupation",
+  "father_reason_death",
+  "attach_death_certificate",
+  "column_break_lnba",
+  "father_dob",
+  "father_death_place",
+  "mother_details",
+  "name2",
+  "cnic",
+  "husband_name",
+  "mother_dob",
+  "column_break_snkq",
+  "alive_status",
+  "place_of_death",
+  "reason_of_death",
+  "section_break_23",
+  "title",
+  "amended_from",
+  "personal_details_tab",
+  "section_break_4",
+  "date_of_birth",
+  "gender",
+  "column_break_12",
+  "student_mobile_number",
+  "nationality",
+  "relations_tab",
+  "section_break_20",
+  "name5",
+  "contact_number",
+  "relation_with_child",
+  "education",
+  "column_break_itas",
+  "gender2",
+  "address",
+  "occupation_details",
+  "marital_status",
+  "section_break_21",
+  "siblings",
+  "address_tab",
+  "home_address",
+  "address_line_1",
+  "address_line_2",
+  "city",
+  "country",
+  "column_break_23",
+  "state",
+  "pincode",
+  "uc"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Class",
+   "options": "Program",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "paid",
+   "fieldtype": "Check",
+   "label": "Paid"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "no_copy": 1,
+   "options": "EDU-APP-.YYYY.-",
+   "set_only_once": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "application_status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "label": "Application Status",
+   "no_copy": 1,
+   "options": "Applied\nApproved\nRejected\nAdmitted"
+  },
+  {
+   "default": "Today",
+   "fieldname": "application_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Application Date"
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "academic_term",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Academic Term",
+   "options": "Academic Term"
+  },
+  {
+   "fieldname": "student_admission",
+   "fieldtype": "Link",
+   "label": "Student Admission",
+   "options": "Student Admission",
+   "read_only": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "blood_group",
+   "fieldtype": "Select",
+   "label": "Blood Group",
+   "options": "\nA+\nA-\nB+\nB-\nO+\nO-\nAB+\nAB-"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "student_email_id",
+   "fieldtype": "Data",
+   "label": "Student Email Address"
+  },
+  {
+   "fieldname": "student_mobile_number",
+   "fieldtype": "Data",
+   "label": "Student Mobile Number"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "label": "Nationality"
+  },
+  {
+   "fieldname": "home_address",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Tehsil"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "Region"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "District"
+  },
+  {
+   "fieldname": "section_break_20",
+   "fieldtype": "Section Break",
+   "label": "Guardian Details"
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Sibling Details"
+  },
+  {
+   "fieldname": "siblings",
+   "fieldtype": "Table",
+   "label": "Siblings",
+   "options": "Student Sibling"
+  },
+  {
+   "fieldname": "section_break_23",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Student Applicant",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "student_category",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Student Category",
+   "options": "Student Category"
+  },
+  {
+   "fieldname": "section_break_xuzu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_lvby",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "personal_details_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Personal Details"
+  },
+  {
+   "fieldname": "relations_tab",
+   "fieldtype": "Tab Break",
+   "label": "Guardian Info"
+  },
+  {
+   "fieldname": "address_tab",
+   "fieldtype": "Tab Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "date_of_birth1",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "place_of_birth",
+   "fieldtype": "Data",
+   "label": "Place Of Birth"
+  },
+  {
+   "fieldname": "permanent_address",
+   "fieldtype": "Data",
+   "label": "Permanent Address"
+  },
+  {
+   "fieldname": "date_of_admission",
+   "fieldtype": "Date",
+   "label": "Date Of Admission"
+  },
+  {
+   "fieldname": "mother_language",
+   "fieldtype": "Data",
+   "label": "Mother Language"
+  },
+  {
+   "fieldname": "gender1",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nOthers"
+  },
+  {
+   "fieldname": "brothers",
+   "fieldtype": "Int",
+   "label": "Number Of Brothers"
+  },
+  {
+   "fieldname": "sisters",
+   "fieldtype": "Int",
+   "label": "Number Of Sisters"
+  },
+  {
+   "fieldname": "father_details",
+   "fieldtype": "Section Break",
+   "label": "Father's Details"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "father_occupation",
+   "fieldtype": "Data",
+   "label": "Father Occupation"
+  },
+  {
+   "fieldname": "father_reason_death",
+   "fieldtype": "Data",
+   "label": "Reason Of Death"
+  },
+  {
+   "fieldname": "attach_death_certificate",
+   "fieldtype": "Attach Image",
+   "label": "Attach Death Certificate"
+  },
+  {
+   "fieldname": "column_break_lnba",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "father_dob",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "father_death_place",
+   "fieldtype": "Data",
+   "label": "Place Of Death"
+  },
+  {
+   "fieldname": "mother_details",
+   "fieldtype": "Section Break",
+   "label": "Mother's Details"
+  },
+  {
+   "fieldname": "name2",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "CNIC"
+  },
+  {
+   "fieldname": "husband_name",
+   "fieldtype": "Data",
+   "label": "Husband's Name"
+  },
+  {
+   "fieldname": "mother_dob",
+   "fieldtype": "Data",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "column_break_snkq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "alive_status",
+   "fieldtype": "Select",
+   "label": "Alive Status",
+   "options": "\nAlive\nDeath"
+  },
+  {
+   "depends_on": "eval:doc.alive_status==\"Death\"\n",
+   "fieldname": "reason_of_death",
+   "fieldtype": "Data",
+   "label": "Reason Of Death"
+  },
+  {
+   "depends_on": "eval:doc.alive_status==\"Death\"\n",
+   "fieldname": "place_of_death",
+   "fieldtype": "Date",
+   "label": "Date Of Death"
+  },
+  {
+   "fieldname": "number_of_siblings",
+   "fieldtype": "Data",
+   "label": "Number Of Siblings"
+  },
+  {
+   "fieldname": "name5",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "relation_with_child",
+   "fieldtype": "Data",
+   "label": "Relation With Child"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Data",
+   "label": "Education"
+  },
+  {
+   "fieldname": "column_break_itas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gender2",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "occupation_details",
+   "fieldtype": "Data",
+   "label": "Occupation Details"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "\nMarried\nEngaged\nSingle"
+  },
+  {
+   "fieldname": "section_break_lwec",
+   "fieldtype": "Section Break",
+   "label": "School Details"
+  },
+  {
+   "fetch_from": "student_admission.name_of_aghosh",
+   "fieldname": "aghosh_home",
+   "fieldtype": "Link",
+   "label": "Aghosh Home",
+   "options": "Aghosh Home",
+   "read_only": 1
+  },
+  {
+   "fieldname": "uc",
+   "fieldtype": "Data",
+   "label": "UC"
+  },
+  {
+   "fetch_from": "aghosh_home.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name"
+  }
+ ],
+ "image_field": "image",
+ "links": [],
+ "modified": "2025-04-10 17:01:56.553558",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Student Applicant",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Academics User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title"
+}

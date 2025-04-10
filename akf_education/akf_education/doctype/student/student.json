@@ -307,6 +307,7 @@
   {
    "fieldname": "exit_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Exit"
   },
   {
@@ -318,6 +319,7 @@
   {
    "fieldname": "customer_details_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Customer Details"
   },
   {
@@ -605,7 +607,7 @@
    "link_fieldname": "orphan_name"
   }
  ],
- "modified": "2025-04-07 16:31:01.109424",
+ "modified": "2025-04-10 14:44:57.377682",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

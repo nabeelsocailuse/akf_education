@@ -21,7 +21,7 @@ class VisitorManagementSystem(Document):
         """, (self.cnicpassport_no,), as_dict=True)
 
         if not data:
-            frappe.throw("❌ Guardian not found for this CNIC. Cannot save.")
+            frappe.throw("❌ Guardian not found for this CNIC.")
 
         self.set("table", [])
 

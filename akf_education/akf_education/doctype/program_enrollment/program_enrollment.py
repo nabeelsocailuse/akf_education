@@ -4,6 +4,7 @@
 
 import frappe
 from frappe import _, msgprint
+from datetime import datetime, timedelta
 from frappe.desk.reportview import get_match_cond
 from frappe.model.document import Document
 from frappe.query_builder.functions import Min
@@ -114,6 +115,7 @@ class ProgramEnrollment(Document):
 		fees_doc.student = self.student
 		fees_doc.program_enrollment = self.name
 		fees_doc.program = self.program
+		fees_doc.due_date = fees_doc.due_date = datetime.today().date() + timedelta(days=10)
 		
 		# Copy components table from Program Enrollment to Fees
 		for component in self.components:

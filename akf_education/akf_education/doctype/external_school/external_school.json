@@ -73,13 +73,15 @@
   },
   {
    "fieldname": "region",
-   "fieldtype": "Data",
-   "label": "Region"
+   "fieldtype": "Link",
+   "label": "Region",
+   "options": "Region"
   },
   {
    "fieldname": "tehsil",
-   "fieldtype": "Data",
-   "label": "Tehsil"
+   "fieldtype": "Link",
+   "label": "Tehsil",
+   "options": "Tehsil"
   },
   {
    "fieldname": "column_break_mjuw",
@@ -87,8 +89,9 @@
   },
   {
    "fieldname": "district",
-   "fieldtype": "Data",
-   "label": "District"
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
   },
   {
    "fieldname": "uc",
@@ -115,7 +118,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-08 12:12:50.140839",
+ "modified": "2025-04-10 13:25:38.376291",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "External School",

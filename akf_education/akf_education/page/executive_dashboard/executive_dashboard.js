@@ -26,6 +26,7 @@ serverCall = {
                 let data = r.message;
                 design.cards(page, data);
                 renderHighcharts(data);
+                renderPakistanMap();
             }
         })
     }
@@ -188,7 +189,6 @@ return new Promise((resolve, reject) => {
 
 function renderCharts() {
     // Render all charts
-    renderPakistanMap();
     renderIcons();
 }
 
@@ -196,58 +196,66 @@ function renderPakistanMap() {
     var mapContainer = document.getElementById("container-map");
 
     if (!mapContainer) {
-    console.error("Map container not found!");
-    return;
+        console.error("Map container not found!");
+        return;
     }
 
     var map = L.map("container-map", {
-    center: [30.3753, 69.3451], // Center Pakistan
-    zoom: 6,
-    scrollWheelZoom: false,
+        center: [30.3753, 69.3451], // Center Pakistan
+        zoom: 6,
+        scrollWheelZoom: false,
     });
 
     if (typeof L === "undefined") {
-    console.error("Leaflet JS not loaded properly!");
-    return;
+        console.error("Leaflet JS not loaded properly!");
+        return;
     }
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; OpenStreetMap contributors",
-    maxZoom: 18,
+        attribution: "&copy; OpenStreetMap contributors",
+        maxZoom: 18,
     }).addTo(map);
 
     setTimeout(() => {
-    map.invalidateSize();
+        map.invalidateSize();
     }, 500);
 
     var markers = L.markerClusterGroup();
 
     var locations = [
-    { coords: [31.5204, 74.3587], name: "Lahore" },
-    { coords: [33.6844, 73.0479], name: "Islamabad" },
-    { coords: [24.8607, 67.0011], name: "Karachi" },
-    { coords: [30.1575, 71.5249], name: "Multan" },
-    { coords: [25.3969, 68.3578], name: "Hyderabad" },
-    // { coords: [19.0760, 72.8777], name: "Mumbai"},
-    // { coords: [40.730610,73.935242], name: "newYork"},
+        { coords: [31.5204, 74.3587], name: "Lahore" },
+        { coords: [33.6844, 73.0479], name: "Islamabad" },
+        { coords: [24.8607, 67.0011], name: "Karachi" },
+        { coords: [30.1575, 71.5249], name: "Multan" },
+        { coords: [25.3969, 68.3578], name: "Hyderabad" },
     ];
 
+    function newMarker(latlng, name) {
+        var marker = new L.marker(latlng).addTo(map);
+        marker
+            .bindTooltip(name, {
+                permanent: false, 
+                direction: "top",  
+                opacity: 0.9 
+            });
+    }
+
+    // Adding predefined markers
     locations.forEach((location) => {
-    var customMarker = L.divIcon({
-        className: "custom-marker",
-        html: `<div class="marker-pin"></div><div class="marker-label">${location.name}</div>`,
-        iconSize: [30, 42],
-        iconAnchor: [15, 42],
+        newMarker(location.coords, location.name);
     });
 
-    markers.addLayer(L.marker(location.coords, { icon: customMarker }));
-    });
-
+    // Marker Cluster
     map.addLayer(markers);
 }
 
-// Run the function after DOM is loaded
-window.onload = renderPakistanMap;
+renderPakistanMap();
+
+
+renderPakistanMap();
+
+
+renderPakistanMap();
 
 function renderIcons() {
     this.series.forEach(series => {
@@ -283,13 +291,13 @@ function renderIcons() {
 }
 
 function renderHighcharts(data) {
-    Highcharts.setOptions({
-        navigation: {
-            buttonOptions: {
-                enabled: false  // Disable context menu
-            }
-        }
-    });
+    // Highcharts.setOptions({
+    //     navigation: {
+    //         buttonOptions: {
+    //             enabled: false  // Disable context menu
+    //         }
+    //     }
+    // });
     
     const aghoshContainer = document.getElementById("container-aghosh");
     if (!aghoshContainer) {
@@ -570,16 +578,18 @@ function renderHighcharts(data) {
     
     setTimeout(() => {
         children_statistics()
-    }, 10);
-    setTimeout(() => {
-        aghosh_home_statuses()
     }, 100);
     setTimeout(() => {
+        aghosh_home_statuses()
+    }, 500);
+    setTimeout(() => {
         aghosh_homes_per_week()
-    }, 10);
+    }, 100);
     setTimeout(() => {
         childens_registrations()
-    }, 10);
+    }, 100);
 }
 
+// Run the function after DOM is loaded
+window.onload = renderPakistanMap;
 

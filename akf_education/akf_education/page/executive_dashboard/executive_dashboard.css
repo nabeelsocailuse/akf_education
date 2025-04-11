@@ -351,3 +351,34 @@ button:hover {
     transform: translateY(0) scale(1);
   }
 }
+
+.leaflet-tooltip-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  color: #333;
+  font-family: sans-serif;
+  max-width: 200px;
+  pointer-events: none; /* ensures hover still works */
+}
+
+.leaflet-tooltip-card h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.leaflet-tooltip-card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.leaflet-tooltip-card small {
+  font-size: 12px;
+  color: #777;
+}
+
+/* .custom-tooltip-card {
+  background-color: yellow;
+} */

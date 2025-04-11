@@ -143,7 +143,8 @@
   {
    "fieldname": "due_date",
    "fieldtype": "Date",
-   "label": "Due Date"
+   "label": "Due Date",
+   "read_only": 1
   },
   {
    "fieldname": "student_details",
@@ -368,7 +369,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-26 15:42:29.707512",
+ "modified": "2025-04-11 11:38:51.329838",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fees",

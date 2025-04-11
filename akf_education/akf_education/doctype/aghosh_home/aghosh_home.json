@@ -150,7 +150,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-10 13:24:03.259661",
+ "modified": "2025-04-11 13:03:16.353133",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",
@@ -170,6 +170,7 @@
    "write": 1
   }
  ],
+ "search_fields": "aghosh_home_name",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

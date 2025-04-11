@@ -232,12 +232,20 @@ function renderPakistanMap() {
 
     function newMarker(latlng, name) {
         var marker = new L.marker(latlng).addTo(map);
-        marker
-            .bindTooltip(name, {
-                permanent: false, 
-                direction: "top",  
-                opacity: 0.9 
-            });
+        marker.bindTooltip(`
+            <div class="custom-tooltip-card">
+                <h4>${name}</h4>
+                <p>Some info about ${name}</p>
+                <small> Hello ${name} </small>
+            </div>
+        `, {
+            permanent: false,
+            direction: "top",
+            opacity: 0.95,
+            sticky: true,
+            className: "leaflet-tooltip-card", 
+        });
+        
     }
 
     // Adding predefined markers

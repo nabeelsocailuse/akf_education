@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{VMS}-{#####}",
  "creation": "2025-04-09 16:24:36.574758",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -203,15 +204,17 @@
   {
    "fieldname": "table",
    "fieldtype": "Table",
-   "options": "Student Details Child"
+   "options": "Student Details Child",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-10 17:32:44.056542",
+ "modified": "2025-04-11 15:33:57.986768",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Visitor Management System",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh\",\"col\":4}},{\"id\":\"TT1WmR1Z5z\",\"type\":\"card\",\"data\":{\"card_name\":\"Child Information\",\"col\":4}},{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kR1KsRALK2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Project Approval Form\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"GO3xJCuNsT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9a8zjYSZ9n\",\"type\":\"card\",\"data\":{\"card_name\":\"Dashbaords\",\"col\":4}},{\"id\":\"_6GQzCddTG\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"gqXX3hzh98\",\"type\":\"card\",\"data\":{\"card_name\":\"Admission & Enrollment\",\"col\":4}},{\"id\":\"fwOriggX-K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports Master\",\"col\":4}}]",
+ "content": "[{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh\",\"col\":4}},{\"id\":\"TT1WmR1Z5z\",\"type\":\"card\",\"data\":{\"card_name\":\"Child Information\",\"col\":4}},{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kR1KsRALK2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Project Approval Form\",\"col\":3}},{\"id\":\"ucTZROCwHC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Donor\",\"col\":3}},{\"id\":\"MEi-Nkg1Ux\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Enrollment Tool\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"i5xgjBF1Ds\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sponsorship\",\"col\":3}},{\"id\":\"GO3xJCuNsT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9a8zjYSZ9n\",\"type\":\"card\",\"data\":{\"card_name\":\"Dashboard\",\"col\":4}},{\"id\":\"_6GQzCddTG\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"bBK_6mgg-d\",\"type\":\"card\",\"data\":{\"card_name\":\"Sponsorship\",\"col\":4}},{\"id\":\"fI5KERZtUN\",\"type\":\"card\",\"data\":{\"card_name\":\"Fees\",\"col\":4}},{\"id\":\"gqXX3hzh98\",\"type\":\"card\",\"data\":{\"card_name\":\"Admission & Enrollment\",\"col\":4}},{\"id\":\"fwOriggX-K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports Master\",\"col\":4}}]",
  "creation": "2025-02-25 20:22:56.988393",
  "custom_blocks": [],
  "docstatus": 0,
@@ -16,8 +16,56 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Tools",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Admission Tool",
+   "link_count": 0,
+   "link_to": "Admission Tool",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Program Enrollment Tool",
+   "link_count": 0,
+   "link_to": "Program Enrollment Tool",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports Master",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sponsorship Details",
+   "link_count": 0,
+   "link_to": "Sponsorship Details",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Aghosh",
-   "link_count": 4,
+   "link_count": 5,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -65,18 +113,9 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Child Information",
-   "link_count": 4,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Orphan",
+   "label": "External School",
    "link_count": 0,
-   "link_to": "Orphan",
+   "link_to": "External School",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -84,9 +123,18 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Health Checkup",
+   "label": "Child Information",
+   "link_count": 6,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Student",
    "link_count": 0,
-   "link_to": "Health Checkup",
+   "link_to": "Student",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -114,26 +162,37 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Dashbaords",
-   "link_count": 1,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Executive Dashboard",
+   "label": "Counsling Session",
    "link_count": 0,
-   "link_to": "executive-dashboard",
-   "link_type": "Page",
+   "link_to": "Counsling Session",
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Tools",
+   "label": "Health Checkup",
+   "link_count": 0,
+   "link_to": "Health Checkup",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Healthcare Practition",
+   "link_count": 0,
+   "link_to": "Healthcare Practitioner",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sponsorship",
    "link_count": 2,
    "link_type": "DocType",
    "onboard": 0,
@@ -142,9 +201,9 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Admission Tool",
+   "label": "Sponsorship",
    "link_count": 0,
-   "link_to": "Admission Tool",
+   "link_to": "Sponsorship",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -152,9 +211,48 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Program Enrollment Tool",
+   "label": "Donor",
    "link_count": 0,
-   "link_to": "Program Enrollment Tool",
+   "link_to": "Donor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fees",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fees",
+   "link_count": 0,
+   "link_to": "Fees",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fee Structure",
+   "link_count": 0,
+   "link_to": "Fee Structure",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fee Category",
+   "link_count": 0,
+   "link_to": "Fee Category",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -163,7 +261,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Admission & Enrollment",
-   "link_count": 2,
+   "link_count": 3,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -191,7 +289,17 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Reports Master",
+   "label": "Student Applicant",
+   "link_count": 0,
+   "link_to": "Student Applicant",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Dashboard",
    "link_count": 1,
    "link_type": "DocType",
    "onboard": 0,
@@ -200,15 +308,15 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Sponsorship Details",
+   "label": "Executive Dashboard",
    "link_count": 0,
-   "link_to": "Sponsorship Details",
-   "link_type": "Report",
-   "onboard": 1,
+   "link_to": "executive-dashboard",
+   "link_type": "Page",
+   "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2025-03-20 16:32:16.891902",
+ "modified": "2025-04-11 18:23:57.433914",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh",
@@ -220,6 +328,29 @@
  "roles": [],
  "sequence_id": 33.0,
  "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Program Enrollment Tool",
+   "link_to": "Program Enrollment Tool",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Donor",
+   "link_to": "Donor",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "External School",
+   "link_to": "External School",
+   "stats_filter": "[[\"External School\",\"name\",\"=\",null,false]]",
+   "type": "DocType"
+  },
   {
    "color": "Grey",
    "doc_view": "List",
@@ -239,8 +370,8 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "External School",
-   "link_to": "External School",
+   "label": "Sponsorship",
+   "link_to": "Sponsorship",
    "stats_filter": "[]",
    "type": "DocType"
   }

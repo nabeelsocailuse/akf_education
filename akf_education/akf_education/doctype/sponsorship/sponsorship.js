@@ -3,20 +3,11 @@
 
 frappe.ui.form.on("Sponsorship", {
 	refresh(frm) {
-        if (frm.doc.student_applicant) {
-            frappe.db.get_value('Student', { student_applicant: frm.doc.student_applicant }, 'name')
-                .then(r => frm.set_value('student_id', r.message?.name || ''));
-        }  
+        // if (frm.doc.student_applicant) {
+        //     frappe.db.get_value('Student', { student_applicant: frm.doc.student_applicant }, 'name')
+        //         .then(r => frm.set_value('student_id', r.message?.name || ''));
+        // }  
 	},
-
-
-    // tenure_period(frm) {  
-    //     let sponsorship_tenure = frm.doc.sponsorship_tenure;
-    //         frappe.msgprint(__('Sponsorship Tenure selected: ' + sponsorship_tenure));
-
-    //     let tenure_period = frm.doc.tenure_period;
-    //         frappe.msgprint(__('Sponsorship tenure_period selected: ' + tenure_period));
-    // }
 
 
     tenure_period(frm) {  
@@ -52,12 +43,15 @@ function calculateEndDate(start_date, sponsorship_tenure, tenure_period) {
     } else if (sponsorship_tenure === "Yearly") {
         monthsToAdd = 12;
     }
-    // Multiply by selected tenure_period (integer)
+    // Multiply by selected tenure_period 
     let totalMonths = monthsToAdd * tenure_period; 
    
     // Calculate end date
     return frappe.datetime.add_months(start_date, totalMonths); 
 }
+
+
+
 
 
 

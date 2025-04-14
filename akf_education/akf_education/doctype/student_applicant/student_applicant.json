@@ -466,7 +466,7 @@
   },
   {
    "fieldname": "contact_number",
-   "fieldtype": "Data",
+   "fieldtype": "Phone",
    "label": "Contact Number"
   },
   {
@@ -532,7 +532,7 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2025-04-10 17:01:56.553558",
+ "modified": "2025-04-14 12:23:36.766279",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

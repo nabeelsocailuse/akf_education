@@ -21,7 +21,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2025-04-14 11:37:16.023717",
+ "modified": "2025-04-14 12:46:08.353586",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "student-applicant",
@@ -461,6 +461,19 @@
   },
   {
    "allow_read_on_all_link_options": 0,
+   "fieldname": "cnic",
+   "fieldtype": "Int",
+   "hidden": 0,
+   "label": "CNIC",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
    "fieldname": "husband_name",
    "fieldtype": "Data",
    "hidden": 0,
@@ -473,12 +486,13 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "fieldname": "mother_dob",
-   "fieldtype": "Data",
+   "fieldname": "father_dob",
+   "fieldtype": "Date",
    "hidden": 0,
    "label": "Date Of Birth",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -593,7 +607,7 @@
   {
    "allow_read_on_all_link_options": 0,
    "fieldname": "contact_number",
-   "fieldtype": "Data",
+   "fieldtype": "Phone",
    "hidden": 0,
    "label": "Contact Number",
    "max_length": 0,

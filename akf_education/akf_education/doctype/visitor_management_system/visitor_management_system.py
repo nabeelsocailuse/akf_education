@@ -2,31 +2,38 @@ import frappe
 from frappe.model.document import Document
 
 class VisitorManagementSystem(Document):
-    def before_save(self):
-        self.set_guardian_details()
+    def validate(self):
+        if self.purpose_of_visit == "Meeting Resident" and self.cnicpassport_no:
+            fetch_guardian_student_details(self)
 
-    def set_guardian_details(self):
-        if not self.cnicpassport_no:
-            frappe.throw("❌ Please enter CNIC/Passport number.")
+@frappe.whitelist()
+def guardian_details(cnic_number, parent_docname):
+    doc = frappe.get_doc("Visitor Management System", parent_docname)
+    return fetch_guardian_student_details(doc)
 
-        data = frappe.db.sql("""
-            SELECT 
-                s.name AS student_id, 
-                s.first_name
-            FROM `tabStudent` s 
-            INNER JOIN `tabStudent Guardian` sg ON s.name = sg.parent
-            WHERE sg.guardian IN (
-                SELECT name FROM `tabGuardian` WHERE cnic_number = %s
-            )
-        """, (self.cnicpassport_no,), as_dict=True)
+def fetch_guardian_student_details(doc): 
+    doc.set("table", [])
 
-        if not data:
-            frappe.throw("❌ Guardian not found for this CNIC.")
+    guardian = frappe.db.get_value("Guardian", {"cnic_number": doc.cnicpassport_no}, "name")
+    if not guardian:
+        frappe.throw("❌ Guardian not found for this CNIC")
 
-        self.set("table", [])
+    data = frappe.db.sql("""
+        SELECT 
+            s.name AS student_id, 
+            s.first_name
+        FROM `tabStudent` s 
+        INNER JOIN `tabStudent Guardian` sg ON s.name = sg.parent
+        WHERE sg.guardian = %s
+    """, (guardian,), as_dict=True)
 
-        for row in data:
-            self.append("table", {
-                "student_id": row.student_id,
-                "student_name": row.first_name
-            })
+    if not data:
+        frappe.throw("❌ Student not available against this guardian.")
+    else:
+        frappe.msgprint("Guardian Found!")
+
+    for row in data:
+        doc.append("table", {
+            "student_id": row.student_id,
+            "student_name": row.first_name
+        })

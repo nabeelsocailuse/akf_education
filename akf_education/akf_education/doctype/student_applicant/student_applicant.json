@@ -15,7 +15,7 @@
   "permanent_address",
   "date_of_admission",
   "mother_language",
-  "gender1",
+  "gender_student",
   "academic_year",
   "column_break_8",
   "naming_series",
@@ -60,7 +60,7 @@
   "personal_details_tab",
   "section_break_4",
   "date_of_birth",
-  "gender",
+  "gender_student1",
   "column_break_12",
   "student_mobile_number",
   "nationality",
@@ -71,7 +71,7 @@
   "relation_with_child",
   "education",
   "column_break_itas",
-  "gender2",
+  "gender_guardian",
   "address",
   "occupation_details",
   "marital_status",
@@ -188,12 +188,6 @@
    "fieldtype": "Date",
    "hidden": 1,
    "label": "Date Of Birth"
-  },
-  {
-   "fieldname": "gender",
-   "fieldtype": "Link",
-   "label": "Gender",
-   "options": "Gender"
   },
   {
    "fieldname": "blood_group",
@@ -353,12 +347,6 @@
    "label": "Mother Language"
   },
   {
-   "fieldname": "gender1",
-   "fieldtype": "Select",
-   "label": "Gender",
-   "options": "\nMale\nFemale\nOthers"
-  },
-  {
    "fieldname": "brothers",
    "fieldtype": "Int",
    "label": "Number Of Brothers"
@@ -429,8 +417,8 @@
   },
   {
    "fieldname": "mother_dob",
-   "fieldtype": "Data",
-   "label": "Date Of Birth"
+   "fieldtype": "Date",
+   "label": "Date Of Birth3"
   },
   {
    "fieldname": "column_break_snkq",
@@ -484,12 +472,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "gender2",
-   "fieldtype": "Select",
-   "label": "Gender",
-   "options": "\nMale\nFemale"
-  },
-  {
    "fieldname": "address",
    "fieldtype": "Data",
    "label": "Address"
@@ -528,11 +510,29 @@
    "fieldname": "aghosh_home_name",
    "fieldtype": "Data",
    "label": "Aghosh Home Name"
+  },
+  {
+   "fieldname": "gender_student",
+   "fieldtype": "Select",
+   "label": "Gender Students",
+   "options": "\nMale\nFemale\nOthers"
+  },
+  {
+   "fieldname": "gender_student1",
+   "fieldtype": "Link",
+   "label": "Gender student ",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "gender_guardian",
+   "fieldtype": "Select",
+   "label": "Gender Guardian",
+   "options": "\nMale\nFemale"
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2025-04-14 12:23:36.766279",
+ "modified": "2025-04-14 17:31:32.040177",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

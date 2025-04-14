@@ -11,3 +11,4 @@ frappe.ui.form.on('Visitor Management System', {
         }
     }
 });
+ 

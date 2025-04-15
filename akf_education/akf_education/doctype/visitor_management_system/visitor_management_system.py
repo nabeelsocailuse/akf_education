@@ -29,6 +29,7 @@ def fetch_guardian_student_details(doc):
 
     if not data:
         frappe.throw("❌ Student not available against this guardian.")
+        
 
     for row in data:
         doc.append("table", {

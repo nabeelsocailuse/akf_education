@@ -339,6 +339,7 @@
   {
    "fieldname": "date_of_admission",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Date Of Admission"
   },
   {
@@ -532,7 +533,7 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2025-04-14 17:31:32.040177",
+ "modified": "2025-04-15 11:31:59.965699",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

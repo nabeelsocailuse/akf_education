@@ -102,6 +102,12 @@ class ProgramEnrollmentTool(Document):
 	def enrolled_students(self):
 		total = len(self.students)
 		for i, stud in enumerate(self.students):
+			if not stud.bed:
+				frappe.throw("please select bed for the student first")
+			if not stud.school_type1:
+				frappe.throw("Please select student type.")
+			if not stud.selected_donors:
+				frappe.throw("Select Donor and Press Save Button First")
 			frappe.publish_realtime(
 				"program_enrollment_tool", dict(progress=[i + 1, total]), user=frappe.session.user
 			)

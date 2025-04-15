@@ -24,7 +24,7 @@
   "check_ukyt",
   "section_break_mtxk",
   "table",
-  "secutity_tab",
+  "security_details_section",
   "check_in",
   "column_break_lpot",
   "check_out",
@@ -32,7 +32,7 @@
   "registration_no",
   "column_break_hpkw",
   "makemodel",
-  "security_checks_tab",
+  "security_checks_section",
   "items_brought_if_any",
   "authorized_by_name_and_signature",
   "column_break_fmbn",
@@ -49,6 +49,7 @@
    "fieldname": "visitor_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Visitor Name",
    "reqd": 1
   },
@@ -65,6 +66,7 @@
    "fieldname": "cnicpassport_no",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "CNIC/Passport No",
    "non_negative": 1,
    "reqd": 1
@@ -84,11 +86,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "secutity_tab",
-   "fieldtype": "Tab Break",
-   "label": "Security Details "
-  },
-  {
    "fieldname": "check_in",
    "fieldtype": "Datetime",
    "label": "Check-in Time"
@@ -103,6 +100,7 @@
    "label": "Check-out Time"
   },
   {
+   "collapsible": 1,
    "fieldname": "vehical_details_section",
    "fieldtype": "Section Break",
    "label": "Vehical Details"
@@ -126,11 +124,6 @@
    "fieldname": "others",
    "fieldtype": "Data",
    "label": "Specify"
-  },
-  {
-   "fieldname": "security_checks_tab",
-   "fieldtype": "Tab Break",
-   "label": "Security Checks"
   },
   {
    "fieldname": "items_brought_if_any",
@@ -206,11 +199,23 @@
    "fieldtype": "Table",
    "options": "Student Details Child",
    "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "security_details_section",
+   "fieldtype": "Section Break",
+   "label": "Security Details"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "security_checks_section",
+   "fieldtype": "Section Break",
+   "label": "Security Checks"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-14 15:11:38.177947",
+ "modified": "2025-04-15 12:47:34.548799",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Visitor Management System",
@@ -232,5 +237,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "visitor_name"
 }

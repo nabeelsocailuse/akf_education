@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="order_management.css">
+</head>
+<body>
+    <div class="dashboard-cards">
+        <div class="dashboard-card">
+            <h3>Total Orders</h3>
+            <p>{{ total_orders }}</p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Pending Orders</h3>
+            <p>{{ pending_orders }}</p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Delivered</h3>
+            <p>{{ delivered }}</p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Cancelled</h3>
+            <p>{{ cancelled }}</p>
+        </div>
+    </div>   
+    <div class="order-table-wrapper">
+        <h2>Order Info</h2>
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Status</th>
+                    <th>Order Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.order_id }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>{{ order.order_price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+       
+</body>
+</html>

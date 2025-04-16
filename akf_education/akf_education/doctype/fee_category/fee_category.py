@@ -12,13 +12,12 @@ class FeeCategory(Document):
 		self.validate_duplicate_item_defaults()
 
 	def after_insert(self):
-		# create an item
+		# creating an item 
 		item_name = create_item(self)
 		self.item = item_name
 		self.save()
-
 	def on_update(self):
-		# update item
+		# updating an items
 		item_name = update_item(self)
 		self.item = item_name
 

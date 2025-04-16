@@ -48,7 +48,7 @@
  ],
  "icon": "fa fa-flag",
  "links": [],
- "modified": "2025-03-25 12:19:23.873122",
+ "modified": "2025-04-16 15:54:32.241592",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fee Category",
@@ -92,7 +92,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "search_fields": "description",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

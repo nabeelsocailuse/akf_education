@@ -24,13 +24,12 @@ def fetch_guardian_student_details(doc):
             s.first_name
         FROM `tabStudent` s 
         INNER JOIN `tabStudent Guardian` sg ON s.name = sg.parent
-        WHERE sg.guardian = %s
+        WHERE sg.guardian = %s AND s.enabled = 1
     """, (guardian,), as_dict=True)
 
     if not data:
         frappe.throw("❌ Student not available against this guardian.")
         
-
     for row in data:
         doc.append("table", {
             "student_id": row.student_id,

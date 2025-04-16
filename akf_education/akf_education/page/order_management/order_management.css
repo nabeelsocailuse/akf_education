@@ -1,0 +1,70 @@
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 20px;
+}
+
+.dashboard-card {
+    background-color: #f5f7fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.dashboard-card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+.order-table-wrapper {
+    margin-top: 40px;
+    /* margin-left: 60px;
+    margin-right: 60px; */
+}
+
+.order-table-wrapper h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.order-table th,
+.order-table td {
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.order-table th {
+    background-color: #f0f2f5;
+    color: #555;
+    font-weight: 600;
+}
+
+.order-table tbody tr:hover {
+    background-color: #f9fbfc;
+}

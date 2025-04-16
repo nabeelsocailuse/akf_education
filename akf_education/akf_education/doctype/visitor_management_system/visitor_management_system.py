@@ -11,7 +11,7 @@ def guardian_details(cnic_number, parent_docname):
     doc = frappe.get_doc("Visitor Management System", parent_docname)
     return fetch_guardian_student_details(doc)
 
-def fetch_guardian_student_details(doc): 
+def fetch_guardian_student_details(doc):
     doc.set("table", [])
 
     guardian = frappe.db.get_value("Guardian", {"cnic_number": doc.cnicpassport_no}, "name")
@@ -20,7 +20,7 @@ def fetch_guardian_student_details(doc):
 
     data = frappe.db.sql("""
         SELECT 
-            s.name AS student_id, 
+            s.name AS student_id, p
             s.first_name
         FROM `tabStudent` s 
         INNER JOIN `tabStudent Guardian` sg ON s.name = sg.parent

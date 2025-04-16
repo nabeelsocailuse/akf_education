@@ -21,7 +21,7 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2025-04-14 18:58:47.195521",
+ "modified": "2025-04-16 16:28:00.603319",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "student-applicant",
@@ -148,7 +148,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -764,7 +764,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {

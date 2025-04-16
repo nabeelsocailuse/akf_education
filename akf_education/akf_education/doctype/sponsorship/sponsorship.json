@@ -25,6 +25,7 @@
   "student_applicant",
   "orphan_name",
   "aghosh_home",
+  "ah_name",
   "father_name",
   "mother_name",
   "mother_alive_status",
@@ -194,11 +195,18 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Sponsorship Abbr"
+  },
+  {
+   "fetch_from": "aghosh_home.aghosh_home_name",
+   "fetch_if_empty": 1,
+   "fieldname": "ah_name",
+   "fieldtype": "Data",
+   "label": "AH Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-25 12:00:36.722207",
+ "modified": "2025-04-16 18:25:18.256558",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

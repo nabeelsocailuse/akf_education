@@ -52,18 +52,18 @@ class FeeCategory(Document):
 			frappe.throw(_("Cannot set multiple Item Defaults for a company."))
 
 
-def create_item(doc, use_name_field=True):
-	name_field = doc.name if use_name_field else doc.fees_category
+def create_item(doc, category_name=True):
+	name_field = doc.name if category_name else doc.fees_category
 	if frappe.db.exists("Item", name_field):
 		return frappe.db.get_value("Item", name_field, "name")
 
 	item = frappe.new_doc("Item")
-	item.item_code = name_field
-	item.description = doc.description
+	item.item_name = name_field
+	# item.description = doc.description
 	item.item_group = "Fee Component"
-	item.is_sales_item = 1
-	item.is_service_item = 1
-	item.is_stock_item = 0
+	# item.is_sales_item = 1
+	# item.is_service_item = 1
+	# item.is_stock_item = 0
 	update_item_defaults(item, doc.item_defaults)
 	item.insert()
 	return item.name

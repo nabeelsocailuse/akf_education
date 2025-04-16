@@ -18,6 +18,7 @@
   "academic_year",
   "academic_term",
   "aghosh_home",
+  "ah_name",
   "section_break_4",
   "components",
   "section_break_6",
@@ -184,6 +185,12 @@
    "fieldtype": "Select",
    "label": "School Type",
    "options": "\nInternal\nExternal"
+  },
+  {
+   "fetch_from": "aghosh_home.aghosh_home_name",
+   "fieldname": "ah_name",
+   "fieldtype": "Data",
+   "label": "AH Name"
   }
  ],
  "icon": "fa fa-flag",
@@ -194,7 +201,7 @@
    "link_fieldname": "fee_structure"
   }
  ],
- "modified": "2025-04-10 14:47:04.376215",
+ "modified": "2025-04-16 17:40:32.372137",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fee Structure",

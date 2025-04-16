@@ -12,9 +12,12 @@ frappe.pages['order-management'].on_page_load = function(wrapper) {
                 const data = r.message;
                 const html = frappe.render_template("order_management", data);
                 $(html).appendTo(page.body);
+
+                // Initialize DataTable after the table is added to the DOM
+                // $('#example').DataTable({
+                //     pageLength: 10
+                // });
             }
         }
     });
 };
-
-

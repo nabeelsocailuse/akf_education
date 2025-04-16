@@ -101,6 +101,7 @@
   {
    "fieldname": "academic_term",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Academic Term",
    "options": "Academic Term"
   },
@@ -277,7 +278,7 @@
    "link_fieldname": "program_enrollment"
   }
  ],
- "modified": "2025-04-03 10:57:17.501604",
+ "modified": "2025-04-16 18:21:19.700862",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

@@ -68,3 +68,7 @@
 .order-table tbody tr:hover {
     background-color: #f9fbfc;
 }
+
+.paginate_button {
+    border-radius: 0 !important;
+}  

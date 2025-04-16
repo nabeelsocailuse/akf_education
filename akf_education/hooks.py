@@ -10,13 +10,20 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css 
-# = "/assets/akf_education/css/akf_education.css"
+app_include_css =[
+    # "/assets/akf_education/css/jquery.dataTables.min.css",
+    # "/assets/akf_education/css/bootstrap-table.min.css",
+    # "/assets/akf_education/css/bootstrap.min.css",
+]
 app_include_js = [
     # "/assets/akf_education/js/highcharts-more.js",
     # "/assets/akf_education/js/solid_gauge.js",
     "/assets/akf_education/js/leaflet.js",
     "/assets/akf_education/js/leaflet.markercluster.js",
+    # "/assets/akf_education/js/jquery.min.js",
+    # "/assets/akf_education/js/jquery.bootstrap.min.js",
+#     "/assets/akf_education/js/jquery.dataTables.min.js",
+#     "/assets/akf_education/js/jquery-3.7.1.min.js"
 ]
 
 # include js, css files in header of web template

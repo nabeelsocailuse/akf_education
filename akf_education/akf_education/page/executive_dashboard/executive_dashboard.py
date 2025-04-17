@@ -4,7 +4,10 @@ import frappe
 def get_executive_dashboard():
     total_students = frappe.db.count("Student")
     students_in_shilter = frappe.db.count("Program Enrollment", filters={"bed": ["!=", ""]})
-    sponsored_childrens = len(frappe.get_all("Sponsorship", filters={"donor_id": ["is", "set"]}, distinct=True, pluck="student_id"))
+    sponsored_childrens = frappe.db.sql("""SELECT COUNT(DISTINCT student_id)
+                FROM `tabSponsorship`
+                WHERE ifnull(donor_id,"")!="";
+                """)[0][0] or 0
 
     return {
         "total_students": total_students,

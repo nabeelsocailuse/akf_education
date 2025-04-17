@@ -7,23 +7,23 @@ from frappe import _
 
 
 class FeeCategory(Document):
-	def validate(self):
-		self.update_defaults_from_item_group()
-		self.validate_duplicate_item_defaults()
+	# def validate(self):
+	# 	self.update_defaults_from_item_group()
+	# 	self.validate_duplicate_item_defaults()
 
 	def after_insert(self):
 		# creating an item 
 		item_name = create_item(self)
 		self.item = item_name
 		self.save()
-	def on_update(self):
-		# updating an items
-		item_name = update_item(self)
-		self.item = item_name
+	# def on_update(self):
+	# 	# updating an items
+	# 	item_name = update_item(self)
+	# 	self.item = item_name
 
-	def on_trash(self):
-		# delete item
-		frappe.delete_doc("Item", self.name, force=1)
+	# def on_trash(self):
+	# 	# delete item
+	# 	frappe.delete_doc("Item", self.name, force=1)
 
 	def update_defaults_from_item_group(self):
 		"""Get defaults from Item Group"""
@@ -51,7 +51,7 @@ class FeeCategory(Document):
 		if len(companies) != len(set(companies)):
 			frappe.throw(_("Cannot set multiple Item Defaults for a company."))
 
-
+#clear this function for erpstaging
 def create_item(doc, category_name=True):
 	name_field = doc.name if category_name else doc.fees_category
 	if frappe.db.exists("Item", name_field):
@@ -59,7 +59,7 @@ def create_item(doc, category_name=True):
 
 	item = frappe.new_doc("Item")
 	item.item_name = name_field
-	# item.description = doc.description
+	item.description = doc.description
 	item.item_group = "Fee Component"
 	# item.is_sales_item = 1
 	# item.is_service_item = 1
@@ -121,9 +121,10 @@ def remove_item_defaults(item, fee_category_companies):
 	for idx in items_to_remove:
 		item.item_defaults.pop(idx - 1)
 
-
+#clear 
 def update_item_defaults(item, defaults):
 	for item_default in defaults:
+		# print(f"This is my item default print:{item_default}")
 		item.append(
 			"item_defaults",
 			{

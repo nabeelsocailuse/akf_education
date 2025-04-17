@@ -19,8 +19,8 @@ def fetch_guardian_student_details(doc):
         frappe.throw("❌ Guardian not found for this CNIC")
 
     data = frappe.db.sql("""
-        SELECT 
-            s.name AS student_id, p
+                SELECT 
+            s.name AS student_id, 
             s.first_name
         FROM `tabStudent` s 
         INNER JOIN `tabStudent Guardian` sg ON s.name = sg.parent

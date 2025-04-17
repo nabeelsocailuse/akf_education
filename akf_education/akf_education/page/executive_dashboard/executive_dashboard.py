@@ -114,7 +114,7 @@ def student_with_psychological_assessment():
     data = frappe.db.sql("""
         SELECT COUNT(s.name) AS student_count
         FROM `tabStudent` s
-        JOIN `tabMental Status Examination` mse ON s.name = mse.orphan_name
+        JOIN `tabMental Status Examination` mse ON s.name = mse.student_name
         WHERE mse.docstatus = 1;
     """, as_dict=True)
     return data

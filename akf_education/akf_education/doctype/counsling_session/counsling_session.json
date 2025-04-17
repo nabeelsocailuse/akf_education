@@ -5,7 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "orphan_name",
+  "student_name",
   "date",
   "column_break_yzcc",
   "age",
@@ -56,19 +56,19 @@
    "label": "Session Feedback"
   },
   {
-   "fieldname": "orphan_name",
-   "fieldtype": "Link",
-   "label": "Orphan Name",
-   "options": "Orphan"
-  },
-  {
    "fieldname": "section_break_bxal",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Link",
+   "label": "Student Name",
+   "options": "Student"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-27 14:48:05.419661",
+ "modified": "2025-04-17 14:42:14.292669",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Counsling Session",

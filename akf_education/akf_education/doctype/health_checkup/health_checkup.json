@@ -7,7 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "child_personal_info_section",
-  "orphan",
+  "student",
   "aghosh_home",
   "gender",
   "age",
@@ -92,12 +92,6 @@
   "specific_remarks"
  ],
  "fields": [
-  {
-   "fieldname": "orphan",
-   "fieldtype": "Link",
-   "label": "Name",
-   "options": "Orphan"
-  },
   {
    "fieldname": "column_break_cprt",
    "fieldtype": "Column Break"
@@ -517,11 +511,17 @@
    "fieldname": "general_physical_examination_section",
    "fieldtype": "Section Break",
    "label": "General Physical Examination"
+  },
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "Student"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-06 13:35:46.622175",
+ "modified": "2025-04-17 14:42:57.021253",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",

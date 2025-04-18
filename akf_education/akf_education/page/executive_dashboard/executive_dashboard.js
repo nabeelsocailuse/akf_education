@@ -362,129 +362,72 @@ function renderHighcharts(data) {
         });
     }
     
-    function aghosh_home_statuses(){
-        const trackColors = Highcharts.getOptions().colors.map(color =>
-            new Highcharts.Color(color).setOpacity(0.3).get()
-        );
-
-
+    function aghosh_home_statuses() {
         let guage = chartData.aghosh_home_status;
-
+    
         // Default values
         let operational = 0;
         let underConstruction = 0;
-        let Inactive = 0;
-
+        let inactive = 0;
+    
         guage.forEach(item => {
             if (item.status === 'Operational') {
                 operational = item.total;
             } else if (item.status === 'Under Construction') {
                 underConstruction = item.total;
             } else if (item.status === 'Inactive') {
-                Inactive = item.total;
+                inactive = item.total;
             }
         });
-
+    
         Highcharts.chart('speedygauge', {
             chart: {
-                type: 'solidgauge',
-                height: Math.min(window.innerHeight * 0.5, 250),
-                spacing: [0, 0, 0, 0],
-                events: {
-                    render: renderIcons
-                }
+                type: 'pie',
+                height: Math.min(window.innerHeight * 0.5, 300),
             },
-
+    
             title: {
                 text: null
             },
-
+    
             tooltip: {
-                borderWidth: 0,
-                backgroundColor: 'none',
-                shadow: false,
-                style: {
-                    fontSize: '14px',
-                    textAlign: 'center'
-                },
-                valueSuffix: '%',
-                pointFormat: '{series.name}<br>' +
-                    '<span style="font-size: 2em; color: {point.color}; ' +
-                    'font-weight: bold">{point.y}</span>',
-                positioner: function (labelWidth) {
-                    return {
-                        x: (this.chart.chartWidth - labelWidth) / 2,
-                        y: (this.chart.plotHeight / 3.5) + 12
-                    };
-                }
+                pointFormat: '<b>{point.percentage:.1f}%</b> ({point.y})'
             },
-
-            pane: {
-                startAngle: 0,
-                endAngle: 360,
-                background: [{
-                    outerRadius: '94%',
-                    innerRadius: '80%',
-                    backgroundColor: trackColors[0],
-                    borderWidth: 0
-                }, {
-                    outerRadius: '79%',
-                    innerRadius: '65%',
-                    backgroundColor: trackColors[1],
-                    borderWidth: 0
-                }, {
-                    outerRadius: '64%',
-                    innerRadius: '50%',
-                    backgroundColor: trackColors[2],
-                    borderWidth: 0
-                }]
-            },
-
-            yAxis: {
-                min: 0,
-                max: 100,
-                lineWidth: 0,
-                tickPositions: []
-            },
-
+    
             plotOptions: {
-                solidgauge: {
+                pie: {
+                    innerSize: '60%',
+                    depth: 45,
                     dataLabels: {
-                        enabled: false
-                    },
-                    linecap: 'round',
-                    stickyTracking: false,
-                    rounded: true
+                        enabled: true,
+                        format: '{point.name}: {point.y}',
+                        style: {
+                            fontSize: '13px'
+                        }
+                    }
                 }
             },
-
+    
             series: [{
-                name: 'Operational',
+                name: 'Homes',
+                colorByPoint: true,
                 data: [{
-                    color: Highcharts.getOptions().colors[0],
-                    radius: '94%',
-                    innerRadius: '80%',
-                    y: operational
-                }],
-            }, {
-                name: 'Under <br> Construction',
-                data: [{
-                    color: Highcharts.getOptions().colors[1],
-                    radius: '79%',
-                    innerRadius: '65%',
-                    y: underConstruction
-                }],
-            }, {
-                name: 'Inactive',
-                data: [{
-                    color: Highcharts.getOptions().colors[2],
-                    radius: '64%',
-                    innerRadius: '50%',
-                    y: Inactive
-                }],
+                    name: 'Operational',
+                    y: operational,
+                    color: Highcharts.getOptions().colors[0]
+                }, {
+                    name: 'Under Construction',
+                    y: underConstruction,
+                    color: Highcharts.getOptions().colors[1]
+                }, {
+                    name: 'Inactive',
+                    y: inactive,
+                    color: Highcharts.getOptions().colors[2]
+                }]
             }]
         });
-    } 
+    }
+    
 
     function aghosh_homes_per_week(){
         const ahic = chartData.aghosh_homes_interval_count;
@@ -589,7 +532,7 @@ function renderHighcharts(data) {
     }, 100);
     setTimeout(() => {
         aghosh_home_statuses()
-    }, 500);
+    }, 100);
     setTimeout(() => {
         aghosh_homes_per_week()
     }, 100);

@@ -243,13 +243,14 @@ class ProgramEnrollmentTool(Document):
 				continue
 
 			donor_list = student.selected_donors.split(", ")
-
+			print(f"this is my donor list:{donor_list}")
 			for donor in donor_list:
 				sponsorship = frappe.new_doc("Sponsorship")
 				sponsorship.student_applicant = student.student_applicant
 				sponsorship.aghosh_home = self.aghosh_home1
 				sponsorship.donor_id = donor
 				sponsorship.insert(ignore_permissions=True)
+				sponsorship.save()
 				
 		frappe.msgprint(_("Sponsorship records created successfully"), alert=True)
 

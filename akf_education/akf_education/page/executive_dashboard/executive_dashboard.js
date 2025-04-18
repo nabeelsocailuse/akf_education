@@ -403,7 +403,7 @@ function renderHighcharts(data) {
                         format: '{point.name}: {point.y}',
                         distance: 8,
                         style: {
-                            fontSize: '12px'
+                            fontSize: '13px'
                         }
                     }
                 }

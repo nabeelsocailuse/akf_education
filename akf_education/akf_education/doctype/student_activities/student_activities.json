@@ -7,7 +7,9 @@
  "engine": "InnoDB",
  "field_order": [
   "student_id",
+  "aghosh_home_id",
   "column_break_klaj",
+  "student_name",
   "aghosh_home",
   "activities_section",
   "activity_name",
@@ -30,10 +32,10 @@
  ],
  "fields": [
   {
-   "fetch_from": "student_id.current_aghosh_id",
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
    "fieldname": "aghosh_home",
    "fieldtype": "Data",
-   "label": "Aghosh Home"
+   "label": "Aghosh Home Name"
   },
   {
    "fieldname": "activities_section",
@@ -134,11 +136,23 @@
    "fieldname": "table_drawing",
    "fieldtype": "Table",
    "options": "Children Drawings"
+  },
+  {
+   "fetch_from": "student_id.first_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name"
+  },
+  {
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-08 16:02:39.309185",
+ "modified": "2025-04-18 11:58:02.090178",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Activities",

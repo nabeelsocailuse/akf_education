@@ -401,8 +401,9 @@ function renderHighcharts(data) {
                     dataLabels: {
                         enabled: true,
                         format: '{point.name}: {point.y}',
+                        distance: 8,
                         style: {
-                            fontSize: '13px'
+                            fontSize: '12px'
                         }
                     }
                 }

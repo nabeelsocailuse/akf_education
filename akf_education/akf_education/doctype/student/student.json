@@ -307,7 +307,6 @@
   {
    "fieldname": "exit_tab",
    "fieldtype": "Tab Break",
-   "hidden": 1,
    "label": "Exit"
   },
   {
@@ -319,7 +318,6 @@
   {
    "fieldname": "customer_details_tab",
    "fieldtype": "Tab Break",
-   "hidden": 1,
    "label": "Customer Details"
   },
   {
@@ -347,7 +345,7 @@
   {
    "fieldname": "outfit_measurment_tab",
    "fieldtype": "Tab Break",
-   "label": "Outfit Measurment"
+   "label": "Outfit Measurement"
   },
   {
    "fieldname": "child_height",
@@ -376,7 +374,7 @@
   {
    "fieldname": "orphan_history_tab",
    "fieldtype": "Tab Break",
-   "label": "Orphan History"
+   "label": "Student History"
   },
   {
    "fieldname": "connections_section",
@@ -607,7 +605,7 @@
    "link_fieldname": "orphan_name"
   }
  ],
- "modified": "2025-04-10 14:44:57.377682",
+ "modified": "2025-04-17 18:31:45.173858",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

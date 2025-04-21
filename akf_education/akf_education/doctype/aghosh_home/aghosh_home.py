@@ -15,11 +15,7 @@ class AghoshHome(Document):
             
             
             
-            
-            
-            
-            
-            
+                        
             
 @frappe.whitelist()
 def get_tehsils_by_district(district):
@@ -29,14 +25,13 @@ def get_tehsils_by_district(district):
     # Initialize an empty list to store tehsils
     tehsil_list = []
     
-    # Loop through the child table 'select_tehsil' to get tehsil names
     for row in district_doc.select_tehsil:
         tehsil_list.append({
             "tehsil_name": row.tehsil  
         })
     
-    # Return the list of tehsils
     return tehsil_list
 
 
+     
      

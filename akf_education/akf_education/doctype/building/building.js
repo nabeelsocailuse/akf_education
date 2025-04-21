@@ -11,7 +11,7 @@ frappe.ui.form.on("Building", {
 });
 
 function toggle_principle_field(frm) {
-    if (frm.doc.type_enum === "School") {
+    if (frm.doc.type === "School") {
         frm.set_df_property("principle_name", "reqd", 1);
         frm.toggle_display("principle_name", true); 
     } else {

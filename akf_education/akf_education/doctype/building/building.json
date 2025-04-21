@@ -49,7 +49,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:doc.type==\"School\"",
    "fieldname": "name_of_school",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -95,7 +94,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-14 11:37:03.321530",
+ "modified": "2025-04-21 11:19:52.841878",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",

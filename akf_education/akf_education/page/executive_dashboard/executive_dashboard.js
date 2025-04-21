@@ -383,7 +383,7 @@ function renderHighcharts(data) {
         Highcharts.chart('speedygauge', {
             chart: {
                 type: 'pie',
-                height: Math.min(window.innerHeight * 0.5, 300),
+                height: Math.min(window.innerHeight * 0.5, 300), 
             },
     
             title: {

@@ -70,7 +70,7 @@
   {
    "fieldname": "aghosh_home",
    "fieldtype": "Link",
-   "label": "Aghosh Home",
+   "label": "Aghosh Home ID",
    "options": "Aghosh Home"
   },
   {
@@ -201,12 +201,12 @@
    "fetch_if_empty": 1,
    "fieldname": "ah_name",
    "fieldtype": "Data",
-   "label": "AH Name"
+   "label": "Aghosh Home Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-16 18:25:18.256558",
+ "modified": "2025-04-18 17:48:24.278118",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

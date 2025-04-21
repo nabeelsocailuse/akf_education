@@ -12,11 +12,12 @@
   "route",
   "published",
   "enable_admission_application",
+  "name_of_aghosh",
   "column_break_3",
   "academic_year",
   "admission_start_date",
   "admission_end_date",
-  "name_of_aghosh",
+  "aghosh_home_name",
   "section_break_5",
   "program_details",
   "introduction"
@@ -95,14 +96,20 @@
   {
    "fieldname": "name_of_aghosh",
    "fieldtype": "Link",
-   "label": "Name Of Aghosh",
+   "label": "Aghosh Home ID",
    "options": "Aghosh Home"
+  },
+  {
+   "fetch_from": "name_of_aghosh.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name"
   }
  ],
  "has_web_view": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2025-04-10 14:46:05.629012",
+ "modified": "2025-04-18 17:40:18.959597",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Admission",

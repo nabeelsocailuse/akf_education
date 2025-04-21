@@ -20,13 +20,13 @@ frappe.ui.form.on('Student', {
       })
     }
 
-    frappe.db
-      .get_single_value('Education Settings', 'user_creation_skip')
-      .then((r) => {
-        if (cint(r) !== 1) {
-          frm.set_df_property('student_email_id', 'reqd', 1)
-        }
-      })
+    // frappe.db
+    //   .get_single_value('Education Settings', 'user_creation_skip')
+    //   .then((r) => {
+    //     if (cint(r) !== 1) {
+    //       frm.set_df_property('student_email_id', 'reqd', 1)
+    //     }
+    //   })
   },
 })
 

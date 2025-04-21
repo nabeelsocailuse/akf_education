@@ -243,7 +243,7 @@ class ProgramEnrollmentTool(Document):
 				continue
 
 			donor_list = student.selected_donors.split(", ")
-			print(f"this is my donor list:{donor_list}")
+			# print(f"this is my donor list:{donor_list}")
 			for donor in donor_list:
 				sponsorship = frappe.new_doc("Sponsorship")
 				sponsorship.student_applicant = student.student_applicant

@@ -28,7 +28,7 @@
   "disability",
   "date_of_admission",
   "hifz",
-  "student_mobile_number",
+  "guardian_mobile_number",
   "naming_series",
   "user",
   "student_applicant",
@@ -54,9 +54,11 @@
   "mothers_details_section",
   "mother_name",
   "mother_cnic",
+  "date_of_death",
   "column_break_o7lm",
   "contact_number",
   "mother_alive_status",
+  "reason_of_death",
   "section_break_18",
   "guardians",
   "section_break_20",
@@ -126,12 +128,14 @@
   {
    "fieldname": "user",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "User ID",
    "options": "User"
   },
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Naming Series",
    "no_copy": 1,
    "options": "EDU-STU-.YYYY.-",
@@ -140,16 +144,10 @@
   {
    "fieldname": "student_email_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "in_global_search": 1,
    "label": "Student Email Address",
-   "reqd": 1,
    "unique": 1
-  },
-  {
-   "fieldname": "student_mobile_number",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "label": "Student Mobile Number"
   },
   {
    "default": "Today",
@@ -307,6 +305,7 @@
   {
    "fieldname": "exit_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Exit"
   },
   {
@@ -318,6 +317,7 @@
   {
    "fieldname": "customer_details_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Customer Details"
   },
   {
@@ -447,7 +447,7 @@
   },
   {
    "fieldname": "father_date_of_death",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "Father Date of Death"
   },
   {
@@ -492,7 +492,7 @@
   },
   {
    "fieldname": "mother_cnic",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Mother CNIC"
   },
   {
@@ -540,6 +540,24 @@
    "fieldname": "date_of_admission",
    "fieldtype": "Date",
    "label": "Date Of Admission"
+  },
+  {
+   "depends_on": "eval:doc.mother_alive_status == \"Death\"\n",
+   "fieldname": "date_of_death",
+   "fieldtype": "Date",
+   "label": "Date Of Death"
+  },
+  {
+   "depends_on": "eval:doc.mother_alive_status == \"Death\"\n",
+   "fieldname": "reason_of_death",
+   "fieldtype": "Data",
+   "label": "Reason Of Death"
+  },
+  {
+   "fieldname": "guardian_mobile_number",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Guardian Mobile Number"
   }
  ],
  "image_field": "image",
@@ -605,7 +623,7 @@
    "link_fieldname": "orphan_name"
   }
  ],
- "modified": "2025-04-17 18:31:45.173858",
+ "modified": "2025-04-21 11:22:09.909053",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",
@@ -640,9 +658,7 @@
   }
  ],
  "show_name_in_global_search": 1,
- "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "title_field": "student_name"
+ "states": []
 }

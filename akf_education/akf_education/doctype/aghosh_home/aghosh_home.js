@@ -7,7 +7,7 @@ frappe.ui.form.on("Aghosh Home", {
             updateTehsilOptions(frm, frm.doc.district);
         }
     }
-
+    
 });
 
 

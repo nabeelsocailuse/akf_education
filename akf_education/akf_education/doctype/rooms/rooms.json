@@ -10,6 +10,7 @@
   "aghosh_home",
   "building",
   "building_name",
+  "school_name",
   "room_number",
   "type_enum",
   "building_abbr",
@@ -17,6 +18,7 @@
   "capacity",
   "occupied_status",
   "floor_number",
+  "ah_name",
   "room_abbr"
  ],
  "fields": [
@@ -64,7 +66,7 @@
   {
    "fieldname": "aghosh_home",
    "fieldtype": "Link",
-   "label": "Aghosh Home",
+   "label": "AH ID",
    "options": "Aghosh Home"
   },
   {
@@ -86,12 +88,26 @@
    "fetch_from": "building.building_name",
    "fieldname": "building_name",
    "fieldtype": "Data",
-   "label": "Building Name"
+   "label": "Building Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "building.name_of_school",
+   "fieldname": "school_name",
+   "fieldtype": "Data",
+   "label": "School Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "aghosh_home.aghosh_home_name",
+   "fieldname": "ah_name",
+   "fieldtype": "Data",
+   "label": "AH Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-10 13:14:18.362538",
+ "modified": "2025-04-21 15:00:09.491416",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Rooms",

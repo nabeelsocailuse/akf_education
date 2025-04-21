@@ -113,7 +113,7 @@
   {
    "fieldname": "aghosh_home",
    "fieldtype": "Link",
-   "label": "Aghosh Home",
+   "label": "Aghosh Home ID",
    "options": "Aghosh Home"
   },
   {
@@ -121,12 +121,13 @@
    "fetch_if_empty": 1,
    "fieldname": "ah_name",
    "fieldtype": "Data",
-   "label": "AH Name"
+   "label": "AH Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-16 18:30:09.847505",
+ "modified": "2025-04-21 17:32:48.863060",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "External School",

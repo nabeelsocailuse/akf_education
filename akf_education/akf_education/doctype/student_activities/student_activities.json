@@ -9,8 +9,8 @@
   "student_id",
   "student_name",
   "column_break_klaj",
-  "aghosh_home",
   "aghosh_home_id",
+  "aghosh_home",
   "activities_section",
   "activity_name",
   "location",
@@ -32,7 +32,6 @@
  ],
  "fields": [
   {
-   "depends_on": "eval:doc.aghosh_home_id",
    "fetch_from": "aghosh_home_id.aghosh_home_name",
    "fieldname": "aghosh_home",
    "fieldtype": "Data",
@@ -155,7 +154,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-21 11:23:25.446229",
+ "modified": "2025-04-21 15:10:21.459672",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Activities",

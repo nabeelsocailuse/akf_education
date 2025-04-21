@@ -8,6 +8,7 @@
   "get_students_from",
   "program",
   "student_batch",
+  "ah_name",
   "column_break_3",
   "academic_year",
   "aghosh_home1",
@@ -205,14 +206,21 @@
   {
    "fieldname": "aghosh_home1",
    "fieldtype": "Link",
-   "label": "Aghosh Home",
+   "label": "AH ID",
    "options": "Aghosh Home"
+  },
+  {
+   "fetch_from": "aghosh_home1.aghosh_home_name",
+   "fieldname": "ah_name",
+   "fieldtype": "Data",
+   "label": "AH Name",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-04-16 18:20:26.741685",
+ "modified": "2025-04-21 15:57:41.272378",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment Tool",

@@ -4,6 +4,7 @@
 
 import frappe
 from frappe import _
+from datetime import date
 from frappe.desk.form.linked_with import get_linked_doctypes
 from frappe.model.document import Document
 from frappe.utils import getdate, today
@@ -24,11 +25,22 @@ class Student(Document):
 		if self.student_applicant:
 			self.check_unique()
 			self.update_applicant_status()
-
-	def on_update(self):
-		# for each student check whether a customer exists or not if it does not exist then create a customer with customer group student
-		# This prevents from polluting users data
-		self.set_missing_customer_details()
+   
+	def before_save(self):
+			if self.date_of_birth:
+				self.age = self.calculate_age(self.date_of_birth)
+    
+    
+            	 	
+	# def on_update(self):
+	# 	# for each student check whether a customer exists or not if it does not exist then create a customer with customer group student
+	# 	# This prevents from polluting users data
+	# 	self.set_missing_customer_details()
+  
+	def calculate_age(self, dob):
+		today = date.today()
+		return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+		
 
 	def set_missing_customer_details(self):
 		self.set_customer_group()
@@ -69,6 +81,8 @@ class Student(Document):
 			and getdate(self.joining_date) > getdate(self.date_of_leaving)
 		):
 			frappe.throw(_("Joining Date can not be greater than Leaving Date"))
+   
+
 
 	def validate_user(self):
 		"""Create a website user for student creation if not already exists"""
@@ -259,3 +273,22 @@ def get_timeline_data(doctype, name):
 			name,
 		)
 	)
+ 
+
+
+
+
+		
+    
+
+
+    
+
+
+
+
+
+
+
+
+

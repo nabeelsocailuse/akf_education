@@ -190,7 +190,8 @@
    "fetch_from": "aghosh_home.aghosh_home_name",
    "fieldname": "ah_name",
    "fieldtype": "Data",
-   "label": "AH Name"
+   "label": "AH Name",
+   "read_only": 1
   }
  ],
  "icon": "fa fa-flag",
@@ -201,7 +202,7 @@
    "link_fieldname": "fee_structure"
   }
  ],
- "modified": "2025-04-16 17:40:32.372137",
+ "modified": "2025-04-21 17:34:35.938630",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fee Structure",

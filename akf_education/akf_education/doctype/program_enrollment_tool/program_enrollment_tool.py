@@ -30,6 +30,11 @@ class ProgramEnrollmentTool(Document):
 			frappe.throw(_("Mandatory field - Program"))
 		elif not self.academic_year:
 			frappe.throw(_("Mandatory field - Academic Year"))
+		elif not self.program:
+			frappe.throw ("Select Program")
+		elif not self.aghosh_home1:
+			frappe.throw ("Select Aghosh Home")
+   
 		else:
 			if self.get_students_from == "Student Applicant":
 				student_applicant = frappe.qb.DocType("Student Applicant")
@@ -42,6 +47,7 @@ class ProgramEnrollmentTool(Document):
 					)
 					.where(student_applicant.application_status == "Approved")
 					.where(student_applicant.program == self.program)
+					.where(student_applicant.aghosh_home == self.aghosh_home1)
 					.where(student_applicant.academic_year == self.academic_year)
 				)
 				if self.academic_term:
@@ -106,8 +112,8 @@ class ProgramEnrollmentTool(Document):
 				frappe.throw("please select bed for the student first")
 			if not stud.school_type1:
 				frappe.throw("Please select student type.")
-			if not stud.selected_donors:
-				frappe.throw("Select Donor and Press Save Button First")
+			# if not stud.selected_donors:
+			# 	frappe.throw("Select Donor and Press Save Button First")
 			frappe.publish_realtime(
 				"program_enrollment_tool", dict(progress=[i + 1, total]), user=frappe.session.user
 			)
@@ -154,96 +160,38 @@ class ProgramEnrollmentTool(Document):
   
   
   
-	
-	# def creating_orphan(self):
-	# 	total = len(self.students)
-	# 	# frappe.msgprint(_("Total Students: {0}").format(total))
-
-	# 	for i, stud in enumerate(self.students):
-	# 		try:
-	# 			frappe.publish_realtime(
-	# 				"program_enrollment_tool", {"progress": [i + 1, total]}, user=frappe.session.user
-	# 			)
-
-	# 			# frappe.msgprint(_("Processing student {0}/{1}").format(i + 1, total))
-
-	# 			if not stud.student_name:  
-	# 				# frappe.msgprint(_("Skipping student {0} - No valid student name").format(i + 1))
-	# 				continue
-
-	# 			# frappe.msgprint(_("Creating orphan record for student: {0}").format(stud.student_name))
-
-	# 			orphan = frappe.new_doc("Orphan")
-	# 			orphan.child_name = stud.student_name 
-	# 			orphan.current_aghosh_id = self.aghosh_home1 
-	# 			orphan.save()
-
-	# 			frappe.msgprint(_("Orphan record created successfully for {0}.").format(stud.student_name), alert=1)
-
-	# 		except Exception as e:
-	# 			frappe.log_error(frappe.get_traceback(), "Creating Orphan Error")
-	# 			# frappe.msgprint(_("An error occurred: {0}").format(str(e)))
-    
-    
-    
-    
-
-	# @frappe.whitelist()
-	# def create_sponsorships(self):
-	# 	students = frappe.get_all(
-	# 		"Program Enrollment Tool Student",
-	# 		fields=["student_applicant", "student_name", "selected_donors"]
-	# 	)
-
-	# 	total = len(students)
-
-	# 	if not students:
-	# 		frappe.throw(_("No students found in Program Enrollment Tool Student"))
-
-	# 	for i, student in enumerate(students):
-	# 		frappe.publish_realtime(
-	# 			"program_enrollment_tool", {"progress": [i + 1, total]}, user=frappe.session.user
-	# 		)
-
-	# 		student_applicant = student.get("student_applicant")
-	# 		student_name = student.get("student_name")
-	# 		selected_donors = student.get("selected_donors")
-
-	# 		if not student_applicant or not student_name or not selected_donors:
-	# 			frappe.log_error(f"Skipping record due to missing data: {student}", "Sponsorship Creation")
-	# 			continue
-
-	# 		donors = selected_donors.split(", ")
-
-	# 		for donor in donors:
-	# 			sponsorship = frappe.new_doc("Sponsorship")
-	# 			sponsorship.student_applicant = student_applicant
-	# 			sponsorship.aghosh_home = self.aghosh_home1
-	# 			sponsorship.donor_id = donor
-	# 			sponsorship.save()
-
-	# 	frappe.msgprint(_("Sponsorship records created successfully").format(total), alert=1)
-  
-  
-  #Optimized Version 
+  	#Optimized Version 
 	@frappe.whitelist()
 	def create_sponsorships(self):
 		if not self.students:
 			frappe.throw(_("No students found in the Students table"))
 
 		total = len(self.students)
+		sponsorship_created = 0 
 
 		for i, student in enumerate(self.students):
 			frappe.publish_realtime(
 				"program_enrollment_tool", {"progress": [i + 1, total]}, user=frappe.session.user
 			)
 
-			if not all([student.student_applicant, student.student_name, student.selected_donors]):
-				frappe.log_error(f"Skipping record due to missing data: {student.as_dict()}", "Sponsorship Creation")
+			# Skip student if no donors selected
+			if not student.selected_donors:
+				frappe.log_error(
+					title="Sponsorship Creation",
+					message="Skipping sponsorship creation due to missing donors.\nStudent: {0}".format(student.student_name or "Unknown")
+				)
+				continue  # Skip rest of this iteration entirely
+
+			# Now only check this if donor(s) exist
+			if not all([student.student_applicant, student.student_name]):
+				frappe.log_error(
+					title="Sponsorship Creation",
+					message="Skipping sponsorship creation due to missing applicant or name.\nDetails: {0}".format(frappe.as_json(student.as_dict()))
+				)
 				continue
 
+			# Create sponsorships for each donor
 			donor_list = student.selected_donors.split(", ")
-			# print(f"this is my donor list:{donor_list}")
 			for donor in donor_list:
 				sponsorship = frappe.new_doc("Sponsorship")
 				sponsorship.student_applicant = student.student_applicant
@@ -251,8 +199,13 @@ class ProgramEnrollmentTool(Document):
 				sponsorship.donor_id = donor
 				sponsorship.insert(ignore_permissions=True)
 				sponsorship.save()
-				
-		frappe.msgprint(_("Sponsorship records created successfully"), alert=True)
+				sponsorship_created += 1
+
+		if sponsorship_created > 0:
+			frappe.msgprint(_("Sponsorship records created successfully"), alert=True)
+		else:
+			frappe.msgprint(_("No Sponsorship records were created."), alert=True)
+
 
 
 

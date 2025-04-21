@@ -28,6 +28,16 @@ frappe.ui.form.on('Student', {
     //     }
     //   })
   },
+
+  student_applicant:function(frm){
+    calculate_age(frm);
+
+  },
+
+    date_of_birth1: function(frm) {
+      calculate_age(frm);
+  }
+  
 })
 
 frappe.ui.form.on('Student Guardian', {
@@ -43,3 +53,24 @@ frappe.ui.form.on('Student Guardian', {
       }
   },
 })
+
+
+
+function calculate_age(frm) {
+  const dob = frm.doc.date_of_birth;
+  if (dob) {
+      const birthDate = new Date(dob);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+
+      frm.set_value('age', age);
+  }
+}
+
+
+

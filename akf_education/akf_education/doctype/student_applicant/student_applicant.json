@@ -202,6 +202,7 @@
   {
    "fieldname": "student_email_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Student Email Address"
   },
   {
@@ -533,7 +534,7 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2025-04-15 11:31:59.965699",
+ "modified": "2025-04-21 11:32:32.310525",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

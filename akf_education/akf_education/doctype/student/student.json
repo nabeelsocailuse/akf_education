@@ -144,7 +144,6 @@
   {
    "fieldname": "student_email_id",
    "fieldtype": "Data",
-   "hidden": 1,
    "in_global_search": 1,
    "label": "Student Email Address",
    "unique": 1
@@ -623,7 +622,7 @@
    "link_fieldname": "orphan_name"
   }
  ],
- "modified": "2025-04-21 11:22:09.909053",
+ "modified": "2025-04-21 11:31:36.052129",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

@@ -2,10 +2,10 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Building", {
-    refresh: function(frm) {
-        toggle_principle_field(frm);
-    },
-    type_enum: function(frm) {
+    // refresh: function(frm) {
+    //     toggle_principle_field(frm);
+    // },
+    type: function(frm) {
         toggle_principle_field(frm);
     }
 });

@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh\",\"col\":4}},{\"id\":\"TT1WmR1Z5z\",\"type\":\"card\",\"data\":{\"card_name\":\"Child Information\",\"col\":4}},{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kR1KsRALK2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Project Approval Form\",\"col\":3}},{\"id\":\"ucTZROCwHC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Donor\",\"col\":3}},{\"id\":\"MEi-Nkg1Ux\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Enrollment Tool\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"i5xgjBF1Ds\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sponsorship\",\"col\":3}},{\"id\":\"GO3xJCuNsT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9a8zjYSZ9n\",\"type\":\"card\",\"data\":{\"card_name\":\"Dashboard\",\"col\":4}},{\"id\":\"_6GQzCddTG\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"bBK_6mgg-d\",\"type\":\"card\",\"data\":{\"card_name\":\"Sponsorship\",\"col\":4}},{\"id\":\"fI5KERZtUN\",\"type\":\"card\",\"data\":{\"card_name\":\"Fees\",\"col\":4}},{\"id\":\"gqXX3hzh98\",\"type\":\"card\",\"data\":{\"card_name\":\"Admission & Enrollment\",\"col\":4}},{\"id\":\"fwOriggX-K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports Master\",\"col\":4}}]",
+ "content": "[{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh\",\"col\":4}},{\"id\":\"TT1WmR1Z5z\",\"type\":\"card\",\"data\":{\"card_name\":\"Child Information\",\"col\":4}},{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kR1KsRALK2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Project Approval Form\",\"col\":3}},{\"id\":\"ucTZROCwHC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Donor\",\"col\":3}},{\"id\":\"MEi-Nkg1Ux\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Enrollment Tool\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"i5xgjBF1Ds\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sponsorship\",\"col\":3}},{\"id\":\"EcW6ngz9mP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visitor Management System\",\"col\":3}},{\"id\":\"qV2WaYekXm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Activities\",\"col\":3}},{\"id\":\"GO3xJCuNsT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9a8zjYSZ9n\",\"type\":\"card\",\"data\":{\"card_name\":\"Dashboard\",\"col\":4}},{\"id\":\"_6GQzCddTG\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"bBK_6mgg-d\",\"type\":\"card\",\"data\":{\"card_name\":\"Sponsorship\",\"col\":4}},{\"id\":\"fI5KERZtUN\",\"type\":\"card\",\"data\":{\"card_name\":\"Fees\",\"col\":4}},{\"id\":\"gqXX3hzh98\",\"type\":\"card\",\"data\":{\"card_name\":\"Admission & Enrollment\",\"col\":4}},{\"id\":\"fwOriggX-K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports Master\",\"col\":4}}]",
  "creation": "2025-02-25 20:22:56.988393",
  "custom_blocks": [],
  "docstatus": 0,
@@ -316,7 +316,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-04-11 18:23:57.433914",
+ "modified": "2025-04-21 12:35:15.848161",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh",
@@ -356,6 +356,22 @@
    "doc_view": "List",
    "label": "Project Approval Form",
    "link_to": "Project Approval Form",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Visitor Management System",
+   "link_to": "Visitor Management System",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Student Activities",
+   "link_to": "Student Activities",
    "stats_filter": "[]",
    "type": "DocType"
   },

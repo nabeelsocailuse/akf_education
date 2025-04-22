@@ -45,6 +45,7 @@
   "column_break_lnba",
   "father_dob",
   "father_death_place",
+  "fathet_date_of_death",
   "mother_details",
   "name2",
   "cnic",
@@ -420,7 +421,7 @@
   {
    "fieldname": "mother_dob",
    "fieldtype": "Date",
-   "label": "Date Of Birth3"
+   "label": "Date Of Birth"
   },
   {
    "fieldname": "column_break_snkq",
@@ -530,11 +531,16 @@
    "fieldtype": "Select",
    "label": "Gender Guardian",
    "options": "\nMale\nFemale"
+  },
+  {
+   "fieldname": "fathet_date_of_death",
+   "fieldtype": "Date",
+   "label": "Date Of Death"
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2025-04-21 11:32:32.310525",
+ "modified": "2025-04-22 16:22:30.018334",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

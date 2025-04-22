@@ -10,7 +10,7 @@ frappe.ui.form.on('Student Applicant', {
         },
       }
     })
-    console.log("))))))))))))))))))))))))")
+    
 
     if (!frm.is_new() && frm.doc.application_status === 'Applied') {
       frm.add_custom_button(

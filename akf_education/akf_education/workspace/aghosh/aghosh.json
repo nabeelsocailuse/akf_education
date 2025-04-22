@@ -123,75 +123,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Child Information",
-   "link_count": 6,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Student",
-   "link_count": 0,
-   "link_to": "Student",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "MENTAL STATUS EXAMINATION",
-   "link_count": 0,
-   "link_to": "Mental Status Examination",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Personal Assessment",
-   "link_count": 0,
-   "link_to": "Personal Assessment",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Counsling Session",
-   "link_count": 0,
-   "link_to": "Counsling Session",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Health Checkup",
-   "link_count": 0,
-   "link_to": "Health Checkup",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Healthcare Practition",
-   "link_count": 0,
-   "link_to": "Healthcare Practitioner",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Sponsorship",
    "link_count": 2,
    "link_type": "DocType",
@@ -314,9 +245,78 @@
    "link_type": "Page",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Child Information",
+   "link_count": 6,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Student",
+   "link_count": 0,
+   "link_to": "Student",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Mental Status Examination",
+   "link_count": 0,
+   "link_to": "Mental Status Examination",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Personal Assessment",
+   "link_count": 0,
+   "link_to": "Personal Assessment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Counsling Session",
+   "link_count": 0,
+   "link_to": "Counsling Session",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Health Checkup",
+   "link_count": 0,
+   "link_to": "Health Checkup",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Healthcare Practition",
+   "link_count": 0,
+   "link_to": "Healthcare Practitioner",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-04-21 12:35:15.848161",
+ "modified": "2025-04-22 16:18:55.642115",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh",

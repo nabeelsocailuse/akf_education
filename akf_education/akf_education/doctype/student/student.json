@@ -310,6 +310,7 @@
   {
    "fieldname": "connections_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Connections",
    "show_dashboard": 1
   },
@@ -435,21 +436,24 @@
    "options": "\nYes\nNo"
   },
   {
+   "fetch_from": "student_applicant.name1",
    "fieldname": "father_name",
    "fieldtype": "Data",
    "label": "Father Name"
   },
   {
    "fieldname": "father_cnic",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Father CNIC"
   },
   {
+   "fetch_from": "student_applicant.fathet_date_of_death",
    "fieldname": "father_date_of_death",
    "fieldtype": "Date",
    "label": "Father Date of Death"
   },
   {
+   "fetch_from": "student_applicant.attach_death_certificate",
    "fieldname": "attach_death_certificate",
    "fieldtype": "Attach",
    "label": "Attach Death Certificate"
@@ -485,11 +489,13 @@
    "label": "Mother's Details"
   },
   {
+   "fetch_from": "student_applicant.name2",
    "fieldname": "mother_name",
    "fieldtype": "Data",
    "label": "Mother Name"
   },
   {
+   "fetch_from": "student_applicant.cnic",
    "fieldname": "mother_cnic",
    "fieldtype": "Data",
    "label": "Mother CNIC"
@@ -542,12 +548,14 @@
   },
   {
    "depends_on": "eval:doc.mother_alive_status == \"Death\"\n",
+   "fetch_from": "student_applicant.place_of_death",
    "fieldname": "date_of_death",
    "fieldtype": "Date",
    "label": "Date Of Death"
   },
   {
    "depends_on": "eval:doc.mother_alive_status == \"Death\"\n",
+   "fetch_from": "student_applicant.reason_of_death",
    "fieldname": "reason_of_death",
    "fieldtype": "Data",
    "label": "Reason Of Death"
@@ -622,7 +630,7 @@
    "link_fieldname": "orphan_name"
   }
  ],
- "modified": "2025-04-21 18:45:51.804716",
+ "modified": "2025-04-22 18:54:39.638989",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

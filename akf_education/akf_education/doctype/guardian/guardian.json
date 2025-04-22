@@ -13,6 +13,9 @@
   "cnic_number",
   "email_address",
   "mobile_number",
+  "gender_guardian",
+  "address",
+  "occupation_details",
   "alternate_number",
   "date_of_birth",
   "user",
@@ -22,6 +25,7 @@
   "occupation",
   "designation",
   "work_address",
+  "student_applicant",
   "image",
   "section_break_13",
   "students",
@@ -48,7 +52,8 @@
    "fieldtype": "Data",
    "in_global_search": 1,
    "in_list_view": 1,
-   "label": "Mobile Number"
+   "label": "Mobile Number",
+   "read_only": 1
   },
   {
    "fieldname": "alternate_number",
@@ -74,7 +79,8 @@
   {
    "fieldname": "education",
    "fieldtype": "Data",
-   "label": "Education"
+   "label": "Education",
+   "read_only": 1
   },
   {
    "fieldname": "occupation",
@@ -124,7 +130,8 @@
   {
    "fieldname": "relation_with_child",
    "fieldtype": "Data",
-   "label": "Relation With Child"
+   "label": "Relation With Child",
+   "read_only": 1
   },
   {
    "fieldname": "cnic_number",
@@ -135,12 +142,39 @@
    "fieldname": "marital_status",
    "fieldtype": "Select",
    "label": "Marital status",
-   "options": "Married\nEngaged\nSingle"
+   "options": "Married\nEngaged\nSingle",
+   "read_only": 1
+  },
+  {
+   "fieldname": "student_applicant",
+   "fieldtype": "Link",
+   "label": "Student Applicant",
+   "options": "Student Applicant",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gender_guardian",
+   "fieldtype": "Select",
+   "label": "Gender Guardian",
+   "options": "\nMale\nFemale",
+   "read_only": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "occupation_details",
+   "fieldtype": "Data",
+   "label": "Occupation Details",
+   "read_only": 1
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2025-04-09 14:39:15.651356",
+ "modified": "2025-04-22 15:33:40.560047",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Guardian",

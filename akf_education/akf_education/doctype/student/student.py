@@ -27,11 +27,12 @@ class Student(Document):
 			self.update_applicant_status()
    
 	def before_save(self):
-			if self.date_of_birth:
-				self.age = self.calculate_age(self.date_of_birth)
-    
-    
-            	 	
+		if self.date_of_birth:
+			self.age = self.calculate_age(self.date_of_birth)
+
+		self.set_guardians_from_applicant()
+		
+               	 	
 	# def on_update(self):
 	# 	# for each student check whether a customer exists or not if it does not exist then create a customer with customer group student
 	# 	# This prevents from polluting users data
@@ -40,6 +41,32 @@ class Student(Document):
 	def calculate_age(self, dob):
 		today = date.today()
 		return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+
+
+	def set_guardians_from_applicant(self):
+		if not self.student_applicant:
+			return
+
+		guardians = frappe.get_all(
+			"Guardian",
+			filters={"student_applicant": self.student_applicant},
+			fields=["name", "guardian_name", "relation_with_child", "mobile_number"]
+		)
+		frappe.msgprint(f"Guardians fetched: {frappe.as_json(guardians)}")
+		if not guardians:
+			frappe.msgprint("No guardians found for this applicant", alert=True)
+			return
+
+		# Clear existing guardians
+		self.guardians = []
+
+		for g in guardians:
+			self.append("guardians", {
+				"guardian": g.name,
+				"guardian_name": g.guardian_name or "",
+				"relation_with_child": g.relation_with_child or "",
+				"mobile_number": g.mobile_number or ""
+			})	
 		
 
 	def set_missing_customer_details(self):
@@ -258,6 +285,8 @@ class Student(Document):
 			return frappe.get_doc("Course Enrollment", enrollment_name)
 		else:
 			return enrollment
+
+
 
 
 def get_timeline_data(doctype, name):

@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "creation": "2016-09-01 14:28:39.174471",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "guardian",
+  "guardian_name",
+  "mobile_number",
+  "relation_with_child"
+ ],
+ "fields": [
+  {
+   "fieldname": "guardian",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Guardian",
+   "options": "Guardian",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "guardian.guardian_name",
+   "fieldname": "guardian_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Guardian Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Phone",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "relation_with_child",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Relation With Child"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2025-04-22 15:55:21.245132",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Student Guardian",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -27,10 +27,17 @@ frappe.ui.form.on('Student', {
     //       frm.set_df_property('student_email_id', 'reqd', 1)
     //     }
     //   })
+
+
+    
+    // if (frm.doc.student_applicant) {
+    //   set_guardians_from_applicant(frm);
+    // }
   },
 
   student_applicant:function(frm){
     calculate_age(frm);
+    set_guardians_from_applicant(frm);
 
   },
 
@@ -40,19 +47,20 @@ frappe.ui.form.on('Student', {
   
 })
 
-frappe.ui.form.on('Student Guardian', {
-  guardians_add: function (frm) {
-    frm.fields_dict['guardians'].grid.get_field('guardian').get_query =
-      function (doc) {
-        let guardian_list = []
-        if (!doc.__islocal) guardian_list.push(doc.guardian)
-        $.each(doc.guardians, function (idx, val) {
-          if (val.guardian) guardian_list.push(val.guardian)
-        })
-        return { filters: [['Guardian', 'name', 'not in', guardian_list]] }
-      }
-  },
-})
+
+// frappe.ui.form.on('Student Guardian', {
+//   guardians_add: function (frm) {
+//     frm.fields_dict['guardians'].grid.get_field('guardian').get_query =
+//       function (doc) {
+//         let guardian_list = []
+//         if (!doc.__islocal) guardian_list.push(doc.guardian)
+//         $.each(doc.guardians, function (idx, val) {
+//           if (val.guardian) guardian_list.push(val.guardian)
+//         })
+//         return { filters: [['Guardian', 'name', 'not in', guardian_list]] }
+//       }
+//   },
+// })
 
 
 
@@ -70,6 +78,52 @@ function calculate_age(frm) {
 
       frm.set_value('age', age);
   }
+}
+
+// 🔹 Get and set guardians from student_applicant
+function set_guardians_from_applicant(frm) {
+  fetch_guardians_for_applicant(frm.doc.student_applicant).then(guardians => {
+    if (guardians.length) {
+      set_guardians_in_child_table(frm, guardians);
+    } else {
+      frappe.show_alert({ message: __('No guardians found for this applicant'), indicator: 'orange' });
+    }
+  });
+}
+
+// 🔹 Fetch guardians related to student_applicant
+function fetch_guardians_for_applicant(student_applicant) {
+  return new Promise((resolve, reject) => {
+    frappe.call({
+      method: "frappe.client.get_list",
+      args: {
+        doctype: "Guardian",
+        filters: {
+          student_applicant: student_applicant 
+        },
+        fields: ["name", "guardian_name"]
+      },
+      callback: function (r) {
+        resolve(r.message || []);
+      },
+      error: function (err) {
+        reject(err);
+      }
+    });
+  });
+}
+
+// 🔹 Set guardians into the guardians child table
+function set_guardians_in_child_table(frm, guardians) {
+  frm.clear_table("guardians");
+  guardians.forEach(guardian => {
+    let row = frm.add_child("guardians");
+    row.guardian = guardian.name;
+    if (guardian.guardian_name) {
+      row.guardian_name = guardian.guardian_name;
+    }
+  });
+  frm.refresh_field("guardians");
 }
 
 

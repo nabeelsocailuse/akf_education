@@ -3,6 +3,7 @@
 
 frappe.provide('erpnext.accounts.dimensions')
 frappe.ui.form.on('Fee Structure', {
+
   company: function (frm) {
     erpnext.accounts.dimensions.update_dimension(frm, frm.doctype)
   },
@@ -16,6 +17,14 @@ frappe.ui.form.on('Fee Structure', {
         },
       }
     })
+
+    frm.set_query("external_school", function() {
+      return {
+          filters: {
+              aghosh_home: frm.doc.aghosh_home
+          }
+      };
+  })
 
     frm.set_query('receivable_account', function (doc) {
       return {

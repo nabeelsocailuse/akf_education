@@ -32,6 +32,7 @@
   "column_break_rduq",
   "orphan_id",
   "student_id",
+  "student_name",
   "date_of_death",
   "name_of_school",
   "date_of_birth"
@@ -132,7 +133,8 @@
    "fetch_from": "donor_id.donor_name",
    "fieldname": "donor_name",
    "fieldtype": "Data",
-   "label": "Donor Name"
+   "label": "Donor Name",
+   "read_only": 1
   },
   {
    "fetch_from": "donor_id.address",
@@ -201,12 +203,20 @@
    "fetch_if_empty": 1,
    "fieldname": "ah_name",
    "fieldtype": "Data",
-   "label": "Aghosh Home Name"
+   "label": "Aghosh Home Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_id.first_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-18 17:48:24.278118",
+ "modified": "2025-04-22 17:06:26.726721",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

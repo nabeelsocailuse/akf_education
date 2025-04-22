@@ -12,11 +12,12 @@
   "building_name",
   "name_of_school",
   "aghosh_home_name",
-  "principle_name",
   "column_break_crae",
   "capacity",
   "status",
-  "building_abbr"
+  "building_abbr",
+  "principal_id",
+  "principal_name"
  ],
  "fields": [
   {
@@ -37,12 +38,6 @@
    "in_list_view": 1,
    "label": "Maximum Capacity",
    "reqd": 1
-  },
-  {
-   "fieldname": "principle_name",
-   "fieldtype": "Link",
-   "label": "Principle Name",
-   "options": "Employee"
   },
   {
    "fieldname": "column_break_crae",
@@ -91,11 +86,24 @@
    "fieldname": "building_name",
    "fieldtype": "Data",
    "label": "Building Name"
+  },
+  {
+   "fieldname": "principal_id",
+   "fieldtype": "Link",
+   "label": "Principal ID",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "principal_id.employee_name",
+   "fieldname": "principal_name",
+   "fieldtype": "Data",
+   "label": "Principal Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-21 13:01:23.934334",
+ "modified": "2025-04-22 11:34:07.946832",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",

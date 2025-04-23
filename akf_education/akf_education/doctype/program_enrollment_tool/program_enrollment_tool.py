@@ -126,6 +126,7 @@ class ProgramEnrollmentTool(Document):
 				prog_enrollment.academic_year = self.new_academic_year
 				prog_enrollment.academic_term = self.new_academic_term
 				prog_enrollment.aghosh_home = self.aghosh_home1
+				prog_enrollment.student_applicant = stud.student_applicant
 				prog_enrollment.school_type = stud.school_type1
 				prog_enrollment.building = stud.building
 				prog_enrollment.room = stud.room
@@ -145,6 +146,7 @@ class ProgramEnrollmentTool(Document):
 				prog_enrollment.aghosh_home = self.aghosh_home1
 				prog_enrollment.school_type = stud.school_type1
 				prog_enrollment.building = stud.building
+				prog_enrollment.student_applicant = stud.student_applicant
 				prog_enrollment.room = stud.room
 				prog_enrollment.bed = stud.bed
 				prog_enrollment.external1 = stud.external
@@ -192,6 +194,7 @@ class ProgramEnrollmentTool(Document):
 
 			# Create sponsorships for each donor
 			donor_list = student.selected_donors.split(", ")
+			print(f"This is our donor{donor_list}")
 			for donor in donor_list:
 				sponsorship = frappe.new_doc("Sponsorship")
 				sponsorship.student_applicant = student.student_applicant

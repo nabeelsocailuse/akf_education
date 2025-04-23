@@ -36,6 +36,17 @@
   "boarding_student",
   "enrolled_courses",
   "courses",
+  "students_guardian_detail_section",
+  "student_applicant",
+  "guardian_name",
+  "gender_guardian",
+  "address",
+  "relation_with_child",
+  "occupation_detail",
+  "column_break_srgv",
+  "education",
+  "marital_status",
+  "mobile_number",
   "fees_tab",
   "section_break_7",
   "fees",
@@ -267,6 +278,68 @@
    "fieldtype": "Table",
    "label": "Components",
    "options": "Fee Component"
+  },
+  {
+   "fieldname": "students_guardian_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Students Guardian Detail"
+  },
+  {
+   "fetch_from": "student_applicant.name5",
+   "fieldname": "guardian_name",
+   "fieldtype": "Data",
+   "label": "Guardian Name"
+  },
+  {
+   "fetch_from": "student_applicant.gender_guardian",
+   "fieldname": "gender_guardian",
+   "fieldtype": "Data",
+   "label": "Gender Guardian"
+  },
+  {
+   "fetch_from": "student_applicant.address",
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fetch_from": "student_applicant.relation_with_child",
+   "fieldname": "relation_with_child",
+   "fieldtype": "Data",
+   "label": "Relation with Child"
+  },
+  {
+   "fieldname": "occupation_detail",
+   "fieldtype": "Data",
+   "label": "Occupation Detail"
+  },
+  {
+   "fetch_from": "student_applicant.education",
+   "fieldname": "education",
+   "fieldtype": "Data",
+   "label": "Education"
+  },
+  {
+   "fetch_from": "student_applicant.marital_status",
+   "fieldname": "marital_status",
+   "fieldtype": "Data",
+   "label": "Marital Status"
+  },
+  {
+   "fetch_from": "student_applicant.contact_number",
+   "fieldname": "mobile_number",
+   "fieldtype": "Phone",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "student_applicant",
+   "fieldtype": "Link",
+   "label": "Student Applicant",
+   "options": "Student Applicant"
+  },
+  {
+   "fieldname": "column_break_srgv",
+   "fieldtype": "Column Break"
   }
  ],
  "image_field": "image",
@@ -278,7 +351,7 @@
    "link_fieldname": "program_enrollment"
   }
  ],
- "modified": "2025-04-16 18:21:19.700862",
+ "modified": "2025-04-23 18:05:29.460063",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

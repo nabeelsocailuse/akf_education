@@ -32,6 +32,12 @@ class ProgramEnrollment(Document):
 		self.make_fee_records()
 		self.creating_fee_records()
 		self.create_course_enrollments()
+		self.create_or_update_guardian()
+  
+	# def before_insert(self):
+	# 	self.create_or_update_guardian()
+  
+  	
 
 	def on_cancel(self):
 		self.delete_course_enrollments()
@@ -62,6 +68,45 @@ class ProgramEnrollment(Document):
 
 		if date:
 			frappe.db.set_value("Student", self.student, "joining_date", date[0].enrollment_date)
+   
+   
+   
+	def create_or_update_guardian(self):
+		# Try to fetch an existing Guardian linked to this Student Applicant
+		guardian_doc = frappe.get_all(
+			"Guardian",
+			filters={"student_applicant": self.student_applicant},
+			fields=["name"]
+		)
+
+		if guardian_doc:
+			# Guardian exists - update it
+			guardian = frappe.get_doc("Guardian", guardian_doc[0].name)
+			guardian.guardian_name = self.guardian_name
+			guardian.gender_guardian = self.gender_guardian
+			guardian.address = self.address
+			guardian.relation_with_child = self.relation_with_child
+			guardian.occupation_details = self.occupation_detail
+			guardian.education = self.education
+			guardian.marital_status = self.marital_status
+			guardian.mobile_number = self.mobile_number
+			guardian.save(ignore_permissions=True)
+			frappe.msgprint(f"Guardian {guardian.name} updated for student {self.name}")
+		else:
+			# Guardian doesn't exist - create new one
+			guardian = frappe.new_doc("Guardian")
+			guardian.guardian_name = self.guardian_name
+			guardian.gender_guardian = self.gender_guardian
+			guardian.address = self.address
+			guardian.relation_with_child = self.relation_with_child
+			guardian.occupation_details = self.occupation_detail
+			guardian.education = self.education
+			guardian.marital_status = self.marital_status
+			guardian.mobile_number = self.mobile_number
+			guardian.student_applicant = self.student_applicant
+			guardian.insert(ignore_permissions=True)
+			guardian.save()
+			frappe.msgprint(f"Guardian {guardian.name} created for student {self.name}")  
 
 	def make_fee_records(self):
 		from education.education.api import get_fee_components
@@ -111,6 +156,8 @@ class ProgramEnrollment(Document):
     
 	def creating_fee_records(self):
      	# Create a new Fees document
+		if not self.components:
+			frappe.msgprint("Please Create Fee Structure for the Program")
 		fees_doc = frappe.new_doc("Fees")
 		fees_doc.student = self.student
 		fees_doc.program_enrollment = self.name

@@ -159,7 +159,6 @@
    "label": "Email"
   },
   {
-   "fetch_from": "donor_id.contact_no",
    "fieldname": "donor_category",
    "fieldtype": "Select",
    "label": "Donor Category",
@@ -216,7 +215,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-22 17:06:26.726721",
+ "modified": "2025-04-23 15:54:30.678469",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

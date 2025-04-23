@@ -3,6 +3,7 @@
 
 
 import frappe
+import re
 from frappe import _
 from datetime import date
 from frappe.desk.form.linked_with import get_linked_doctypes
@@ -10,6 +11,7 @@ from frappe.model.document import Document
 from frappe.utils import getdate, today
 from erpnext import get_default_currency
 from frappe.utils.nestedset import get_root_of
+from frappe.utils import validate_email_address
 
 from akf_education.akf_education.workspace.aghosh.utils import check_content_completion, check_quiz_completion
 
@@ -26,7 +28,7 @@ class Student(Document):
 			self.check_unique()
 			self.update_applicant_status()
    
-	def before_save(self):
+	def before_insert(self):
 		if self.date_of_birth:
 			self.age = self.calculate_age(self.date_of_birth)
 
@@ -111,26 +113,55 @@ class Student(Document):
    
 
 
+	# def validate_user(self):
+	# 	"""Create a website user for student creation if not already exists"""
+	# 	if not frappe.db.get_single_value(
+	# 		"Education Settings", "user_creation_skip"
+	# 	) and not frappe.db.exists("User", self.student_email_id):
+	# 		student_user = frappe.get_doc(
+	# 			{
+	# 				"doctype": "User",
+	# 				"first_name": self.first_name,
+	# 				"last_name": self.last_name,
+	# 				# "email": self.student_email_id,
+	# 				"gender": self.gender,
+	# 				# "send_welcome_email": 1,
+	# 				"user_type": "Website User",
+	# 			}
+	# 		)
+	# 		student_user.add_roles("Student")
+	# 		student_user.save(ignore_permissions=True)
+
+	# 		self.user = student_user.name
+ 
 	def validate_user(self):
 		"""Create a website user for student creation if not already exists"""
-		if not frappe.db.get_single_value(
-			"Education Settings", "user_creation_skip"
-		) and not frappe.db.exists("User", self.student_email_id):
-			student_user = frappe.get_doc(
-				{
-					"doctype": "User",
-					"first_name": self.first_name,
-					"last_name": self.last_name,
-					"email": self.student_email_id,
-					"gender": self.gender,
-					"send_welcome_email": 1,
-					"user_type": "Website User",
-				}
-			)
-			student_user.add_roles("Student")
-			student_user.save(ignore_permissions=True)
+		email = self.student_email_id
 
-			self.user = student_user.name
+		if not frappe.db.get_single_value("Education Settings", "user_creation_skip"):
+
+			# Only proceed if email is present and valid
+			if email:
+				try:
+					validate_email_address(email, throw=True)
+				except frappe.exceptions.InvalidEmailAddressError:
+					frappe.throw(f"'{email}' is not a valid Email Address")
+
+				if not frappe.db.exists("User", email):
+					student_user = frappe.get_doc({
+						"doctype": "User",
+						"email": email,
+						"first_name": self.first_name,
+						"last_name": self.last_name,
+						"gender": self.gender,
+						"user_type": "Website User",
+					})
+					student_user.add_roles("Student")
+					student_user.save(ignore_permissions=True)
+					self.user = student_user.name
+			else:
+				# Optional: Add a message or skip user creation silently
+				frappe.msgprint("Student Email ID is not provided. User not created.") 
 
 	def check_unique(self):
 		"""Validates if the Student Applicant is Unique"""

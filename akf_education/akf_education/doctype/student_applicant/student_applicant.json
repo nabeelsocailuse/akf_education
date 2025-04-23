@@ -453,12 +453,12 @@
   {
    "fieldname": "name5",
    "fieldtype": "Data",
-   "label": "Name"
+   "label": "Guardian Name"
   },
   {
    "fieldname": "contact_number",
    "fieldtype": "Phone",
-   "label": "Contact Number"
+   "label": "Guardian Contact Number"
   },
   {
    "fieldname": "relation_with_child",
@@ -540,7 +540,7 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2025-04-22 16:22:30.018334",
+ "modified": "2025-04-23 18:01:22.031026",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

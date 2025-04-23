@@ -101,7 +101,7 @@ function fetch_guardians_for_applicant(student_applicant) {
         filters: {
           student_applicant: student_applicant 
         },
-        fields: ["name", "guardian_name"]
+        fields: ["name", "guardian_name", "mobile_number", "relation_with_child"]
       },
       callback: function (r) {
         resolve(r.message || []);
@@ -121,6 +121,8 @@ function set_guardians_in_child_table(frm, guardians) {
     row.guardian = guardian.name;
     if (guardian.guardian_name) {
       row.guardian_name = guardian.guardian_name;
+      row.mobile_number = guardian.mobile_number;
+      row.relation_with_child = guardian.relation_with_child;
     }
   });
   frm.refresh_field("guardians");

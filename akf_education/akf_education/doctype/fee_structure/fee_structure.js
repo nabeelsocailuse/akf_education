@@ -232,7 +232,7 @@ frappe.ui.form.on('Fee Structure', {
     frm.dialog.show()
   },
 
-
+  // Function to get the internal school of Aghosh Home.
   aghosh_home: function(frm) {
     if (frm.doc.aghosh_home) {
         frappe.call({

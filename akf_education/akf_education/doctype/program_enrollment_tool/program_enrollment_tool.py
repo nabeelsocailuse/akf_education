@@ -111,7 +111,9 @@ class ProgramEnrollmentTool(Document):
 			if not stud.bed:
 				frappe.throw("please select bed for the student first")
 			if not stud.school_type1:
-				frappe.throw("Please select student type.")
+				frappe.throw("Please select school type.")
+			if stud.school_type1 == "External" and not stud.external:
+				frappe.throw("External School not selected.")
 			# if not stud.selected_donors:
 			# 	frappe.throw("Select Donor and Press Save Button First")
 			frappe.publish_realtime(

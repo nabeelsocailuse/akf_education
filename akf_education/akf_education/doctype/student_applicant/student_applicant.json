@@ -73,6 +73,7 @@
   "education",
   "column_break_itas",
   "gender_guardian",
+  "cnic_guardian",
   "address",
   "occupation_details",
   "marital_status",
@@ -372,7 +373,7 @@
   {
    "fieldname": "father_occupation",
    "fieldtype": "Data",
-   "label": "Father Occupation"
+   "label": "Occupation"
   },
   {
    "fieldname": "father_reason_death",
@@ -536,11 +537,16 @@
    "fieldname": "fathet_date_of_death",
    "fieldtype": "Date",
    "label": "Date Of Death"
+  },
+  {
+   "fieldname": "cnic_guardian",
+   "fieldtype": "Data",
+   "label": "CNIC "
   }
  ],
  "image_field": "image",
  "links": [],
- "modified": "2025-04-23 18:01:22.031026",
+ "modified": "2025-04-25 10:59:39.186589",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

@@ -41,11 +41,14 @@ frappe.ui.form.on('Program Enrollment', {
     //   }
 
       // Fetch Fee Schedules when form loads (if program & academic_year exist)
-    //   if (frm.doc.program && frm.doc.academic_year) {
-    //       fetch_fee_schedules(frm);
-    //       fetch_fee_components(frm);
-
-    //   }
+      if (frm.doc.program && frm.doc.academic_year && frm.doc.aghosh_home) {
+        //   fetch_fee_schedules(frm);
+          fetch_fee_components(frm);
+            setTimeout(() => {
+                frm.save();
+            }, 250);
+      }
+      
   },
 
 program: function (frm) {
@@ -171,7 +174,7 @@ function fetch_fee_components(frm) {
                 frappe.msgprint(__('No fee structure components found for the selected filters.'));
             }
 
-            frm.refresh_field("components");
+            frm.refresh_field("components");   
         }
     });
 }

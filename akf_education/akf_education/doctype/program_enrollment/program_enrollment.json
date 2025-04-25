@@ -47,6 +47,25 @@
   "education",
   "marital_status",
   "mobile_number",
+  "father_details_section",
+  "column_break_avcv",
+  "name1",
+  "father_occupation",
+  "reason_of_death",
+  "attach_death_certificate",
+  "column_break_dnag",
+  "date_of_birth",
+  "place_of_death",
+  "date_of_death",
+  "mother_details_section",
+  "mother_name",
+  "cnic",
+  "husband_name",
+  "mother_date_of_birth",
+  "column_break_oiaf",
+  "alive_status",
+  "mother_date_of_death",
+  "mother_reason_of_death",
   "fees_tab",
   "section_break_7",
   "fees",
@@ -309,6 +328,7 @@
    "label": "Relation with Child"
   },
   {
+   "fetch_from": "student_applicant.occupation_details",
    "fieldname": "occupation_detail",
    "fieldtype": "Data",
    "label": "Occupation Detail"
@@ -340,6 +360,127 @@
   {
    "fieldname": "column_break_srgv",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "father_details_section",
+   "fieldtype": "Section Break",
+   "label": "Father Details"
+  },
+  {
+   "fetch_from": "student_applicant.name1",
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.father_occupation",
+   "fieldname": "father_occupation",
+   "fieldtype": "Data",
+   "label": "Father Occupation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student.cause_of_death",
+   "fieldname": "reason_of_death",
+   "fieldtype": "Data",
+   "label": "Reason Of Death",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.attach_death_certificate",
+   "fieldname": "attach_death_certificate",
+   "fieldtype": "Attach Image",
+   "label": "Attach Death Certificate"
+  },
+  {
+   "fieldname": "column_break_dnag",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "student_applicant.father_dob",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.father_death_place",
+   "fieldname": "place_of_death",
+   "fieldtype": "Data",
+   "label": "Place Of Death",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.fathet_date_of_death",
+   "fieldname": "date_of_death",
+   "fieldtype": "Date",
+   "label": "Date Of Death",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mother_details_section",
+   "fieldtype": "Section Break",
+   "label": "Mother Details"
+  },
+  {
+   "fetch_from": "student_applicant.name2",
+   "fieldname": "mother_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.cnic",
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "CNIC",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.husband_name",
+   "fieldname": "husband_name",
+   "fieldtype": "Data",
+   "label": "Husband Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.mother_dob",
+   "fieldname": "mother_date_of_birth",
+   "fieldtype": "Data",
+   "label": "Date Of Birth",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_oiaf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "student_applicant.alive_status",
+   "fieldname": "alive_status",
+   "fieldtype": "Select",
+   "label": "Alive Status",
+   "options": "\nAlive\nDeath",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.place_of_death",
+   "fieldname": "mother_date_of_death",
+   "fieldtype": "Date",
+   "label": "Date Of Death",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.reason_of_death",
+   "fieldname": "mother_reason_of_death",
+   "fieldtype": "Data",
+   "label": "Reason Of Death",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_avcv",
+   "fieldtype": "Column Break",
+   "read_only": 1
   }
  ],
  "image_field": "image",
@@ -351,7 +492,7 @@
    "link_fieldname": "program_enrollment"
   }
  ],
- "modified": "2025-04-23 18:05:29.460063",
+ "modified": "2025-04-25 11:05:20.085377",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

@@ -33,6 +33,8 @@
   "user",
   "student_applicant",
   "nationality",
+  "aghosh_home_id",
+  "aghosh_home_name",
   "image",
   "address_tab",
   "section_break_22",
@@ -46,19 +48,23 @@
   "relations_tab",
   "fathers_detail_section",
   "father_name",
+  "occupation",
   "father_cnic",
   "attach_death_certificate",
   "column_break_sfmz",
   "father_date_of_death",
   "cause_of_death",
+  "place_of_death",
   "mothers_details_section",
   "mother_name",
   "mother_cnic",
   "date_of_death",
+  "husband_name",
   "column_break_o7lm",
   "contact_number",
   "mother_alive_status",
   "reason_of_death",
+  "mother_dob",
   "section_break_18",
   "guardians",
   "section_break_20",
@@ -439,18 +445,22 @@
    "fetch_from": "student_applicant.name1",
    "fieldname": "father_name",
    "fieldtype": "Data",
-   "label": "Father Name"
+   "label": "Father Name",
+   "read_only": 1
   },
   {
    "fieldname": "father_cnic",
    "fieldtype": "Data",
-   "label": "Father CNIC"
+   "hidden": 1,
+   "label": "Father CNIC",
+   "read_only": 1
   },
   {
    "fetch_from": "student_applicant.fathet_date_of_death",
    "fieldname": "father_date_of_death",
    "fieldtype": "Date",
-   "label": "Father Date of Death"
+   "label": "Father Date of Death",
+   "read_only": 1
   },
   {
    "fetch_from": "student_applicant.attach_death_certificate",
@@ -463,9 +473,11 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "student_applicant.father_reason_death",
    "fieldname": "cause_of_death",
    "fieldtype": "Data",
-   "label": "Cause of Death"
+   "label": "Cause of Death",
+   "read_only": 1
   },
   {
    "fieldname": "hifz",
@@ -510,6 +522,7 @@
    "label": "Contact Number"
   },
   {
+   "fetch_from": "student_applicant.alive_status",
    "fieldname": "mother_alive_status",
    "fieldtype": "Select",
    "label": "Mother Alive Status",
@@ -565,6 +578,44 @@
    "fieldtype": "Data",
    "in_global_search": 1,
    "label": "Guardian Mobile Number"
+  },
+  {
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home"
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name"
+  },
+  {
+   "fetch_from": "student_applicant.father_occupation",
+   "fieldname": "occupation",
+   "fieldtype": "Data",
+   "label": "Occupation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.father_death_place",
+   "fieldname": "place_of_death",
+   "fieldtype": "Data",
+   "label": "Place Of Death",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.husband_name",
+   "fieldname": "husband_name",
+   "fieldtype": "Data",
+   "label": "Husband Name"
+  },
+  {
+   "fetch_from": "student_applicant.mother_dob",
+   "fieldname": "mother_dob",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
   }
  ],
  "image_field": "image",
@@ -630,7 +681,7 @@
    "link_fieldname": "orphan_name"
   }
  ],
- "modified": "2025-04-22 18:54:39.638989",
+ "modified": "2025-04-25 11:07:11.025519",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

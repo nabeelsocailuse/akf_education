@@ -143,6 +143,14 @@ app_include_js = [
 # 	}
 # }
 
+# doc_events = {
+#     "Student": {
+#         "on_trash": "akf_education.akf_education.doctype.student.student.on_trash"
+#     }
+# }
+
+
+
 # Scheduled Tasks
 # ---------------
 

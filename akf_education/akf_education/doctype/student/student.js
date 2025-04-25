@@ -11,15 +11,20 @@ frappe.ui.form.on('Student', {
       }
     })
 
-    if (!frm.is_new()) {
-      frm.add_custom_button(__('Accounting Ledger'), function () {
-        frappe.set_route('query-report', 'General Ledger', {
-          party_type: 'Customer',
-          party: frm.doc.customer,
-        })
-      })
-    }
+// Accounting Leger Button Commented
+    // if (!frm.is_new()) {
+    //   frm.add_custom_button(__('Accounting Ledger'), function () {
+    //     frappe.set_route('query-report', 'General Ledger', {
+    //       party_type: 'Customer',
+    //       party: frm.doc.customer,
+    //     })
+    //   })
+    // }
 
+
+
+
+    
     // frappe.db
     //   .get_single_value('Education Settings', 'user_creation_skip')
     //   .then((r) => {
@@ -28,12 +33,18 @@ frappe.ui.form.on('Student', {
     //     }
     //   })
 
-
-    
-    // if (frm.doc.student_applicant) {
-    //   set_guardians_from_applicant(frm);
-    // }
   },
+
+  setup: function (frm) {
+    if (frm.doc.student_applicant) {
+      set_guardians_from_applicant(frm);
+      setTimeout(() => {
+        frm.save();
+      }, 250);
+    }   
+  },
+  
+ 
 
   student_applicant:function(frm){
     calculate_age(frm);
@@ -127,6 +138,7 @@ function set_guardians_in_child_table(frm, guardians) {
   });
   frm.refresh_field("guardians");
 }
+
 
 
 

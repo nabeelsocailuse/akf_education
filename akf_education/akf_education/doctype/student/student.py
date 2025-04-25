@@ -23,16 +23,19 @@ class Student(Document):
 		self.set_title()
 		self.validate_dates()
 		self.validate_user()
-
+		# if self.student_applicant:
+		# 	self.set_guardians_from_applicant()
+   
+		if self.date_of_birth:
+			self.age = self.calculate_age(self.date_of_birth)
+   		
 		if self.student_applicant:
 			self.check_unique()
 			self.update_applicant_status()
    
-	def before_insert(self):
-		if self.date_of_birth:
-			self.age = self.calculate_age(self.date_of_birth)
-
-		self.set_guardians_from_applicant()
+	def on_trash(self):
+		self.delete_guardian()
+   
 		
                	 	
 	# def on_update(self):
@@ -44,6 +47,19 @@ class Student(Document):
 		today = date.today()
 		return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
 
+	def delete_guardian(self):
+		if self.student_applicant:
+			guardians = frappe.get_all(
+				"Guardian",
+				filters={"student_applicant": self.student_applicant},
+				pluck="name"
+			)
+			for guardian in guardians:
+				frappe.delete_doc("Guardian", guardian, force=1)
+				frappe.msgprint(
+					f"Guardian {guardian} deleted for Student Applicant {self.student_applicant}",
+					alert=True
+				)
 
 	def set_guardians_from_applicant(self):
 		if not self.student_applicant:

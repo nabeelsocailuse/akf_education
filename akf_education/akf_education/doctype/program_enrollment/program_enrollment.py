@@ -282,35 +282,70 @@ def get_students(doctype, txt, searchfield, start, page_len, filters):
 #     return []
 
 
+
+
+
+
+
+# Commented This function
+# @frappe.whitelist()
+# def get_fee_structure_components(program, aghosh_home=None, external1=None, school_type=None):
+#     filters = {
+#         "program": program,
+#         "docstatus": 1  # Ensure only submitted Fee Structures are fetched
+#     }
+
+#     if school_type == "External" and external1:
+#         filters["external_school"] = external1
+#         if aghosh_home:  # Include aghosh_home if provided
+#             filters["aghosh_home"] = aghosh_home
+
+#         # frappe.msgprint(f"Fetching External Fee Structure with filters: {filters}")
+
+#     elif school_type == "Internal" and aghosh_home:
+#         filters["aghosh_home"] = aghosh_home
+
+#         # frappe.msgprint(f"Fetching Internal Fee Structure with filters: {filters}")
+
+#     else:
+#         frappe.msgprint("No valid school_type or filters provided.")
+#         return []
+
+#     fee_structure = frappe.get_value("Fee Structure", filters, "name")
+
+#     if fee_structure:
+#         return frappe.get_doc("Fee Structure", fee_structure).get("components")
+
+#     return []
+
+
+
+
+
 @frappe.whitelist()
-def get_fee_structure_components(program, aghosh_home=None, external1=None, school_type=None):
-    filters = {
-        "program": program,
-        "docstatus": 1  # Ensure only submitted Fee Structures are fetched
-    }
+def create_assessment_plan(**kwargs):
+    program = kwargs.get("program")
+    grading_scale = kwargs.get("grading_scale")
+    academic_term = kwargs.get("academic_term")
+    academic_year = kwargs.get("academic_year")
 
-    if school_type == "External" and external1:
-        filters["external_school"] = external1
-        if aghosh_home:  # Include aghosh_home if provided
-            filters["aghosh_home"] = aghosh_home
+    if not academic_year:
+        frappe.throw("Please select Academic Year")
+    if not academic_term:
+        frappe.throw("Please select Academic Term")
+    if not grading_scale:
+        frappe.throw("Please select Grading Scale")
+    
+    doc = frappe.new_doc("Assessment Plan")
+    doc.program = program 
+    doc.grading_scale = grading_scale
+    doc.academic_term = academic_term
+    doc.academic_year = academic_year
+    doc.insert(ignore_permissions=True)  
+    return doc.name
 
-        # frappe.msgprint(f"Fetching External Fee Structure with filters: {filters}")
 
-    elif school_type == "Internal" and aghosh_home:
-        filters["aghosh_home"] = aghosh_home
 
-        # frappe.msgprint(f"Fetching Internal Fee Structure with filters: {filters}")
-
-    else:
-        frappe.msgprint("No valid school_type or filters provided.")
-        return []
-
-    fee_structure = frappe.get_value("Fee Structure", filters, "name")
-
-    if fee_structure:
-        return frappe.get_doc("Fee Structure", fee_structure).get("components")
-
-    return []
 
 
 

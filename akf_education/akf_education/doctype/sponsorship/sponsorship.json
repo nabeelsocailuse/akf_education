@@ -95,13 +95,13 @@
    "label": "Father Name"
   },
   {
-   "fetch_from": "child_id.mother_name",
+   "fetch_from": "student_id.mother_name",
    "fieldname": "mother_name",
    "fieldtype": "Data",
    "label": "Mother Name"
   },
   {
-   "fetch_from": "child_id.father_date_of_death",
+   "fetch_from": "student_id.father_date_of_death",
    "fieldname": "date_of_death",
    "fieldtype": "Date",
    "label": "Date Of Death"
@@ -112,12 +112,13 @@
    "label": "Name Of School"
   },
   {
-   "fetch_from": "child_id.date_of_birth",
+   "fetch_from": "student_id.date_of_birth",
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
    "label": "Date Of Birth"
   },
   {
+   "fetch_from": "student_id.mother_alive_status",
    "fieldname": "mother_alive_status",
    "fieldtype": "Select",
    "label": "Mother Alive Status",
@@ -215,7 +216,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-23 15:54:30.678469",
+ "modified": "2025-04-28 16:54:26.948195",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

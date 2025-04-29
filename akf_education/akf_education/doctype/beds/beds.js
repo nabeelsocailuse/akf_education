@@ -2,10 +2,13 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Beds", {
-	refresh(frm) {
-       let  bed_number = frm.doc.bed_number
-        console.log("Bed number", bed_number);
-        frm.refresh_field("bed_number");
-
-	},
+        refresh: function(frm) {
+                frm.set_query('room_id', () => {
+                    return {
+                        filters: [
+                            ['Rooms', 'school_name', '=', '']
+                        ]
+                    };
+                });
+            }
 });

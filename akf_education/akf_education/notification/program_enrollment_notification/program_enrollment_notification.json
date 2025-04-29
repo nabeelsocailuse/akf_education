@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "System Notification",
+ "creation": "2025-04-28 11:48:52.811505",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Program Enrollment",
+ "enabled": 1,
+ "event": "Save",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Student is been Enrolled</p>\n\n<p>{{doc.student}} is been created!</p>\n",
+ "message_type": "Markdown",
+ "modified": "2025-04-28 12:57:37.210600",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Program Enrollment Notification",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "System Manager"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "{{ doc.student }} is been created!"
+}

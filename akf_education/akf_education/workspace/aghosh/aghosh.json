@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh\",\"col\":4}},{\"id\":\"TT1WmR1Z5z\",\"type\":\"card\",\"data\":{\"card_name\":\"Child Information\",\"col\":4}},{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kR1KsRALK2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Project Approval Form\",\"col\":3}},{\"id\":\"ucTZROCwHC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Donor\",\"col\":3}},{\"id\":\"MEi-Nkg1Ux\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Enrollment Tool\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"i5xgjBF1Ds\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sponsorship\",\"col\":3}},{\"id\":\"EcW6ngz9mP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visitor Management System\",\"col\":3}},{\"id\":\"qV2WaYekXm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Activities\",\"col\":3}},{\"id\":\"GO3xJCuNsT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9a8zjYSZ9n\",\"type\":\"card\",\"data\":{\"card_name\":\"Dashboard\",\"col\":4}},{\"id\":\"_6GQzCddTG\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"bBK_6mgg-d\",\"type\":\"card\",\"data\":{\"card_name\":\"Sponsorship\",\"col\":4}},{\"id\":\"fI5KERZtUN\",\"type\":\"card\",\"data\":{\"card_name\":\"Fees\",\"col\":4}},{\"id\":\"gqXX3hzh98\",\"type\":\"card\",\"data\":{\"card_name\":\"Admission & Enrollment\",\"col\":4}},{\"id\":\"fwOriggX-K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports Master\",\"col\":4}}]",
+ "content": "[{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh\",\"col\":4}},{\"id\":\"TT1WmR1Z5z\",\"type\":\"card\",\"data\":{\"card_name\":\"Child Information\",\"col\":4}},{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kR1KsRALK2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Project Approval Form\",\"col\":3}},{\"id\":\"ucTZROCwHC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Donor\",\"col\":3}},{\"id\":\"MEi-Nkg1Ux\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Enrollment Tool\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"i5xgjBF1Ds\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sponsorship\",\"col\":3}},{\"id\":\"EcW6ngz9mP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visitor Management System\",\"col\":3}},{\"id\":\"qV2WaYekXm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Activities\",\"col\":3}},{\"id\":\"GO3xJCuNsT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9a8zjYSZ9n\",\"type\":\"card\",\"data\":{\"card_name\":\"Dashboard\",\"col\":4}},{\"id\":\"_6GQzCddTG\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"bBK_6mgg-d\",\"type\":\"card\",\"data\":{\"card_name\":\"Sponsorship\",\"col\":4}},{\"id\":\"fI5KERZtUN\",\"type\":\"card\",\"data\":{\"card_name\":\"Fees\",\"col\":4}},{\"id\":\"-qv2AZAQjQ\",\"type\":\"card\",\"data\":{\"card_name\":\"Student Assessment\",\"col\":4}},{\"id\":\"gqXX3hzh98\",\"type\":\"card\",\"data\":{\"card_name\":\"Admission & Enrollment\",\"col\":4}},{\"id\":\"fwOriggX-K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports Master\",\"col\":4}}]",
  "creation": "2025-02-25 20:22:56.988393",
  "custom_blocks": [],
  "docstatus": 0,
@@ -314,9 +314,88 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Student Assessment",
+   "link_count": 7,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Course",
+   "link_count": 0,
+   "link_to": "Course",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Program",
+   "link_count": 0,
+   "link_to": "Program",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assessment Plan",
+   "link_count": 0,
+   "link_to": "Assessment Plan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assessment Group",
+   "link_count": 0,
+   "link_to": "Assessment Group",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assessment Criteria",
+   "link_count": 0,
+   "link_to": "Assessment Criteria",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assessment Result",
+   "link_count": 0,
+   "link_to": "Assessment Result",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assessment Result Tool",
+   "link_count": 0,
+   "link_to": "Assessment Result Tool",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-04-22 16:18:55.642115",
+ "modified": "2025-04-28 16:35:01.007311",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh",

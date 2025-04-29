@@ -51,22 +51,28 @@ frappe.ui.form.on('Program Enrollment', {
       
   },
 
-program: function (frm) {
-      fetch_fee_schedules(frm);
-      fetch_fee_components(frm);
-      frm.events.set_course_query(frm);
-  },
-aghosh_home: function (frm) {
-    fetch_fee_components(frm);
-    frm.events.set_course_query(frm);
+  refresh: function(frm) {
+    frm.add_custom_button(__('Create Assessment Plan'), function() {
+        create_assessment_plan(frm);
+    }, __("Assessment Plan"));
 },
-external1: function (frm) {  
-    fetch_fee_components(frm);
-    frm.events.set_course_query(frm);
-},
-school_type: function (frm) {  
-    fetch_fee_components(frm);
-},
+
+// program: function (frm) {
+//       fetch_fee_schedules(frm);
+//       fetch_fee_components(frm);
+//       frm.events.set_course_query(frm);
+//   },
+// aghosh_home: function (frm) {
+//     fetch_fee_components(frm);
+//     frm.events.set_course_query(frm);
+// },
+// external1: function (frm) {  
+//     fetch_fee_components(frm);
+//     frm.events.set_course_query(frm);
+// },
+// school_type: function (frm) {  
+//     fetch_fee_components(frm);
+// },
 
   student_category: function (frm) {
       frappe.ui.form.trigger('Program Enrollment', 'program');
@@ -101,6 +107,26 @@ school_type: function (frm) {
       }
   }
 });
+
+function create_assessment_plan(frm) {
+    frappe.call({
+        method: "akf_education.akf_education.doctype.program_enrollment.program_enrollment.create_assessment_plan",
+        args: {
+            program: frm.doc.program,
+            academic_year:frm.doc.academic_year,
+            academic_term:frm.doc.academic_term,
+            grading_scale: frm.doc.grading_scale   
+        },
+        callback: function(r) {
+            if (!r.exc) {
+                frappe.msgprint("Assessment Plan created successfully: " + r.message);
+                frm.reload_doc();  
+            }
+        }
+    });
+}
+
+
 
 // Fetch Fee Schedules and Populate Fees Table
 function fetch_fee_schedules(frm) {
@@ -154,30 +180,34 @@ function fetch_fee_schedules(frm) {
 //     });
 // }
 
-function fetch_fee_components(frm) {
-    if (!frm.doc.program || !frm.doc.school_type) return;
 
-    frappe.call({
-        method: "akf_education.akf_education.doctype.program_enrollment.program_enrollment.get_fee_structure_components",
-        args: { 
-            program: frm.doc.program,
-            aghosh_home: frm.doc.aghosh_home || null,
-            external1: frm.doc.external1 || null,
-            school_type: frm.doc.school_type // Internal or External
-        },
-        callback: ({ message }) => {
-            frm.clear_table("components");
 
-            if (message?.length) {
-                message.forEach(row => frm.add_child("components", row));
-            } else {
-                frappe.msgprint(__('No fee structure components found for the selected filters.'));
-            }
 
-            frm.refresh_field("components");   
-        }
-    });
-}
+// This is commented
+// function fetch_fee_components(frm) {
+//     if (!frm.doc.program || !frm.doc.school_type) return;
+
+//     frappe.call({
+//         method: "akf_education.akf_education.doctype.program_enrollment.program_enrollment.get_fee_structure_components",
+//         args: { 
+//             program: frm.doc.program,
+//             aghosh_home: frm.doc.aghosh_home || null,
+//             external1: frm.doc.external1 || null,
+//             school_type: frm.doc.school_type // Internal or External
+//         },
+//         callback: ({ message }) => {
+//             frm.clear_table("components");
+
+//             if (message?.length) {
+//                 message.forEach(row => frm.add_child("components", row));
+//             } else {
+//                 frappe.msgprint(__('No fee structure components found for the selected filters.'));
+//             }
+
+//             frm.refresh_field("components");   
+//         }
+//     });
+// }
 
 
 

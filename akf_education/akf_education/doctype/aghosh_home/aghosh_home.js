@@ -1,49 +1,50 @@
-// Copyright (c) 2025, Mubarrim Iqbal and contributors
-// For license information, please see license.txt
-
 frappe.ui.form.on("Aghosh Home", {
+    region: function(frm) {
+        if (frm.doc.region) {
+            updateOptions(frm, frm.doc.region, frm.doc.district);
+        }
+    },
+
     district: function(frm) {
         if (frm.doc.district) {
-            updateTehsilOptions(frm, frm.doc.district);
+            updateOptions(frm, frm.doc.region, frm.doc.district);
         }
     }
-    
 });
 
-
-function updateTehsilOptions(frm, district) {
+function updateOptions(frm, region, district) {
     frappe.call({
-        method: "akf_education.akf_education.doctype.aghosh_home.aghosh_home.get_tehsils_by_district", 
+        method: "akf_education.akf_education.doctype.aghosh_home.aghosh_home.get_region_and_tehsil",
         args: {
-            district: district 
+            region: region,
+            district: district
         },
         callback: function(r) {
             if (r.message) {
-                // Save the tehsil list into frm.tehsil_list
-                frm.tehsil_list = r.message.map(row => row.tehsil_name);
+                if (r.message.districts) {
+                    frm.district_list = r.message.districts.map(row => row.district_name);
+                    frm.set_query('district', function() {
+                        return {
+                            filters: [
+                                ['name', 'in', frm.district_list]
+                            ]
+                        };
+                    });
+                    frm.refresh_field('district');
+                }
 
-                // Set a custom query for tahsil field
-                frm.set_query('tahsil', function() {
-                    return {
-                        filters: [
-                            ['name', 'in', frm.tehsil_list]
-                        ]
-                    };
-                });
-
-                // OPTIONAL: if you want to refresh field immediately
-                frm.refresh_field('tahsil');
+                if (r.message.tehsils) {
+                    frm.tehsil_list = r.message.tehsils.map(row => row.tehsil_name);
+                    frm.set_query('tehsil', function() {
+                        return {
+                            filters: [
+                                ['name', 'in', frm.tehsil_list]
+                            ]
+                        };
+                    });
+                    frm.refresh_field('tehsil');
+                }
             }
         }
     });
 }
-
-
-
-
-
-
-
-
-
-

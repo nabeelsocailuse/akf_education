@@ -14,6 +14,9 @@ app_include_css =[
     # "/assets/akf_education/css/jquery.dataTables.min.css",
     # "/assets/akf_education/css/bootstrap-table.min.css",
     # "/assets/akf_education/css/bootstrap.min.css",
+    # "/assets/akf_education/css/index.css",
+
+
 ]
 app_include_js = [
     # "/assets/akf_education/js/highcharts-more.js",

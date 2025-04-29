@@ -174,7 +174,8 @@
    "default": "0",
    "depends_on": "eval:doc.purpose_of_visit==\"Meeting Resident\"\n",
    "fieldname": "check_hnyd",
-   "fieldtype": "Check"
+   "fieldtype": "Check",
+   "hidden": 1
   },
   {
    "fieldname": "column_break_oslp",
@@ -188,7 +189,8 @@
    "default": "0",
    "depends_on": "eval:doc.purpose_of_visit==\"Meeting Resident\"\n",
    "fieldname": "check_ukyt",
-   "fieldtype": "Check"
+   "fieldtype": "Check",
+   "hidden": 1
   },
   {
    "fieldname": "section_break_mtxk",
@@ -216,7 +218,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-15 16:51:18.360488",
+ "modified": "2025-04-28 10:39:52.150270",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Visitor Management System",

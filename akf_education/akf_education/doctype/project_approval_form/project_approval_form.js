@@ -1,6 +1,6 @@
 frappe.ui.form.on("Project Approval Form", {
     refresh: function(frm) {
-        if (!frm.is_new() && !frm.doc.project_code) {  // Only show the button if project_code is empty
+        if (!frm.is_new() && !frm.doc.project_code) { 
             let btn = frm.add_custom_button("Create Project", function() {
                 frappe.call({
                     method: "frappe.client.insert",

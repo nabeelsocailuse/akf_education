@@ -176,8 +176,8 @@ class Student(Document):
 					student_user.save(ignore_permissions=True)
 					self.user = student_user.name
 			else:
-				# Optional: Add a message or skip user creation silently
-				frappe.msgprint("Student Email ID is not provided. User not created.") 
+				pass
+				# frappe.msgprint("Student Email ID is not provided. User not created.") 
 
 	def check_unique(self):
 		"""Validates if the Student Applicant is Unique"""

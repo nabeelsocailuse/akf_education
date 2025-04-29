@@ -145,7 +145,7 @@
    "in_filter": 1,
    "label": "Application Status",
    "no_copy": 1,
-   "options": "Applied\nApproved\nRejected\nAdmitted"
+   "options": "\nApplied\nApproved\nRejected\nAdmitted"
   },
   {
    "default": "Today",
@@ -546,7 +546,7 @@
  ],
  "image_field": "image",
  "links": [],
- "modified": "2025-04-25 10:59:39.186589",
+ "modified": "2025-04-29 16:23:33.964354",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

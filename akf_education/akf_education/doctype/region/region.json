@@ -7,7 +7,9 @@
  "engine": "InnoDB",
  "field_order": [
   "region_name",
-  "abbr"
+  "abbr",
+  "section_break_dqml",
+  "table"
  ],
  "fields": [
   {
@@ -26,11 +28,20 @@
    "label": "Abbr",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "section_break_dqml",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table",
+   "fieldtype": "Table",
+   "options": "Select District"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-21 15:40:13.282285",
+ "modified": "2025-04-29 12:45:50.967939",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Region",

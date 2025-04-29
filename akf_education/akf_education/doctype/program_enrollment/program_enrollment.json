@@ -14,10 +14,12 @@
   "program",
   "academic_year",
   "academic_term",
+  "grading_scale",
   "image",
   "section_break_sndc",
   "school_type",
   "name_of_school",
+  "ex_name_of_school",
   "column_break_dtkt",
   "external1",
   "section_break_crmg",
@@ -47,6 +49,7 @@
   "education",
   "marital_status",
   "mobile_number",
+  "guardian_cnic",
   "father_details_section",
   "column_break_avcv",
   "name1",
@@ -131,7 +134,6 @@
   {
    "fieldname": "academic_term",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Academic Term",
    "options": "Academic Term"
   },
@@ -223,8 +225,7 @@
    "fieldname": "building",
    "fieldtype": "Link",
    "label": "Building",
-   "options": "Building",
-   "read_only": 1
+   "options": "Building"
   },
   {
    "depends_on": "eval:doc.school_type==\"Internal\"",
@@ -243,7 +244,8 @@
    "fieldname": "aghosh_home",
    "fieldtype": "Link",
    "label": "Aghosh Home",
-   "options": "Aghosh Home"
+   "options": "Aghosh Home",
+   "read_only": 1
   },
   {
    "depends_on": "eval:doc.school_type==\"Internal\"",
@@ -286,10 +288,12 @@
    "options": "External School"
   },
   {
-   "fetch_from": "building.aghosh_home_name",
+   "depends_on": "eval:doc.school_type == \"Internal\"\n",
+   "fetch_from": "building.building_name",
    "fieldname": "name_of_school",
    "fieldtype": "Data",
-   "label": "Name of School"
+   "label": "Building Name",
+   "read_only": 1
   },
   {
    "allow_on_submit": 1,
@@ -481,6 +485,27 @@
    "fieldname": "column_break_avcv",
    "fieldtype": "Column Break",
    "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.school_type == \"External\"\n",
+   "fetch_from": "external1.name_of_school",
+   "fieldname": "ex_name_of_school",
+   "fieldtype": "Data",
+   "label": "Name of School",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "student_applicant.cnic_guardian",
+   "fieldname": "guardian_cnic",
+   "fieldtype": "Data",
+   "label": "CNIC",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grading_scale",
+   "fieldtype": "Link",
+   "label": "Grading Scale",
+   "options": "Grading Scale"
   }
  ],
  "image_field": "image",
@@ -492,7 +517,7 @@
    "link_fieldname": "program_enrollment"
   }
  ],
- "modified": "2025-04-25 11:05:20.085377",
+ "modified": "2025-04-29 11:25:12.848568",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

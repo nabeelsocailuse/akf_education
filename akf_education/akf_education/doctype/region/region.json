@@ -36,12 +36,13 @@
   {
    "fieldname": "table",
    "fieldtype": "Table",
+   "label": "Select District",
    "options": "Select District"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-29 12:45:50.967939",
+ "modified": "2025-04-30 11:40:56.278509",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Region",

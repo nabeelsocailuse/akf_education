@@ -35,8 +35,7 @@
   {
    "fieldname": "bed_number",
    "fieldtype": "Data",
-   "label": "Bed Number",
-   "unique": 1
+   "label": "Bed Number"
   },
   {
    "fieldname": "type_enum",
@@ -116,7 +115,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-21 11:05:57.569941",
+ "modified": "2025-04-30 11:50:33.426067",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Beds",

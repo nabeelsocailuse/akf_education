@@ -161,57 +161,72 @@ class ProgramEnrollmentTool(Document):
 	# 	frappe.msgprint(_("{0} Students have been enrolled").format(total), alert=1)
  
  
+ 
 	def enrolled_students(self):
 		total = len(self.students)
-
 		for i, stud in enumerate(self.students):
 			if not stud.bed:
-				frappe.throw("Please select bed for the student first")
+				frappe.throw("please select bed for the student first")
 			if not stud.school_type1:
 				frappe.throw("Please select school type.")
 			if stud.school_type1 == "External" and not stud.external:
 				frappe.throw("External School not selected.")
-
+			# if not stud.selected_donors:
+			# 	frappe.throw("Select Donor and Press Save Button First")
 			frappe.publish_realtime(
 				"program_enrollment_tool", dict(progress=[i + 1, total]), user=frappe.session.user
 			)
-
 			if stud.student:
 				prog_enrollment = frappe.new_doc("Program Enrollment")
 				prog_enrollment.student = stud.student
 				prog_enrollment.student_name = stud.student_name
 				prog_enrollment.student_category = stud.student_category
-			else:
+				prog_enrollment.program = self.new_program
+				prog_enrollment.academic_year = self.new_academic_year
+				prog_enrollment.academic_term = self.new_academic_term
+				prog_enrollment.aghosh_home = self.aghosh_home1
+				prog_enrollment.student_applicant = stud.student_applicant
+				prog_enrollment.school_type = stud.school_type1
+				prog_enrollment.building = stud.building
+				prog_enrollment.room = stud.room
+				prog_enrollment.bed = stud.bed
+				prog_enrollment.external1 = stud.external
+
+				prog_enrollment.student_batch_name = (
+					stud.student_batch_name if stud.student_batch_name else self.new_student_batch
+				)
+				prog_enrollment.enrollment_date = self.enrollment_date
+				prog_enrollment.save()
+
+			elif stud.student_applicant:
 				prog_enrollment = enroll_student(stud.student_applicant)
-
-			# Common Fields
-			prog_enrollment.program = self.new_program
-			prog_enrollment.academic_year = self.new_academic_year
-			prog_enrollment.academic_term = self.new_academic_term
-			prog_enrollment.aghosh_home = self.aghosh_home1
-			prog_enrollment.student_applicant = stud.student_applicant
-			prog_enrollment.school_type = stud.school_type1
-			prog_enrollment.building = stud.building
-			prog_enrollment.room = stud.room
-			prog_enrollment.bed = stud.bed
-			prog_enrollment.external1 = stud.external
-			prog_enrollment.enrollment_date = self.enrollment_date
-			prog_enrollment.student_batch_name = (
-				stud.student_batch_name if stud.student_batch_name else self.new_student_batch
-			)
-
-			# Populate Components Table via function
-			get_fee_structure_components(
-				prog_enrollment,  
-				program=self.program,
-				aghosh_home=self.aghosh_home1,
-				external1=stud.external,
-				school_type=stud.school_type1
-			)
-
-			prog_enrollment.save()
+				prog_enrollment.academic_year = self.academic_year
+				prog_enrollment.academic_term = self.academic_term
+				prog_enrollment.aghosh_home = self.aghosh_home1
+				prog_enrollment.school_type = stud.school_type1
+				prog_enrollment.building = stud.building
+				prog_enrollment.student_applicant = stud.student_applicant
+				prog_enrollment.room = stud.room
+				prog_enrollment.bed = stud.bed
+				prog_enrollment.external1 = stud.external
+				prog_enrollment.student_batch_name = (
+					stud.student_batch_name if stud.student_batch_name else self.new_student_batch
+				)
+				# Populate Components Table via function	
+				get_fee_structure_components(
+					prog_enrollment,
+					program = self.program,
+					aghosh_home=self.aghosh_home1,
+					external1=stud.external,
+					school_type=stud.school_type1
+					
+				)
+				
+				prog_enrollment.save()
+				
 
 		frappe.msgprint(_("{0} Students have been enrolled").format(total), alert=1)
+
     
     
       

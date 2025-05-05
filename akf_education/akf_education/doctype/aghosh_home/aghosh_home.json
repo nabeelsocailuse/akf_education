@@ -9,24 +9,25 @@
   "section_break_swkc",
   "aghosh_home_name",
   "address",
+  "branch",
   "column_break_tavq",
   "status",
   "established_date",
   "head_of_aghosh_home_section",
-  "name3",
-  "date_of_joining2",
+  "head_id",
+  "head_name",
   "column_break_abth",
-  "dresignation",
-  "ah_name",
+  "designation",
+  "date_of_joining",
   "address_of_aghosh_section",
   "region",
   "region_abbr",
-  "tehsil",
-  "latitude",
-  "column_break_dzja",
   "district",
   "district_abbr",
-  "longitude"
+  "tehsil",
+  "column_break_dzja",
+  "longitude",
+  "latitude"
  ],
  "fields": [
   {
@@ -46,19 +47,6 @@
    "fieldname": "head_of_aghosh_home_section",
    "fieldtype": "Section Break",
    "label": "Head Of Aghosh Home"
-  },
-  {
-   "fieldname": "name3",
-   "fieldtype": "Link",
-   "label": "ID",
-   "options": "Employee"
-  },
-  {
-   "fetch_from": "name3.date_of_joining",
-   "fieldname": "date_of_joining2",
-   "fieldtype": "Date",
-   "label": "Date Of Joining",
-   "read_only": 1
   },
   {
    "fieldname": "column_break_abth",
@@ -106,7 +94,8 @@
    "fetch_from": "district.abbr",
    "fieldname": "district_abbr",
    "fieldtype": "Data",
-   "label": "District Abbr"
+   "label": "District Abbr",
+   "read_only": 1
   },
   {
    "fieldname": "longitude",
@@ -114,24 +103,10 @@
    "label": "Longitude"
   },
   {
-   "fetch_from": "name3.designation",
-   "fieldname": "dresignation",
-   "fieldtype": "Data",
-   "label": "Designation",
-   "read_only": 1
-  },
-  {
    "fieldname": "aghosh_home_name",
    "fieldtype": "Data",
    "label": "Aghosh Home Name",
    "reqd": 1
-  },
-  {
-   "fetch_from": "name3.employee_name",
-   "fieldname": "ah_name",
-   "fieldtype": "Data",
-   "label": "Name",
-   "read_only": 1
   },
   {
    "fieldname": "established_date",
@@ -149,11 +124,44 @@
    "fieldtype": "Link",
    "label": "Tehsil",
    "options": "Tehsil"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "head_id",
+   "fieldtype": "Link",
+   "label": "Head ID",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "name3.employee_name",
+   "fieldname": "head_name",
+   "fieldtype": "Data",
+   "label": "Head Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "name3.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "name3.date_of_joining",
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-21 09:49:13.644023",
+ "modified": "2025-05-05 15:27:30.936160",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

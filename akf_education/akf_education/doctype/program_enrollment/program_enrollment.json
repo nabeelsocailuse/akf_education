@@ -321,14 +321,8 @@
  ],
  "image_field": "image",
  "is_submittable": 1,
- "links": [
-  {
-   "group": "Enrollment",
-   "link_doctype": "Course Enrollment",
-   "link_fieldname": "program_enrollment"
-  }
- ],
- "modified": "2025-05-12 15:43:00.046628",
+ "links": [],
+ "modified": "2025-05-12 17:16:31.957736",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",
@@ -365,5 +359,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "student_name"
+ "title_field": "student_name",
+ "track_changes": 1
 }

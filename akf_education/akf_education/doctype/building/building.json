@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "autoname": "format:AH-B-{aghosh_region_abbr}-{###}",
  "creation": "2025-02-20 15:52:36.644607",
  "doctype": "DocType",
@@ -112,7 +113,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-09 15:27:56.457722",
+ "modified": "2025-05-12 19:15:36.673595",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",
@@ -137,5 +138,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "name_of_school"
+ "title_field": "name_of_school",
+ "track_changes": 1
 }

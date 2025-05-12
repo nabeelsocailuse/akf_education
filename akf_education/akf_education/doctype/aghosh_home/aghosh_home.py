@@ -17,27 +17,27 @@ class AghoshHome(Document):
             
                         
             
-@frappe.whitelist()
-def get_region_and_tehsil(region=None, district=None):
-    result = {}
+# @frappe.whitelist()
+# def get_region_and_tehsil(region=None, district=None):
+#     result = {}
 
-    if region:
-        region_doc = frappe.get_doc('Region', region)
-        district_list = []
-        for row in region_doc.table:
-            district_list.append({
-                "district_name": row.district
-            })
-        result["districts"] = district_list
+#     if region:
+#         region_doc = frappe.get_doc('Region', region)
+#         district_list = []
+#         for row in region_doc.table:
+#             district_list.append({
+#                 "district_name": row.district
+#             })
+#         result["districts"] = district_list
 
-    if district:
-        district_doc = frappe.get_doc('District', district)
-        tehsil_list = []
-        for row in district_doc.select_tehsil:
-            tehsil_list.append({
-                "tehsil_name": row.tehsil
-            })
-        result["tehsils"] = tehsil_list
+#     if district:
+#         district_doc = frappe.get_doc('District', district)
+#         tehsil_list = []
+#         for row in district_doc.select_tehsil:
+#             tehsil_list.append({
+#                 "tehsil_name": row.tehsil
+#             })
+#         result["tehsils"] = tehsil_list
 
-    return result
+#     return result
 

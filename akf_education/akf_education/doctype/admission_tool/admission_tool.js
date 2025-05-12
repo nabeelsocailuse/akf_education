@@ -2,6 +2,15 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Admission Tool", {
+    onload: function (frm) {
+    if (!frm.is_new()) {
+      // Clear fields
+      frm.set_value('region', '');
+      frm.set_value('district', '');
+      // Clear child table
+      frm.set_value('admission_table', []);
+    }
+  },
     refresh(frm) {
         frm.add_custom_button('Get Aghosh Homes', function () {
             get_aghosh_homes(frm);
@@ -10,6 +19,13 @@ frappe.ui.form.on("Admission Tool", {
         frm.add_custom_button('Create Admissions', function () {
             create_admissions_func(frm);
         });
+        frm.set_query("district", function () {
+			return {
+				filters: {
+					region: frm.doc.region,
+				},
+			};
+		});
        
     }
 });

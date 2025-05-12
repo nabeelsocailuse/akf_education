@@ -1,4 +1,5 @@
 frappe.ready(function () {
+    
   // bind events here
 })
 
@@ -42,14 +43,9 @@ frappe.ready(function () {
 //         return false;  // Stop form submission
 //       }
 
-//       // If everything is correct, allow form submission
-//       return true;
-//     }).catch(() => {
-//       // frappe.throw("An error occurred while fetching program details.");
-//       return false;  // Stop form submission
 //     });
 
-//     return false;  // Default return to prevent immediate form submission while waiting for async
+//     return false;  
 //   };
 // });
 

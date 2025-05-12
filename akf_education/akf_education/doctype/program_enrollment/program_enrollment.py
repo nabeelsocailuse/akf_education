@@ -32,7 +32,7 @@ class ProgramEnrollment(Document):
 		self.make_fee_records()
 		self.creating_fee_records()
 		self.create_course_enrollments()
-		self.create_or_update_guardian()
+		# self.create_or_update_guardian()
   
 	# def before_insert(self):
 	# 	self.create_or_update_guardian()

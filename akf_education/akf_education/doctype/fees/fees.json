@@ -111,10 +111,9 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
-   "label": "Institution",
+   "label": "Company",
    "options": "Company",
-   "remember_last_selected_value": 1,
-   "reqd": 1
+   "remember_last_selected_value": 1
   },
   {
    "bold": 1,
@@ -369,7 +368,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-11 11:38:51.329838",
+ "modified": "2025-05-06 15:13:34.082407",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fees",

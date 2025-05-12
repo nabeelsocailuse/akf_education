@@ -98,7 +98,7 @@
    "fieldname": "affected_person",
    "fieldtype": "Link",
    "label": "Affected Person",
-   "options": "Orphan"
+   "options": "Student"
   },
   {
    "fieldname": "column_break_dvcb",
@@ -195,7 +195,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-18 15:42:17.539510",
+ "modified": "2025-05-05 10:03:37.208089",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Incident Report",

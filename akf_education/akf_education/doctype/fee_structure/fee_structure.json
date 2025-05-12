@@ -12,13 +12,14 @@
   "program",
   "school_type",
   "school",
-  "external_school",
   "student_category",
   "column_break_2",
   "academic_year",
   "academic_term",
-  "aghosh_home",
-  "ah_name",
+  "aghosh_home_id",
+  "aghosh_home_name",
+  "external_school",
+  "external_school_name",
   "section_break_4",
   "components",
   "section_break_6",
@@ -47,7 +48,7 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Program",
+   "label": "Class",
    "oldfieldname": "earning_name",
    "oldfieldtype": "Data",
    "options": "Program",
@@ -57,6 +58,7 @@
   {
    "fieldname": "student_category",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Student Category",
    "options": "Student Category"
   },
@@ -165,32 +167,42 @@
    "depends_on": "eval:doc.school_type==\"Internal\"",
    "fieldname": "school",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Internal School"
   },
   {
-   "fieldname": "aghosh_home",
-   "fieldtype": "Link",
-   "label": "Aghosh Home",
-   "options": "Aghosh Home"
-  },
-  {
-   "depends_on": "eval:doc.school_type==\"External\"",
    "fieldname": "external_school",
    "fieldtype": "Link",
    "label": "External School",
-   "options": "External School"
+   "options": "External School",
+   "reqd": 1
   },
   {
    "fieldname": "school_type",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "School Type",
    "options": "\nInternal\nExternal"
   },
   {
-   "fetch_from": "aghosh_home.aghosh_home_name",
-   "fieldname": "ah_name",
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
    "fieldtype": "Data",
-   "label": "AH Name",
+   "label": "Aghosh Home Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "external_school.name_of_school",
+   "fieldname": "external_school_name",
+   "fieldtype": "Data",
+   "label": "External School Name",
    "read_only": 1
   }
  ],
@@ -202,7 +214,7 @@
    "link_fieldname": "fee_structure"
   }
  ],
- "modified": "2025-04-21 17:34:35.938630",
+ "modified": "2025-05-08 16:06:51.027078",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fee Structure",
@@ -251,6 +263,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "search_fields": "program, student_category, academic_year",
  "sort_field": "modified",
  "sort_order": "DESC",

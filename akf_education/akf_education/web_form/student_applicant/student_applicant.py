@@ -4,6 +4,7 @@ from frappe import _
 
 
 def get_context(context):
+    # frappe.throw(f"{context}")
 	# do your magic here
 	pass
 
@@ -16,6 +17,8 @@ def get_context(context):
 #         SELECT
 #             sa.name AS admission_name,
 #             sa.academic_year,
+#             sa.aghosh_home_id,
+#             sa.aghosh_home_name,    
 #             sap.program,
 #             sap.min_age,
 #             sap.max_age

@@ -15,10 +15,12 @@
  "fields": [
   {
    "fieldname": "aghosh_home_id",
-   "fieldtype": "Data",
-   "label": "Aghosh Home ID"
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home"
   },
   {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
    "fieldname": "aghosh_home_name",
    "fieldtype": "Data",
    "label": "Aghosh Home Name"
@@ -40,15 +42,17 @@
    "label": "Maximum Age"
   }
  ],
+ "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-03-04 10:46:12.494765",
+ "modified": "2025-05-07 12:44:49.391674",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Admission Table",
  "owner": "Administrator",
  "permissions": [],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

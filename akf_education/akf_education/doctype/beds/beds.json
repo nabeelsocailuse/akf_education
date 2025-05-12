@@ -1,25 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{room_id}-Bed-{#####}",
+ "autoname": "format:B-AH-{#####}",
  "creation": "2025-02-20 16:05:08.467492",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_qxqe",
-  "room_id",
-  "room_abbr",
+  "aghosh_home_id",
+  "aghosh_home_name",
   "bed_number",
+  "bed_abbr",
+  "category",
+  "occupied_status",
+  "column_break_wepk",
   "building",
   "building_name",
-  "building_abbr",
-  "column_break_wepk",
-  "type_enum",
-  "occupied_status",
-  "aghosh_home",
-  "aghosh_homes_name",
-  "floor",
-  "bed_abbr"
+  "room_id",
+  "room_number",
+  "floor_number"
  ],
  "fields": [
   {
@@ -30,52 +29,33 @@
    "fieldname": "room_id",
    "fieldtype": "Link",
    "label": "Room ID",
-   "options": "Rooms"
+   "options": "Rooms",
+   "reqd": 1
   },
   {
    "fieldname": "bed_number",
    "fieldtype": "Data",
-   "label": "Bed Number"
-  },
-  {
-   "fieldname": "type_enum",
-   "fieldtype": "Select",
-   "label": "Type",
-   "options": "\nSingle\nBunk\nQueen\nKing"
+   "in_list_view": 1,
+   "label": "Bed Number",
+   "reqd": 1
   },
   {
    "fieldname": "occupied_status",
    "fieldtype": "Select",
    "label": "Occupancy Status",
-   "options": "\nVacant\nOccupied\nReserved"
+   "options": "\nVacant\nOccupied\nReserved",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_wepk",
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "room_id.building",
    "fieldname": "building",
    "fieldtype": "Link",
    "label": "Building",
    "options": "Building",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "room_id.aghosh_home",
-   "fieldname": "aghosh_home",
-   "fieldtype": "Link",
-   "label": "Aghosh Home",
-   "options": "Aghosh Home",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "room_id.floor_number",
-   "fieldname": "floor",
-   "fieldtype": "Select",
-   "label": "Floor",
-   "options": "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10",
-   "read_only": 1
+   "reqd": 1
   },
   {
    "fieldname": "bed_abbr",
@@ -85,20 +65,6 @@
    "unique": 1
   },
   {
-   "fetch_from": "room_id.room_abbr",
-   "fieldname": "room_abbr",
-   "fieldtype": "Data",
-   "label": "Room Abbr",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "building.building_abbr",
-   "fieldname": "building_abbr",
-   "fieldtype": "Data",
-   "label": "Building Abbr",
-   "read_only": 1
-  },
-  {
    "fetch_from": "building.building_name",
    "fieldname": "building_name",
    "fieldtype": "Data",
@@ -106,16 +72,43 @@
    "read_only": 1
   },
   {
-   "fetch_from": "aghosh_home.aghosh_home_name",
-   "fieldname": "aghosh_homes_name",
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
    "fieldtype": "Data",
-   "label": "Aghosh Homes Name",
+   "label": "Aghosh Home Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "\nSingle\nDouble\nQueen\nKing"
+  },
+  {
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "room_id.room_number",
+   "fieldname": "room_number",
+   "fieldtype": "Data",
+   "label": "Room Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "room_id.floor_number",
+   "fieldname": "floor_number",
+   "fieldtype": "Int",
+   "label": "Floor Number",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-30 11:50:33.426067",
+ "modified": "2025-05-09 15:36:22.350681",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Beds",
@@ -135,6 +128,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

@@ -7,10 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "name_of_school",
-  "aghosh_home",
-  "ah_name",
+  "aghosh_home_id",
+  "aghosh_home_name",
   "principle_name",
-  "gender",
+  "principal_gender",
   "distance_from_aghosh",
   "column_break_qfle",
   "type_of_school",
@@ -18,30 +18,23 @@
   "contact_number",
   "region_section",
   "region",
-  "tehsil",
-  "school_latitude",
-  "column_break_mjuw",
   "district",
-  "uc",
-  "school_longitude"
+  "tehsil",
+  "column_break_mjuw",
+  "longitude",
+  "latitude"
  ],
  "fields": [
   {
    "fieldname": "name_of_school",
    "fieldtype": "Data",
-   "label": "Name Of School",
+   "label": "Name of School",
    "unique": 1
   },
   {
    "fieldname": "principle_name",
    "fieldtype": "Data",
    "label": "Principal Name"
-  },
-  {
-   "fieldname": "gender",
-   "fieldtype": "Select",
-   "label": "Gender Composition",
-   "options": "\nMale\nFemale\nOthers"
   },
   {
    "fieldname": "column_break_qfle",
@@ -58,27 +51,21 @@
    "label": "Contact Number"
   },
   {
-   "fieldname": "school_latitude",
-   "fieldtype": "Data",
-   "label": "Latitude"
-  },
-  {
-   "fieldname": "school_longitude",
-   "fieldtype": "Data",
-   "label": "Longitude"
-  },
-  {
    "fieldname": "region_section",
    "fieldtype": "Section Break",
    "label": "Location"
   },
   {
+   "fetch_from": "aghosh_home_id.region",
+   "fetch_if_empty": 1,
    "fieldname": "region",
    "fieldtype": "Link",
    "label": "Region",
    "options": "Region"
   },
   {
+   "fetch_from": "aghosh_home_id.tehsil",
+   "fetch_if_empty": 1,
    "fieldname": "tehsil",
    "fieldtype": "Link",
    "label": "Tehsil",
@@ -89,17 +76,15 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "aghosh_home_id.district",
+   "fetch_if_empty": 1,
    "fieldname": "district",
    "fieldtype": "Link",
    "label": "District",
    "options": "District"
   },
   {
-   "fieldname": "uc",
-   "fieldtype": "Data",
-   "label": "UC"
-  },
-  {
+   "description": "Kms",
    "fieldname": "distance_from_aghosh",
    "fieldtype": "Data",
    "label": "Distance From Aghosh"
@@ -107,27 +92,43 @@
   {
    "fieldname": "type_of_school",
    "fieldtype": "Select",
-   "label": "Type Of School",
-   "options": "\nGovt School\nPrivate School"
-  },
-  {
-   "fieldname": "aghosh_home",
-   "fieldtype": "Link",
-   "label": "Aghosh Home ID",
-   "options": "Aghosh Home"
+   "label": "Type of School",
+   "options": "\nGovernment School\nPrivate School"
   },
   {
    "fetch_from": "aghosh_home.aghosh_home_name",
    "fetch_if_empty": 1,
-   "fieldname": "ah_name",
+   "fieldname": "aghosh_home_name",
    "fieldtype": "Data",
-   "label": "AH Name",
+   "label": "Aghosh Home Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "principal_gender",
+   "fieldtype": "Select",
+   "label": "Principal Gender",
+   "options": "\nMale\nFemale\nOthers"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Data",
+   "label": "Latitude"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Data",
+   "label": "Longitude"
+  },
+  {
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-21 17:32:48.863060",
+ "modified": "2025-05-09 18:06:24.890137",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "External School",
@@ -147,6 +148,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

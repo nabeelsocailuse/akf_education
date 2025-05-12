@@ -11,13 +11,14 @@
   "section_break_1",
   "enabled",
   "section_break_7",
+  "column_break_oaxd",
   "first_name",
   "middle_name",
   "last_name",
   "old_aghosh_id",
   "current_aghosh_id",
   "date_of_birth",
-  "gender",
+  "student_gender",
   "any_special_abled_children",
   "student_email_id",
   "joining_date",
@@ -28,7 +29,7 @@
   "disability",
   "date_of_admission",
   "hifz",
-  "guardian_mobile_number",
+  "guardian_contact_number",
   "naming_series",
   "user",
   "student_applicant",
@@ -40,31 +41,31 @@
   "section_break_22",
   "address_line_1",
   "address_line_2",
-  "pincode",
   "column_break_20",
-  "city",
-  "state",
   "country",
+  "region",
+  "district",
+  "tehsil",
+  "uc",
   "relations_tab",
   "fathers_detail_section",
   "father_name",
-  "occupation",
+  "father_occupation",
   "father_cnic",
-  "attach_death_certificate",
+  "father_death_certificate",
   "column_break_sfmz",
   "father_date_of_death",
-  "cause_of_death",
-  "place_of_death",
+  "father_cause_of_death",
+  "father_place_of_death",
   "mothers_details_section",
   "mother_name",
   "mother_cnic",
-  "date_of_death",
+  "mother_dob",
   "husband_name",
   "column_break_o7lm",
-  "contact_number",
   "mother_alive_status",
-  "reason_of_death",
-  "mother_dob",
+  "mother_date_of_death",
+  "mother_cause_of_death",
   "section_break_18",
   "guardians",
   "section_break_20",
@@ -144,6 +145,7 @@
   {
    "fieldname": "student_email_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "in_global_search": 1,
    "label": "Student Email Address",
    "unique": 1
@@ -168,7 +170,6 @@
    "label": "Personal Details"
   },
   {
-   "fetch_from": "student_applicant.date_of_birth1",
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
    "label": "Date of Birth"
@@ -182,12 +183,6 @@
   {
    "fieldname": "column_break_3",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "gender",
-   "fieldtype": "Link",
-   "label": "Gender",
-   "options": "Gender"
   },
   {
    "fieldname": "nationality",
@@ -215,23 +210,8 @@
    "label": "Address Line 2"
   },
   {
-   "fieldname": "pincode",
-   "fieldtype": "Data",
-   "label": "Pincode"
-  },
-  {
    "fieldname": "column_break_20",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "city",
-   "fieldtype": "Data",
-   "label": "City"
-  },
-  {
-   "fieldname": "state",
-   "fieldtype": "Data",
-   "label": "State"
   },
   {
    "fieldname": "country",
@@ -436,42 +416,23 @@
    "options": "\nYes\nNo"
   },
   {
-   "fetch_from": "student_applicant.name1",
    "fieldname": "father_name",
    "fieldtype": "Data",
-   "label": "Father Name",
-   "read_only": 1
+   "label": "Father Name"
   },
   {
    "fieldname": "father_cnic",
    "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Father CNIC",
-   "read_only": 1
+   "label": "Father's CNIC"
   },
   {
-   "fetch_from": "student_applicant.fathet_date_of_death",
    "fieldname": "father_date_of_death",
    "fieldtype": "Date",
-   "label": "Father Date of Death",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.attach_death_certificate",
-   "fieldname": "attach_death_certificate",
-   "fieldtype": "Attach",
-   "label": "Attach Death Certificate"
+   "label": "Father's Date of Death"
   },
   {
    "fieldname": "column_break_sfmz",
    "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "student_applicant.father_reason_death",
-   "fieldname": "cause_of_death",
-   "fieldtype": "Data",
-   "label": "Cause of Death",
-   "read_only": 1
   },
   {
    "fieldname": "hifz",
@@ -495,32 +456,24 @@
    "label": "Mother's Details"
   },
   {
-   "fetch_from": "student_applicant.name2",
    "fieldname": "mother_name",
    "fieldtype": "Data",
    "label": "Mother Name"
   },
   {
-   "fetch_from": "student_applicant.cnic",
    "fieldname": "mother_cnic",
    "fieldtype": "Data",
-   "label": "Mother CNIC"
+   "label": "Mother's CNIC"
   },
   {
    "fieldname": "column_break_o7lm",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "contact_number",
-   "fieldtype": "Phone",
-   "label": "Contact Number"
-  },
-  {
-   "fetch_from": "student_applicant.alive_status",
    "fieldname": "mother_alive_status",
    "fieldtype": "Select",
-   "label": "Mother Alive Status",
-   "options": "\nAlive\nDeath"
+   "label": "Mother's Alive Status",
+   "options": "\nYes\nNo"
   },
   {
    "fieldname": "old_aghosh_id",
@@ -546,6 +499,7 @@
   {
    "fieldname": "age_round",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Age Round"
   },
   {
@@ -554,27 +508,6 @@
    "label": "Date Of Admission"
   },
   {
-   "depends_on": "eval:doc.mother_alive_status == \"Death\"\n",
-   "fetch_from": "student_applicant.place_of_death",
-   "fieldname": "date_of_death",
-   "fieldtype": "Date",
-   "label": "Date Of Death"
-  },
-  {
-   "depends_on": "eval:doc.mother_alive_status == \"Death\"\n",
-   "fetch_from": "student_applicant.reason_of_death",
-   "fieldname": "reason_of_death",
-   "fieldtype": "Data",
-   "label": "Reason Of Death"
-  },
-  {
-   "fieldname": "guardian_mobile_number",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "label": "Guardian Mobile Number"
-  },
-  {
-   "fetch_from": "student_applicant.aghosh_home",
    "fieldname": "aghosh_home_id",
    "fieldtype": "Link",
    "label": "Aghosh Home ID",
@@ -587,36 +520,93 @@
    "label": "Aghosh Home Name"
   },
   {
-   "fetch_from": "student_applicant.father_occupation",
-   "fieldname": "occupation",
-   "fieldtype": "Data",
-   "label": "Occupation",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.father_death_place",
-   "fieldname": "place_of_death",
-   "fieldtype": "Data",
-   "label": "Place Of Death",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.husband_name",
    "fieldname": "husband_name",
    "fieldtype": "Data",
    "label": "Husband Name"
   },
   {
-   "fetch_from": "student_applicant.mother_dob",
    "fieldname": "mother_dob",
    "fieldtype": "Date",
-   "label": "Date Of Birth"
+   "label": "Mother's Date of Birth"
   },
   {
    "default": "1",
    "fieldname": "enabled",
    "fieldtype": "Check",
    "label": "Enabled"
+  },
+  {
+   "fieldname": "father_death_certificate",
+   "fieldtype": "Attach",
+   "label": "Father's Death Certificate"
+  },
+  {
+   "fieldname": "father_cause_of_death",
+   "fieldtype": "Data",
+   "label": "Father's Cause of Death"
+  },
+  {
+   "fieldname": "father_place_of_death",
+   "fieldtype": "Data",
+   "label": "Father's Place Of Death"
+  },
+  {
+   "fieldname": "father_occupation",
+   "fieldtype": "Data",
+   "label": "Father's Occupation"
+  },
+  {
+   "depends_on": "eval:doc.mother_alive_status == \"No\"",
+   "fieldname": "mother_date_of_death",
+   "fieldtype": "Date",
+   "label": "Mother's Date of Death",
+   "mandatory_depends_on": "eval:doc.mother_alive_status == \"No\""
+  },
+  {
+   "depends_on": "eval:doc.mother_alive_status == \"No\"",
+   "fieldname": "mother_cause_of_death",
+   "fieldtype": "Data",
+   "label": "Mother's Cause of Death"
+  },
+  {
+   "fieldname": "column_break_oaxd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "label": "Region",
+   "options": "Region"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "tehsil",
+   "fieldtype": "Link",
+   "label": "Tehsil",
+   "options": "Tehsil"
+  },
+  {
+   "fieldname": "uc",
+   "fieldtype": "Data",
+   "label": "UC"
+  },
+  {
+   "fieldname": "student_gender",
+   "fieldtype": "Select",
+   "label": "Student Gender",
+   "options": "\nMale\nFemale\nOther"
+  },
+  {
+   "fieldname": "guardian_contact_number",
+   "fieldtype": "Phone",
+   "in_global_search": 1,
+   "label": "Guardian Contact Number",
+   "reqd": 1
   }
  ],
  "image_field": "image",
@@ -682,7 +672,7 @@
    "link_fieldname": "orphan_name"
   }
  ],
- "modified": "2025-04-30 12:02:07.895009",
+ "modified": "2025-05-08 12:47:40.108515",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",
@@ -716,9 +706,11 @@
    "share": 1
   }
  ],
+ "row_format": "Dynamic",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "first_name"
+ "title_field": "first_name",
+ "track_changes": 1
 }

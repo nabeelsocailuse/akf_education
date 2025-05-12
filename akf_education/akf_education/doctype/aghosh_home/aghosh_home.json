@@ -1,7 +1,6 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "format:AH- {region_abbr}-{district_abbr}-{#####}",
+ "autoname": "format:AH-{region_abbr}-{####}",
  "creation": "2025-03-04 13:21:34.237027",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -13,11 +12,12 @@
   "column_break_tavq",
   "status",
   "established_date",
+  "branch_abbreviation",
   "head_of_aghosh_home_section",
-  "head_id",
-  "head_name",
+  "employee_id",
+  "employee_name",
   "column_break_abth",
-  "designation",
+  "employee_designation",
   "date_of_joining",
   "address_of_aghosh_section",
   "region",
@@ -66,14 +66,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "region.abbr",
-   "fieldname": "region_abbr",
-   "fieldtype": "Data",
-   "label": "Region Abbr",
-   "options": "Region",
-   "read_only": 1
-  },
-  {
    "fieldname": "latitude",
    "fieldtype": "Data",
    "label": "Latitude"
@@ -109,6 +101,7 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval: doc.status == \"Operational\"",
    "fieldname": "established_date",
    "fieldtype": "Date",
    "label": "Established Date"
@@ -129,39 +122,55 @@
    "fieldname": "branch",
    "fieldtype": "Link",
    "label": "Branch",
-   "options": "Branch"
+   "options": "Branch",
+   "reqd": 1
   },
   {
-   "fieldname": "head_id",
-   "fieldtype": "Link",
-   "label": "Head ID",
-   "options": "Employee"
-  },
-  {
-   "fetch_from": "name3.employee_name",
-   "fieldname": "head_name",
-   "fieldtype": "Data",
-   "label": "Head Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "name3.designation",
-   "fieldname": "designation",
-   "fieldtype": "Data",
-   "label": "Designation",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "name3.date_of_joining",
+   "fetch_from": "employee_id.date_of_joining",
    "fieldname": "date_of_joining",
    "fieldtype": "Date",
    "label": "Date of Joining",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "branch.custom_abbreviation",
+   "fieldname": "branch_abbreviation",
+   "fieldtype": "Data",
+   "label": "Branch Abbreviation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_id",
+   "fieldtype": "Link",
+   "label": "Employee ID",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee_id.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee_id.designation",
+   "fieldname": "employee_designation",
+   "fieldtype": "Data",
+   "label": "Employee Designation",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "region.region_code",
+   "fieldname": "region_abbr",
+   "fieldtype": "Data",
+   "label": "Region Code",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-05 15:27:30.936160",
+ "modified": "2025-05-09 16:49:46.369708",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",
@@ -181,6 +190,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "search_fields": "aghosh_home_name",
  "sort_field": "modified",
  "sort_order": "DESC",

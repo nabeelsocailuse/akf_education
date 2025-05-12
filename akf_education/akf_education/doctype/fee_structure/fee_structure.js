@@ -48,6 +48,13 @@ frappe.ui.form.on('Fee Structure', {
           : frm.events.open_fee_schedule_modal(frm)
       })
     }
+    frm.set_query("external_school", function () {
+			return {
+				filters: {
+					aghosh_home: frm.doc.aghosh_home_id,
+				},
+			};
+		});
   },
 
   make_term_wise_fee_schedule: function (frm) {
@@ -261,22 +268,22 @@ frappe.ui.form.on('Fee Structure', {
 });
 
 frappe.ui.form.on('Fee Component', {
-  amount: function (frm, cdt, cdn) {
-    let d = locals[cdt][cdn]
-    d.total = d.amount
-    refresh_field('components')
-    if (d.discount) {
-      d.total = d.amount - d.amount * (d.discount / 100)
-      refresh_field('components')
-    }
-  },
-  discount: function (frm, cdt, cdn) {
-    let d = locals[cdt][cdn]
-    if (d.discount <= 100) {
-      d.total = d.amount - d.amount * (d.discount / 100)
-    }
-    refresh_field('components')
-  },
+  // amount: function (frm, cdt, cdn) {
+  //   let d = locals[cdt][cdn]
+  //   d.total = d.amount
+  //   refresh_field('components')
+  //   if (d.discount) {
+  //     d.total = d.amount - d.amount * (d.discount / 100)
+  //     refresh_field('components')
+  //   }
+  // },
+  // discount: function (frm, cdt, cdn) {
+  //   let d = locals[cdt][cdn]
+  //   if (d.discount <= 100) {
+  //     d.total = d.amount - d.amount * (d.discount / 100)
+  //   }
+  //   refresh_field('components')
+  // },
 })
 
 

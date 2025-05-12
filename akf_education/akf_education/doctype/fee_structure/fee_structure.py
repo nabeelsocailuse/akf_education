@@ -9,21 +9,22 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.model.mapper import get_mapped_doc
 from frappe.utils import flt
-from akf_education.akf_education.doctype.fee_category.fee_category import create_item
+# from akf_education.akf_education.doctype.fee_category.fee_category import create_item
 
 
 
 class FeeStructure(Document):
 	def validate(self):
 		self.calculate_total()
-		self.validate_discount()
+		# self.validate_discount()
 		self.validate_component_defaults()
 
 	def calculate_total(self):
 		"""Calculates total amount."""
 		self.total_amount = 0
 		for d in self.components:
-			d.total = flt(d.amount) - (d.amount * (flt(d.discount) / 100))
+			d.total = flt(d.amount)
+			# d.total = flt(d.amount) - (d.amount * (flt(d.discount) / 100))
 			self.total_amount += d.total
 
 	def validate_discount(self):
@@ -50,19 +51,20 @@ class FeeStructure(Document):
 				)
 
 	def before_submit(self):
-		for component in self.components:
-			# create item for each component if it doesn't exist
-			if not component.get("item"):
-				self.create_item_master_and_save_item_in_fee_component(component)
+		pass
+		# for component in self.components:
+		# 	# create item for each component if it doesn't exist
+		# 	if not component.get("item"):
+		# 		self.create_item_master_and_save_item_in_fee_component(component)
 
-	def create_item_master_and_save_item_in_fee_component(self, component):
-		# create item master from fee category
-		item = create_item(component, use_name_field=False)
-		component.item = item
-		# store the item in the component doc
-		component_doc = frappe.get_doc("Fee Category", component.fees_category)
-		component_doc.item = item
-		component_doc.save()
+	# def create_item_master_and_save_item_in_fee_component(self, component):
+	# 	# create item master from fee category
+	# 	item = create_item(component, use_name_field=False)
+	# 	component.item = item
+	# 	# store the item in the component doc
+	# 	component_doc = frappe.get_doc("Fee Category", component.fees_category)
+	# 	component_doc.item = item
+	# 	component_doc.save()
 
 
 @frappe.whitelist()

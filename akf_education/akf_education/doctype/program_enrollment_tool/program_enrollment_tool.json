@@ -8,22 +8,12 @@
   "get_students_from",
   "program",
   "student_batch",
-  "ah_name",
   "column_break_3",
   "academic_year",
-  "aghosh_home1",
+  "aghosh_home_id",
+  "aghosh_home_name",
   "academic_term",
   "enrollment_date",
-  "section_break_ignu",
-  "school_type1",
-  "column_break_zuvz",
-  "external1",
-  "aghosh_home_info_section",
-  "bed",
-  "room",
-  "column_break_vykp",
-  "building",
-  "aghosh_home",
   "section_break_5",
   "get_students",
   "students",
@@ -37,11 +27,12 @@
  ],
  "fields": [
   {
+   "default": "Student Applicant",
    "fieldname": "get_students_from",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Get Students From",
-   "options": "\nStudent Applicant\nProgram Enrollment",
+   "options": "Student Applicant",
    "reqd": 1
   },
   {
@@ -53,9 +44,9 @@
    "reqd": 1
   },
   {
-   "depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "fieldname": "student_batch",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Student Batch",
    "options": "Student Batch Name"
   },
@@ -99,9 +90,9 @@
    "label": "Enrollment Details"
   },
   {
-   "depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "fieldname": "new_program",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "New Program",
    "mandatory_depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "options": "Program"
@@ -109,8 +100,8 @@
   {
    "fieldname": "new_student_batch",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "New Student Batch",
-   "mandatory_depends_on": "eval:doc.student_batch",
    "options": "Student Batch Name"
   },
   {
@@ -123,104 +114,44 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "fieldname": "new_academic_year",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "New Academic Year",
-   "mandatory_depends_on": "eval:doc.get_students_from==\"Program Enrollment\";",
    "options": "Academic Year"
   },
   {
-   "depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "fieldname": "new_academic_term",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "New Academic Term",
-   "mandatory_depends_on": "eval:doc.academic_term",
    "options": "Academic Term"
   },
   {
-   "depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "fieldname": "enrollment_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Enrollment Date"
   },
   {
-   "fieldname": "aghosh_home_info_section",
-   "fieldtype": "Section Break",
-   "label": "Aghosh Home Info"
-  },
-  {
-   "depends_on": "eval:doc.school_type1==\"Internal\"\n",
-   "fieldname": "aghosh_home",
+   "fieldname": "aghosh_home_id",
    "fieldtype": "Link",
-   "label": "Aghosh Home",
-   "options": "Aghosh Home"
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home",
+   "reqd": 1
   },
   {
-   "depends_on": "eval:doc.school_type1==\"Internal\"\n",
-   "fieldname": "room",
-   "fieldtype": "Link",
-   "label": "Room",
-   "options": "Rooms"
-  },
-  {
-   "fieldname": "column_break_vykp",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.school_type1==\"Internal\"\n",
-   "fieldname": "building",
-   "fieldtype": "Link",
-   "label": "Building",
-   "options": "Building"
-  },
-  {
-   "depends_on": "eval:doc.school_type1==\"Internal\"\n",
-   "fieldname": "bed",
-   "fieldtype": "Link",
-   "label": "Bed",
-   "options": "Beds"
-  },
-  {
-   "fieldname": "section_break_ignu",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "school_type1",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "School Type",
-   "options": "\nInternal\nExternal"
-  },
-  {
-   "fieldname": "column_break_zuvz",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.school_type1==\"External\"\n",
-   "fieldname": "external1",
-   "fieldtype": "Link",
-   "label": "External ",
-   "options": "External School"
-  },
-  {
-   "fieldname": "aghosh_home1",
-   "fieldtype": "Link",
-   "label": "AH ID",
-   "options": "Aghosh Home"
-  },
-  {
-   "fetch_from": "aghosh_home1.aghosh_home_name",
-   "fieldname": "ah_name",
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
    "fieldtype": "Data",
-   "label": "AH Name",
+   "label": "Aghosh Home Name",
    "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-04-21 15:57:41.272378",
+ "modified": "2025-05-08 09:48:53.655849",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment Tool",
@@ -233,7 +164,9 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

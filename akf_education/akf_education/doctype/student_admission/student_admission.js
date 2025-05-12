@@ -2,6 +2,17 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Student Admission', {
+  refresh: function(frm) {
+        // toggle_principle_field(frm);
+        frm.set_query('aghosh_home_id', function() {
+            return {
+                filters: {
+                    "status": "Operational"
+                }
+            };
+        });
+       
+    },
   program: function (frm) {
     if (frm.doc.academic_year && frm.doc.program) {
       frm.doc.route =

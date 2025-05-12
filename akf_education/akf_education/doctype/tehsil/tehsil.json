@@ -1,13 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:name1",
+ "autoname": "field:tehsil_name",
  "creation": "2025-04-10 13:23:20.710246",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_ccvs",
-  "name1"
+  "district",
+  "tehsil_name",
+  "column_break_pdrq"
  ],
  "fields": [
   {
@@ -15,15 +17,29 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "name1",
+   "fieldname": "tehsil_name",
    "fieldtype": "Data",
-   "label": "Name",
+   "in_list_view": 1,
+   "label": "Tehsil Name",
+   "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pdrq",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-14 22:29:57.867531",
+ "modified": "2025-05-05 17:08:19.802662",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Tehsil",

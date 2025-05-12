@@ -6,17 +6,15 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "region",
   "district_name",
-  "column_break_eluy",
   "abbr",
-  "section_break_pixs",
-  "select_tehsil"
+  "column_break_eluy"
  ],
  "fields": [
   {
    "fieldname": "district_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "District Name",
    "reqd": 1,
    "unique": 1
@@ -28,23 +26,22 @@
   {
    "fieldname": "abbr",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Abbr",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "label": "Region",
+   "options": "Region",
    "reqd": 1
-  },
-  {
-   "fieldname": "select_tehsil",
-   "fieldtype": "Table",
-   "label": "Select Tehsil",
-   "options": "Select Tehsil"
-  },
-  {
-   "fieldname": "section_break_pixs",
-   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-14 16:56:20.661467",
+ "modified": "2025-05-06 15:36:38.801169",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "District",

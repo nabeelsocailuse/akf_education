@@ -7,29 +7,31 @@
  "document_type": "Document",
  "engine": "InnoDB",
  "field_order": [
+  "student_details_section",
   "student",
   "student_name",
   "enrollment_date",
   "column_break_4",
   "program",
   "academic_year",
+  "student_applicant",
   "academic_term",
   "grading_scale",
   "image",
   "section_break_sndc",
   "school_type",
-  "name_of_school",
-  "ex_name_of_school",
   "column_break_dtkt",
-  "external1",
+  "external_school",
+  "name_of_school",
+  "internal_school",
   "section_break_crmg",
-  "building",
-  "bed",
+  "aghosh_home_id",
+  "aghosh_home_name",
   "column_break_rnkv",
-  "aghosh_home",
+  "building",
+  "building_name",
   "room",
-  "section_break_krwy",
-  "external",
+  "bed",
   "section_break_vsaj",
   "student_category",
   "student_batch_name",
@@ -38,37 +40,6 @@
   "boarding_student",
   "enrolled_courses",
   "courses",
-  "students_guardian_detail_section",
-  "student_applicant",
-  "guardian_name",
-  "gender_guardian",
-  "address",
-  "relation_with_child",
-  "occupation_detail",
-  "column_break_srgv",
-  "education",
-  "marital_status",
-  "mobile_number",
-  "guardian_cnic",
-  "father_details_section",
-  "column_break_avcv",
-  "name1",
-  "father_occupation",
-  "reason_of_death",
-  "attach_death_certificate",
-  "column_break_dnag",
-  "date_of_birth",
-  "place_of_death",
-  "date_of_death",
-  "mother_details_section",
-  "mother_name",
-  "cnic",
-  "husband_name",
-  "mother_date_of_birth",
-  "column_break_oiaf",
-  "alive_status",
-  "mother_date_of_death",
-  "mother_reason_of_death",
   "fees_tab",
   "section_break_7",
   "fees",
@@ -134,6 +105,7 @@
   {
    "fieldname": "academic_term",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Academic Term",
    "options": "Academic Term"
   },
@@ -149,6 +121,7 @@
    "description": "Check this if the Student is residing at the Institute's Hostel.",
    "fieldname": "boarding_student",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Boarding Student"
   },
   {
@@ -190,7 +163,8 @@
   },
   {
    "fieldname": "section_break_vsaj",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "column_break_ebuo",
@@ -225,6 +199,7 @@
    "fieldname": "building",
    "fieldtype": "Link",
    "label": "Building",
+   "mandatory_depends_on": "eval:doc.school_type==\"Internal\"",
    "options": "Building"
   },
   {
@@ -240,14 +215,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "allow_on_submit": 1,
-   "fieldname": "aghosh_home",
-   "fieldtype": "Link",
-   "label": "Aghosh Home",
-   "options": "Aghosh Home",
-   "read_only": 1
-  },
-  {
    "depends_on": "eval:doc.school_type==\"Internal\"",
    "fieldname": "room",
    "fieldtype": "Link",
@@ -256,19 +223,9 @@
    "read_only": 1
   },
   {
-   "fieldname": "section_break_krwy",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "external",
-   "fieldtype": "Link",
-   "label": "External ",
-   "options": "External School",
-   "read_only": 1
-  },
-  {
    "fieldname": "section_break_sndc",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "School Details"
   },
   {
    "fieldname": "school_type",
@@ -281,18 +238,12 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:doc.school_type==\"External\"\n",
-   "fieldname": "external1",
-   "fieldtype": "Link",
-   "label": "External",
-   "options": "External School"
-  },
-  {
-   "depends_on": "eval:doc.school_type == \"Internal\"\n",
-   "fetch_from": "building.building_name",
+   "depends_on": "eval:doc.school_type == \"External\"",
+   "fetch_from": "external_school.name_of_school",
    "fieldname": "name_of_school",
    "fieldtype": "Data",
-   "label": "Building Name",
+   "label": "Name of School",
+   "mandatory_depends_on": "eval:doc.school_type == \"External\"",
    "read_only": 1
   },
   {
@@ -303,209 +254,59 @@
    "options": "Fee Component"
   },
   {
-   "fieldname": "students_guardian_detail_section",
-   "fieldtype": "Section Break",
-   "label": "Students Guardian Detail"
-  },
-  {
-   "fetch_from": "student_applicant.name5",
-   "fieldname": "guardian_name",
-   "fieldtype": "Data",
-   "label": "Guardian Name"
-  },
-  {
-   "fetch_from": "student_applicant.gender_guardian",
-   "fieldname": "gender_guardian",
-   "fieldtype": "Data",
-   "label": "Gender Guardian"
-  },
-  {
-   "fetch_from": "student_applicant.address",
-   "fieldname": "address",
-   "fieldtype": "Data",
-   "label": "Address"
-  },
-  {
-   "fetch_from": "student_applicant.relation_with_child",
-   "fieldname": "relation_with_child",
-   "fieldtype": "Data",
-   "label": "Relation with Child"
-  },
-  {
-   "fetch_from": "student_applicant.occupation_details",
-   "fieldname": "occupation_detail",
-   "fieldtype": "Data",
-   "label": "Occupation Detail"
-  },
-  {
-   "fetch_from": "student_applicant.education",
-   "fieldname": "education",
-   "fieldtype": "Data",
-   "label": "Education"
-  },
-  {
-   "fetch_from": "student_applicant.marital_status",
-   "fieldname": "marital_status",
-   "fieldtype": "Data",
-   "label": "Marital Status"
-  },
-  {
-   "fetch_from": "student_applicant.contact_number",
-   "fieldname": "mobile_number",
-   "fieldtype": "Phone",
-   "label": "Mobile Number"
-  },
-  {
    "fieldname": "student_applicant",
    "fieldtype": "Link",
    "label": "Student Applicant",
    "options": "Student Applicant"
   },
   {
-   "fieldname": "column_break_srgv",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "father_details_section",
-   "fieldtype": "Section Break",
-   "label": "Father Details"
-  },
-  {
-   "fetch_from": "student_applicant.name1",
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.father_occupation",
-   "fieldname": "father_occupation",
-   "fieldtype": "Data",
-   "label": "Father Occupation",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student.cause_of_death",
-   "fieldname": "reason_of_death",
-   "fieldtype": "Data",
-   "label": "Reason Of Death",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.attach_death_certificate",
-   "fieldname": "attach_death_certificate",
-   "fieldtype": "Attach Image",
-   "label": "Attach Death Certificate"
-  },
-  {
-   "fieldname": "column_break_dnag",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "student_applicant.father_dob",
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date Of Birth",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.father_death_place",
-   "fieldname": "place_of_death",
-   "fieldtype": "Data",
-   "label": "Place Of Death",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.fathet_date_of_death",
-   "fieldname": "date_of_death",
-   "fieldtype": "Date",
-   "label": "Date Of Death",
-   "read_only": 1
-  },
-  {
-   "fieldname": "mother_details_section",
-   "fieldtype": "Section Break",
-   "label": "Mother Details"
-  },
-  {
-   "fetch_from": "student_applicant.name2",
-   "fieldname": "mother_name",
-   "fieldtype": "Data",
-   "label": "Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.cnic",
-   "fieldname": "cnic",
-   "fieldtype": "Data",
-   "label": "CNIC",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.husband_name",
-   "fieldname": "husband_name",
-   "fieldtype": "Data",
-   "label": "Husband Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.mother_dob",
-   "fieldname": "mother_date_of_birth",
-   "fieldtype": "Data",
-   "label": "Date Of Birth",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_oiaf",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "student_applicant.alive_status",
-   "fieldname": "alive_status",
-   "fieldtype": "Select",
-   "label": "Alive Status",
-   "options": "\nAlive\nDeath",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.place_of_death",
-   "fieldname": "mother_date_of_death",
-   "fieldtype": "Date",
-   "label": "Date Of Death",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.reason_of_death",
-   "fieldname": "mother_reason_of_death",
-   "fieldtype": "Data",
-   "label": "Reason Of Death",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_avcv",
-   "fieldtype": "Column Break",
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.school_type == \"External\"\n",
-   "fetch_from": "external1.name_of_school",
-   "fieldname": "ex_name_of_school",
-   "fieldtype": "Data",
-   "label": "Name of School",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "student_applicant.cnic_guardian",
-   "fieldname": "guardian_cnic",
-   "fieldtype": "Data",
-   "label": "CNIC",
-   "read_only": 1
-  },
-  {
    "fieldname": "grading_scale",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Grading Scale",
    "options": "Grading Scale"
+  },
+  {
+   "fieldname": "student_details_section",
+   "fieldtype": "Section Break",
+   "label": "Student Details"
+  },
+  {
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home"
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name"
+  },
+  {
+   "depends_on": "eval: doc.school_type == \"External\"",
+   "fieldname": "external_school",
+   "fieldtype": "Link",
+   "label": "External School",
+   "mandatory_depends_on": "eval:doc.school_type == \"External\"",
+   "options": "External School"
+  },
+  {
+   "depends_on": "eval:doc.school_type == \"Internal\"\n",
+   "fetch_from": "building.building_name",
+   "fieldname": "building_name",
+   "fieldtype": "Data",
+   "label": "Building Name",
+   "mandatory_depends_on": "eval:doc.school_type==\"Internal\"",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.school_type == \"Internal\"",
+   "fieldname": "internal_school",
+   "fieldtype": "Link",
+   "label": "Internal School",
+   "mandatory_depends_on": "eval: doc.school_type == \"Internal\"",
+   "options": "Building"
   }
  ],
  "image_field": "image",
@@ -517,7 +318,7 @@
    "link_fieldname": "program_enrollment"
   }
  ],
- "modified": "2025-04-29 11:25:12.848568",
+ "modified": "2025-05-09 14:33:03.463805",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",
@@ -549,6 +350,7 @@
    "share": 1
   }
  ],
+ "row_format": "Dynamic",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

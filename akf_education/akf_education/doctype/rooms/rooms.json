@@ -1,25 +1,22 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "format:{aghosh_home}-B-{building}-R-{#####}",
+ "autoname": "format:R-AH-{#####}",
  "creation": "2025-02-20 15:59:28.034985",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_k16j",
-  "aghosh_home",
+  "aghosh_home_id",
+  "aghosh_home_name",
+  "building_floor",
   "building",
   "building_name",
-  "school_name",
-  "room_number",
-  "type_enum",
-  "building_abbr",
+  "aghosh_school",
   "column_break_vnhu",
-  "capacity",
-  "occupied_status",
-  "floor_number",
-  "ah_name",
-  "room_abbr"
+  "room_category",
+  "room_number",
+  "maximum_room_capacity",
+  "occupied_status"
  ],
  "fields": [
   {
@@ -29,60 +26,28 @@
   {
    "fieldname": "building",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Building",
-   "options": "Building"
+   "options": "Building",
+   "reqd": 1
   },
   {
    "fieldname": "room_number",
    "fieldtype": "Data",
-   "label": "Room Number"
+   "in_list_view": 1,
+   "label": "Room Number",
+   "reqd": 1
   },
   {
-   "fieldname": "type_enum",
-   "fieldtype": "Select",
-   "label": "Type ",
-   "options": "\nDormitory\nSingle\nDouble\nStaff Room\nGuest Room"
-  },
-  {
-   "fieldname": "capacity",
-   "fieldtype": "Int",
-   "label": "Capacity"
-  },
-  {
+   "default": "Vacant",
    "fieldname": "occupied_status",
    "fieldtype": "Select",
    "label": "Occupied Status",
    "options": "\nVacant\nOccupied\nReserved"
   },
   {
-   "fieldname": "floor_number",
-   "fieldtype": "Int",
-   "label": "Floor Number"
-  },
-  {
    "fieldname": "column_break_vnhu",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "aghosh_home",
-   "fieldtype": "Link",
-   "label": "AH ID",
-   "options": "Aghosh Home"
-  },
-  {
-   "fieldname": "room_abbr",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Room Abbr",
-   "unique": 1
-  },
-  {
-   "fetch_from": "building.building_abbr",
-   "fieldname": "building_abbr",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Building Abbr",
-   "read_only": 1
   },
   {
    "fetch_from": "building.building_name",
@@ -92,22 +57,50 @@
    "read_only": 1
   },
   {
-   "fetch_from": "building.name_of_school",
-   "fieldname": "school_name",
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
    "fieldtype": "Data",
-   "label": "School Name",
+   "label": "Aghosh Home Name",
    "read_only": 1
   },
   {
-   "fetch_from": "aghosh_home.aghosh_home_name",
-   "fieldname": "ah_name",
+   "fieldname": "maximum_room_capacity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Maximum Room Capacity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "room_category",
+   "fieldtype": "Select",
+   "label": "Room Category",
+   "options": "\nDormitory\nStaff Room\nGuest Room"
+  },
+  {
+   "fieldname": "building_floor",
+   "fieldtype": "Int",
+   "label": "Building Floor",
+   "non_negative": 1
+  },
+  {
+   "fetch_from": "building.name_of_school",
+   "fieldname": "aghosh_school",
    "fieldtype": "Data",
-   "label": "AH Name"
+   "label": "Aghosh School",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-21 15:00:09.491416",
+ "modified": "2025-05-09 15:44:52.800221",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Rooms",
@@ -127,6 +120,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

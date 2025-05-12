@@ -27,12 +27,13 @@ class AdmissionTool(Document):
 				frappe.throw ("Age limit missing")
     
 			fargs.update({
-				"name_of_aghosh": row.aghosh_home_id,
+				"aghosh_home_id": row.aghosh_home_id,
 				"title": row.aghosh_home_name,
 				"route": f"admissions/{row.aghosh_home_name}",
 				
 			})
 			if(frappe.db.exists("Student Admission", row.aghosh_home_name)):
+				frappe.throw("Already exists")
 				continue
 			else:
 				args = {"program_details": [{
@@ -42,6 +43,7 @@ class AdmissionTool(Document):
 				}]}
 				args.update(fargs)
 				doc = frappe.get_doc(args)
+				# frappe.throw(f"{doc}")
 				doc.insert(ignore_permissions=True)
 		frappe.msgprint(f"<b>{len(self.admission_table)}</b> Student admissions have been created successfully.", alert=True)
 

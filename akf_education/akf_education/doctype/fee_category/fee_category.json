@@ -10,7 +10,6 @@
  "field_order": [
   "category_name",
   "description",
-  "item",
   "item_defaults"
  ],
  "fields": [
@@ -27,17 +26,10 @@
   {
    "fieldname": "description",
    "fieldtype": "Small Text",
-   "in_list_view": 1,
    "label": "Description",
    "oldfieldname": "description",
    "oldfieldtype": "Small Text",
    "width": "300px"
-  },
-  {
-   "fieldname": "item",
-   "fieldtype": "Link",
-   "label": "Item",
-   "options": "Item"
   },
   {
    "fieldname": "item_defaults",
@@ -48,7 +40,7 @@
  ],
  "icon": "fa fa-flag",
  "links": [],
- "modified": "2025-04-16 15:54:32.241592",
+ "modified": "2025-05-06 14:47:57.079689",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fee Category",

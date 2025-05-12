@@ -17,9 +17,6 @@ class ProgramEnrollmentTool(Document):
 		)
 		self.set_onload("academic_term_reqd", academic_term_reqd)
   
-  
-  
-
 
 	@frappe.whitelist()
 	def get_students(self):
@@ -30,10 +27,8 @@ class ProgramEnrollmentTool(Document):
 			frappe.throw(_("Mandatory field - Program"))
 		elif not self.academic_year:
 			frappe.throw(_("Mandatory field - Academic Year"))
-		elif not self.program:
-			frappe.throw ("Select Program")
-		elif not self.aghosh_home1:
-			frappe.throw ("Select Aghosh Home")
+		elif not self.aghosh_home_id:
+			frappe.throw ("Mandatory field - Aghosh Home")
    
 		else:
 			if self.get_students_from == "Student Applicant":
@@ -47,7 +42,7 @@ class ProgramEnrollmentTool(Document):
 					)
 					.where(student_applicant.application_status == "Approved")
 					.where(student_applicant.program == self.program)
-					.where(student_applicant.aghosh_home == self.aghosh_home1)
+					.where(student_applicant.aghosh_home_id == self.aghosh_home_id)
 					.where(student_applicant.academic_year == self.academic_year)
 				)
 				if self.academic_term:
@@ -100,9 +95,7 @@ class ProgramEnrollmentTool(Document):
 	def enroll_students(self):
 		self.enrolled_students()
 
-		self.create_sponsorships()
-		
-		# self.creating_orphan()
+		# self.create_sponsorships()
  
 
 	# def enrolled_students(self):
@@ -110,10 +103,10 @@ class ProgramEnrollmentTool(Document):
 	# 	for i, stud in enumerate(self.students):
 	# 		if not stud.bed:
 	# 			frappe.throw("please select bed for the student first")
-	# 		if not stud.school_type1:
+	# 		if not stud.school_type:
 	# 			frappe.throw("Please select school type.")
-	# 		if stud.school_type1 == "External" and not stud.external:
-	# 			frappe.throw("External School not selected.")
+	# 		if stud.school_type == "external_school" and not stud.external_school:
+	# 			frappe.throw("external_school School not selected.")
 	# 		# if not stud.selected_donors:
 	# 		# 	frappe.throw("Select Donor and Press Save Button First")
 	# 		frappe.publish_realtime(
@@ -127,13 +120,13 @@ class ProgramEnrollmentTool(Document):
 	# 			prog_enrollment.program = self.new_program
 	# 			prog_enrollment.academic_year = self.new_academic_year
 	# 			prog_enrollment.academic_term = self.new_academic_term
-	# 			prog_enrollment.aghosh_home = self.aghosh_home1
+	# 			prog_enrollment.aghosh_home_id = self.aghosh_home_id
 	# 			prog_enrollment.student_applicant = stud.student_applicant
-	# 			prog_enrollment.school_type = stud.school_type1
+	# 			prog_enrollment.school_type = stud.school_type
 	# 			prog_enrollment.building = stud.building
 	# 			prog_enrollment.room = stud.room
 	# 			prog_enrollment.bed = stud.bed
-	# 			prog_enrollment.external1 = stud.external
+	# 			prog_enrollment.external_school = stud.external_school
 
 	# 			prog_enrollment.student_batch_name = (
 	# 				stud.student_batch_name if stud.student_batch_name else self.new_student_batch
@@ -145,13 +138,13 @@ class ProgramEnrollmentTool(Document):
 	# 			prog_enrollment = enroll_student(stud.student_applicant)
 	# 			prog_enrollment.academic_year = self.academic_year
 	# 			prog_enrollment.academic_term = self.academic_term
-	# 			prog_enrollment.aghosh_home = self.aghosh_home1
-	# 			prog_enrollment.school_type = stud.school_type1
+	# 			prog_enrollment.aghosh_home_id = self.aghosh_home_id
+	# 			prog_enrollment.school_type = stud.school_type
 	# 			prog_enrollment.building = stud.building
 	# 			prog_enrollment.student_applicant = stud.student_applicant
 	# 			prog_enrollment.room = stud.room
 	# 			prog_enrollment.bed = stud.bed
-	# 			prog_enrollment.external1 = stud.external
+	# 			prog_enrollment.external_school = stud.external_school
 	# 			prog_enrollment.student_batch_name = (
 	# 				stud.student_batch_name if stud.student_batch_name else self.new_student_batch
 	# 			)
@@ -167,10 +160,10 @@ class ProgramEnrollmentTool(Document):
 		for i, stud in enumerate(self.students):
 			if not stud.bed:
 				frappe.throw("please select bed for the student first")
-			if not stud.school_type1:
+			if not stud.school_type:
 				frappe.throw("Please select school type.")
-			if stud.school_type1 == "External" and not stud.external:
-				frappe.throw("External School not selected.")
+			if stud.school_type == "External" and not stud.external_school:
+				frappe.throw("external_school School not selected.")
 			# if not stud.selected_donors:
 			# 	frappe.throw("Select Donor and Press Save Button First")
 			frappe.publish_realtime(
@@ -184,13 +177,14 @@ class ProgramEnrollmentTool(Document):
 				prog_enrollment.program = self.new_program
 				prog_enrollment.academic_year = self.new_academic_year
 				prog_enrollment.academic_term = self.new_academic_term
-				prog_enrollment.aghosh_home = self.aghosh_home1
+				prog_enrollment.aghosh_home_id = self.aghosh_home_id
 				prog_enrollment.student_applicant = stud.student_applicant
-				prog_enrollment.school_type = stud.school_type1
+				prog_enrollment.school_type = stud.school_type
 				prog_enrollment.building = stud.building
 				prog_enrollment.room = stud.room
 				prog_enrollment.bed = stud.bed
-				prog_enrollment.external1 = stud.external
+				prog_enrollment.external_school = stud.external_school
+				prog_enrollment.internal_school = stud.internal_school
 
 				prog_enrollment.student_batch_name = (
 					stud.student_batch_name if stud.student_batch_name else self.new_student_batch
@@ -202,13 +196,14 @@ class ProgramEnrollmentTool(Document):
 				prog_enrollment = enroll_student(stud.student_applicant)
 				prog_enrollment.academic_year = self.academic_year
 				prog_enrollment.academic_term = self.academic_term
-				prog_enrollment.aghosh_home = self.aghosh_home1
-				prog_enrollment.school_type = stud.school_type1
+				prog_enrollment.aghosh_home_id = self.aghosh_home_id
+				prog_enrollment.school_type = stud.school_type
 				prog_enrollment.building = stud.building
 				prog_enrollment.student_applicant = stud.student_applicant
 				prog_enrollment.room = stud.room
 				prog_enrollment.bed = stud.bed
-				prog_enrollment.external1 = stud.external
+				prog_enrollment.external_school = stud.external_school
+				prog_enrollment.internal_school = stud.internal_school
 				prog_enrollment.student_batch_name = (
 					stud.student_batch_name if stud.student_batch_name else self.new_student_batch
 				)
@@ -216,9 +211,9 @@ class ProgramEnrollmentTool(Document):
 				get_fee_structure_components(
 					prog_enrollment,
 					program = self.program,
-					aghosh_home=self.aghosh_home1,
-					external1=stud.external,
-					school_type=stud.school_type1
+					aghosh_home_id=self.aghosh_home_id,
+					external_school=stud.external_school,
+					school_type=stud.school_type
 					
 				)
 				
@@ -267,7 +262,7 @@ class ProgramEnrollmentTool(Document):
 			for donor in donor_list:
 				sponsorship = frappe.new_doc("Sponsorship")
 				sponsorship.student_applicant = student.student_applicant
-				sponsorship.aghosh_home = self.aghosh_home1
+				sponsorship.aghosh_home_id = self.aghosh_home_id
 				sponsorship.donor_id = donor
 				sponsorship.insert(ignore_permissions=True)
 				sponsorship.save()
@@ -277,21 +272,17 @@ class ProgramEnrollmentTool(Document):
 			frappe.msgprint(_("Sponsorship records created successfully"), alert=True)
 		else:
 			frappe.msgprint(_("No Sponsorship records were created."), alert=True)
-
-
-
-
         
     
 @frappe.whitelist()
-def get_buildings_by_aghosh_home(aghosh_home1):
-    if not aghosh_home1:
+def get_buildings_by_aghosh_home(aghosh_home_id):
+    if not aghosh_home_id:
         frappe.response["http_status_code"] = 400
         return {"error": "Aghosh Home ID is required"}
 
     buildings = frappe.get_all(
         "Building",
-        filters={"aghosh_home_id": aghosh_home1},
+        filters={"aghosh_home_id": aghosh_home_id},
         fields=["name", "type_enum"],
         order_by="creation asc",  
         limit_page_length=1  
@@ -302,23 +293,19 @@ def get_buildings_by_aghosh_home(aghosh_home1):
     else:
         return {"name": None}  
     
-    
-    
-    
-    
-    
-def get_fee_structure_components(doc, program, aghosh_home=None, external1=None, school_type=None):
+
+def get_fee_structure_components(doc, program, aghosh_home_id=None, external_school=None, school_type=None):
 	filters = {
 		"program": program,
 		"docstatus": 1
 	}
 
-	if school_type == "External" and external1:
-		filters["external_school"] = external1
-		if aghosh_home:
-			filters["aghosh_home"] = aghosh_home
-	elif school_type == "Internal" and aghosh_home:
-		filters["aghosh_home"] = aghosh_home
+	if school_type == "External" and external_school:
+		filters["external_school"] = external_school
+		if aghosh_home_id:
+			filters["aghosh_home_id"] = aghosh_home_id
+	elif school_type == "Internal" and aghosh_home_id:
+		filters["aghosh_home_id"] = aghosh_home_id
 	else:
 		return
 
@@ -334,151 +321,5 @@ def get_fee_structure_components(doc, program, aghosh_home=None, external1=None,
 			"amount": comp.get("amount"),
 			"description": comp.get("description"),
 			"due_date": comp.get("due_date"),
-			"discount": comp.get("discount")
+			# "discount": comp.get("discount")
 		})
-
-    
-    
-
-
-
-# @frappe.whitelist()
-# def get_donors(donor_id=None):
-#     filters = {"docstatus": ["!=", 2]}
-
-#     if donor_id:  # Apply filter if donor_id is provided
-#         filters["name"] = ["like", f"%{donor_id}%"]
-
-#     donors = frappe.get_all("Donor", filters=filters, fields=["name"])
-#     return donors    
-
-
-# @frappe.whitelist()
-# def create_sponsorships(donors, student_applicant):
-#     donors = json.loads(donors)  # Convert JSON string to Python list if needed
-
-#     if not donors or not student_applicant:
-#         frappe.throw(_("Please select a donor and ensure student details are available."))
-
-#     for donor in donors:
-#         sponsorship = frappe.new_doc("Sponsorship")
-#         sponsorship.student_applicant = student_applicant  # Associate with selected student
-#         sponsorship.donor_id = donor.get("name")  # Assuming 'name' contains donor ID
-#         # sponsorship.sponsorship_date = frappe.utils.today()
-#         sponsorship.save()
-
-#     return "Sponsorships created successfully!!!"
-
-
-
-
-
-
-
-
-
-
-# @frappe.whitelist()
-# def create_sponsorships(donors, student_applicant):
-#     donors = json.loads(donors)  # Convert JSON string to Python list if needed
-
-#     if not donors or not student_applicant:
-#         frappe.throw(_("Please select a donor and ensure student details are available."))
-
-#     for donor in donors:
-#         sponsorship = frappe.new_doc("Sponsorship")
-#         sponsorship.student_applicant = student_applicant  # Associate with selected student
-#         sponsorship.donor = donor.get("name")  # Assuming 'name' contains donor ID
-#         sponsorship.sponsorship_date = frappe.utils.today()
-#         sponsorship.save()
-
-#     return "Sponsorships created successfully!"
-
-
-
-
-
-
-
-	
- 
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					
-
-
-
- 
-    
-    
-    
-    
-    
-    
-    
-
-    
- 
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-
-    
-    
-    
-
-
-
-
-
-
-
-
-
-		
-		
-  
-		
-  
-  
-  
-  	
-
-  
-
-
-				
-		
-		
-		
-
-
-    
-
-		
-     

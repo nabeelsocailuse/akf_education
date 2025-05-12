@@ -32,20 +32,20 @@ frappe.ui.form.on('Student Applicant', {
       )
     }
 
-    if (!frm.is_new() && frm.doc.application_status === 'Approved') {
-      frm.add_custom_button(__('Enroll'), function () {
-        frm.events.enroll(frm)
-      })
+    // if (!frm.is_new() && frm.doc.application_status === 'Approved') {
+    //   frm.add_custom_button(__('Enroll'), function () {
+    //     frm.events.enroll(frm)
+    //   })
 
-      frm.add_custom_button(
-        __('Reject'),
-        function () {
-          frm.set_value('application_status', 'Rejected')
-          frm.save_or_update()
-        },
-        'Actions'
-      )
-    }
+    //   frm.add_custom_button(
+    //     __('Reject'),
+    //     function () {
+    //       frm.set_value('application_status', 'Rejected')
+    //       frm.save_or_update()
+    //     },
+    //     'Actions'
+    //   )
+    // }
 
     if (!frm.is_new() && frm.doc.application_status === 'Rejected') {
       frm.add_custom_button(
@@ -81,11 +81,17 @@ frappe.ui.form.on('Student Applicant', {
     )
   },
 
+  // enroll: function (frm) {
+  //   frappe.model.open_mapped_doc({
+  //     method: 'education.education.api.enroll_student',
+  //     frm: frm,
+  //   })
+  // },
+
+  //  go to progam enrollment tool when clicked!
   enroll: function (frm) {
-    frappe.model.open_mapped_doc({
-      method: 'education.education.api.enroll_student',
-      frm: frm,
-    })
-  },
+    frappe.set_route("Form", "Program Enrollment Tool");
+  }
+  
 })
 

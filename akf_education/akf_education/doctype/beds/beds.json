@@ -99,7 +99,7 @@
    "read_only": 1
   },
   {
-   "fetch_from": "room_id.floor_number",
+   "fetch_from": "room_id.building_floor",
    "fieldname": "floor_number",
    "fieldtype": "Int",
    "label": "Floor Number",
@@ -108,7 +108,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-09 15:36:22.350681",
+ "modified": "2025-05-12 10:08:57.712389",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Beds",

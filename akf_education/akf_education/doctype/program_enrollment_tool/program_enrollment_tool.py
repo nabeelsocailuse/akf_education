@@ -158,10 +158,16 @@ class ProgramEnrollmentTool(Document):
 	def enrolled_students(self):
 		total = len(self.students)
 		for i, stud in enumerate(self.students):
+			if not stud.building:
+				frappe.throw("please select building for the student first")
+			if not stud.room:
+				frappe.throw("please select room for the student first")
 			if not stud.bed:
 				frappe.throw("please select bed for the student first")
 			if not stud.school_type:
 				frappe.throw("Please select school type.")
+			if stud.school_type == "Internal" and not stud.internal_school:
+				frappe.throw("internal_school School not selected.")
 			if stud.school_type == "External" and not stud.external_school:
 				frappe.throw("external_school School not selected.")
 			# if not stud.selected_donors:

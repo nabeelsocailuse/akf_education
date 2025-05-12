@@ -36,10 +36,15 @@ class StudentApplicant(Document):
 		self.validate_dates()
 		self.validate_term()
 		self.set_student_name()
+		self.set_number_of_siblings() #mubarrim
+
+		
 
 		if self.student_admission and self.program and self.date_of_birth:
 			self.validation_from_student_admission()
 
+	def set_number_of_siblings(self):
+		self.number_of_siblings = self.number_of_brothers + self.number_of_sisters
 	def set_student_name(self):
 		self.student_name = " ".join(
 			filter(lambda x: x, [self.first_name, self.middle_name, self.last_name])

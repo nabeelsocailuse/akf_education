@@ -21,7 +21,7 @@
  "list_columns": [],
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2025-05-12 10:21:13.114435",
+ "modified": "2025-05-12 15:50:28.150583",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "student-applicant",
@@ -175,19 +175,6 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 0,
-   "fieldname": "number_of_siblings",
-   "fieldtype": "Int",
-   "hidden": 0,
-   "label": "Number of Siblings",
-   "max_length": 0,
-   "max_value": 0,
-   "precision": "",
-   "read_only": 1,
    "reqd": 0,
    "show_in_filter": 0
   },

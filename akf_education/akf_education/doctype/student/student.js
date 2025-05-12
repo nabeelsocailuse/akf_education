@@ -36,21 +36,21 @@ frappe.ui.form.on('Student', {
   },
 
   setup: function (frm) {
-    if (frm.doc.student_applicant) {
-      set_guardians_from_applicant(frm);
-      setTimeout(() => {
-        frm.save();
-      }, 250);
-    }   
+    // if (frm.doc.student_applicant) {
+    //   set_guardians_from_applicant(frm);
+    //   setTimeout(() => {
+    //     frm.save();
+    //   }, 250);
+    // }   
   },
   
  
 
-  student_applicant:function(frm){
-    calculate_age(frm);
-    set_guardians_from_applicant(frm);
+  // student_applicant:function(frm){
+  //   // calculate_age(frm);
+  //   // set_guardians_from_applicant(frm);
 
-  },
+  // },
 
     date_of_birth1: function(frm) {
       calculate_age(frm);

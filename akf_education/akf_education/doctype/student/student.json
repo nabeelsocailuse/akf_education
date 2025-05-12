@@ -46,7 +46,6 @@
   "region",
   "district",
   "tehsil",
-  "uc",
   "relations_tab",
   "fathers_detail_section",
   "father_name",
@@ -61,7 +60,6 @@
   "mother_name",
   "mother_cnic",
   "mother_dob",
-  "husband_name",
   "column_break_o7lm",
   "mother_alive_status",
   "mother_date_of_death",
@@ -478,11 +476,13 @@
   {
    "fieldname": "old_aghosh_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Old Aghosh ID"
   },
   {
    "fieldname": "current_aghosh_id",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Current Aghosh ID",
    "options": "Aghosh Home"
   },
@@ -510,6 +510,7 @@
   {
    "fieldname": "aghosh_home_id",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Aghosh Home ID",
    "options": "Aghosh Home"
   },
@@ -517,12 +518,8 @@
    "fetch_from": "aghosh_home_id.aghosh_home_name",
    "fieldname": "aghosh_home_name",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Aghosh Home Name"
-  },
-  {
-   "fieldname": "husband_name",
-   "fieldtype": "Data",
-   "label": "Husband Name"
   },
   {
    "fieldname": "mother_dob",
@@ -591,11 +588,6 @@
    "options": "Tehsil"
   },
   {
-   "fieldname": "uc",
-   "fieldtype": "Data",
-   "label": "UC"
-  },
-  {
    "fieldname": "student_gender",
    "fieldtype": "Select",
    "label": "Student Gender",
@@ -603,13 +595,13 @@
   },
   {
    "fieldname": "guardian_contact_number",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "in_global_search": 1,
    "label": "Guardian Contact Number",
+   "options": "Phone",
    "reqd": 1
   }
  ],
- "image_field": "image",
  "links": [
   {
    "group": "Admission",
@@ -672,7 +664,7 @@
    "link_fieldname": "orphan_name"
   }
  ],
- "modified": "2025-05-08 12:47:40.108515",
+ "modified": "2025-05-12 16:25:56.442225",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

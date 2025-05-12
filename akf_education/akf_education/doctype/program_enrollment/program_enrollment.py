@@ -29,8 +29,9 @@ class ProgramEnrollment(Document):
 
 	def on_submit(self):
 		self.update_student_joining_date()
-		self.make_fee_records()
-		self.creating_fee_records()
+		if(self.school_type == 'External'):
+			self.make_fee_records()
+			self.creating_fee_records()
 		self.create_course_enrollments()
 		# self.create_or_update_guardian()
   

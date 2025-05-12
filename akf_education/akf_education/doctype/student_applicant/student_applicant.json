@@ -535,9 +535,8 @@
    "fieldtype": "Column Break"
   }
  ],
- "image_field": "image",
  "links": [],
- "modified": "2025-05-09 17:42:55.617453",
+ "modified": "2025-05-12 15:24:27.300041",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

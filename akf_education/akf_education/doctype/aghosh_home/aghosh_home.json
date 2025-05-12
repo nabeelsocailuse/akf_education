@@ -7,6 +7,7 @@
  "field_order": [
   "section_break_swkc",
   "aghosh_home_name",
+  "old_aghosh_home_id",
   "address",
   "branch",
   "column_break_tavq",
@@ -166,11 +167,16 @@
    "fieldtype": "Data",
    "label": "Region Code",
    "read_only": 1
+  },
+  {
+   "fieldname": "old_aghosh_home_id",
+   "fieldtype": "Data",
+   "label": "Old Aghosh Home ID"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-09 16:49:46.369708",
+ "modified": "2025-05-12 16:26:45.032281",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

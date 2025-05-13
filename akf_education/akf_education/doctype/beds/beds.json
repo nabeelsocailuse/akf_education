@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:B-AH-{#####}",
+ "autoname": "format:Bed-AH-{#####}",
  "creation": "2025-02-20 16:05:08.467492",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -108,7 +108,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-12 10:08:57.712389",
+ "modified": "2025-05-13 12:17:59.922017",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Beds",
@@ -128,7 +128,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

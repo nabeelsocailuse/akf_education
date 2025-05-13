@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "format:AH-{region_abbr}-{####}",
+ "autoname": "format:AH-{region_code}-{####}",
  "creation": "2025-03-04 13:21:34.237027",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -169,7 +169,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-13 11:37:03.587251",
+ "modified": "2025-05-13 11:47:24.979346",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

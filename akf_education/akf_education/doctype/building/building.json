@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "format:AH-B-{aghosh_region_abbr}-{###}",
+ "autoname": "format:AH-B-{aghosh_region_code}-{###}",
  "creation": "2025-02-20 15:52:36.644607",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,7 +9,7 @@
   "section_break_zcbg",
   "aghosh_home_id",
   "aghosh_home_name",
-  "aghosh_region_abbr",
+  "aghosh_region_code",
   "type",
   "building_name",
   "building_abbr",
@@ -97,23 +97,23 @@
    "read_only": 1
   },
   {
-   "fetch_from": "aghosh_home_id.region_abbr",
-   "fieldname": "aghosh_region_abbr",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Aghosh Region Abbr",
-   "read_only": 1
-  },
-  {
    "fieldname": "maximum__building_capacity",
    "fieldtype": "Int",
    "label": "Maximum  Building Capacity",
    "reqd": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.region_code",
+   "fieldname": "aghosh_region_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Aghosh Region Code",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-12 19:15:36.673595",
+ "modified": "2025-05-13 11:56:55.733683",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",
@@ -133,7 +133,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "search_fields": "building_name",
  "sort_field": "modified",
  "sort_order": "DESC",

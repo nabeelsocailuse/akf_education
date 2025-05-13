@@ -51,7 +51,7 @@ frappe.ui.form.on('Fee Structure', {
     frm.set_query("external_school", function () {
 			return {
 				filters: {
-					aghosh_home: frm.doc.aghosh_home_id,
+					aghosh_home_id: frm.doc.aghosh_home_id,
 				},
 			};
 		});
@@ -240,8 +240,8 @@ frappe.ui.form.on('Fee Structure', {
   },
 
   // Function to get the internal school of Aghosh Home.
-  aghosh_home: function(frm) {
-    if (frm.doc.aghosh_home) {
+  aghosh_home_id: function(frm) {
+    if (frm.doc.aghosh_home_id) {
         frappe.call({
             method: 'frappe.client.get_list',
             args: {

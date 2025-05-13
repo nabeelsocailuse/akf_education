@@ -22,7 +22,7 @@ frappe.ui.form.on("Admission Tool", {
         frm.set_query("district", function () {
 			return {
 				filters: {
-					region: frm.doc.region,
+					custom_region: frm.doc.region,
 				},
 			};
 		});

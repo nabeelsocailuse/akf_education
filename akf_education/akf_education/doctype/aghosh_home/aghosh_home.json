@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "autoname": "format:AH-{region_abbr}-{####}",
  "creation": "2025-03-04 13:21:34.237027",
  "doctype": "DocType",
@@ -8,12 +9,12 @@
   "section_break_swkc",
   "aghosh_home_name",
   "old_aghosh_home_id",
-  "address",
   "branch",
+  "branch_abbreviation",
   "column_break_tavq",
   "status",
   "established_date",
-  "branch_abbreviation",
+  "address",
   "head_of_aghosh_home_section",
   "employee_id",
   "employee_name",
@@ -22,9 +23,8 @@
   "date_of_joining",
   "address_of_aghosh_section",
   "region",
-  "region_abbr",
+  "region_code",
   "district",
-  "district_abbr",
   "tehsil",
   "column_break_dzja",
   "longitude",
@@ -82,13 +82,6 @@
    "label": "District",
    "options": "District",
    "reqd": 1
-  },
-  {
-   "fetch_from": "district.abbr",
-   "fieldname": "district_abbr",
-   "fieldtype": "Data",
-   "label": "District Abbr",
-   "read_only": 1
   },
   {
    "fieldname": "longitude",
@@ -162,21 +155,21 @@
    "read_only": 1
   },
   {
-   "fetch_from": "region.region_code",
-   "fieldname": "region_abbr",
-   "fieldtype": "Data",
-   "label": "Region Code",
-   "read_only": 1
-  },
-  {
    "fieldname": "old_aghosh_home_id",
    "fieldtype": "Data",
    "label": "Old Aghosh Home ID"
+  },
+  {
+   "fetch_from": "region.region_code",
+   "fieldname": "region_code",
+   "fieldtype": "Data",
+   "label": "Region Code",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-12 16:26:45.032281",
+ "modified": "2025-05-13 11:37:03.587251",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",
@@ -196,9 +189,9 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "search_fields": "aghosh_home_name",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

@@ -21,7 +21,7 @@ frappe.ui.form.on('Fee Structure', {
     frm.set_query("external_school", function() {
       return {
           filters: {
-              aghosh_home: frm.doc.aghosh_home
+              aghosh_home_id: frm.doc.aghosh_home_id
           }
       };
   })

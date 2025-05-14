@@ -39,7 +39,7 @@ def get_list_context(context=None):
 			"show_sidebar": True,
 			"title": _("Student Admissions"),
 			"get_list": get_admission_list,
-			"row_template": "education/doctype/student_admission/templates/student_admission_row.html",
+			"row_template": "akf_education/doctype/student_admission/templates/student_admission_row.html",
 		}
 	)
 

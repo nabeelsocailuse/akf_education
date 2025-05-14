@@ -167,9 +167,9 @@ class ProgramEnrollmentTool(Document):
 			if not stud.school_type:
 				frappe.throw("Please select school type.")
 			if stud.school_type == "Internal" and not stud.internal_school:
-				frappe.throw("internal_school School not selected.")
+				frappe.throw("Internal School not selected.")
 			if stud.school_type == "External" and not stud.external_school:
-				frappe.throw("external_school School not selected.")
+				frappe.throw("External School not selected.")
 			# if not stud.selected_donors:
 			# 	frappe.throw("Select Donor and Press Save Button First")
 			frappe.publish_realtime(

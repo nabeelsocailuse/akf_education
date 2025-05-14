@@ -32,8 +32,10 @@
   {
    "fieldname": "region",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Region",
-   "options": "Region"
+   "options": "Region",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_vttq",
@@ -42,8 +44,10 @@
   {
    "fieldname": "district",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "District",
-   "options": "District"
+   "options": "District",
+   "reqd": 1
   },
   {
    "fieldname": "get_aghosh_homes",
@@ -60,17 +64,22 @@
    "fieldname": "academic_year",
    "fieldtype": "Link",
    "label": "Academic Year",
-   "options": "Academic Year"
+   "options": "Academic Year",
+   "reqd": 1
   },
   {
+   "default": "today",
    "fieldname": "admission_start_date",
    "fieldtype": "Date",
-   "label": "Admission Start Date"
+   "label": "Admission Start Date",
+   "reqd": 1
   },
   {
+   "default": "today",
    "fieldname": "admission_end_date",
    "fieldtype": "Date",
-   "label": "Admission End Date"
+   "label": "Admission End Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_crwh",
@@ -116,7 +125,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-03-04 12:36:00.941905",
+ "modified": "2025-05-14 14:54:01.079289",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Admission Tool",
@@ -135,5 +144,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

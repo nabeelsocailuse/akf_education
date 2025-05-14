@@ -4,9 +4,12 @@
 
 import frappe, ast
 from frappe.model.document import Document
-# from frappe.utils import getdate
+from frappe.utils import today
 
 class AdmissionTool(Document):
+	def validate(self):
+		if self.admission_start_date and self.admission_end_date < today():
+			frappe.throw("Date must be today or later.")
 	
 	@frappe.whitelist()
 	def create_admissions(self):
@@ -28,12 +31,12 @@ class AdmissionTool(Document):
     
 			fargs.update({
 				"aghosh_home_id": row.aghosh_home_id,
-				"title": row.aghosh_home_name,
-				"route": f"admissions/{row.aghosh_home_name}",
+				"title": f"{row.aghosh_home_name} - ({self.academic_year}) - {row.program}",
+				"route": f"admissions/{row.aghosh_home_name}/{self.academic_year}/{row.program}",
 				
 			})
-			if(frappe.db.exists("Student Admission", row.aghosh_home_name)):
-				frappe.throw("Already exists")
+			if(frappe.db.exists("Student Admission", {"aghosh_home_name": row.aghosh_home_name, "academic_year": self.academic_year, "program": row.program})):
+				frappe.throw(f"Already an admission exist against {row.aghosh_home_name}, {row.academic_year} and {row.program}", title="Duplicate Admission Entry")
 				continue
 			else:
 				args = {"program_details": [{

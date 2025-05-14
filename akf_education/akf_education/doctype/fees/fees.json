@@ -7,6 +7,7 @@
  "document_type": "Document",
  "engine": "InnoDB",
  "field_order": [
+  "general_information_section",
   "naming_series",
   "student",
   "student_name",
@@ -35,11 +36,6 @@
   "grand_total",
   "grand_total_in_words",
   "outstanding_amount",
-  "student_details_tab",
-  "contact_email",
-  "student_category",
-  "column_break_ywbf",
-  "student_batch",
   "accounts_tab",
   "account",
   "receivable_account",
@@ -85,8 +81,7 @@
    "in_global_search": 1,
    "label": "Fee Schedule",
    "options": "Fee Schedule",
-   "print_hide": 1,
-   "read_only": 1
+   "print_hide": 1
   },
   {
    "default": "0",
@@ -147,7 +142,8 @@
   },
   {
    "fieldname": "student_details",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Enrollment Details"
   },
   {
    "fieldname": "program_enrollment",
@@ -167,27 +163,13 @@
    "read_only": 1
   },
   {
-   "fetch_from": ".",
-   "fieldname": "student_batch",
-   "fieldtype": "Link",
-   "label": "Student Batch",
-   "options": "Student Batch Name",
-   "print_hide": 1
-  },
-  {
    "fieldname": "column_break_16",
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": ".",
-   "fieldname": "student_category",
-   "fieldtype": "Link",
-   "label": "Student Category",
-   "options": "Student Category"
-  },
-  {
    "fieldname": "academic_term",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Academic Term",
    "options": "Academic Term"
   },
@@ -199,7 +181,8 @@
   },
   {
    "fieldname": "section_break_7",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Fee Details"
   },
   {
    "fieldname": "currency",
@@ -207,13 +190,11 @@
    "hidden": 1,
    "label": "Currency",
    "options": "Currency",
-   "print_hide": 1,
-   "read_only": 1
+   "print_hide": 1
   },
   {
    "fieldname": "fee_structure",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Fee Structure",
    "options": "Fee Structure",
    "print_hide": 1
@@ -227,7 +208,8 @@
   },
   {
    "fieldname": "section_break_10",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Grand Total"
   },
   {
    "fieldname": "amended_from",
@@ -308,14 +290,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "fee_structure.income_account",
-   "fieldname": "income_account",
-   "fieldtype": "Link",
-   "label": "Income Account",
-   "options": "Account",
-   "print_hide": 1
-  },
-  {
    "fieldname": "column_break_39",
    "fieldtype": "Column Break",
    "print_hide": 1
@@ -338,15 +312,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "student_details_tab",
-   "fieldtype": "Tab Break",
-   "label": "Student Details"
-  },
-  {
-   "fieldname": "column_break_ywbf",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "accounts_tab",
    "fieldtype": "Tab Break",
    "label": "Accounts"
@@ -357,18 +322,20 @@
    "label": "Print Settings"
   },
   {
-   "allow_on_submit": 1,
-   "fetch_from": "student.student_email_id",
-   "fieldname": "contact_email",
-   "fieldtype": "Data",
-   "label": "Student Email",
-   "options": "Email",
-   "print_hide": 1
+   "fieldname": "income_account",
+   "fieldtype": "Link",
+   "label": "Income Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "general_information_section",
+   "fieldtype": "Section Break",
+   "label": "General Information"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-06 15:13:34.082407",
+ "modified": "2025-05-14 16:34:27.296639",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fees",
@@ -448,5 +415,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "student_name"
+ "title_field": "student_name",
+ "track_changes": 1
 }

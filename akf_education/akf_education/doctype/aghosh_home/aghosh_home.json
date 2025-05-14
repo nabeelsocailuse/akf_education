@@ -157,6 +157,7 @@
   {
    "fieldname": "old_aghosh_home_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Old Aghosh Home ID"
   },
   {
@@ -169,7 +170,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-13 11:47:24.979346",
+ "modified": "2025-05-14 16:29:06.268900",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

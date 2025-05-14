@@ -44,7 +44,8 @@ class StudentApplicant(Document):
 			self.validation_from_student_admission()
 
 	def set_number_of_siblings(self):
-		self.number_of_siblings = self.number_of_brothers + self.number_of_sisters
+		if (self.number_of_brothers and self.number_of_sisters):
+			self.number_of_siblings = self.number_of_brothers + self.number_of_sisters
 	def set_student_name(self):
 		self.student_name = " ".join(
 			filter(lambda x: x, [self.first_name, self.middle_name, self.last_name])

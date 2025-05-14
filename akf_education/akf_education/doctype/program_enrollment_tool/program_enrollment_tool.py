@@ -94,6 +94,7 @@ class ProgramEnrollmentTool(Document):
 	@frappe.whitelist()
 	def enroll_students(self):
 		self.enrolled_students()
+		# self.create_or_update_guardian()
 
 		# self.create_sponsorships()
  
@@ -170,8 +171,7 @@ class ProgramEnrollmentTool(Document):
 				frappe.throw("Internal School not selected.")
 			if stud.school_type == "External" and not stud.external_school:
 				frappe.throw("External School not selected.")
-			# if not stud.selected_donors:
-			# 	frappe.throw("Select Donor and Press Save Button First")
+			
 			frappe.publish_realtime(
 				"program_enrollment_tool", dict(progress=[i + 1, total]), user=frappe.session.user
 			)
@@ -213,7 +213,11 @@ class ProgramEnrollmentTool(Document):
 				prog_enrollment.student_batch_name = (
 					stud.student_batch_name if stud.student_batch_name else self.new_student_batch
 				)
-				# Populate Components Table via function	
+
+				#create guardian
+				stud_guard=frappe.get_doc("Student Applicant", stud.student_applicant)
+				create_or_update_guardian(stud_guard)
+				# Populate Components Table via function
 				get_fee_structure_components(
 					prog_enrollment,
 					program = self.program,
@@ -329,3 +333,40 @@ def get_fee_structure_components(doc, program, aghosh_home_id=None, external_sch
 			"due_date": comp.get("due_date"),
 			# "discount": comp.get("discount")
 		})
+
+def create_or_update_guardian(stud): # mubarrim (under working)
+	# Try to fetch an existing Guardian linked to this Student Applicant
+	guardian_doc = frappe.get_all(
+		"Guardian",
+		filters={"guardian_name": stud.guardian_name},
+		fields=["name"]
+	)
+
+	if guardian_doc:
+		# Guardian exists - update it
+		guardian = frappe.get_doc("Guardian", guardian_doc[0].name)
+		guardian.guardian_name = stud.guardian_name
+		guardian.gender_guardian = stud.guardian_gender
+		guardian.address = stud.guardian_address
+		guardian.relation_with_child = stud.relation_with_child
+		guardian.occupation = stud.guardian_occupation
+		guardian.qualification = stud.guardian_qualification
+		guardian.marital_status = stud.guardian_marital_status
+		guardian.mobile_number = stud.guardian_contact_number
+		guardian.save(ignore_permissions=True)
+		frappe.msgprint(f"Guardian {guardian.name} updated for student {stud.student_name}")
+	else:
+		# Guardian doesn't exist - create new one
+		guardian = frappe.new_doc("Guardian")
+		guardian.guardian_name = stud.guardian_name
+		guardian.gender_guardian = stud.guardian_gender
+		guardian.address = stud.guardian_address
+		guardian.relation_with_child = stud.relation_with_child
+		guardian.occupation = stud.guardian_occupation
+		guardian.qualification = stud.guardian_qualification
+		guardian.marital_status = stud.guardian_marital_status
+		guardian.mobile_number = stud.guardian_contact_number
+		# guardian.student_applicant = self.student_applicant
+		guardian.insert(ignore_permissions=True)
+		guardian.save()
+		frappe.msgprint(f"Guardian {guardian.name} created for student {stud.student_name}")

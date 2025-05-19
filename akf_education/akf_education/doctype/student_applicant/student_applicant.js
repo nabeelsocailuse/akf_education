@@ -3,6 +3,13 @@
 
 frappe.ui.form.on('Student Applicant', {
   refresh: function (frm) {
+    // frm.fields_dict['siblings'].grid.get_field('student').get_query = function(doc, cdt, cdn) {
+    //         return {
+    //             filters: {
+    //                 department: 'Engineering'
+    //             }
+    //         };
+    //     };
     frm.set_query('academic_term', function (doc, cdt, cdn) {
       return {
         filters: {
@@ -95,3 +102,6 @@ frappe.ui.form.on('Student Applicant', {
   
 })
 
+// frappe.ui.form.on('Student Sibling', {
+
+// });

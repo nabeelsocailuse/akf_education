@@ -6,6 +6,7 @@ import frappe
 from frappe import _
 from frappe.utils import nowdate
 from frappe.website.website_generator import WebsiteGenerator
+from frappe.utils import today
 
 
 class StudentAdmission(WebsiteGenerator):
@@ -15,6 +16,9 @@ class StudentAdmission(WebsiteGenerator):
 		self.name = self.title
 
 	def validate(self):
+		if self.admission_start_date and self.admission_end_date < today():
+			frappe.throw("Date must be today or later.")
+
 		if not self.route:  # pylint: disable=E0203
 			self.route = "admissions/" + "-".join(self.title.split(" "))
 

@@ -40,6 +40,7 @@
    "reqd": 1
   },
   {
+   "default": "Vacant",
    "fieldname": "occupied_status",
    "fieldtype": "Select",
    "label": "Occupancy Status",
@@ -108,7 +109,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-13 12:17:59.922017",
+ "modified": "2025-05-16 15:10:29.161937",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Beds",

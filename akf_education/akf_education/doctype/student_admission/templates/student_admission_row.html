@@ -1,8 +1,35 @@
+
+<style>
+	.navbar.navbar-light.navbar-expand-lg ,.top_header{
+		display: none;
+	}
+	.main-column.col-sm-10 .page-content-wrapper .container.my-4{
+		background-color: aqua;
+	}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="web-list-item transaction-list-item">
 	{% set today = frappe.utils.getdate(frappe.utils.nowdate()) %}
-	<a href = "{{ doc.route }}" class="no-underline">
+	<!-- <a href = "{{ doc.route }}" class="no-underline"> -->
 		<div class="row">
-			<div class="col-sm-4 bold">
+			<div class="col-sm-2 bold">
 				<span class="indicator
 				{% if frappe.utils.getdate(doc.admission_end_date) == today %}
 					red
@@ -15,7 +42,7 @@
 				{% endif  %}
 				">{{ doc.title }}</span>
 			</div>
-			<div class="col-sm-2 small">
+			<div class="col-sm-1 small">
 				<span class="text-muted">
 					Academic Year
 				</span>
@@ -23,7 +50,7 @@
 					{{ doc.academic_year }}
 				</div>
 			</div>
-			<div class="col-sm-3 small">
+			<div class="col-sm-1 small">
 				<span class="text-muted">
 					Starts on
 				</span>
@@ -31,7 +58,7 @@
 					{{ frappe.format_date(doc.admission_start_date) }}
 				</div>
 			</div>
-			<div class="col-sm-3 small">
+			<div class="col-sm-1 small">
 				<span class="text-muted">
 					Ends on
 				</span>
@@ -39,6 +66,11 @@
 					{{ frappe.format_date(doc.admission_end_date) }}
 				</div>
 			</div>
+			<a href = "" class="submit-button">
+			<div class="col-sm-2 bold">
+				<span>Apply Now</span>
+			</div>
+			</a>
 		</div>
-	</a>
+	<!-- </a> -->
 </div>

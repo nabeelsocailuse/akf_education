@@ -23,19 +23,17 @@
   "sponsorship_abbr",
   "section_break_jyyj",
   "student_applicant",
-  "orphan_name",
+  "student_id",
+  "student_name",
+  "date_of_birth",
+  "column_break_rduq",
   "aghosh_home",
   "ah_name",
   "father_name",
+  "date_of_death",
   "mother_name",
   "mother_alive_status",
-  "column_break_rduq",
-  "orphan_id",
-  "student_id",
-  "student_name",
-  "date_of_death",
-  "name_of_school",
-  "date_of_birth"
+  "name_of_school"
  ],
  "fields": [
   {
@@ -141,7 +139,8 @@
    "fetch_from": "donor_id.address",
    "fieldname": "donor_address",
    "fieldtype": "Data",
-   "label": "Donor Address"
+   "label": "Donor Address",
+   "read_only": 1
   },
   {
    "fieldname": "gender",
@@ -173,20 +172,6 @@
    "options": "Student Applicant"
   },
   {
-   "fieldname": "orphan_id",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Orphan ID",
-   "options": "Orphan"
-  },
-  {
-   "fetch_from": "child_id.child_name",
-   "fieldname": "orphan_name",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Orphan Name"
-  },
-  {
    "fieldname": "student_id",
    "fieldtype": "Link",
    "label": "Student ID",
@@ -195,12 +180,10 @@
   {
    "fieldname": "sponsorship_abbr",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Sponsorship Abbr"
   },
   {
    "fetch_from": "aghosh_home.aghosh_home_name",
-   "fetch_if_empty": 1,
    "fieldname": "ah_name",
    "fieldtype": "Data",
    "label": "Aghosh Home Name",
@@ -216,7 +199,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-30 15:52:51.522866",
+ "modified": "2025-05-19 09:10:31.705264",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",
@@ -238,5 +221,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

@@ -139,25 +139,25 @@ frappe.ui.form.on('Program Enrollment Tool', {
 
 // Events for child table `Program Enrollment Tool Student`
 frappe.ui.form.on("Program Enrollment Tool Student", {
-  school_type: function (frm, cdt, cdn) {
-    let row = locals[cdt][cdn];
+  // school_type: function (frm, cdt, cdn) {
+  //   let row = locals[cdt][cdn];
 
-    if (row.school_type === "internal_school") {
-      frappe.call({
-        method: 'akf_education.akf_education.doctype.program_enrollment_tool.program_enrollment_tool.get_buildings_by_aghosh_home',
-        args: {
-          aghosh_home_id: frm.doc.aghosh_home_id
-        },
-        callback: function (r) {
-          if (r.message) {
-            frappe.model.set_value(cdt, cdn, 'internal_school', r.message.name);
-          }
-        }
-      });
-    } else if (row.school_type === "external_school") {
-      frappe.model.set_value(cdt, cdn, 'internal_school', '');
-    }
-  },
+  //   if (row.school_type === "internal_school") {
+  //     frappe.call({
+  //       method: 'akf_education.akf_education.doctype.program_enrollment_tool.program_enrollment_tool.get_buildings_by_aghosh_home',
+  //       args: {
+  //         aghosh_home_id: frm.doc.aghosh_home_id
+  //       },
+  //       callback: function (r) {
+  //         if (r.message) {
+  //           frappe.model.set_value(cdt, cdn, 'internal_school', r.message.name);
+  //         }
+  //       }
+  //     });
+  //   } else if (row.school_type === "external_school") {
+  //     frappe.model.set_value(cdt, cdn, 'internal_school', '');
+  //   }
+  // },
 
 //   donor_list: function (frm, cdt, cdn) {
 //     let selected_donors = [];

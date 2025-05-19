@@ -45,6 +45,7 @@
    "mandatory_depends_on": "eval:doc.type==\"School\""
   },
   {
+   "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status ",
@@ -113,7 +114,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-14 14:33:43.217737",
+ "modified": "2025-05-16 15:10:56.968840",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",

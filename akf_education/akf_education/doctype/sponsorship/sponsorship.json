@@ -15,24 +15,14 @@
   "donor_details_section",
   "donor_id",
   "donor_name",
-  "donor_address",
-  "gender",
   "column_break_jcgk",
-  "email",
-  "donor_category",
-  "sponsorship_abbr",
+  "sponsored_amount",
   "section_break_jyyj",
-  "student_applicant",
   "student_id",
   "student_name",
-  "date_of_birth",
   "column_break_rduq",
   "aghosh_home",
   "ah_name",
-  "father_name",
-  "date_of_death",
-  "mother_name",
-  "mother_alive_status",
   "name_of_school"
  ],
  "fields": [
@@ -64,7 +54,7 @@
   {
    "fieldname": "section_break_jyyj",
    "fieldtype": "Section Break",
-   "label": "Child Info"
+   "label": "Student Info"
   },
   {
    "fieldname": "aghosh_home",
@@ -87,40 +77,9 @@
    "label": "End Date"
   },
   {
-   "fetch_from": "student_id.father_name",
-   "fieldname": "father_name",
-   "fieldtype": "Data",
-   "label": "Father Name"
-  },
-  {
-   "fetch_from": "student_id.mother_name",
-   "fieldname": "mother_name",
-   "fieldtype": "Data",
-   "label": "Mother Name"
-  },
-  {
-   "fetch_from": "student_id.father_date_of_death",
-   "fieldname": "date_of_death",
-   "fieldtype": "Date",
-   "label": "Date Of Death"
-  },
-  {
    "fieldname": "name_of_school",
    "fieldtype": "Data",
    "label": "Name Of School"
-  },
-  {
-   "fetch_from": "student_id.date_of_birth",
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date Of Birth"
-  },
-  {
-   "fetch_from": "student_id.mother_alive_status",
-   "fieldname": "mother_alive_status",
-   "fieldtype": "Select",
-   "label": "Mother Alive Status",
-   "options": "\nAlive\nDeath"
   },
   {
    "fieldname": "donor_id",
@@ -136,51 +95,14 @@
    "read_only": 1
   },
   {
-   "fetch_from": "donor_id.address",
-   "fieldname": "donor_address",
-   "fieldtype": "Data",
-   "label": "Donor Address",
-   "read_only": 1
-  },
-  {
-   "fieldname": "gender",
-   "fieldtype": "Select",
-   "label": "Gender",
-   "options": "\nMale\nFemale"
-  },
-  {
    "fieldname": "column_break_jcgk",
    "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "donor_id.email",
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "label": "Email"
-  },
-  {
-   "fieldname": "donor_category",
-   "fieldtype": "Select",
-   "label": "Donor Category",
-   "options": "\nFOA\nINGO\nIND\nCO"
-  },
-  {
-   "fieldname": "student_applicant",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Student Applicant",
-   "options": "Student Applicant"
   },
   {
    "fieldname": "student_id",
    "fieldtype": "Link",
    "label": "Student ID",
    "options": "Student"
-  },
-  {
-   "fieldname": "sponsorship_abbr",
-   "fieldtype": "Data",
-   "label": "Sponsorship Abbr"
   },
   {
    "fetch_from": "aghosh_home.aghosh_home_name",
@@ -195,11 +117,16 @@
    "fieldtype": "Data",
    "label": "Student Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "sponsored_amount",
+   "fieldtype": "Data",
+   "label": "Sponsored Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 09:10:31.705264",
+ "modified": "2025-05-19 15:26:25.169941",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

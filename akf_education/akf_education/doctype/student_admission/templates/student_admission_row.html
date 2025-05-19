@@ -6,8 +6,17 @@
 
 	body {
 		background: url(/files/web-formbg.png);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
 	}
 
+	/* .overlay{
+		position: absolute;
+		width: 100vw;
+		height: 100vh;
+		background: #0A375C82;
+	} */
 	.page-header .my-account-header {
 		font-size: 36px;
 		font-style: italic;
@@ -20,7 +29,6 @@
 		overflow: auto;
 
 	}
-
 
 	/* top breadcrumb */
 	.breadcrumb-item a {
@@ -37,12 +45,14 @@
 	.breadcrumb-item.active {
 		color: #ffffffdb;
 	}
-.sidebar-item a{
-	color: white;
-}
-.sidebar-item a:hover{
-	color: #ffffffdb;
-}
+
+	.sidebar-item a {
+		color: white;
+	}
+
+	.sidebar-item a:hover {
+		color: #ffffffdb;
+	}
 
 
 	/* over all padding of container > table header and body  left right padding*/
@@ -81,16 +91,42 @@
 		background: #EEF2F5;
 	}
 
-	/* table body entry text  */
+	/* table body entry text all indicator colors */
 	.tabl-body .ndicator {
-		background-color: #FFF7E6;
-		border: 1px solid #DD9600;
 		border-radius: 8px;
-		color: #DD9600;
 		font-size: 18px;
 		font-weight: 600;
 		padding-block: 4px;
 		padding-inline: 10px;
+	}
+
+	.tabl-body .ndicator-yellow{
+		background-color: #FFF7E6;
+		border: 1px solid #DD9600;
+		color: #DD9600;
+	}
+	.tabl-body .ndicator-green {
+		background-color: #E9FAE3;
+		border: 1px solid #237506;
+		color: #237506;
+	}
+
+	.tabl-body .ndicator-purple {
+		background-color: #F9F5FF;
+		border: 1px solid #6941C6;
+		color: #6941C6;
+	}
+
+	.tabl-body .ndicator-red {
+		background-color: #FEF3F2;
+		border: 1px solid #B42318;
+		color: #B42318;
+	}
+
+	.tabl-body .ndicator-dark {
+		background-color: #F2F4F7;
+		border: 1px solid #344054;
+		color: #344054;
 	}
 
 	.tabl-body .admission-year {
@@ -134,7 +170,6 @@
 		overflow-x: auto;
 	}
 </style>
-
 <div class="row custm-row g-0">
 	<div class="col-3 text-center">
 		<span class="">Admission Type</span>
@@ -169,7 +204,7 @@
 	<!-- <a href = "{{ doc.route }}" class="no-underline"> -->
 	<div class="row g-0 tabl-body">
 		<div class="col-3 bold">
-			<span class="text-center ndicator
+			<span class="text-center ndicator-green ndicator
 				{% if frappe.utils.getdate(doc.admission_end_date) == today %}
 					red
 				{% elif frappe.utils.getdate(doc.admission_end_date) > today >= frappe.utils.getdate(doc.admission_start_date)%}

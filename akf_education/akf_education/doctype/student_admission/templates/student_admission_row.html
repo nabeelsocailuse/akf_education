@@ -6,29 +6,34 @@
 	.main-column.col-sm-10 .page-content-wrapper .container.my-4{
 		background-color: aqua;
 	}
+	.custm-row{
+		background-color: #224976;
+		padding-block: 16px;
+	}
+	.row.custm-row
 </style>
 
-<div class="row">
-			<div class="col-sm-3 bold">
-				<span>Admission Type</span>
+		<div class="row custm-row">
+			<div class="col-sm-3 text-center">
+				<span class="">Admission Type</span>
 			</div>
-			<div class="col-sm-2 small">
-				<span class="text-muted">
+			<div class="col-sm-2 content text-center">
+				<span class=" ">
 					Academic Year
 				</span>
 			</div>
-			<div class="col-sm-2 small">
-				<span class="text-muted">
+			<div class="col-sm-2 content text-center">
+				<span class="">
 					Starts on
 				</span>
 			</div>
-			<div class="col-sm-2 small">
-				<span class="text-muted">
+			<div class="col-sm-2 content text-center">
+				<span class=" ">
 					Ends on
 				</span>
 			</div>
-			<div class="col-sm-2 bold">
-				<span>Action</span>
+			<div class="col-sm-3 content text-center">
+				<span class="">Action</span>
 			</div>
 		</div>
 
@@ -37,7 +42,7 @@
 	<!-- <a href = "{{ doc.route }}" class="no-underline"> -->
 		<div class="row">
 			<div class="col-sm-3 bold">
-				<span class="indicator
+				<span class="text-center indicator
 				{% if frappe.utils.getdate(doc.admission_end_date) == today %}
 					red
 				{% elif frappe.utils.getdate(doc.admission_end_date) > today >= frappe.utils.getdate(doc.admission_start_date)%}
@@ -50,22 +55,22 @@
 				">{{ doc.title }}</span>
 			</div>
 			<div class="col-sm-2 small">
-				<div class="text-muted bold">
+				<div class="text-center text-muted bold">
 					{{ doc.academic_year }}
 				</div>
 			</div>
 			<div class="col-sm-2 small">
-				<div class="text-muted bold">
+				<div class="text-center text-muted bold">
 					{{ frappe.format_date(doc.admission_start_date) }}
 				</div>
 			</div>
 			<div class="col-sm-2 small">
-				<div class=" text-muted bold">
+				<div class="text-center  text-muted bold">
 					{{ frappe.format_date(doc.admission_end_date) }}
 				</div>
 			</div>
-			<div class="col-sm-2 bold">
-			<a href = "" class="submit-button">
+			<div class="col-sm-3 bold text-center">
+			<a href = "" class=" submit-button">
 				<span>Apply Now</span>
 			</a>
 			</div>

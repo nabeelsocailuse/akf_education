@@ -96,7 +96,7 @@ class ProgramEnrollmentTool(Document):
 		self.enrolled_students()
 		# self.create_or_update_guardian()
 
-		# self.create_sponsorships()
+		self.create_sponsorships()
  
 
 	# def enrolled_students(self):
@@ -242,46 +242,46 @@ class ProgramEnrollmentTool(Document):
 		if not self.students:
 			frappe.throw(_("No students found in the Students table"))
 
-		total = len(self.students)
-		sponsorship_created = 0 
+		# total = len(self.students)
+		# sponsorship_created = 0 
 
 		for i, student in enumerate(self.students):
-			frappe.publish_realtime(
-				"program_enrollment_tool", {"progress": [i + 1, total]}, user=frappe.session.user
-			)
+			# frappe.publish_realtime(
+			# 	"program_enrollment_tool", {"progress": [i + 1, total]}, user=frappe.session.user
+			# )
 
-			# Skip student if no donors selected
-			if not student.selected_donors:
-				frappe.log_error(
-					title="Sponsorship Creation",
-					message="Skipping sponsorship creation due to missing donors.\nStudent: {0}".format(student.student_name or "Unknown")
-				)
-				continue  # Skip rest of this iteration entirely
+			# # Skip student if no donors selected
+			# if not student.selected_donors:
+			# 	frappe.log_error(
+			# 		title="Sponsorship Creation",
+			# 		message="Skipping sponsorship creation due to missing donors.\nStudent: {0}".format(student.student_name or "Unknown")
+			# 	)
+			# 	continue  # Skip rest of this iteration entirely
 
-			# Now only check this if donor(s) exist
-			if not all([student.student_applicant, student.student_name]):
-				frappe.log_error(
-					title="Sponsorship Creation",
-					message="Skipping sponsorship creation due to missing applicant or name.\nDetails: {0}".format(frappe.as_json(student.as_dict()))
-				)
-				continue
+			# # Now only check this if donor(s) exist
+			# if not all([student.student_applicant, student.student_name]):
+			# 	frappe.log_error(
+			# 		title="Sponsorship Creation",
+			# 		message="Skipping sponsorship creation due to missing applicant or name.\nDetails: {0}".format(frappe.as_json(student.as_dict()))
+			# 	)
+			# 	continue
 
-			# Create sponsorships for each donor
-			donor_list = student.selected_donors.split(", ")
-			print(f"This is our donor{donor_list}")
-			for donor in donor_list:
+			# # Create sponsorships for each donor
+			# donor_list = student.selected_donors.split(", ")
+			# print(f"This is our donor{donor_list}")
+			for sponsor in self.sponsors:
 				sponsorship = frappe.new_doc("Sponsorship")
-				sponsorship.student_applicant = student.student_applicant
-				sponsorship.aghosh_home_id = self.aghosh_home_id
-				sponsorship.donor_id = donor
+				sponsorship.student_applicant = sponsor.student_applicant
+				# sponsorship.aghosh_home_id = self.aghosh_home_id
+				sponsorship.donor_id = sponsor.donor_id
 				sponsorship.insert(ignore_permissions=True)
 				sponsorship.save()
-				sponsorship_created += 1
+				# sponsorship_created += 1
 
-		if sponsorship_created > 0:
-			frappe.msgprint(_("Sponsorship records created successfully"), alert=True)
-		else:
-			frappe.msgprint(_("No Sponsorship records were created."), alert=True)
+		# if sponsorship_created > 0:
+		# 	frappe.msgprint(_("Sponsorship records created successfully"), alert=True)
+		# else:
+		# 	frappe.msgprint(_("No Sponsorship records were created."), alert=True)
         
     
 @frappe.whitelist()

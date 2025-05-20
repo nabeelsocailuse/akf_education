@@ -10,6 +10,7 @@ frappe.ui.form.on('Program Enrollment Tool', {
       frm.set_value('aghosh_home_name', '');
       // Clear child table
       frm.set_value('students', []);
+      frm.set_value('sponsors', []);
     }
   },
   setup: function (frm) {
@@ -139,6 +140,45 @@ frappe.ui.form.on('Program Enrollment Tool', {
 
 // Events for child table `Program Enrollment Tool Student`
 frappe.ui.form.on("Program Enrollment Tool Student", {
+  create_sponsorship: function(frm, cdt, cdn) {
+        let row = locals[cdt][cdn];
+        let dialog = new frappe.ui.Dialog({
+            title: 'Add Donors',
+            fields: [
+                {
+                    label: 'Donors',
+                    fieldname: 'donor_list',
+                    fieldtype: 'MultiSelectList',
+                    get_data: async () => {
+                        let donors = await frappe.db.get_list('Donor', {
+                            fields: ['name']
+                        });
+                        return donors.map(d => d.name);
+                    },
+                    reqd: true
+                }
+            ],
+            primary_action_label: 'Insert Donors',
+            primary_action(values) {
+                if (values.donor_list && values.donor_list.length) {
+                    values.donor_list.forEach(donor_name => {
+                        let child = frm.add_child('sponsors');
+                        child.donor_id = donor_name;
+                        child.student_applicant = row.student_applicant;
+                        child.applicant_name = row.student_name;
+                    });
+
+                    frm.refresh_field('sponsors');
+                    frm.dirty();
+                    dialog.hide();
+                } else {
+                    frappe.msgprint(__('Please select at least one donor'));
+                }
+            }
+        });
+
+        dialog.show();
+      }
   // school_type: function (frm, cdt, cdn) {
   //   let row = locals[cdt][cdn];
 

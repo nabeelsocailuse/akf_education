@@ -18,6 +18,7 @@
   "column_break_jcgk",
   "sponsored_amount",
   "section_break_jyyj",
+  "student_applicant",
   "student_id",
   "student_name",
   "column_break_rduq",
@@ -122,11 +123,18 @@
    "fieldname": "sponsored_amount",
    "fieldtype": "Data",
    "label": "Sponsored Amount"
+  },
+  {
+   "fieldname": "student_applicant",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Student Applicant",
+   "options": "Student Applicant"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 15:26:25.169941",
+ "modified": "2025-05-19 16:31:28.799359",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

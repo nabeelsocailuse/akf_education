@@ -33,8 +33,8 @@ class Student(Document):
 			self.check_unique()
 			self.update_applicant_status()
    
-	def on_trash(self):
-		self.delete_guardian()
+	# def on_trash(self):
+	# 	self.delete_guardian()
    
 		
                	 	

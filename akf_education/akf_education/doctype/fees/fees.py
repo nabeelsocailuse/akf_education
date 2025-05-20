@@ -46,8 +46,8 @@ class Fees(AccountsController):
 			self.income_account = accounts_details.default_income_account
 		if not self.cost_center:
 			self.cost_center = accounts_details.cost_center
-		if not self.contact_email:
-			self.contact_email = self.get_student_emails()
+		# if not self.contact_email:
+		# 	self.contact_email = self.get_student_emails()
 
 	def validate_enrollment(self):
 		enrollment_student = frappe.db.get_value(

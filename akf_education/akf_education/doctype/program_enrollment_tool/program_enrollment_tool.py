@@ -12,11 +12,8 @@ from education.education.api import enroll_student
 
 class ProgramEnrollmentTool(Document):
 	def onload(self):
-		academic_term_reqd = cint(
-			frappe.db.get_single_value("Education Settings", "academic_term_reqd")
-		)
-		self.set_onload("academic_term_reqd", academic_term_reqd)
-  
+		academic_term_reqd = cint(frappe.db.get_single_value("Education Settings", "academic_term_reqd"))
+		self.set_onload("academic_term_reqd", academic_term_reqd)  
 
 	@frappe.whitelist()
 	def get_students(self):
@@ -94,70 +91,10 @@ class ProgramEnrollmentTool(Document):
 	@frappe.whitelist()
 	def enroll_students(self):
 		self.enrolled_students()
-		# self.create_or_update_guardian()
-
 		self.create_sponsorships()
- 
 
-	# def enrolled_students(self):
-	# 	total = len(self.students)
-	# 	for i, stud in enumerate(self.students):
-	# 		if not stud.bed:
-	# 			frappe.throw("please select bed for the student first")
-	# 		if not stud.school_type:
-	# 			frappe.throw("Please select school type.")
-	# 		if stud.school_type == "external_school" and not stud.external_school:
-	# 			frappe.throw("external_school School not selected.")
-	# 		# if not stud.selected_donors:
-	# 		# 	frappe.throw("Select Donor and Press Save Button First")
-	# 		frappe.publish_realtime(
-	# 			"program_enrollment_tool", dict(progress=[i + 1, total]), user=frappe.session.user
-	# 		)
-	# 		if stud.student:
-	# 			prog_enrollment = frappe.new_doc("Program Enrollment")
-	# 			prog_enrollment.student = stud.student
-	# 			prog_enrollment.student_name = stud.student_name
-	# 			prog_enrollment.student_category = stud.student_category
-	# 			prog_enrollment.program = self.new_program
-	# 			prog_enrollment.academic_year = self.new_academic_year
-	# 			prog_enrollment.academic_term = self.new_academic_term
-	# 			prog_enrollment.aghosh_home_id = self.aghosh_home_id
-	# 			prog_enrollment.student_applicant = stud.student_applicant
-	# 			prog_enrollment.school_type = stud.school_type
-	# 			prog_enrollment.building = stud.building
-	# 			prog_enrollment.room = stud.room
-	# 			prog_enrollment.bed = stud.bed
-	# 			prog_enrollment.external_school = stud.external_school
-
-	# 			prog_enrollment.student_batch_name = (
-	# 				stud.student_batch_name if stud.student_batch_name else self.new_student_batch
-	# 			)
-	# 			prog_enrollment.enrollment_date = self.enrollment_date
-	# 			prog_enrollment.save()
-
-	# 		elif stud.student_applicant:
-	# 			prog_enrollment = enroll_student(stud.student_applicant)
-	# 			prog_enrollment.academic_year = self.academic_year
-	# 			prog_enrollment.academic_term = self.academic_term
-	# 			prog_enrollment.aghosh_home_id = self.aghosh_home_id
-	# 			prog_enrollment.school_type = stud.school_type
-	# 			prog_enrollment.building = stud.building
-	# 			prog_enrollment.student_applicant = stud.student_applicant
-	# 			prog_enrollment.room = stud.room
-	# 			prog_enrollment.bed = stud.bed
-	# 			prog_enrollment.external_school = stud.external_school
-	# 			prog_enrollment.student_batch_name = (
-	# 				stud.student_batch_name if stud.student_batch_name else self.new_student_batch
-	# 			)
-	# 			prog_enrollment.save()
-				
-
-	# 	frappe.msgprint(_("{0} Students have been enrolled").format(total), alert=1)
- 
- 
- 
 	def enrolled_students(self):
-		total = len(self.students)
+		# total = len(self.students)
 		for i, stud in enumerate(self.students):
 			if not stud.building:
 				frappe.throw("please select building for the student first")
@@ -172,9 +109,7 @@ class ProgramEnrollmentTool(Document):
 			if stud.school_type == "External" and not stud.external_school:
 				frappe.throw("External School not selected.")
 			
-			frappe.publish_realtime(
-				"program_enrollment_tool", dict(progress=[i + 1, total]), user=frappe.session.user
-			)
+			# frappe.publish_realtime("program_enrollment_tool", dict(progress=[i + 1, total]), user=frappe.session.user)
 			if stud.student:
 				prog_enrollment = frappe.new_doc("Program Enrollment")
 				prog_enrollment.student = stud.student
@@ -217,20 +152,19 @@ class ProgramEnrollmentTool(Document):
 				#create guardian
 				stud_guard=frappe.get_doc("Student Applicant", stud.student_applicant)
 				create_or_update_guardian(stud_guard)
-				# Populate Components Table via function
+				
 				get_fee_structure_components(
 					prog_enrollment,
 					program = self.program,
 					aghosh_home_id=self.aghosh_home_id,
 					external_school=stud.external_school,
 					school_type=stud.school_type
-					
 				)
 				
 				prog_enrollment.save()
 				
 
-		frappe.msgprint(_("{0} Students have been enrolled").format(total), alert=1)
+		# frappe.msgprint(_("{0} Students have been enrolled").format(total), alert=1)
 
     
     

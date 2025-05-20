@@ -274,6 +274,7 @@ class ProgramEnrollmentTool(Document):
 				sponsorship.student_applicant = sponsor.student_applicant
 				# sponsorship.aghosh_home_id = self.aghosh_home_id
 				sponsorship.donor_id = sponsor.donor_id
+				sponsorship.aghosh_home_id = self.aghosh_home_id
 				sponsorship.insert(ignore_permissions=True)
 				sponsorship.save()
 				# sponsorship_created += 1

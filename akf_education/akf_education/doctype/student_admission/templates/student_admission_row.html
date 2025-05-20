@@ -20,14 +20,23 @@
 	.page-header .my-account-header {
 		font-size: 36px;
 		font-style: italic;
+		/* padding-top: 30px;
+		padding-left: 30px; */
 	}
-
+.transaction-list-item {
+    padding:0; 
+    border-bottom:none;
+    position: relative;
+}
 	.main-column.col-sm-10 .page-content-wrapper .container.my-4 {
 		padding: 30px;
 		background-color: white;
-		height: 80vh;
-		overflow: auto;
+		/* /* height: 80vh; */
+		/* overflow: auto; */
+	}
 
+	.page-content-wrapper {
+		flex-direction: column;
 	}
 
 	/* top breadcrumb */
@@ -92,38 +101,45 @@
 	}
 
 	/* table body entry text all indicator colors */
-	.tabl-body .ndicator {
+	.tabl-body .indicator {
 		border-radius: 8px;
 		font-size: 18px;
 		font-weight: 600;
 		padding-block: 4px;
 		padding-inline: 10px;
+		line-height: 1.2em;
 	}
 
-	.tabl-body .ndicator-yellow{
+	/* for indicator width hidding on mobile screen */
+	/* .w-220 {
+		width: 220px;
+		float: inline-end;
+	} */
+	.tabl-body .yellow {
 		background-color: #FFF7E6;
 		border: 1px solid #DD9600;
 		color: #DD9600;
 	}
-	.tabl-body .ndicator-green {
+
+	.tabl-body .green {
 		background-color: #E9FAE3;
 		border: 1px solid #237506;
 		color: #237506;
 	}
 
-	.tabl-body .ndicator-purple {
+	.tabl-body .blue {
 		background-color: #F9F5FF;
 		border: 1px solid #6941C6;
 		color: #6941C6;
 	}
 
-	.tabl-body .ndicator-red {
+	.tabl-body .red {
 		background-color: #FEF3F2;
 		border: 1px solid #B42318;
 		color: #B42318;
 	}
 
-	.tabl-body .ndicator-dark {
+	.tabl-body .gray {
 		background-color: #F2F4F7;
 		border: 1px solid #344054;
 		color: #344054;
@@ -165,9 +181,19 @@
 
 	/* for the table inner padding */
 	.page_content {
-		min-height: 50vh;
+		max-height: 70vh;
 		min-width: 317px;
-		overflow-x: auto;
+		overflow: auto;
+
+		/* padding-inline: 30px; */
+	}
+
+	/* for the header defalusd margin and padding removing */
+	@media (max-width: 767.98px) {
+		.my-account-header {
+			margin-left: 0;
+			padding-top: 10px;
+		}
 	}
 </style>
 <div class="row custm-row g-0">
@@ -202,9 +228,9 @@
 <div class="web-list-item cstm transaction-list-item">
 	{% set today = frappe.utils.getdate(frappe.utils.nowdate()) %}
 	<!-- <a href = "{{ doc.route }}" class="no-underline"> -->
-	<div class="row g-0 tabl-body">
+	<div class="row g-0 tabl-body align-items-center">
 		<div class="col-3 bold">
-			<span class="text-center ndicator-green ndicator
+			<span class="w-220 ms-3 text-center indicator
 				{% if frappe.utils.getdate(doc.admission_end_date) == today %}
 					red
 				{% elif frappe.utils.getdate(doc.admission_end_date) > today >= frappe.utils.getdate(doc.admission_start_date)%}
@@ -237,7 +263,53 @@
 			</div>
 		</div>
 		<div class="col-2 bold text-center">
-			<a href="" class=" submit-button Apply-btn">
+			<a href="" class="float-end me-0 me-md-3 submit-button Apply-btn">
+				<span>Apply Now</span>
+			</a>
+		</div>
+	</div>
+
+	<!-- </a> -->
+</div>
+<div class="web-list-item cstm transaction-list-item">
+	{% set today = frappe.utils.getdate(frappe.utils.nowdate()) %}
+	<!-- <a href = "{{ doc.route }}" class="no-underline"> -->
+	<div class="row g-0 tabl-body align-items-center">
+		<div class="col-3 bold">
+			<span class="w-220 ms-3 text-center indicator
+				{% if frappe.utils.getdate(doc.admission_end_date) == today %}
+					red
+				{% elif frappe.utils.getdate(doc.admission_end_date) > today >= frappe.utils.getdate(doc.admission_start_date)%}
+					green
+				{% elif frappe.utils.getdate(doc.admission_start_date) > today %}
+					blue
+				{% else %}
+					gray
+				{% endif  %}
+				">{{ doc.title }}</span>
+		</div>
+		<div class="col-2 ">
+			<div class="text-center admission-year bold">
+				{{ doc.academic_year }}
+			</div>
+		</div>
+		<div class="col-2">
+			<div class="text-center admission-start  text-muted bold">
+				{{ frappe.format_date(doc.admission_start_date) }}
+			</div>
+		</div>
+		<div class="col-1 content text-center">
+			<span class=" admission-icon">
+				<i class="fas fa-arrow-right"></i>
+			</span>
+		</div>
+		<div class="col-2 acadmic-year">
+			<div class="text-center admission-end text-muted bold">
+				{{ frappe.format_date(doc.admission_end_date) }}
+			</div>
+		</div>
+		<div class="col-2 bold text-center">
+			<a href="" class="float-end me-0 me-md-3 submit-button Apply-btn">
 				<span>Apply Now</span>
 			</a>
 		</div>

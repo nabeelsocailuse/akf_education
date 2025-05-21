@@ -206,7 +206,6 @@ class ProgramEnrollmentTool(Document):
 			for sponsor in self.sponsors:
 				sponsorship = frappe.new_doc("Sponsorship")
 				sponsorship.student_applicant = sponsor.student_applicant
-				# sponsorship.aghosh_home_id = self.aghosh_home_id
 				sponsorship.donor_id = sponsor.donor_id
 				sponsorship.aghosh_home_id = self.aghosh_home_id
 				sponsorship.insert(ignore_permissions=True)
@@ -279,26 +278,33 @@ def create_or_update_guardian(stud): # mubarrim (under working)
 	if guardian_doc:
 		guardian = frappe.get_doc("Guardian", guardian_doc[0].name)
 		guardian.guardian_name = stud.guardian_name
-		guardian.gender_guardian = stud.guardian_gender
-		guardian.address = stud.guardian_address
+		guardian.guardian_gender = stud.guardian_gender
+		guardian.guardian_address = stud.guardian_address
 		guardian.relation_with_child = stud.relation_with_child
-		guardian.occupation = stud.guardian_occupation
-		guardian.qualification = stud.guardian_qualification
-		guardian.marital_status = stud.guardian_marital_status
-		guardian.mobile_number = stud.guardian_contact_number
+		guardian.guardian_occupation = stud.guardian_occupation
+		guardian.guardian_qualification = stud.guardian_qualification
+		guardian.guardian_marital_status = stud.guardian_marital_status
+		guardian.guardian_contact_number = stud.guardian_contact_number
+		guardian.guardian_cnic = stud.guardian_cnic
 		guardian.save(ignore_permissions=True)
+		student_id= frappe.db.get_value("Student", {"student_applicant": stud.name},"name")
+		frappe.db.set_value("Student", student_id, "student_guardian_id", guardian.name)
+		frappe.db.set_value("Student", student_id, "student_guardian_name", guardian.guardian_name)
 		frappe.msgprint(f"Guardian {guardian.name} updated for student {stud.student_name}")
 	else:
 		guardian = frappe.new_doc("Guardian")
 		guardian.guardian_name = stud.guardian_name
-		guardian.gender_guardian = stud.guardian_gender
-		guardian.address = stud.guardian_address
+		guardian.guardian_gender = stud.guardian_gender
+		guardian.guardian_address = stud.guardian_address
 		guardian.relation_with_child = stud.relation_with_child
-		guardian.occupation = stud.guardian_occupation
-		guardian.qualification = stud.guardian_qualification
-		guardian.marital_status = stud.guardian_marital_status
-		guardian.mobile_number = stud.guardian_contact_number
-		# guardian.student_applicant = self.student_applicant
+		guardian.guardian_occupation = stud.guardian_occupation
+		guardian.guardian_qualification = stud.guardian_qualification
+		guardian.guardian_marital_status = stud.guardian_marital_status
+		guardian.guardian_contact_number = stud.guardian_contact_number
+		guardian.guardian_cnic = stud.guardian_cnic
 		guardian.insert(ignore_permissions=True)
 		guardian.save()
+		student_id= frappe.db.get_value("Student", {"student_applicant": stud.name},"name")
+		frappe.db.set_value("Student", student_id, "student_guardian_id", guardian.name)
+		frappe.db.set_value("Student", student_id, "student_guardian_name", guardian.guardian_name)
 		frappe.msgprint(f"Guardian {guardian.name} created for student {stud.student_name}")

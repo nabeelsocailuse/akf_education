@@ -536,7 +536,7 @@
   }
  ],
  "links": [],
- "modified": "2025-05-12 15:24:27.300041",
+ "modified": "2025-05-21 12:32:10.505725",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",
@@ -557,7 +557,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

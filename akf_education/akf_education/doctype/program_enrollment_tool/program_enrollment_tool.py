@@ -270,7 +270,6 @@ def get_fee_structure_components(doc, program, aghosh_home_id=None, external_sch
 		})
 
 def create_or_update_guardian(stud): # mubarrim (under working)
-	# Try to fetch an existing Guardian linked to this Student Applicant
 	guardian_doc = frappe.get_all(
 		"Guardian",
 		filters={"guardian_name": stud.guardian_name},
@@ -278,7 +277,6 @@ def create_or_update_guardian(stud): # mubarrim (under working)
 	)
 
 	if guardian_doc:
-		# Guardian exists - update it
 		guardian = frappe.get_doc("Guardian", guardian_doc[0].name)
 		guardian.guardian_name = stud.guardian_name
 		guardian.gender_guardian = stud.guardian_gender
@@ -291,7 +289,6 @@ def create_or_update_guardian(stud): # mubarrim (under working)
 		guardian.save(ignore_permissions=True)
 		frappe.msgprint(f"Guardian {guardian.name} updated for student {stud.student_name}")
 	else:
-		# Guardian doesn't exist - create new one
 		guardian = frappe.new_doc("Guardian")
 		guardian.guardian_name = stud.guardian_name
 		guardian.gender_guardian = stud.guardian_gender

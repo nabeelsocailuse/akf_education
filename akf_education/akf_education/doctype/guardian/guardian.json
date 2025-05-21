@@ -2,30 +2,24 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "EDU-GRD-.YYYY.-.#####",
+ "autoname": "GRD-.YYYY.-.####",
  "creation": "2016-07-21 15:32:51.163292",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "guardian_name",
+  "guardian_cnic",
   "relation_with_child",
-  "cnic_number",
-  "date_of_birth",
-  "email_address",
-  "mobile_number",
-  "gender_guardian",
-  "address",
-  "alternate_number",
-  "user",
+  "guardian_gender",
+  "guardian_address",
   "column_break_3",
-  "marital_status",
-  "qualification",
-  "occupation",
-  "occupation_details",
-  "designation",
-  "work_address",
-  "image",
+  "guardian_contact_number",
+  "guardian_alternate_number",
+  "guardian_marital_status",
+  "guardian_dob",
+  "guardian_qualification",
+  "guardian_occupation",
   "section_break_13",
   "students",
   "section_break_8",
@@ -35,63 +29,13 @@
   {
    "fieldname": "guardian_name",
    "fieldtype": "Data",
-   "in_global_search": 1,
+   "in_list_view": 1,
    "label": "Guardian Name",
    "reqd": 1
   },
   {
-   "fieldname": "email_address",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
-   "label": "Email Address"
-  },
-  {
-   "fieldname": "mobile_number",
-   "fieldtype": "Data",
-   "label": "Mobile Number",
-   "options": "Phone"
-  },
-  {
-   "fieldname": "alternate_number",
-   "fieldtype": "Data",
-   "label": "Alternate Number"
-  },
-  {
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date of Birth"
-  },
-  {
-   "fieldname": "user",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "User Id",
-   "options": "User"
-  },
-  {
    "fieldname": "column_break_3",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "occupation",
-   "fieldtype": "Data",
-   "label": "Occupation"
-  },
-  {
-   "fieldname": "designation",
-   "fieldtype": "Data",
-   "label": "Designation"
-  },
-  {
-   "fieldname": "work_address",
-   "fieldtype": "Text",
-   "label": "Work Address"
-  },
-  {
-   "fieldname": "image",
-   "fieldtype": "Attach Image",
-   "label": "Image"
   },
   {
    "fieldname": "section_break_13",
@@ -123,41 +67,59 @@
    "options": "\nUncle\nAunt"
   },
   {
-   "fieldname": "cnic_number",
+   "fieldname": "guardian_cnic",
    "fieldtype": "Data",
-   "label": "CNIC Number"
+   "label": "Guardian CNIC",
+   "reqd": 1,
+   "unique": 1
   },
   {
-   "fieldname": "marital_status",
-   "fieldtype": "Select",
-   "label": "Marital status",
-   "options": "\nSingle\nMarried"
+   "fieldname": "guardian_contact_number",
+   "fieldtype": "Data",
+   "label": "Guardian Contact Number",
+   "options": "Phone",
+   "reqd": 1
   },
   {
-   "fieldname": "gender_guardian",
+   "fieldname": "guardian_alternate_number",
+   "fieldtype": "Data",
+   "label": "Guardian Alternate Number"
+  },
+  {
+   "fieldname": "guardian_gender",
    "fieldtype": "Select",
-   "label": "Gender Guardian",
+   "label": "Guardian Gender",
    "options": "\nMale\nFemale"
   },
   {
-   "fieldname": "address",
+   "fieldname": "guardian_address",
    "fieldtype": "Small Text",
-   "label": "Address"
+   "label": "Guardian Address"
   },
   {
-   "fieldname": "occupation_details",
-   "fieldtype": "Data",
-   "label": "Occupation Details"
+   "fieldname": "guardian_marital_status",
+   "fieldtype": "Select",
+   "label": "Guardian Marital status",
+   "options": "\nSingle\nMarried"
   },
   {
-   "fieldname": "qualification",
+   "fieldname": "guardian_dob",
+   "fieldtype": "Date",
+   "label": "Guardian DOB"
+  },
+  {
+   "fieldname": "guardian_qualification",
    "fieldtype": "Data",
-   "label": "Qualification"
+   "label": "Guardian Qualification"
+  },
+  {
+   "fieldname": "guardian_occupation",
+   "fieldtype": "Data",
+   "label": "Guardian Occupation"
   }
  ],
- "image_field": "image",
  "links": [],
- "modified": "2025-05-14 21:35:38.293414",
+ "modified": "2025-05-21 12:11:24.591900",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Guardian",
@@ -177,7 +139,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

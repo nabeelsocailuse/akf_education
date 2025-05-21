@@ -65,6 +65,8 @@
   "mother_date_of_death",
   "mother_cause_of_death",
   "section_break_18",
+  "student_guardian_id",
+  "student_guardian_name",
   "guardians",
   "section_break_20",
   "siblings",
@@ -225,6 +227,7 @@
   {
    "fieldname": "guardians",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Guardians",
    "options": "Student Guardian"
   },
@@ -600,71 +603,23 @@
    "label": "Guardian Contact Number",
    "options": "Phone",
    "reqd": 1
+  },
+  {
+   "fieldname": "student_guardian_id",
+   "fieldtype": "Link",
+   "label": "Student Guardian ID",
+   "options": "Guardian"
+  },
+  {
+   "fetch_from": "student_guardian_id.guardian_name",
+   "fieldname": "student_guardian_name",
+   "fieldtype": "Data",
+   "label": "Student Guardian Name",
+   "read_only": 1
   }
  ],
- "links": [
-  {
-   "group": "Admission",
-   "link_doctype": "Program Enrollment",
-   "link_fieldname": "student"
-  },
-  {
-   "group": "Admission",
-   "link_doctype": "Course Enrollment",
-   "link_fieldname": "student"
-  },
-  {
-   "group": "Student Activity",
-   "link_doctype": "Student Log",
-   "link_fieldname": "student"
-  },
-  {
-   "group": "Student Activity",
-   "link_doctype": "Student Group",
-   "link_fieldname": "student"
-  },
-  {
-   "group": "Assessment",
-   "link_doctype": "Assessment Result",
-   "link_fieldname": "student"
-  },
-  {
-   "group": "Attendance",
-   "link_doctype": "Student Attendance",
-   "link_fieldname": "student"
-  },
-  {
-   "group": "Attendance",
-   "link_doctype": "Student Leave Application",
-   "link_fieldname": "student"
-  },
-  {
-   "custom": 1,
-   "link_doctype": "Personal Assessment",
-   "link_fieldname": "orphan"
-  },
-  {
-   "custom": 1,
-   "link_doctype": "Past and Present Information",
-   "link_fieldname": "orphan"
-  },
-  {
-   "custom": 1,
-   "link_doctype": "Career Counselling Form",
-   "link_fieldname": "orphan_name"
-  },
-  {
-   "custom": 1,
-   "link_doctype": "Mental Status Examination",
-   "link_fieldname": "orphan_name"
-  },
-  {
-   "custom": 1,
-   "link_doctype": "Counsling Session",
-   "link_fieldname": "orphan_name"
-  }
- ],
- "modified": "2025-05-12 16:25:56.442225",
+ "links": [],
+ "modified": "2025-05-21 12:24:02.928720",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",
@@ -698,7 +653,6 @@
    "share": 1
   }
  ],
- "row_format": "Dynamic",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

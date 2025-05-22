@@ -252,7 +252,7 @@
    "allow_on_submit": 1,
    "fieldname": "components",
    "fieldtype": "Table",
-   "label": "Components",
+   "label": "Fee Components",
    "options": "Fee Component"
   },
   {
@@ -323,7 +323,7 @@
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-22 15:18:51.917385",
+ "modified": "2025-05-22 17:01:26.002059",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

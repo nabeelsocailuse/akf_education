@@ -154,14 +154,14 @@ class ProgramEnrollmentTool(Document):
 				stud_guard=frappe.get_doc("Student Applicant", stud.student_applicant)
 				create_or_update_guardian(stud_guard)
 				stud_guard.save()
-				
-				get_fee_structure_components(
-					prog_enrollment,
-					program = self.program,
-					aghosh_home_id=self.aghosh_home_id,
-					external_school=stud.external_school,
-					school_type=stud.school_type
-				)
+				if stud.school_type == "External":
+					get_fee_structure_components(
+						prog_enrollment,
+						program = self.program,
+						aghosh_home_id=self.aghosh_home_id,
+						external_school=stud.external_school,
+						school_type=stud.school_type
+					)
 				
 				
 				
@@ -221,24 +221,24 @@ class ProgramEnrollmentTool(Document):
 		# 	frappe.msgprint(_("No Sponsorship records were created."), alert=True)
         
     
-@frappe.whitelist()
-def get_buildings_by_aghosh_home(aghosh_home_id):
-    if not aghosh_home_id:
-        frappe.response["http_status_code"] = 400
-        return {"error": "Aghosh Home ID is required"}
+# @frappe.whitelist()
+# def get_buildings_by_aghosh_home(aghosh_home_id):
+#     if not aghosh_home_id:
+#         frappe.response["http_status_code"] = 400
+#         return {"error": "Aghosh Home ID is required"}
 
-    buildings = frappe.get_all(
-        "Building",
-        filters={"aghosh_home_id": aghosh_home_id},
-        fields=["name", "type_enum"],
-        order_by="creation asc",  
-        limit_page_length=1  
-    )
+#     buildings = frappe.get_all(
+#         "Building",
+#         filters={"aghosh_home_id": aghosh_home_id},
+#         fields=["name", "type_enum"],
+#         order_by="creation asc",  
+#         limit_page_length=1  
+#     )
 
-    if buildings:
-        return {"name": buildings[0]["name"]}  
-    else:
-        return {"name": None}  
+#     if buildings:
+#         return {"name": buildings[0]["name"]}  
+#     else:
+#         return {"name": None}  
     
 
 def get_fee_structure_components(doc, program, aghosh_home_id=None, external_school=None, school_type=None):
@@ -251,8 +251,8 @@ def get_fee_structure_components(doc, program, aghosh_home_id=None, external_sch
 		filters["external_school"] = external_school
 		if aghosh_home_id:
 			filters["aghosh_home_id"] = aghosh_home_id
-	elif school_type == "Internal" and aghosh_home_id:
-		filters["aghosh_home_id"] = aghosh_home_id
+	# elif school_type == "Internal" and aghosh_home_id:
+	# 	filters["aghosh_home_id"] = aghosh_home_id
 	else:
 		return
 
@@ -293,7 +293,7 @@ def create_or_update_guardian(stud): # mubarrim (under working)
 		student_id= frappe.db.get_value("Student", {"student_applicant": stud.name},"name")
 		frappe.db.set_value("Student", student_id, "student_guardian_id", guardian.name)
 		frappe.db.set_value("Student", student_id, "student_guardian_name", guardian.guardian_name)
-		frappe.msgprint(f"Guardian {guardian.name} updated for student {stud.student_name}")
+		# frappe.msgprint(f"Guardian {guardian.name} updated for student {stud.student_name}")
 	else:
 		guardian = frappe.new_doc("Guardian")
 		guardian.guardian_name = stud.guardian_name
@@ -310,4 +310,4 @@ def create_or_update_guardian(stud): # mubarrim (under working)
 		student_id= frappe.db.get_value("Student", {"student_applicant": stud.name},"name")
 		frappe.db.set_value("Student", student_id, "student_guardian_id", guardian.name)
 		frappe.db.set_value("Student", student_id, "student_guardian_name", guardian.guardian_name)
-		frappe.msgprint(f"Guardian {guardian.name} created for student {stud.student_name}")
+		# frappe.msgprint(f"Guardian {guardian.name} created for student {stud.student_name}")

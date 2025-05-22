@@ -152,6 +152,7 @@ class ProgramEnrollmentTool(Document):
 				#create guardian
 				stud_guard=frappe.get_doc("Student Applicant", stud.student_applicant)
 				create_or_update_guardian(stud_guard)
+				stud_guard.save()
 				
 				get_fee_structure_components(
 					prog_enrollment,

@@ -9,7 +9,7 @@ frappe.ui.form.on('Student', {
           ignore_user_type: 1,
         },
       }
-    })
+    });
 
 // Accounting Leger Button Commented
     // if (!frm.is_new()) {
@@ -52,11 +52,30 @@ frappe.ui.form.on('Student', {
 
   // },
 
-    date_of_birth1: function(frm) {
-      calculate_age(frm);
-  }
+  //   date_of_birth1: function(frm) {
+  //     calculate_age(frm);
+  // }
+  date_of_birth: function(frm) {
+        if(frm.doc.date_of_birth) {
+            // Calculate age
+            const birthDate = new Date(frm.doc.date_of_birth);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            // Set the age field
+            frm.set_value('age', age);
+        } else {
+            frm.set_value('age', null);
+        }
+    }
+
   
-})
+});
 
 
 // frappe.ui.form.on('Student Guardian', {
@@ -75,69 +94,69 @@ frappe.ui.form.on('Student', {
 
 
 
-function calculate_age(frm) {
-  const dob = frm.doc.date_of_birth;
-  if (dob) {
-      const birthDate = new Date(dob);
-      const today = new Date();
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth();
+// function calculate_age(frm) {
+//   const dob = frm.doc.date_of_birth;
+//   if (dob) {
+//       const birthDate = new Date(dob);
+//       const today = new Date();
+//       let age = today.getFullYear() - birthDate.getFullYear();
+//       const m = today.getMonth() - birthDate.getMonth();
 
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-          age--;
-      }
+//       if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+//           age--;
+//       }
 
-      frm.set_value('age', age);
-  }
-}
+//       frm.set_value('age', age);
+//   }
+// }
 
 // 🔹 Get and set guardians from student_applicant
-function set_guardians_from_applicant(frm) {
-  fetch_guardians_for_applicant(frm.doc.student_applicant).then(guardians => {
-    if (guardians.length) {
-      set_guardians_in_child_table(frm, guardians);
-    } else {
-      frappe.show_alert({ message: __('No guardians found for this applicant'), indicator: 'orange' });
-    }
-  });
-}
+// function set_guardians_from_applicant(frm) {
+//   fetch_guardians_for_applicant(frm.doc.student_applicant).then(guardians => {
+//     if (guardians.length) {
+//       set_guardians_in_child_table(frm, guardians);
+//     } else {
+//       frappe.show_alert({ message: __('No guardians found for this applicant'), indicator: 'orange' });
+//     }
+//   });
+// }
 
 // 🔹 Fetch guardians related to student_applicant
-function fetch_guardians_for_applicant(student_applicant) {
-  return new Promise((resolve, reject) => {
-    frappe.call({
-      method: "frappe.client.get_list",
-      args: {
-        doctype: "Guardian",
-        filters: {
-          student_applicant: student_applicant 
-        },
-        fields: ["name", "guardian_name", "mobile_number", "relation_with_child"]
-      },
-      callback: function (r) {
-        resolve(r.message || []);
-      },
-      error: function (err) {
-        reject(err);
-      }
-    });
-  });
-}
+// function fetch_guardians_for_applicant(student_applicant) {
+//   return new Promise((resolve, reject) => {
+//     frappe.call({
+//       method: "frappe.client.get_list",
+//       args: {
+//         doctype: "Guardian",
+//         filters: {
+//           student_applicant: student_applicant 
+//         },
+//         fields: ["name", "guardian_name", "mobile_number", "relation_with_child"]
+//       },
+//       callback: function (r) {
+//         resolve(r.message || []);
+//       },
+//       error: function (err) {
+//         reject(err);
+//       }
+//     });
+//   });
+// }
 
 // 🔹 Set guardians into the guardians child table
-function set_guardians_in_child_table(frm, guardians) {
-  frm.clear_table("guardians");
-  guardians.forEach(guardian => {
-    let row = frm.add_child("guardians");
-    row.guardian = guardian.name;
-    if (guardian.guardian_name) {
-      row.guardian_name = guardian.guardian_name;
-      row.mobile_number = guardian.mobile_number;
-      row.relation_with_child = guardian.relation_with_child;
-    }
-  });
-  frm.refresh_field("guardians");
-}
+// function set_guardians_in_child_table(frm, guardians) {
+//   frm.clear_table("guardians");
+//   guardians.forEach(guardian => {
+//     let row = frm.add_child("guardians");
+//     row.guardian = guardian.name;
+//     if (guardian.guardian_name) {
+//       row.guardian_name = guardian.guardian_name;
+//       row.mobile_number = guardian.mobile_number;
+//       row.relation_with_child = guardian.relation_with_child;
+//     }
+//   });
+//   frm.refresh_field("guardians");
+// }
 
 
 

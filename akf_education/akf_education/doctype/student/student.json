@@ -12,27 +12,25 @@
   "enabled",
   "section_break_7",
   "column_break_oaxd",
+  "naming_series",
   "first_name",
   "middle_name",
   "last_name",
-  "old_aghosh_id",
-  "current_aghosh_id",
+  "full_name",
   "date_of_birth",
-  "student_gender",
-  "any_special_abled_children",
-  "student_email_id",
-  "joining_date",
-  "blood_group",
-  "column_break_3",
-  "age_round",
   "age",
-  "disability",
+  "blood_group",
+  "student_gender",
+  "student_email_id",
+  "column_break_3",
+  "student_applicant",
+  "joining_date",
   "date_of_admission",
+  "disability",
   "hifz",
   "guardian_contact_number",
-  "naming_series",
   "user",
-  "student_applicant",
+  "any_special_abled_children",
   "nationality",
   "aghosh_home_id",
   "aghosh_home_name",
@@ -75,14 +73,6 @@
   "customer",
   "column_break_rgpi",
   "customer_group",
-  "exit_tab",
-  "exit",
-  "date_of_leaving",
-  "leaving_certificate_number",
-  "column_break_31",
-  "reason_for_leaving",
-  "student_name",
-  "connections_tab",
   "outfit_measurment_tab",
   "child_height",
   "child_waist",
@@ -101,7 +91,15 @@
   "psychological_problems",
   "psychological_opinion",
   "section_break_yc9c",
-  "psychological_assessment"
+  "psychological_assessment",
+  "exit_tab",
+  "exit",
+  "date_of_leaving",
+  "leaving_certificate_number",
+  "column_break_31",
+  "reason_for_leaving",
+  "student_name",
+  "connections_tab"
  ],
  "fields": [
   {
@@ -193,7 +191,8 @@
    "fieldname": "student_applicant",
    "fieldtype": "Link",
    "label": "Student Applicant",
-   "options": "Student Applicant"
+   "options": "Student Applicant",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_22",
@@ -477,33 +476,15 @@
    "options": "\nYes\nNo"
   },
   {
-   "fieldname": "old_aghosh_id",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Old Aghosh ID"
-  },
-  {
-   "fieldname": "current_aghosh_id",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Current Aghosh ID",
-   "options": "Aghosh Home"
-  },
-  {
    "fieldname": "age",
    "fieldtype": "Int",
-   "label": "Age"
+   "label": "Age",
+   "read_only": 1
   },
   {
    "fieldname": "disability",
    "fieldtype": "Data",
    "label": "Disability"
-  },
-  {
-   "fieldname": "age_round",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Age Round"
   },
   {
    "fieldname": "date_of_admission",
@@ -616,10 +597,16 @@
    "fieldtype": "Data",
    "label": "Student Guardian Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
   }
  ],
  "links": [],
- "modified": "2025-05-21 12:24:02.928720",
+ "modified": "2025-05-22 14:52:51.145229",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

@@ -44,10 +44,23 @@ class Student(Document):
 	# 	# This prevents from polluting users data
 	# 	self.set_missing_customer_details()
   
+	# def calculate_age(self):
+	# 	dob = datetime.strptime(self.date_of_birth, "%Y-%m-%d").date()
+	# 	# dob = self.date_of_birth
+	# 	today = date.today()
+	# 	return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
 	def calculate_age(self):
-		dob = datetime.strptime(self.date_of_birth, "%Y-%m-%d").date()
-		today = date.today()
-		return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+		from frappe.utils import nowdate
+		from datetime import datetime
+		
+		today = datetime.strptime(nowdate(), "%Y-%m-%d")
+		date_str = self.date_of_birth.strftime('%Y-%m-%d')
+		birth_date = datetime.strptime(date_str, "%Y-%m-%d")
+		
+		age = today.year - birth_date.year
+		if (today.month, today.day) < (birth_date.month, birth_date.day):
+			age -= 1
+		return age
 
 	def delete_guardian(self):
 		if self.student_applicant:

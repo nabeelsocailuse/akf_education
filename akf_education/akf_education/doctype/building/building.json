@@ -80,8 +80,7 @@
    "fieldname": "building_name",
    "fieldtype": "Data",
    "label": "Building Name",
-   "mandatory_depends_on": "eval:doc.type==\"Hostel\"",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.type==\"Hostel\""
   },
   {
    "fieldname": "principal_id",
@@ -115,7 +114,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-20 15:55:05.470334",
+ "modified": "2025-05-22 12:57:46.307328",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",

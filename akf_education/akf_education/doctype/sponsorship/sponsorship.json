@@ -38,7 +38,8 @@
   {
    "fieldname": "tenure_period",
    "fieldtype": "Float",
-   "label": "Tenure Period"
+   "label": "Tenure Period",
+   "non_negative": 1
   },
   {
    "fieldname": "details_section",
@@ -129,7 +130,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-22 12:09:14.752838",
+ "modified": "2025-05-22 12:48:04.389825",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

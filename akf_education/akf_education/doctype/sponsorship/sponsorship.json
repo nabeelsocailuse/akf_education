@@ -62,7 +62,8 @@
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "label": "End Date"
+   "label": "End Date",
+   "read_only": 1
   },
   {
    "fieldname": "donor_id",
@@ -128,7 +129,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-20 15:31:58.286451",
+ "modified": "2025-05-22 12:09:14.752838",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

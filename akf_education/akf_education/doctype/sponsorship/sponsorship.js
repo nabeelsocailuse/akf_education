@@ -9,7 +9,21 @@ frappe.ui.form.on("Sponsorship", {
         // }  
 	},
 
+    start_date(frm){
+        let sponsorship_tenure = frm.doc.sponsorship_tenure;
+        let tenure_period = frm.doc.tenure_period;
+        
+        if (!sponsorship_tenure || !tenure_period) {
+            frappe.msgprint(__('Please select both Sponsorship Tenure and Tenure Period.'));
+            return;
+        }
+        
+        let today = frm.doc.start_date;
+        let end_date = calculateEndDate(today, sponsorship_tenure, tenure_period);
 
+        frm.set_value("start_date", today);
+        frm.set_value("end_date", end_date);
+    },
     tenure_period(frm) {  
         let sponsorship_tenure = frm.doc.sponsorship_tenure;
         let tenure_period = frm.doc.tenure_period;
@@ -38,7 +52,7 @@ function calculateEndDate(start_date, sponsorship_tenure, tenure_period) {
 
     if (sponsorship_tenure === "Monthly") {
         monthsToAdd = 1;
-    } else if (sponsorship_tenure === "Quartly") {
+    } else if (sponsorship_tenure === "Quarterly") {
         monthsToAdd = 3;
     } else if (sponsorship_tenure === "Yearly") {
         monthsToAdd = 12;

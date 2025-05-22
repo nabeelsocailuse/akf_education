@@ -148,6 +148,7 @@ class ProgramEnrollmentTool(Document):
 				prog_enrollment.student_batch_name = (
 					stud.student_batch_name if stud.student_batch_name else self.new_student_batch
 				)
+				prog_enrollment.save()
 
 				#create guardian
 				stud_guard=frappe.get_doc("Student Applicant", stud.student_applicant)
@@ -162,7 +163,7 @@ class ProgramEnrollmentTool(Document):
 					school_type=stud.school_type
 				)
 				
-				prog_enrollment.save()
+				
 				
 
 		# frappe.msgprint(_("{0} Students have been enrolled").format(total), alert=1)

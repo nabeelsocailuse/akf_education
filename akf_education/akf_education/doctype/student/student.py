@@ -54,7 +54,8 @@ class Student(Document):
 		from datetime import datetime
 		
 		today = datetime.strptime(nowdate(), "%Y-%m-%d")
-		date_str = self.date_of_birth.strftime('%Y-%m-%d')
+		date_obj =frappe.utils.getdate(self.date_of_birth)
+		date_str = date_obj.strftime('%Y-%m-%d')
 		birth_date = datetime.strptime(date_str, "%Y-%m-%d")
 		
 		age = today.year - birth_date.year

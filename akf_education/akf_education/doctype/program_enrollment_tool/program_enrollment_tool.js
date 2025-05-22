@@ -131,9 +131,9 @@ frappe.ui.form.on('Program Enrollment Tool', {
         //   indicator:'green'
         // },5);
 
-  academic_term: function (frm) {
-    frm.refresh()
-  },
+  // academic_term: function (frm) {
+  //   frm.refresh()
+  // },
 
 });
 

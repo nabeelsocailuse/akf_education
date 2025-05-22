@@ -20,6 +20,15 @@ frappe.ui.form.on('Program Enrollment', {
           };
       });
 
+      frm.set_query('internal_school', function() {
+        return {
+            filters: {
+                "aghosh_home_id": frm.doc.aghosh_home_id,
+                "type": "School"
+            }
+        };
+      });
+
       // Set query for fee_schedule in fees child table
       frm.fields_dict['fees'].grid.get_field('fee_schedule').get_query = function (doc, cdt, cdn) {
           var d = locals[cdt][cdn];

@@ -181,7 +181,7 @@ class ProgramEnrollmentTool(Document):
 		# total = len(self.students)
 		# sponsorship_created = 0 
 
-		for i, student in enumerate(self.students):
+		# for i, student in enumerate(self.students):
 			# frappe.publish_realtime(
 			# 	"program_enrollment_tool", {"progress": [i + 1, total]}, user=frappe.session.user
 			# )
@@ -205,6 +205,7 @@ class ProgramEnrollmentTool(Document):
 			# # Create sponsorships for each donor
 			# donor_list = student.selected_donors.split(", ")
 			# print(f"This is our donor{donor_list}")
+		if self.sponsors:
 			for sponsor in self.sponsors:
 				sponsorship = frappe.new_doc("Sponsorship")
 				sponsorship.student_applicant = sponsor.student_applicant

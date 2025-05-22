@@ -12,6 +12,7 @@ from frappe.utils import getdate, today
 from erpnext import get_default_currency
 from frappe.utils.nestedset import get_root_of
 from frappe.utils import validate_email_address
+from datetime import datetime, date
 
 from akf_education.akf_education.workspace.aghosh.utils import check_content_completion, check_quiz_completion
 
@@ -27,7 +28,7 @@ class Student(Document):
 		# 	self.set_guardians_from_applicant()
    
 		if self.date_of_birth:
-			self.age = self.calculate_age(self.date_of_birth)
+			self.age = self.calculate_age()
    		
 		if self.student_applicant:
 			self.check_unique()
@@ -43,7 +44,8 @@ class Student(Document):
 	# 	# This prevents from polluting users data
 	# 	self.set_missing_customer_details()
   
-	def calculate_age(self, dob):
+	def calculate_age(self):
+		dob = datetime.strptime(self.date_of_birth, "%Y-%m-%d").date()
 		today = date.today()
 		return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
 

@@ -52,12 +52,15 @@ def get_admission_list(
 	doctype, txt, filters, limit_start, limit_page_length=20, order_by="modified"
 ):
 	return frappe.db.sql(
-		"""select name, title, academic_year, modified, admission_start_date, route,
-		admission_end_date from `tabStudent Admission` where published=1 and admission_end_date >= %s
-		order by admission_end_date asc limit {0}, {1}
-		""".format(
-			limit_start, limit_page_length
-		),
-		[nowdate()],
-		as_dict=1,
+		"""
+    SELECT sa.name, sa.title, sa.academic_year, sa.modified, sa.admission_start_date, 
+           sa.route, sa.admission_end_date,sa.aghosh_home_id, sa.aghosh_home_name, sad.program, sad.min_age, sad.max_age, sad.description
+    FROM `tabStudent Admission` sa
+    LEFT JOIN `tabStudent Admission Program` sad ON sad.parent = sa.name
+    WHERE sa.published = 1 AND sa.admission_end_date >= %s
+    ORDER BY sa.admission_end_date ASC
+    LIMIT {0}, {1}
+    """.format(limit_start, limit_page_length),
+    [nowdate()],
+    as_dict=1,
 	)

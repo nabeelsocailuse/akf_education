@@ -240,30 +240,30 @@ frappe.ui.form.on('Fee Structure', {
   },
 
   // Function to get the internal school of Aghosh Home.
-  aghosh_home_id: function(frm) {
-    if (frm.doc.aghosh_home_id) {
-        frappe.call({
-            method: 'frappe.client.get_list',
-            args: {
-                doctype: 'Building',
-                filters: {
-                    aghosh_home_id: frm.doc.aghosh_home
-                },
-                fields: ['name_of_school']
-            },
-            callback: function(response) {
-                if (response.message && response.message.length > 0) {
-                    frm.set_value('school', response.message[0].name_of_school);
-                } else {
-                    frm.set_value('school', '');
-                    frappe.msgprint(__('No school found for the selected Aghosh Home'));
-                }
-            }
-        });
-    } else {
-        frm.set_value('school', '');
-    }
-}
+//   aghosh_home_id: function(frm) {
+//     if (frm.doc.aghosh_home_id) {
+//         frappe.call({
+//             method: 'frappe.client.get_list',
+//             args: {
+//                 doctype: 'Building',
+//                 filters: {
+//                     aghosh_home_id: frm.doc.aghosh_home
+//                 },
+//                 fields: ['name_of_school']
+//             },
+//             callback: function(response) {
+//                 if (response.message && response.message.length > 0) {
+//                     frm.set_value('school', response.message[0].name_of_school);
+//                 } else {
+//                     frm.set_value('school', '');
+//                     frappe.msgprint(__('No school found for the selected Aghosh Home'));
+//                 }
+//             }
+//         });
+//     } else {
+//         frm.set_value('school', '');
+//     }
+// }
   
 });
 

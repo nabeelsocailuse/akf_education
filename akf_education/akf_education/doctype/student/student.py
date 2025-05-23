@@ -117,7 +117,7 @@ class Student(Document):
 
 	# Validate Functions
 	def set_title(self):
-		self.student_name = " ".join(
+		self.full_name = " ".join(
 			filter(None, [self.first_name, self.middle_name, self.last_name])
 		)
 

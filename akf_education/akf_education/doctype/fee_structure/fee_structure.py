@@ -18,6 +18,25 @@ class FeeStructure(Document):
 		self.calculate_total()
 		# self.validate_discount()
 		self.validate_component_defaults()
+		self.check_duplicate_fee_structure()
+
+	def check_duplicate_fee_structure(self):
+		duplicate = frappe.db.exists(
+			"Fee Structure",
+			{
+				"program": self.program,
+				"academic_year": self.academic_year,
+				"docstatus": ["!=", 2],  # Exclude cancelled documents
+				"name": ["!=", self.name]  # Exclude current doc in case of update
+			}
+		)
+
+		if duplicate:
+			frappe.throw(
+				_("A Fee Structure already exists for Program: {0} and Academic Year: {1}.").format(
+					self.program, self.academic_year
+				)
+			)
 
 	def calculate_total(self):
 		"""Calculates total amount."""

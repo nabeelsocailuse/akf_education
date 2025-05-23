@@ -269,7 +269,7 @@
   {
    "fieldname": "relations_tab",
    "fieldtype": "Tab Break",
-   "label": "Guardian Info"
+   "label": "Relations"
   },
   {
    "fieldname": "address_tab",
@@ -536,7 +536,7 @@
   }
  ],
  "links": [],
- "modified": "2025-05-21 12:32:10.505725",
+ "modified": "2025-05-23 15:28:51.418228",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Applicant",

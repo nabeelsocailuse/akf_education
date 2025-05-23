@@ -3,13 +3,14 @@
 
 frappe.ui.form.on('Student Applicant', {
   refresh: function (frm) {
-    // frm.fields_dict['siblings'].grid.get_field('student').get_query = function(doc, cdt, cdn) {
-    //         return {
-    //             filters: {
-    //                 department: 'Engineering'
-    //             }
-    //         };
-    //     };
+    frm.fields_dict['siblings'].grid.get_field('sibling_id').get_query = function(doc, cdt, cdn) {
+      let row = locals[cdt][cdn];
+            return {
+                filters: {
+                    aghosh_home_id: row.aghosh_home_id
+                }
+            };
+        };
     frm.set_query('academic_term', function (doc, cdt, cdn) {
       return {
         filters: {

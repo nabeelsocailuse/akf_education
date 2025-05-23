@@ -59,7 +59,6 @@
    "link_to": "Sponsorship Details",
    "link_type": "Report",
    "onboard": 1,
-   "report_ref_doctype": "Sponsorship",
    "type": "Link"
   },
   {
@@ -396,7 +395,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-05-08 14:46:18.307153",
+ "modified": "2025-05-23 15:39:39.470813",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh",
@@ -406,7 +405,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 33.0,
+ "sequence_id": 39.0,
  "shortcuts": [
   {
    "color": "Grey",

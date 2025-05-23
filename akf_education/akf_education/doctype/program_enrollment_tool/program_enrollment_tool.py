@@ -154,9 +154,9 @@ class ProgramEnrollmentTool(Document):
 					get_fee_structure_components(
 						prog_enrollment,
 						program = self.program,
+						academic_year = self.academic_year,
 						aghosh_home_id=self.aghosh_home_id,
 						external_school=stud.external_school,
-						# school_type=stud.school_type
 					)
 				prog_enrollment.save()
 				
@@ -243,24 +243,20 @@ class ProgramEnrollmentTool(Document):
 #         return {"name": None}  
     
 
-def get_fee_structure_components(doc, program, aghosh_home_id=None, external_school=None):
+def get_fee_structure_components(doc, program, academic_year,aghosh_home_id, external_school):
+	# filters["aghosh_home_id"] = aghosh_home_id
 	filters = {
 		"program": program,
+		"aghosh_home_id": aghosh_home_id,
+		"academic_year": academic_year,
+		"aghosh_home_id": aghosh_home_id,
+		"external_school": external_school,
 		"docstatus": 1
 	}
 
-	if external_school:
-		filters["external_school"] = external_school
-		if aghosh_home_id:
-			filters["aghosh_home_id"] = aghosh_home_id
-	# elif school_type == "Internal" and aghosh_home_id:
-	# 	filters["aghosh_home_id"] = aghosh_home_id
-	else:
-		return
-
 	fee_structure = frappe.get_value("Fee Structure", filters, "name")
 	if not fee_structure:
-		return
+		frappe.throw(f"Please create fee structure for Class : {program} and Academic Year: {academic_year}")
 
 	components = frappe.get_doc("Fee Structure", fee_structure).get("components")
 

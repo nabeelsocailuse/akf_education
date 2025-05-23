@@ -14,7 +14,7 @@ frappe.ui.form.on("Sponsorship", {
         let tenure_period = frm.doc.tenure_period;
         
         if (!sponsorship_tenure || !tenure_period) {
-            frappe.msgprint(__('Please select both Sponsorship Tenure and Tenure Period.'));
+            frappe.msgprint(__('Please select both Sponsorship Tenure and Tenure Period'));
             return;
         }
         
@@ -27,15 +27,31 @@ frappe.ui.form.on("Sponsorship", {
     tenure_period(frm) {  
         let sponsorship_tenure = frm.doc.sponsorship_tenure;
         let tenure_period = frm.doc.tenure_period;
+        let today = frm.doc.start_date;
         
-        if (!sponsorship_tenure || !tenure_period) {
-            frappe.msgprint(__('Please select both Sponsorship Tenure and Tenure Period.'));
+        if (!sponsorship_tenure || !tenure_period || !today) {
+            frappe.msgprint(__('Please select both Sponsorship Tenure, Tenure Period and Start Date'));
             return;
         }
 
+        let end_date = calculateEndDate(today, sponsorship_tenure, tenure_period);
 
-        // Get today's date as Start Date
-        let today = frappe.datetime.get_today();
+        // Set the calculated values in the form
+        frm.set_value("start_date", today);
+        frm.set_value("end_date", end_date);
+    },
+    sponsorship_tenure(frm) {  
+        let sponsorship_tenure = frm.doc.sponsorship_tenure;
+        let tenure_period = frm.doc.tenure_period;
+        let today = frm.doc.start_date;
+        // let today = frappe.datetime.get_today();
+        
+        if (!sponsorship_tenure || !tenure_period || !today) {
+            frappe.msgprint(__('Please select both Sponsorship Tenure, Tenure Period and Start Date'));
+            return;
+        }
+
+        
         let end_date = calculateEndDate(today, sponsorship_tenure, tenure_period);
 
         // Set the calculated values in the form

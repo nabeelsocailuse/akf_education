@@ -114,7 +114,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-22 12:57:46.307328",
+ "modified": "2025-05-23 08:47:35.460236",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",
@@ -134,10 +134,8 @@
    "write": 1
   }
  ],
- "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "building_name",
  "track_changes": 1
 }

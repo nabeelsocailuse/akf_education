@@ -148,20 +148,22 @@ class ProgramEnrollmentTool(Document):
 				prog_enrollment.student_batch_name = (
 					stud.student_batch_name if stud.student_batch_name else self.new_student_batch
 				)
-				prog_enrollment.save()
-
-				#create guardian
-				stud_guard=frappe.get_doc("Student Applicant", stud.student_applicant)
-				create_or_update_guardian(stud_guard)
-				stud_guard.save()
+				
 				if stud.school_type == "External":
+					# frappe.throw("external scenario")
 					get_fee_structure_components(
 						prog_enrollment,
 						program = self.program,
 						aghosh_home_id=self.aghosh_home_id,
 						external_school=stud.external_school,
-						school_type=stud.school_type
+						# school_type=stud.school_type
 					)
+				prog_enrollment.save()
+				
+				#create guardian
+				stud_guard=frappe.get_doc("Student Applicant", stud.student_applicant)
+				create_or_update_guardian(stud_guard)
+				stud_guard.save()
 				
 				
 				
@@ -241,13 +243,13 @@ class ProgramEnrollmentTool(Document):
 #         return {"name": None}  
     
 
-def get_fee_structure_components(doc, program, aghosh_home_id=None, external_school=None, school_type=None):
+def get_fee_structure_components(doc, program, aghosh_home_id=None, external_school=None):
 	filters = {
 		"program": program,
 		"docstatus": 1
 	}
 
-	if school_type == "External" and external_school:
+	if external_school:
 		filters["external_school"] = external_school
 		if aghosh_home_id:
 			filters["aghosh_home_id"] = aghosh_home_id

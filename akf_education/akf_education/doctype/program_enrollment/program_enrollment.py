@@ -163,6 +163,7 @@ class ProgramEnrollment(Document):
 		fees_doc.student = self.student
 		fees_doc.program_enrollment = self.name
 		fees_doc.program = self.program
+		fees_doc.academic_year = self.academic_year
 		fees_doc.due_date = fees_doc.due_date = datetime.today().date() + timedelta(days=10)
 		
 		# Copy components table from Program Enrollment to Fees

@@ -26,7 +26,7 @@ class FeeStructure(Document):
 			{
 				"program": self.program,
 				"academic_year": self.academic_year,
-				"aghosh_home_id": self.agosh_home_id,
+				"aghosh_home_id": self.aghosh_home_id,
 				"docstatus": ["!=", 2],  # Exclude cancelled documents
 				"name": ["!=", self.name]  # Exclude current doc in case of update
 			}

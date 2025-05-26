@@ -111,6 +111,23 @@ frappe.ui.form.on('Fees', {
       )
       frm.page.set_inner_btn_group_as_primary(__('Create'))
     }
+    if (frm.doc.docstatus === 1) {
+      frm.add_custom_button(__('Execute Cron Job'),
+        function () {
+          frappe.call({
+                method: 'akf_education.akf_education.api.fee_cron.generate_monthly_fees',
+                callback: function (r) {
+                    if (!r.exc) {
+                        frappe.msgprint(__('Cron Job Performed!'));
+                        frm.reload_doc();
+                    }
+                }
+            });
+        },
+        __('Create')
+      )
+      frm.page.set_inner_btn_group_as_primary(__('Create'))
+    }
   },
 
   student: function (frm) {

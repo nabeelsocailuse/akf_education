@@ -157,24 +157,29 @@ app_include_js = [
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"akf_education.tasks.daily"
-# 	],
-# 	"daily": [
-# 		"akf_education.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"akf_education.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"akf_education.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"akf_education.tasks.monthly"
-# 	],
+scheduler_events = {
+    "cron": {
+        "0 0 1 * *": [  # At 00:00 on day-of-month 1
+            "akf_education.api.fee_cron.generate_monthly_fees"
+        ]
+    }
+	# "all": [
+	# 	"akf_education.tasks.daily"
+	# ],
+	# "daily": [
+	# 	"akf_education.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"akf_education.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"akf_education.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"akf_education.tasks.monthly"
+	# ],
     
-# }
+}
 
 # Testing
 # -------

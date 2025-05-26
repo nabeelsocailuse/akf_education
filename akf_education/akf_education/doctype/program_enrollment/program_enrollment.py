@@ -112,19 +112,19 @@ class ProgramEnrollment(Document):
 	def make_fee_records(self):
 		from education.education.api import get_fee_components
 
-		create_so = frappe.db.get_single_value("Education Settings", "create_so")
+		# create_so = frappe.db.get_single_value("Education Settings", "create_so")
 
 		fees_list = []
 		doctype = ""
-		for d in self.fees:
-			if create_so:
-				sales_order = create_sales_order(d.fee_schedule, self.student)
-				doctype = "Sales Order"
-				fees_list.append(sales_order)
-			else:
-				sales_invoice = create_sales_invoice(d.fee_schedule, self.student)
-				doctype = "Sales Invoice"
-				fees_list.append(sales_invoice)
+		# for d in self.fees:
+		# 	if create_so:
+		# 		sales_order = create_sales_order(d.fee_schedule, self.student)
+		# 		doctype = "Sales Order"
+		# 		fees_list.append(sales_order)
+		# 	else:
+		# 		sales_invoice = create_sales_invoice(d.fee_schedule, self.student)
+		# 		doctype = "Sales Invoice"
+		# 		fees_list.append(sales_invoice)
 
 		if fees_list:
 			fees_list = [

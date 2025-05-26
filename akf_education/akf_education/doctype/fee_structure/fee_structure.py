@@ -26,6 +26,7 @@ class FeeStructure(Document):
 			{
 				"program": self.program,
 				"academic_year": self.academic_year,
+				"aghosh_home_id": self.agosh_home_id,
 				"docstatus": ["!=", 2],  # Exclude cancelled documents
 				"name": ["!=", self.name]  # Exclude current doc in case of update
 			}
@@ -33,8 +34,8 @@ class FeeStructure(Document):
 
 		if duplicate:
 			frappe.throw(
-				_("A Fee Structure already exists for Program: {0} and Academic Year: {1}.").format(
-					self.program, self.academic_year
+				_("A Fee Structure already exists for Program: {0} and Academic Year: {1} against Aghosh Home: {3}.").format(
+					self.program, self.academic_year, self.aghosh_home_id
 				)
 			)
 

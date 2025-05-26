@@ -103,7 +103,8 @@ frappe.ui.form.on('Program Enrollment Tool', {
 
   
   get_students: function (frm) {
-    frm.set_value('students', [])
+    frm.set_value('students', []);
+    frm.set_value('sponsors', []);
     frappe.call({
       method: 'get_students',
       doc: frm.doc,
@@ -115,7 +116,6 @@ frappe.ui.form.on('Program Enrollment Tool', {
     });
   },
   enroll_students: function (frm) {
-
     frappe.call({
       method: 'enroll_students',
       doc: frm.doc,

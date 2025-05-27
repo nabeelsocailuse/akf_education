@@ -1,5 +1,20 @@
 frappe.ready(function () {
   // bind events here
+  frappe.web_form.validate = () => {
+    const dob = frappe.web_form.get_value('father_date_of_birth');
+    const dod = frappe.web_form.get_value('father_date_of_death');
+
+    if (dob && dod) {
+        const birthDate = new Date(dob);
+        const deathDate = new Date(dod);
+
+        if (deathDate <= birthDate) {
+            frappe.msgprint(__('Father\'s Date of Death must be after Date of Birth.'));
+            throw new Error("Validation failed: Date of Death must be after Date of Birth.");
+        }
+    }
+};
+
 })
 
 

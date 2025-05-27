@@ -172,7 +172,7 @@ class ProgramEnrollment(Document):
 				"fees_category": component.fees_category,  
 				"amount": component.amount,
 				"description": component.description,
-				"discount": component.discount,
+				# "discount": component.discount,
 				"total": component.total,
 				"item": component.item
 			})

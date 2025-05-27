@@ -2,16 +2,6 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Admission Tool", {
-    validate: function(frm) {
-        let admission_start_date = frm.doc.admission_start_date;
-        let admission_end_date = frm.doc.admission_end_date;
-        let today = frappe.datetime.get_today();
-
-        if (admission_start_date && admission_end_date < today) {
-            frappe.throw(__('Date must be today or later.'));
-        }
-    },
-
     onload: function (frm) {
     if (!frm.is_new()) {
       // Clear fields

@@ -174,7 +174,7 @@ class ProgramEnrollment(Document):
 				"description": component.description,
 				# "discount": component.discount,
 				"total": component.total,
-				"item": component.item
+				# "item": component.item
 			})
 		
 		# Save  the Fees document

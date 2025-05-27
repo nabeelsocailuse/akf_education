@@ -14,7 +14,8 @@ from frappe.utils.nestedset import get_root_of
 from frappe.utils import validate_email_address
 from datetime import datetime, date
 
-from akf_education.akf_education.workspace.aghosh.utils import check_content_completion, check_quiz_completion
+# from akf_education.akf_education.workspace.aghosh.utils import check_content_completion, check_quiz_completion
+from education.education.utils import check_content_completion, check_quiz_completion
 
 
 

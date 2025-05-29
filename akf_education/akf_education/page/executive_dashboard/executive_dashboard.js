@@ -78,13 +78,12 @@ function load_on_scroll_animation(){
             };
     
             $(window).on("scroll", doAnimations);
-            $(window).trigger("scroll"); // Run once on page load
+            $(window).trigger("scroll"); 
         });
     }, 500);
 }
   
 function add_necessary_css(){
-    // Add necessary CSS
     $("<style>")
       .prop("type", "text/css")
       .html(
@@ -530,16 +529,16 @@ function renderHighcharts(data) {
     
     setTimeout(() => {
         children_statistics()
-    }, 100);
+    }, 500);
     setTimeout(() => {
         aghosh_home_statuses()
-    }, 100);
+    }, 500);
     setTimeout(() => {
         aghosh_homes_per_week()
-    }, 100);
+    }, 500);
     setTimeout(() => {
         childens_registrations()
-    }, 100);
+    }, 500);
 }
 
 // Run the function after DOM is loaded

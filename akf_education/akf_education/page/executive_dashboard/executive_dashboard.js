@@ -541,6 +541,5 @@ function renderHighcharts(data) {
     }, 500);
 }
 
-// Run the function after DOM is loaded
 window.onload = renderPakistanMap;
 

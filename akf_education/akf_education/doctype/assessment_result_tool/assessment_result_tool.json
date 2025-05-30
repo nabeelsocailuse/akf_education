@@ -6,9 +6,17 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "assessment_plan",
+  "student_id",
+  "student_name",
+  "current_program_enrollment",
+  "class",
+  "get_subjects",
   "column_break_2",
   "student_group",
+  "assessment_plan",
+  "section_break_lkky",
+  "details",
+  "generate_result",
   "section_break_5",
   "result_html"
  ],
@@ -16,10 +24,10 @@
   {
    "fieldname": "assessment_plan",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Assessment Plan",
-   "options": "Assessment Plan",
-   "reqd": 1
+   "options": "Assessment Plan"
   },
   {
    "fieldname": "column_break_2",
@@ -28,11 +36,11 @@
   {
    "fieldname": "student_group",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Student Group",
    "options": "Student Group",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "depends_on": "assessment_plan",
@@ -42,13 +50,62 @@
   {
    "fieldname": "result_html",
    "fieldtype": "HTML",
+   "hidden": 1,
    "label": "Result HTML"
+  },
+  {
+   "fieldname": "student_id",
+   "fieldtype": "Link",
+   "label": "Student ID",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student_id.student_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Program",
+   "read_only": 1
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Table",
+   "label": "Details",
+   "options": "Assessment Result Detail"
+  },
+  {
+   "fieldname": "section_break_lkky",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "get_subjects",
+   "fieldtype": "Button",
+   "label": "Get Subjects"
+  },
+  {
+   "fieldname": "current_program_enrollment",
+   "fieldtype": "Link",
+   "label": "Current Program Enrollment",
+   "options": "Program Enrollment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "generate_result",
+   "fieldtype": "Button",
+   "label": "Generate Result"
   }
  ],
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-05-27 11:33:57.699158",
+ "modified": "2025-05-30 11:46:48.050281",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result Tool",

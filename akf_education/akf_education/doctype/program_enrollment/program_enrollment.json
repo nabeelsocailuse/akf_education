@@ -11,6 +11,7 @@
   "student",
   "student_name",
   "enrollment_date",
+  "latest",
   "column_break_4",
   "program",
   "academic_year",
@@ -318,12 +319,19 @@
    "label": "Internal School Name",
    "mandatory_depends_on": "eval: doc.school_type == \"Internal\"",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "latest",
+   "fieldtype": "Check",
+   "label": "Latest",
+   "read_only": 1
   }
  ],
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-22 17:01:26.002059",
+ "modified": "2025-05-29 20:47:28.208060",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

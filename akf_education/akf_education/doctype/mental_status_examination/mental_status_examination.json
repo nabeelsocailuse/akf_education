@@ -7,7 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "observation_tab",
-  "aghosh_home",
+  "aghosh_home_id",
   "aghosh_home_name",
   "column_break_kxdq",
   "student_id",
@@ -266,33 +266,33 @@
    "read_only": 1
   },
   {
-   "fieldname": "aghosh_home",
-   "fieldtype": "Link",
-   "label": "Aghosh Home ID",
-   "options": "Aghosh Home"
-  },
-  {
    "fieldname": "column_break_kyqu",
    "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "aghosh_home.aghosh_home_name",
-   "fieldname": "aghosh_home_name",
-   "fieldtype": "Data",
-   "label": "Aghosh Home Name",
-   "read_only": 1
   },
   {
    "fieldname": "student_id",
    "fieldtype": "Link",
    "label": "Student ID",
    "options": "Student"
+  },
+  {
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home"
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-30 11:51:30.846647",
+ "modified": "2025-05-30 11:33:05.319084",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Mental Status Examination",

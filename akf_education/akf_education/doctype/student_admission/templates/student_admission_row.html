@@ -35,8 +35,7 @@
 	.main-column .page-content-wrapper .container.my-4 {
 		padding: 30px;
 		background-color: white;
-		/* /* height: 80vh; */
-		/* overflow: auto; */
+		border-radius: 8px;
 	}
 
 	.page-content-wrapper {
@@ -81,6 +80,7 @@
 	.custm-row {
 		background-color: #224976;
 		padding-block: 16px;
+		border-radius: 8px;
 	}
 
 	/* header content */
@@ -180,26 +180,37 @@
 	/* for the table inner padding */
 	.page_content {
 		max-height: 70vh;
-		min-width: 317px;
+		/* min-width: 317px; */
 		overflow: auto;
 
 		/* padding-inline: 30px; */
 	}
-.indicator.green:before, .indicator.green:after {
+	.indicator.green:before, .indicator.green:after {
     display: none;
-}
+	}
 	/* for the header defalusd margin and padding removing */
 	@media (max-width: 767.98px) {
 		.my-account-header {
 			margin-left: 0;
 			padding-top: 10px;
 		}
+		.row.custm-row div span ,.tabl-body .indicator,.admission-start, .admission-end, .admission-icon,.submit-button.Apply-btn{
+			font-size: 14px;
+		}
+		
+		.page-header .my-account-header
+		{
+			font-size: 20px;
+		}
+		.tabl-body, .custm-row{
+			padding-block: 8px;
+		}
 	}
 </style>
 
 <div class="row custm-row g-0">
 	<div class="col-3 text-center">
-		<span class="">Admission Type</span>
+		<span class=""> Institute Type</span>
 	</div>
 	<div class="col-2 content text-center">
 		<span class=" ">

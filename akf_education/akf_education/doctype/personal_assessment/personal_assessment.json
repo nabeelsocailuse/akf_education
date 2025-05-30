@@ -8,6 +8,7 @@
   "details_section",
   "registration_number",
   "column_break_nqtg",
+  "student_id",
   "student_name",
   "column_break_rvmc",
   "date",
@@ -33,14 +34,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "orphan.child_name",
-   "fieldname": "student_name",
-   "fieldtype": "Link",
-   "label": "Student Name",
-   "options": "Student"
-  },
-  {
-   "fetch_from": "orphan.income_status",
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date"
@@ -126,11 +119,25 @@
   {
    "fieldname": "column_break_rvmc",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "student_id",
+   "fieldtype": "Link",
+   "label": "Student ID",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student_id.student_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-14 10:38:56.671462",
+ "modified": "2025-05-30 11:31:31.817725",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Personal Assessment",
@@ -154,5 +161,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "registration_number"
+ "title_field": "registration_number",
+ "track_changes": 1
 }

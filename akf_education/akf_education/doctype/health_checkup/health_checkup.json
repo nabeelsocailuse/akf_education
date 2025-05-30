@@ -7,18 +7,17 @@
  "engine": "InnoDB",
  "field_order": [
   "child_personal_info_section",
-  "aghosh_home",
-  "student",
+  "student_id",
+  "mother_name",
+  "father_name",
   "gender",
   "age",
   "weight_now",
   "height",
   "encounter_type",
   "column_break_cprt",
-  "child_id",
-  "class",
-  "mother_name",
-  "father_name",
+  "aghosh_home_id",
+  "aghosh_home_name",
   "encounter_datetime",
   "healthcare_practitioner",
   "encounter_impression_section",
@@ -363,7 +362,7 @@
    "fieldname": "ears",
    "fieldtype": "Select",
    "label": "Ears",
-   "options": "\nPinna/Clean:1\nPinna/Dirty:0\nwax:1\nWAX:0"
+   "options": "\nPinna/Clean:1\nPinna/Dirty:0\nWax:1\nWax:0"
   },
   {
    "fieldname": "column_break_xbmg",
@@ -442,21 +441,19 @@
    "label": "Child Personal Info"
   },
   {
-   "fieldname": "aghosh_home",
-   "fieldtype": "Link",
-   "label": "Aghosh home",
-   "options": "Aghosh Home"
-  },
-  {
+   "fetch_from": "student_id.student_gender",
    "fieldname": "gender",
    "fieldtype": "Select",
    "label": "Gender",
-   "options": "\nMale\nFemale"
+   "options": "\nMale\nFemale\nOther",
+   "read_only": 1
   },
   {
+   "fetch_from": "student_id.age",
    "fieldname": "age",
    "fieldtype": "Int",
-   "label": "Age"
+   "label": "Age",
+   "read_only": 1
   },
   {
    "fieldname": "weight_now",
@@ -464,19 +461,11 @@
    "label": "Weight Now"
   },
   {
+   "fetch_from": "student_id.mother_name",
    "fieldname": "mother_name",
    "fieldtype": "Data",
-   "label": "Mother Name"
-  },
-  {
-   "fieldname": "child_id",
-   "fieldtype": "Data",
-   "label": "Child ID"
-  },
-  {
-   "fieldname": "class",
-   "fieldtype": "Data",
-   "label": "Class"
+   "label": "Mother Name",
+   "read_only": 1
   },
   {
    "fieldname": "height",
@@ -484,9 +473,11 @@
    "label": "Height"
   },
   {
+   "fetch_from": "student_id.father_name",
    "fieldname": "father_name",
    "fieldtype": "Data",
-   "label": "Father Name"
+   "label": "Father Name",
+   "read_only": 1
   },
   {
    "fieldname": "birth_history",
@@ -513,15 +504,32 @@
    "label": "General Physical Examination"
   },
   {
-   "fieldname": "student",
+   "fetch_from": "student_id.aghosh_home_id",
+   "fieldname": "aghosh_home_id",
    "fieldtype": "Link",
-   "label": "Student Name",
-   "options": "Student"
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "student_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student ID",
+   "options": "Student",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-28 11:12:47.915771",
+ "modified": "2025-05-30 10:00:43.219746",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",

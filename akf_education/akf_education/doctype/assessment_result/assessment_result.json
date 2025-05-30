@@ -7,22 +7,28 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "assessment_plan",
-  "program",
-  "course",
-  "academic_year",
-  "academic_term",
-  "column_break_3",
   "student",
   "student_name",
+  "student_father_name",
+  "class",
+  "academic_year",
+  "aghosh_home_id",
+  "aghosh_home_name",
+  "column_break_3",
+  "assessment_plan",
+  "course",
   "student_group",
   "assessment_group",
+  "academic_term",
   "grading_scale",
   "section_break_5",
   "details",
   "section_break_8",
-  "maximum_score",
+  "total_marks",
+  "total_obtained_marks",
+  "total_percentage",
   "column_break_11",
+  "maximum_score",
   "total_score",
   "grade",
   "section_break_13",
@@ -33,36 +39,16 @@
   {
    "fieldname": "assessment_plan",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Assessment Plan",
-   "options": "Assessment Plan",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "assessment_plan.program",
-   "fieldname": "program",
-   "fieldtype": "Link",
-   "label": "Program",
-   "options": "Program"
-  },
-  {
-   "fetch_from": "assessment_plan.course",
-   "fieldname": "course",
-   "fieldtype": "Link",
-   "label": "Course",
-   "options": "Course"
-  },
-  {
-   "fetch_from": "assessment_plan.academic_year",
-   "fieldname": "academic_year",
-   "fieldtype": "Link",
-   "label": "Academic Year",
-   "options": "Academic Year"
+   "options": "Assessment Plan"
   },
   {
    "fetch_from": "assessment_plan.academic_term",
    "fieldname": "academic_term",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Academic Term",
    "options": "Academic Term"
   },
@@ -91,6 +77,7 @@
    "fetch_from": "assessment_plan.student_group",
    "fieldname": "student_group",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Student Group",
    "options": "Student Group"
   },
@@ -98,6 +85,7 @@
    "fetch_from": "assessment_plan.assessment_group",
    "fieldname": "assessment_group",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Assessment Group",
    "options": "Assessment Group"
   },
@@ -105,6 +93,7 @@
    "fetch_from": "assessment_plan.grading_scale",
    "fieldname": "grading_scale",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Grading Scale",
    "options": "Grading Scale",
    "read_only": 1
@@ -118,17 +107,18 @@
    "fieldname": "details",
    "fieldtype": "Table",
    "label": "Details",
-   "options": "Assessment Result Detail",
-   "reqd": 1
+   "options": "Assessment Result Detail"
   },
   {
    "fieldname": "section_break_8",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Total Marks"
   },
   {
    "fetch_from": "assessment_plan.maximum_assessment_score",
    "fieldname": "maximum_score",
    "fieldtype": "Float",
+   "hidden": 1,
    "label": "Maximum Score",
    "read_only": 1
   },
@@ -140,6 +130,7 @@
   {
    "fieldname": "total_score",
    "fieldtype": "Float",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Total Score",
    "read_only": 1
@@ -147,6 +138,7 @@
   {
    "fieldname": "grade",
    "fieldtype": "Data",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Grade",
    "read_only": 1
@@ -159,7 +151,7 @@
   {
    "fieldname": "comment",
    "fieldtype": "Small Text",
-   "label": "Comment"
+   "label": "Class Teacher Remarks"
   },
   {
    "fieldname": "amended_from",
@@ -169,11 +161,68 @@
    "options": "Assessment Result",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year"
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Course",
+   "options": "Course"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Program"
+  },
+  {
+   "fetch_from": "student.father_name",
+   "fieldname": "student_father_name",
+   "fieldtype": "Data",
+   "label": "Student Father Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_marks",
+   "fieldtype": "Float",
+   "label": "Total Marks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_obtained_marks",
+   "fieldtype": "Float",
+   "label": "Total Obtained Marks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_percentage",
+   "fieldtype": "Percent",
+   "label": "Total Percentage",
+   "read_only": 1
+  },
+  {
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home"
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name",
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-27 11:34:00.237134",
+ "modified": "2025-05-30 11:48:38.530269",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result",

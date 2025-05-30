@@ -5,10 +5,11 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "student_id",
   "student_name",
-  "date",
-  "column_break_yzcc",
   "age",
+  "column_break_yzcc",
+  "date",
   "grade",
   "section_break_bxal",
   "presenting_issues",
@@ -60,15 +61,24 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "student_name",
+   "fieldname": "student_id",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student ID",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student_id.student_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
    "label": "Student Name",
-   "options": "Student"
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-17 14:42:14.292669",
+ "modified": "2025-05-30 11:30:16.425578",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Counsling Session",

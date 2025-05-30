@@ -14,12 +14,34 @@ from education.education.api import get_assessment_details, get_grade
 
 class AssessmentResult(Document):
 	def validate(self):
-		education.education.validate_student_belongs_to_group(
-			self.student, self.student_group
-		)
-		self.validate_maximum_score()
-		self.validate_grade()
-		self.validate_duplicate()
+		self.set_percentage()
+		self.set_totals()
+		# education.education.validate_student_belongs_to_group(
+		# 	self.student, self.student_group
+		# )
+		# self.validate_maximum_score()
+		# self.validate_grade()
+		# self.validate_duplicate()
+
+	def set_percentage(self):
+		for row in self.details:
+			if(row.score and row.maximum_score):
+				if row.score > row.maximum_score:
+					frappe.throw(_(f"Total Marks cannot be greater than Obtained Marks, Row: {row.idx}"))
+				row.percentage= (row.score / row.maximum_score) * 100
+	
+	def set_totals(self):
+		if self.details:
+			total_marks = 0.0
+			obtained_marks = 0.0
+			for row in self.details:
+				total_marks+= row.maximum_score
+				obtained_marks+= row.score
+			self.total_marks = total_marks
+			self.total_obtained_marks = obtained_marks
+
+			self.total_percentage = (self.total_obtained_marks / self.total_marks) * 100
+
 
 	def validate_maximum_score(self):
 		assessment_details = get_assessment_details(self.assessment_plan)

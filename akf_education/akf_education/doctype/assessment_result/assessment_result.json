@@ -11,10 +11,11 @@
   "student_name",
   "student_father_name",
   "class",
-  "academic_year",
+  "promoted_to_class",
+  "column_break_3",
   "aghosh_home_id",
   "aghosh_home_name",
-  "column_break_3",
+  "academic_year",
   "assessment_plan",
   "course",
   "student_group",
@@ -207,10 +208,12 @@
    "read_only": 1
   },
   {
+   "fetch_from": "student.aghosh_home_id",
    "fieldname": "aghosh_home_id",
    "fieldtype": "Link",
    "label": "Aghosh Home ID",
-   "options": "Aghosh Home"
+   "options": "Aghosh Home",
+   "read_only": 1
   },
   {
    "fetch_from": "aghosh_home_id.aghosh_home_name",
@@ -218,11 +221,17 @@
    "fieldtype": "Data",
    "label": "Aghosh Home Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "promoted_to_class",
+   "fieldtype": "Link",
+   "label": "Promoted To Class",
+   "options": "Program"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-30 11:48:38.530269",
+ "modified": "2025-05-30 16:32:13.982468",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result",

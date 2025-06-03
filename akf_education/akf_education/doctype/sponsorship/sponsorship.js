@@ -30,7 +30,7 @@ frappe.ui.form.on("Sponsorship", {
         let today = frm.doc.start_date;
         
         if (!sponsorship_tenure || !tenure_period || !today) {
-            frappe.msgprint(__('Please select both Sponsorship Tenure, Tenure Period and Start Date'));
+            // frappe.msgprint(__('Please select both Sponsorship Tenure, Tenure Period and Start Date'));
             return;
         }
 
@@ -47,7 +47,7 @@ frappe.ui.form.on("Sponsorship", {
         // let today = frappe.datetime.get_today();
         
         if (!sponsorship_tenure || !tenure_period || !today) {
-            frappe.msgprint(__('Please select both Sponsorship Tenure, Tenure Period and Start Date'));
+            // frappe.msgprint(__('Please select both Sponsorship Tenure, Tenure Period and Start Date'));
             return;
         }
 

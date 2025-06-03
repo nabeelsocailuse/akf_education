@@ -34,8 +34,12 @@ class ProgramEnrollment(Document):
 			self.creating_fee_records()
 		self.create_course_enrollments()
 		self.set_latest_check()
+		self.set_student_current_aghosh_home()
 		# self.create_or_update_guardian()
 	
+	def set_student_current_aghosh_home(self):
+		frappe.db.set_value("Student", self.student, "aghosh_home_id", self.aghosh_home_id)
+
 	def set_latest_check(self):
 		self.latest=1
 		

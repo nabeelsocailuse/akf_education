@@ -9,7 +9,8 @@
   "student_id",
   "student_name",
   "current_program_enrollment",
-  "class",
+  "program",
+  "academic_year",
   "get_subjects",
   "column_break_2",
   "student_group",
@@ -68,13 +69,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "class",
-   "fieldtype": "Link",
-   "label": "Class",
-   "options": "Program",
-   "read_only": 1
-  },
-  {
    "fieldname": "details",
    "fieldtype": "Table",
    "label": "Details",
@@ -100,12 +94,26 @@
    "fieldname": "generate_result",
    "fieldtype": "Button",
    "label": "Generate Result"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Program",
+   "read_only": 1
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-05-30 11:46:48.050281",
+ "modified": "2025-05-30 18:16:35.147142",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result Tool",

@@ -24,6 +24,7 @@
   "student_email_id",
   "column_break_3",
   "student_applicant",
+  "status",
   "joining_date",
   "date_of_admission",
   "disability",
@@ -603,10 +604,16 @@
    "fieldtype": "Data",
    "label": "Full Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nActive\nInactive\nDropped Out"
   }
  ],
  "links": [],
- "modified": "2025-05-22 14:52:51.145229",
+ "modified": "2025-06-03 10:43:39.790205",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

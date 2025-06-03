@@ -7,7 +7,7 @@
  "field_order": [
   "student_id",
   "student_name",
-  "age",
+  "student_age",
   "column_break_yzcc",
   "date",
   "grade",
@@ -31,11 +31,6 @@
   {
    "fieldname": "column_break_yzcc",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "age",
-   "fieldtype": "Int",
-   "label": "Age"
   },
   {
    "fieldname": "grade",
@@ -74,11 +69,18 @@
    "fieldtype": "Data",
    "label": "Student Name",
    "read_only": 1
+  },
+  {
+   "fetch_from": "student_id.age",
+   "fieldname": "student_age",
+   "fieldtype": "Int",
+   "label": "Student Age",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-30 11:30:16.425578",
+ "modified": "2025-06-03 10:55:50.300768",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Counsling Session",
@@ -100,5 +102,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:AH-{child_id}-{orphan}",
+ "autoname": "format:AA-{student_id}-#####",
  "creation": "2025-02-23 17:36:13.548466",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -529,7 +529,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-30 10:00:43.219746",
+ "modified": "2025-06-03 10:57:37.722502",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",
@@ -551,5 +551,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

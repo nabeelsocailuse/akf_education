@@ -1,7 +1,6 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "format:AA-{student_id}-#####",
+ "autoname": "format:AA-HC-{YYYY}-{#####}",
  "creation": "2025-02-23 17:36:13.548466",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -529,7 +528,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-03 10:57:37.722502",
+ "modified": "2025-06-03 11:42:02.949325",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",

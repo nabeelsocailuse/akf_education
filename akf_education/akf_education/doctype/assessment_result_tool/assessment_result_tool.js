@@ -32,6 +32,39 @@ frappe.ui.form.on('Assessment Result Tool', {
       },
     });
   },
+
+  student_id: function(frm) {
+	if (frm.doc.student_id) {
+            frappe.call({
+                method: 'get_latest_checked_enrollment',
+				doc: frm.doc,
+                // callback: function(r) {
+				// 	console.log(r);
+                //     if (r.message) {
+                //         frm.set_value("current_program_enrollment", r.message.name);
+                //         frm.set_value("program", r.message.program);
+                //         frm.set_value("academic_year", r.message.academic_year);
+                //     } else {
+                //         frappe.msgprint("No Program Enrollment found for this student.");
+                //         frm.set_value("current_program_enrollment", null);
+				// 		frm.set_value("program", null);
+				// 		frm.set_value("academic_year", null);
+                //     }
+                // }
+				callback: function(r) {
+                    if (r.message && r.message.length > 0) {
+                        let enrollment = r.message[0]; // access the first item in docs
+                        frm.set_value("current_program_enrollment", enrollment.name);
+                        frm.set_value("program", enrollment.program);
+                        frm.set_value("academic_year", enrollment.academic_year);
+                    } else {
+                        frappe.msgprint("No checked Program Enrollment found.");
+                        frm.set_value("current_program_enrollment", null);
+                    }
+                }
+            });
+        }
+  },
 	// assessment_plan: function(frm) {
 	// 	frm.doc.show_submit = false;
 	// 	if(frm.doc.assessment_plan) {

@@ -157,7 +157,3 @@ frappe.ui.form.on('Student', {
 //   });
 //   frm.refresh_field("guardians");
 // }
-
-
-
-

@@ -8,6 +8,7 @@ frappe.ui.form.on('Program Enrollment Tool', {
       frm.set_value('program', '');
       frm.set_value('aghosh_home_id', '');
       frm.set_value('aghosh_home_name', '');
+      frm.set_value('academic_year', '');
       // Clear child table
       frm.set_value('students', []);
       frm.set_value('sponsors', []);
@@ -22,6 +23,13 @@ frappe.ui.form.on('Program Enrollment Tool', {
   },
 
   refresh: function (frm) {
+    frm.set_query("aghosh_home_id", function () {
+			return {
+				filters: {
+					status: "Operational"
+				},
+			};
+		});
     // frm.disable_save()
     frm.fields_dict.enroll_students.$input.addClass(' btn btn-primary')
     frappe.realtime.on('program_enrollment_tool', function (data) {

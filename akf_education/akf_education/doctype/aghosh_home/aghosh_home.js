@@ -3,7 +3,7 @@ frappe.ui.form.on("Aghosh Home", {
 		frm.set_query("district", function () {
 			return {
 				filters: {
-					custom_region: frm.doc.region,
+					region: frm.doc.region,
 				},
 			};
 		});
@@ -11,7 +11,7 @@ frappe.ui.form.on("Aghosh Home", {
 		frm.set_query("tehsil", function () {
 			return {
 				filters: {
-					custom_district: frm.doc.district,
+					district: frm.doc.district,
 				},
 			};
 		});

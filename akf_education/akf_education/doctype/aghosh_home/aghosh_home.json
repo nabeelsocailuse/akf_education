@@ -117,8 +117,8 @@
    "fieldname": "branch",
    "fieldtype": "Link",
    "label": "Branch",
-   "options": "Branch",
-   "reqd": 1
+   "mandatory_depends_on": "eval: doc.status == \"Operational\"",
+   "options": "Branch"
   },
   {
    "fetch_from": "employee_id.date_of_joining",
@@ -171,7 +171,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-30 09:57:20.126609",
+ "modified": "2025-06-03 15:28:24.224604",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

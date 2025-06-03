@@ -7,6 +7,9 @@ frappe.ui.form.on("Admission Tool", {
       // Clear fields
       frm.set_value('region', '');
       frm.set_value('district', '');
+      frm.set_value('academic_year', '');
+      frm.set_value('admission_start_date', '');
+      frm.set_value('admission_end_date', '');
       // Clear child table
       frm.set_value('admission_table', []);
     }
@@ -22,7 +25,7 @@ frappe.ui.form.on("Admission Tool", {
         frm.set_query("district", function () {
 			return {
 				filters: {
-					custom_region: frm.doc.region,
+					region: frm.doc.region,
 				},
 			};
 		});

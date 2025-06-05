@@ -87,7 +87,8 @@
   "column_break_yqzf",
   "medicine_prescription",
   "section_break_fogn",
-  "specific_remarks"
+  "specific_remarks",
+  "amended_from"
  ],
  "fields": [
   {
@@ -524,11 +525,22 @@
    "label": "Student ID",
    "options": "Student",
    "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Health Checkup",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-06-03 11:42:02.949325",
+ "modified": "2025-06-03 17:28:14.533741",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",

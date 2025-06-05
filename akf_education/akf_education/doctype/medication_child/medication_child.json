@@ -14,13 +14,16 @@
  "fields": [
   {
    "fieldname": "drug",
-   "fieldtype": "Data",
-   "label": "Drug"
+   "fieldtype": "Link",
+   "label": "Drug",
+   "options": "Item"
   },
   {
+   "fetch_from": "drug.item_name",
    "fieldname": "drug_name__description",
    "fieldtype": "Data",
-   "label": "Drug Name / Description"
+   "label": "Drug Name / Description",
+   "read_only": 1
   },
   {
    "fieldname": "dosage",
@@ -36,7 +39,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-24 16:16:48.511241",
+ "modified": "2025-06-03 17:31:23.520157",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Medication Child",

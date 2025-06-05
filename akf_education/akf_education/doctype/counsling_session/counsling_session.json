@@ -15,7 +15,8 @@
   "presenting_issues",
   "section_break_cmdk",
   "session_goals",
-  "session_feedback"
+  "session_feedback",
+  "amended_from"
  ],
  "fields": [
   {
@@ -76,11 +77,22 @@
    "fieldtype": "Int",
    "label": "Student Age",
    "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Counsling Session",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-06-03 10:55:50.300768",
+ "modified": "2025-06-03 17:28:21.862341",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Counsling Session",

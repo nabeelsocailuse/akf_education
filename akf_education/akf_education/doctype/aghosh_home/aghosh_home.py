@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.model.naming import make_autoname
 
 
 class AghoshHome(Document):
@@ -12,10 +13,9 @@ class AghoshHome(Document):
     def validate_aghosh_home(self):
         if frappe.db.exists('Aghosh Home', {'aghosh_home_name': self.aghosh_home_name, 'name': ['!=', self.name]}):
             frappe.throw(f"Aghosh Home with name '{self.aghosh_home_name}' already exists.")
-            
-            
-            
-                        
+
+    def autoname(self):
+        self.name = make_autoname(f"AA-{self.region_code}-.####")
             
 # @frappe.whitelist()
 # def get_region_and_tehsil(region=None, district=None):

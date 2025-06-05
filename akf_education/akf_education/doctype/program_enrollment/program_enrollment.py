@@ -33,15 +33,14 @@ class ProgramEnrollment(Document):
 			self.make_fee_records()
 			self.creating_fee_records()
 		self.create_course_enrollments()
-		self.set_latest_check()
 		self.set_student_current_aghosh_home()
+		self.set_latest_check()
 		# self.create_or_update_guardian()
 	
 	def set_student_current_aghosh_home(self):
 		frappe.db.set_value("Student", self.student, "aghosh_home_id", self.aghosh_home_id)
 
 	def set_latest_check(self):
-		self.latest=1
 		
 		other_enrollments = frappe.get_all("Program Enrollment",
 			filters={
@@ -55,6 +54,8 @@ class ProgramEnrollment(Document):
 		for e in other_enrollments:
 			frappe.db.set_value("Program Enrollment", e.name, "latest", 0)
 
+		self.latest= 1
+		frappe.db.set_value("Program Enrollment", self.name, "latest", 1)
 
   
 	# def before_insert(self):

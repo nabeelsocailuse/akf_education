@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Bed-AH-{#####}",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-02-20 16:05:08.467492",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_qxqe",
+  "naming_series",
   "aghosh_home_id",
   "aghosh_home_name",
   "bed_number",
@@ -105,15 +106,22 @@
    "fieldtype": "Int",
    "label": "Floor Number",
    "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "AA-Bed-"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-16 15:10:29.161937",
+ "modified": "2025-06-05 17:45:18.126366",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Beds",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -131,5 +139,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

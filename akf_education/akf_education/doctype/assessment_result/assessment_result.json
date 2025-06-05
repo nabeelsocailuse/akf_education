@@ -10,7 +10,7 @@
   "student",
   "student_name",
   "student_father_name",
-  "class",
+  "program",
   "promoted_to_class",
   "column_break_3",
   "aghosh_home_id",
@@ -177,12 +177,6 @@
    "options": "Course"
   },
   {
-   "fieldname": "class",
-   "fieldtype": "Link",
-   "label": "Class",
-   "options": "Program"
-  },
-  {
    "fetch_from": "student.father_name",
    "fieldname": "student_father_name",
    "fieldtype": "Data",
@@ -227,11 +221,17 @@
    "fieldtype": "Link",
    "label": "Promoted To Class",
    "options": "Program"
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Program"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-30 16:32:13.982468",
+ "modified": "2025-06-04 21:26:40.867145",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result",

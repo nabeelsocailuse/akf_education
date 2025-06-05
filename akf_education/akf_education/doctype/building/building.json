@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "format:AH-B-{aghosh_region_code}-{###}",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-02-20 15:52:36.644607",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_zcbg",
+  "naming_series",
   "aghosh_home_id",
   "aghosh_home_name",
   "aghosh_region_code",
@@ -110,15 +111,22 @@
    "hidden": 1,
    "label": "Aghosh Region Code",
    "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "AA-B-{aghosh_region_code}-"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-23 08:47:35.460236",
+ "modified": "2025-06-05 17:13:59.245299",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

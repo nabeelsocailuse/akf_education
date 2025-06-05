@@ -1,11 +1,12 @@
 {
  "actions": [],
- "autoname": "format:R-AH-{#####}",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-02-20 15:59:28.034985",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_k16j",
+  "naming_series",
   "aghosh_home_id",
   "aghosh_home_name",
   "building_floor",
@@ -96,15 +97,22 @@
    "fieldtype": "Data",
    "label": "Aghosh School",
    "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "AA-R-"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-09 15:44:52.800221",
+ "modified": "2025-06-05 17:42:16.800304",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Rooms",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -120,7 +128,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

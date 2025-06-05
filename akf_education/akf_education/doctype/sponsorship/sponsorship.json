@@ -22,7 +22,8 @@
   "student_name",
   "column_break_rduq",
   "aghosh_home_id",
-  "aghosh_home_name"
+  "aghosh_home_name",
+  "amended_from"
  ],
  "fields": [
   {
@@ -126,11 +127,22 @@
    "fieldtype": "Data",
    "label": "Aghosh Home Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sponsorship",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-05-22 12:48:04.389825",
+ "modified": "2025-06-03 17:28:48.721000",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

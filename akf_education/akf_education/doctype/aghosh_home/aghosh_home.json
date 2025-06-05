@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "format:AA-{region_code}-{####}",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-03-04 13:21:34.237027",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_swkc",
+  "naming_series",
   "aghosh_home_name",
   "old_aghosh_home_id",
   "branch",
@@ -167,15 +168,22 @@
    "fieldtype": "Data",
    "label": "Region Code",
    "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "AA-{region_code}-"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-03 15:28:24.224604",
+ "modified": "2025-06-05 12:55:24.773850",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

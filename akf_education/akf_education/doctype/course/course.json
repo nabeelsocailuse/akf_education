@@ -58,6 +58,7 @@
   {
    "fieldname": "default_grading_scale",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Default Grading Scale",
    "options": "Grading Scale"
   },
@@ -75,7 +76,7 @@
   }
  ],
  "links": [],
- "modified": "2025-05-27 17:12:23.233707",
+ "modified": "2025-06-04 17:24:19.283382",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Course",

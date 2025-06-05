@@ -20,13 +20,19 @@ frappe.ui.form.on('Assessment Result Tool', {
 	},
 
 	get_subjects: function (frm) {
-    // frm.set_value('students', []);
+    frm.set_value('details', []);
     // frm.set_value('sponsors', []);
     frappe.call({
       method: 'get_courses',
       doc: frm.doc,
       callback: function (r) {
+		console.log(r.message);
         if (r.message) {
+			r.message.forEach(course => {
+                let row = frm.add_child("details");
+                row.subject = course.course;
+            });
+            frm.refresh_field("details");
         //   frm.set_value('students', r.message)
         }
       },
@@ -38,31 +44,38 @@ frappe.ui.form.on('Assessment Result Tool', {
             frappe.call({
                 method: 'get_latest_checked_enrollment',
 				doc: frm.doc,
-                // callback: function(r) {
-				// 	console.log(r);
-                //     if (r.message) {
-                //         frm.set_value("current_program_enrollment", r.message.name);
-                //         frm.set_value("program", r.message.program);
-                //         frm.set_value("academic_year", r.message.academic_year);
-                //     } else {
-                //         frappe.msgprint("No Program Enrollment found for this student.");
-                //         frm.set_value("current_program_enrollment", null);
-				// 		frm.set_value("program", null);
-				// 		frm.set_value("academic_year", null);
-                //     }
-                // }
-				callback: function(r) {
-                    if (r.message && r.message.length > 0) {
-                        let enrollment = r.message[0]; // access the first item in docs
-                        frm.set_value("current_program_enrollment", enrollment.name);
-                        frm.set_value("program", enrollment.program);
-                        frm.set_value("academic_year", enrollment.academic_year);
+                callback: function(r) {
+					console.log(r.message[0]);
+					frm.set_value("current_program_enrollment", null);
+					frm.set_value("program", null);
+					frm.set_value("academic_year", null);
+                    if (r.message[0]) {
+                        frm.set_value("current_program_enrollment", r.message[0].name);
+                        frm.set_value("program", r.message[0].program);
+                        frm.set_value("academic_year", r.message[0].academic_year);
                     } else {
-                        frappe.msgprint("No checked Program Enrollment found.");
-                        frm.set_value("current_program_enrollment", null);
+                        frappe.msgprint("No Program Enrollment found for this student.");
                     }
                 }
-            });
+			});
+        }
+  },
+
+  generate_result: function(frm) {
+	if (frm.doc.details && frm.doc.details.length > 0) {
+            frappe.call({
+                method: 'generate_assessment_result',
+				doc: frm.doc,
+                callback: function(r) {
+					// console.log(r.message[0]);
+					frm.set_value("student_id", null);
+					frm.set_value("current_program_enrollment", null);
+					frm.set_value("program", null);
+					frm.set_value("academic_year", null);
+					frm.set_value("details", []);
+					frappe.msgprint("Assessment results generated successfully.");
+                }
+			});
         }
   },
 	// assessment_plan: function(frm) {

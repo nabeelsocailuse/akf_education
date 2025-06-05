@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_rename": 1,
  "autoname": "format:PA-{registration_number}",
  "creation": "2025-02-17 13:03:32.150004",
  "doctype": "DocType",
@@ -23,14 +24,17 @@
   "remains_calm_deals_well_with_anxiety",
   "has_less_creative_hobbies",
   "gets_nervous_quickly",
-  "completes_work_in_detail"
+  "completes_work_in_detail",
+  "amended_from"
  ],
  "fields": [
   {
+   "fetch_from": "student_id.student_applicant",
    "fieldname": "registration_number",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Registration Number",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -123,6 +127,7 @@
   {
    "fieldname": "student_id",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Student ID",
    "options": "Student",
    "reqd": 1
@@ -133,11 +138,22 @@
    "fieldtype": "Data",
    "label": "Student Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Personal Assessment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-05-30 11:31:31.817725",
+ "modified": "2025-06-04 12:29:05.497270",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Personal Assessment",

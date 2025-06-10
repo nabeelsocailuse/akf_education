@@ -13,6 +13,7 @@
   "academic_year",
   "get_subjects",
   "column_break_2",
+  "select_term",
   "student_group",
   "assessment_plan",
   "section_break_lkky",
@@ -108,12 +109,19 @@
    "label": "Academic Year",
    "options": "Academic Year",
    "read_only": 1
+  },
+  {
+   "fieldname": "select_term",
+   "fieldtype": "Select",
+   "label": "Select Term",
+   "options": "Midterm\nFinal Term",
+   "reqd": 1
   }
  ],
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-05-30 18:16:35.147142",
+ "modified": "2025-06-10 14:41:21.535353",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result Tool",

@@ -16,6 +16,7 @@
   "aghosh_home_id",
   "aghosh_home_name",
   "academic_year",
+  "select_term",
   "assessment_plan",
   "course",
   "student_group",
@@ -227,11 +228,18 @@
    "fieldtype": "Link",
    "label": "Class",
    "options": "Program"
+  },
+  {
+   "fieldname": "select_term",
+   "fieldtype": "Select",
+   "label": "Select Term",
+   "options": "Midterm\nFinal Term",
+   "reqd": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-04 21:26:40.867145",
+ "modified": "2025-06-10 14:41:28.660976",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result",

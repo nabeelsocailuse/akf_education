@@ -21,7 +21,7 @@ class AssessmentResult(Document):
 		# )
 		# self.validate_maximum_score()
 		# self.validate_grade()
-		# self.validate_duplicate()
+		self.validate_duplicate()
 
 	def set_percentage(self):
 		for row in self.details:
@@ -69,8 +69,9 @@ class AssessmentResult(Document):
 			filters={
 				"name": ("not in", [self.name]),
 				"student": self.student,
-				"assessment_plan": self.assessment_plan,
+				"academic_year": self.academic_year,
 				"docstatus": ("!=", 2),
+				"select_term": "Final Term",
 			},
 		)
 		if assessment_result:
@@ -79,3 +80,18 @@ class AssessmentResult(Document):
 					getlink("Assessment Result", assessment_result[0].name)
 				)
 			)
+		# assessment_result = frappe.get_list(
+		# 	"Assessment Result",
+		# 	filters={
+		# 		"name": ("not in", [self.name]),
+		# 		"student": self.student,
+		# 		"assessment_plan": self.assessment_plan,
+		# 		"docstatus": ("!=", 2),
+		# 	},
+		# )
+		# if assessment_result:
+		# 	frappe.throw(
+		# 		_("Assessment Result record {0} already exists.").format(
+		# 			getlink("Assessment Result", assessment_result[0].name)
+		# 		)
+		# 	)

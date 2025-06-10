@@ -45,6 +45,7 @@ class AssessmentResultTool(Document):
 		assessment_result.student = self.student_id
 		assessment_result.program = self.program
 		assessment_result.details = self.details
+		assessment_result.select_term = self.select_term
 		assessment_result.academic_year = self.academic_year
 		assessment_result.save(ignore_permissions=True)
 		return assessment_result.name

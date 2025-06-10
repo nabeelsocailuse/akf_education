@@ -111,8 +111,8 @@
   {
    "fieldname": "admission_table",
    "fieldtype": "Table",
-   "label": "Admission Table",
-   "options": "Admission Table"
+   "label": "Student Admission Table",
+   "options": "Student Admission Table"
   },
   {
    "fieldname": "section_break_esau",
@@ -123,10 +123,10 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-05-27 19:05:27.597612",
+ "modified": "2025-06-10 17:20:39.037692",
  "modified_by": "Administrator",
  "module": "Akf Education",
- "name": "Admission Tool",
+ "name": "Student Admission Tool",
  "owner": "Administrator",
  "permissions": [
   {

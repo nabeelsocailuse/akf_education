@@ -6,7 +6,7 @@ import frappe, ast
 from frappe.model.document import Document
 from frappe.utils import today
 
-class AdmissionTool(Document):
+class StudentAdmissionTool(Document):
 	def validate(self):
 		if self.admission_start_date < today() and self.admission_end_date < today():
 			frappe.throw("Date must be today or later.")

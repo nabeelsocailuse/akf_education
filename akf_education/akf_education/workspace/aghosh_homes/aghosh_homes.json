@@ -16,35 +16,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Tools",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Admission Tool",
-   "link_count": 0,
-   "link_to": "Admission Tool",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Program Enrollment Tool",
-   "link_count": 0,
-   "link_to": "Program Enrollment Tool",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Reports Master",
    "link_count": 1,
    "link_type": "DocType",
@@ -211,7 +182,7 @@
    "is_query_report": 0,
    "label": "Counsling Session",
    "link_count": 0,
-   "link_to": "Counsling Session",
+   "link_to": "Counselling Session",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -323,9 +294,38 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tools",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Student Admission Tool",
+   "link_count": 0,
+   "link_to": "Student Admission Tool",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Program Enrollment Tool",
+   "link_count": 0,
+   "link_to": "Program Enrollment Tool",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-05-27 14:50:53.400712",
+ "modified": "2025-06-10 17:21:29.357659",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Homes",

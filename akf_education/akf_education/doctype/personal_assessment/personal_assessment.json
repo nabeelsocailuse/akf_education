@@ -1,18 +1,20 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:PA-{registration_number}",
+ "autoname": "field:registration_number",
  "creation": "2025-02-17 13:03:32.150004",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "details_section",
-  "registration_number",
-  "column_break_nqtg",
   "student_id",
   "student_name",
+  "column_break_nqtg",
+  "aghosh_home_id",
+  "aghosh_home_name",
   "column_break_rvmc",
   "date",
+  "registration_number",
   "section_break_kngb",
   "outgoing_and_sociable",
   "possesses_strong_ideas",
@@ -29,13 +31,12 @@
  ],
  "fields": [
   {
-   "fetch_from": "student_id.student_applicant",
    "fieldname": "registration_number",
-   "fieldtype": "Data",
-   "in_list_view": 1,
+   "fieldtype": "Int",
    "label": "Registration Number",
-   "read_only": 1,
-   "reqd": 1
+   "non_negative": 1,
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "date",
@@ -148,16 +149,31 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fetch_from": "student_id.aghosh_home_id",
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-04 12:29:05.497270",
+ "modified": "2025-06-10 15:41:19.574628",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Personal Assessment",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

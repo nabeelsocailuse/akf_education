@@ -35,7 +35,7 @@ frappe.ui.form.on("Student Admission Tool", {
 
 function get_aghosh_homes(frm) {
     frappe.call({
-        method: 'akf_education.akf_education.doctype.admission_tool.admission_tool.get_aghosh_homes',
+        method: 'akf_education.akf_education.doctype.student_admission_tool.student_admission_tool.get_aghosh_homes',
         type: "GET",
         args: {
             'filters': { 

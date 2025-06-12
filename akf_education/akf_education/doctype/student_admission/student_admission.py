@@ -47,7 +47,6 @@ def get_list_context(context=None):
 		}
 	)
 
-
 def get_admission_list(
 	doctype, txt, filters, limit_start, limit_page_length=20, order_by="modified"
 ):

@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"MEi-Nkg1Ux\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Enrollment Tool\",\"col\":3}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"qV2WaYekXm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Activities\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"ucTZROCwHC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Donor\",\"col\":3}},{\"id\":\"i5xgjBF1Ds\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sponsorship\",\"col\":3}},{\"id\":\"zmvd7QOzuf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incident Report\",\"col\":3}},{\"id\":\"EcW6ngz9mP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visitor Management System\",\"col\":3}},{\"id\":\"GO3xJCuNsT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh Homes\",\"col\":4}},{\"id\":\"gqXX3hzh98\",\"type\":\"card\",\"data\":{\"card_name\":\"Admission & Enrollment\",\"col\":4}},{\"id\":\"_6GQzCddTG\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"IRw1WTvqH0\",\"type\":\"card\",\"data\":{\"card_name\":\"HealthCare\",\"col\":4}},{\"id\":\"fI5KERZtUN\",\"type\":\"card\",\"data\":{\"card_name\":\"Fees\",\"col\":4}},{\"id\":\"-qv2AZAQjQ\",\"type\":\"card\",\"data\":{\"card_name\":\"Student Assessment\",\"col\":4}},{\"id\":\"bBK_6mgg-d\",\"type\":\"card\",\"data\":{\"card_name\":\"Sponsorship\",\"col\":4}},{\"id\":\"9a8zjYSZ9n\",\"type\":\"card\",\"data\":{\"card_name\":\"Dashboard\",\"col\":4}},{\"id\":\"fwOriggX-K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports Master\",\"col\":4}}]",
+ "content": "[{\"id\":\"Wf7nGs21Yu\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9QBUI3q6Bj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Applicant\",\"col\":3}},{\"id\":\"sN29ahnRs7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":3}},{\"id\":\"qV2WaYekXm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student Activities\",\"col\":3}},{\"id\":\"Z-YOhihV6r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External School\",\"col\":3}},{\"id\":\"ucTZROCwHC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Donor\",\"col\":3}},{\"id\":\"i5xgjBF1Ds\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sponsorship\",\"col\":3}},{\"id\":\"zmvd7QOzuf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incident Report\",\"col\":3}},{\"id\":\"EcW6ngz9mP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visitor Management System\",\"col\":3}},{\"id\":\"GO3xJCuNsT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mYkhWAeKJb\",\"type\":\"card\",\"data\":{\"card_name\":\"Aghosh Homes\",\"col\":4}},{\"id\":\"gqXX3hzh98\",\"type\":\"card\",\"data\":{\"card_name\":\"Admission & Enrollment\",\"col\":4}},{\"id\":\"_6GQzCddTG\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"IRw1WTvqH0\",\"type\":\"card\",\"data\":{\"card_name\":\"HealthCare\",\"col\":4}},{\"id\":\"fI5KERZtUN\",\"type\":\"card\",\"data\":{\"card_name\":\"Fees\",\"col\":4}},{\"id\":\"-qv2AZAQjQ\",\"type\":\"card\",\"data\":{\"card_name\":\"Student Assessment\",\"col\":4}},{\"id\":\"bBK_6mgg-d\",\"type\":\"card\",\"data\":{\"card_name\":\"Sponsorship\",\"col\":4}},{\"id\":\"9a8zjYSZ9n\",\"type\":\"card\",\"data\":{\"card_name\":\"Dashboard\",\"col\":4}},{\"id\":\"fwOriggX-K\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports Master\",\"col\":4}}]",
  "creation": "2025-02-25 20:22:56.988393",
  "custom_blocks": [],
  "docstatus": 0,
@@ -325,7 +325,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-06-10 17:34:44.920009",
+ "modified": "2025-06-12 12:13:45.638412",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Homes",
@@ -340,16 +340,17 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Incident Report",
-   "link_to": "Incident Report",
+   "label": "Student",
+   "link_to": "Student",
    "stats_filter": "[]",
    "type": "DocType"
   },
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Program Enrollment Tool",
-   "link_to": "Program Enrollment Tool",
+   "label": "Incident Report",
+   "link_to": "Incident Report",
+   "stats_filter": "[]",
    "type": "DocType"
   },
   {

@@ -490,7 +490,7 @@
   {
    "fieldname": "date_of_admission",
    "fieldtype": "Date",
-   "label": "Date Of Admission"
+   "label": "Date of Admission"
   },
   {
    "fieldname": "aghosh_home_id",
@@ -613,7 +613,7 @@
   }
  ],
  "links": [],
- "modified": "2025-06-03 11:30:38.555261",
+ "modified": "2025-06-12 12:57:52.227943",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

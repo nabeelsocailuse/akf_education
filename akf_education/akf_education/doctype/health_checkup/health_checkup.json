@@ -7,6 +7,7 @@
  "field_order": [
   "child_personal_info_section",
   "student_id",
+  "student_name",
   "mother_name",
   "father_name",
   "gender",
@@ -535,12 +536,19 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fetch_from": "student_id.full_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-03 17:28:14.533741",
+ "modified": "2025-06-12 14:48:53.972361",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",

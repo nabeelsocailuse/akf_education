@@ -10,21 +10,29 @@
 	.navbar.navbar-light.navbar-expand-lg .container .navbar-brand {
 		display: none;
 	}
-	.navbar.navbar-light.navbar-expand-lg{
+
+	.navbar.navbar-light.navbar-expand-lg {
 		background: transparent;
 	}
+
 	.main-column .page-content-wrapper {
 		margin: 0rem 0 !important;
 		flex-direction: column;
 		align-items: flex-start;
 	}
-	.main-column .page-content-wrapper .page-breadcrumbs{margin-left: 20px;}
-	.sidebar-column.col-sm-2{
-		display: none!important;
+
+	.main-column .page-content-wrapper .page-breadcrumbs {
+		margin-left: 20px;
 	}
-	.main-column.col-sm-10{
-		width:100%
+
+	.sidebar-column.col-sm-2 {
+		display: none !important;
 	}
+
+	div[data-doctype="Student Admission"] .main-column.col-sm-10 {
+		width: 100%
+	}
+
 	body {
 		background-image: url(/files/addmition-img.png);
 		background-repeat: no-repeat;
@@ -36,34 +44,36 @@
 		letter-spacing: 0%;
 		font-style: italic;
 	}
-	.overlay{
-	    position: fixed;
+
+	.overlay {
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100vw;
 		height: 100vh;
 		background: radial-gradient(circle at bottom left, #0A375C82, transparent);
-		pointer-events: none; 
+		pointer-events: none;
 	}
-/* .main-column.col-sm-10{ */
-	/* width:100%; */
-/* } */
+
 	.custom-rounded {
 		border-radius: 8px;
 	}
-	.breadcrumb-item a{
+
+	.breadcrumb-item a {
 		color: #FFFFFF !important;
 		text-decoration: none;
 		font-style: italic;
 		font-weight: 600;
 		font-size: 16px;
 	}
-	.breadcrumb-item.active{
-		color:#224976 !important;
+
+	.breadcrumb-item.active {
+		color: #224976 !important;
 		font-size: 16px !important;
 		font-weight: 600;
 
 	}
+
 	.form-label {
 		font-weight: 500;
 		font-size: 16px;
@@ -90,9 +100,10 @@
 		color: #EFEFEF;
 		background-color: #012257;
 		padding-inline: 16px;
-		border-radius:8px
+		border-radius: 8px
 	}
-	.entry-text{
+
+	.entry-text {
 		margin-top: 36px;
 		margin-bottom: 24px;
 		font-style: inter;
@@ -102,7 +113,9 @@
 		line-height: 100%;
 		letter-spacing: 0%;
 	}
-	#registrationform .form-control,#registrationform .form-select{
+
+	#registrationform .form-control,
+	#registrationform .form-select {
 		color: #B2B2B2;
 		font-size: 14px;
 		font-weight: 600;
@@ -110,26 +123,39 @@
 		letter-spacing: 0%;
 		padding: 16px;
 	}
-	#registrationform .form-control::after{
-		color: #B2B2B2;}
-		.submit-button{
-			border-radius: 4px;
-			padding-inline: 20px;
-			padding-block: 8px;
-			background-color:  #012257;
-			margin-top: 8px;
-			float: right;
-			color: #FFFFFF;
-			font-weight: 700;
-			font-size: 12px;
-			line-height: 24px;
-			font-style: normal;
-			text-decoration: none;
+
+	#registrationform .form-control::after {
+		color: #B2B2B2;
+	}
+
+	.submit-button {
+		border-radius: 4px;
+		padding-inline: 20px;
+		padding-block: 8px;
+		background-color: #012257;
+		margin-top: 8px;
+		float: right;
+		color: #FFFFFF;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 24px;
+		font-style: normal;
+		text-decoration: none;
+	}
+
+	.submit-button:hover {
+		color: #FFFFFF;
+		text-decoration: none;
+	}
+	body[frappe-session-status="logged-in"] footer.web-footer{
+		display: none;
+	}
+	@media (min-width: 576px) {
+		div[data-doctype="Student Admission"] .main-column.col-sm-10 {
+			flex: 0 0 100%;
+			max-width: 100%;
 		}
-		.submit-button:hover{
-			color: #FFFFFF;
-			text-decoration: none;
-		}
+	}
 </style>
 <div class="overlay"></div>
 {% extends "templates/web.html" %}
@@ -171,15 +197,15 @@
 {% if program_details %}
 <br>
 <div class="container" id="registrationform">
-	<div class="row shadow overflow-hidden p-4 custom-rounded "
-		style="  background-color: rgb(254 254 254 / 78%);">
+	<div class="row shadow overflow-hidden p-4 custom-rounded " style="  background-color: rgb(254 254 254 / 78%);">
 
 		<!-- Left Form Section -->
 		<div class="col-md-12 col-lg-6 p-3 p-md-4 pb-0">
 			<h1 class="main-heading mb-3">{{ title }}</h1>
 			<div class="status-button d-inline-block py-2">
 				<img src="/files/status-btn.png" alt="error" width="34px" height="34px">
-				<span class=" ms-2 {% if frappe.utils.getdate(doc.admission_end_date) == today %} red"> Application will be closed soon
+				<span class=" ms-2 {% if frappe.utils.getdate(doc.admission_end_date) == today %} red"> Application will
+					be closed soon
 					{% elif frappe.utils.getdate(doc.admission_end_date) > today >=
 					frappe.utils.getdate(doc.admission_start_date)%}
 					green"> Application open
@@ -236,7 +262,7 @@
 		<!-- Right Image Section -->
 		<div class="col-lg-6 d-none d-md-block p-0">
 			<img src="/files/formimage.png" alt="Admission Image"
-				class="img-fluid w-100 object-fit-cover custom-rounded"style="height:567px;object-fit: cover;">
+				class="img-fluid w-100 object-fit-cover custom-rounded" style="height:567px;object-fit: cover;">
 		</div>
 
 	</div>

@@ -1,11 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:EX-{name_of_school}-{#####}",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-02-23 15:55:26.316689",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "name_of_school",
   "aghosh_home_id",
   "aghosh_home_name",
@@ -28,7 +29,9 @@
   {
    "fieldname": "name_of_school",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Name of School",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -86,8 +89,9 @@
   {
    "description": "Kms",
    "fieldname": "distance_from_aghosh",
-   "fieldtype": "Data",
-   "label": "Distance From Aghosh"
+   "fieldtype": "Int",
+   "label": "Distance From Aghosh",
+   "non_negative": 1
   },
   {
    "fieldname": "type_of_school",
@@ -121,17 +125,26 @@
   {
    "fieldname": "aghosh_home_id",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Aghosh Home ID",
-   "options": "Aghosh Home"
+   "options": "Aghosh Home",
+   "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "External School-"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-13 12:21:28.074771",
+ "modified": "2025-06-12 17:29:16.260545",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "External School",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

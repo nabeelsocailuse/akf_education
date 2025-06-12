@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{VMS}-{#####}",
+ "autoname": "format:VMS-{#####}",
  "creation": "2025-04-09 16:24:36.574758",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -218,7 +218,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-28 10:39:52.150270",
+ "modified": "2025-06-10 18:45:12.296438",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Visitor Management System",
@@ -241,5 +241,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "visitor_name"
+ "title_field": "visitor_name",
+ "track_changes": 1
 }

@@ -14,7 +14,7 @@ def guardian_details(cnic_number, parent_docname):
 def fetch_guardian_student_details(doc):
     doc.set("table", [])
 
-    guardian = frappe.db.get_value("Guardian", {"cnic_number": doc.cnicpassport_no}, "name")
+    guardian = frappe.db.get_value("Guardian", {"guardian_cnic": doc.cnicpassport_no}, "name")
     if not guardian:
         frappe.throw("❌ Guardian not found for this CNIC")
 

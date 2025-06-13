@@ -1,7 +1,6 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "field:registration_number",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-02-17 13:03:32.150004",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -14,7 +13,7 @@
   "aghosh_home_name",
   "column_break_rvmc",
   "date",
-  "registration_number",
+  "naming_series",
   "section_break_kngb",
   "outgoing_and_sociable",
   "possesses_strong_ideas",
@@ -30,14 +29,6 @@
   "amended_from"
  ],
  "fields": [
-  {
-   "fieldname": "registration_number",
-   "fieldtype": "Int",
-   "label": "Registration Number",
-   "non_negative": 1,
-   "reqd": 1,
-   "unique": 1
-  },
   {
    "fieldname": "date",
    "fieldtype": "Date",
@@ -164,16 +155,23 @@
    "fieldtype": "Data",
    "label": "Aghosh Home Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "AA-PA-.YYYY.-"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-10 15:41:19.574628",
+ "modified": "2025-06-13 15:46:01.667454",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Personal Assessment",
- "naming_rule": "By fieldname",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -189,10 +187,8 @@
    "write": 1
   }
  ],
- "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "registration_number",
  "track_changes": 1
 }

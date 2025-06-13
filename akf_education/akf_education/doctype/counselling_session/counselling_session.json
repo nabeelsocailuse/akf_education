@@ -1,16 +1,16 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "autoname": "naming_series:naming_series",
  "creation": "2025-02-17 15:23:35.113925",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "student_id",
   "student_name",
   "student_age",
   "column_break_yzcc",
   "date",
-  "grade",
   "section_break_bxal",
   "presenting_issues",
   "section_break_cmdk",
@@ -32,11 +32,6 @@
   {
    "fieldname": "column_break_yzcc",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "grade",
-   "fieldtype": "Data",
-   "label": "Grade"
   },
   {
    "fieldname": "section_break_cmdk",
@@ -87,12 +82,19 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "AA-CS-.YYYY.-"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-12 12:08:54.605783",
+ "modified": "2025-06-13 15:42:36.583169",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Counselling Session",

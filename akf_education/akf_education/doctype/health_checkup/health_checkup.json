@@ -1,11 +1,12 @@
 {
  "actions": [],
- "autoname": "format:AA-HC-{YYYY}-{#####}",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-02-23 17:36:13.548466",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "child_personal_info_section",
+  "naming_series",
   "student_id",
   "student_name",
   "mother_name",
@@ -543,16 +544,23 @@
    "fieldtype": "Data",
    "label": "Student Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "AA-HC-.YYYY.-"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-12 14:48:53.972361",
+ "modified": "2025-06-13 15:44:06.447640",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

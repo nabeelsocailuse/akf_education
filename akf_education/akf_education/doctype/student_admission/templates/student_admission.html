@@ -13,6 +13,7 @@
 
 	.navbar.navbar-light.navbar-expand-lg {
 		background: transparent;
+		border:none ;
 	}
 
 	.main-column .page-content-wrapper {
@@ -58,6 +59,21 @@
 	.custom-rounded {
 		border-radius: 8px;
 	}
+	.cstm-stlying{
+		height:567px;
+		object-fit: cover;
+		object-position:center 11%;
+	}
+	#registrationform .col-lg-6.d-none.d-md-block.p-0::after{
+		content: "";
+		background-color:#bae0ff54;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px	;
+		z-index: 999;
+	}
 
 	.breadcrumb-item a {
 		color: #FFFFFF !important;
@@ -80,6 +96,7 @@
 		line-height: 100%;
 		letter-spacing: 0%;
 		font-style: italic;
+		color:#000000;
 	}
 
 	.main-heading {
@@ -113,15 +130,27 @@
 		line-height: 100%;
 		letter-spacing: 0%;
 	}
-
+		/* for the input field in  */
 	#registrationform .form-control,
 	#registrationform .form-select {
-		color: #B2B2B2;
 		font-size: 14px;
 		font-weight: 600;
 		line-height: 100%;
 		letter-spacing: 0%;
 		padding: 16px;
+	}
+		#registrationform #program:focus-visible ,
+		#registrationform .form-control:focus-visible {
+		color: #525252;
+		background-color: #ffffff;
+		border:1px solid #D9D9D9;
+		outline: none;
+	}
+	#registrationform #program,
+	#registrationform .form-control{
+		color: #525252;
+		background-color: #ffffff;
+		border:1px solid #D9D9D9;
 	}
 
 	#registrationform .form-control::after {
@@ -147,6 +176,34 @@
 		color: #FFFFFF;
 		text-decoration: none;
 	}
+	/* for the top breadcrump on this page */
+	.page-breadcrumbs .breadcrumb-container.container .breadcrumb {
+    padding:0px;
+    margin-bottom: 0rem;
+	}
+	.page-breadcrumbs .breadcrumb-container.container{
+		margin: 0px;
+	}
+	/* for the page conteainer to take less margin from top */
+	div[data-doctype="Student Admission"] .main-column.col-sm-10 .container.my-4{
+		margin-top: 0px !important;
+	}
+	/* for the heading h1 in form  */
+	#registrationform .main-heading.mb-3{
+		margin-top:12px;
+		margin-bottom: 18px !important;
+	}
+	/* for the class selection */
+	#registrationform #program{
+		display: block;
+		border-radius: 8px;
+		width: 100%;
+	}
+	/* for the navbar border */
+	.navbar-light {
+    border-bottom: 1px solid #ffffff00;
+	}
+
 	body[frappe-session-status="logged-in"] footer.web-footer{
 		display: none;
 	}
@@ -197,10 +254,10 @@
 {% if program_details %}
 <br>
 <div class="container" id="registrationform">
-	<div class="row shadow overflow-hidden p-4 custom-rounded " style="  background-color: rgb(254 254 254 / 78%);">
+	<div class="row shadow overflow-hidden p-5 custom-rounded " style="  background-color: rgb(254 254 254 / 78%);">
 
 		<!-- Left Form Section -->
-		<div class="col-md-12 col-lg-6 p-3 p-md-4 pb-0">
+		<div class="col-md-12 col-lg-6">
 			<h1 class="main-heading mb-3">{{ title }}</h1>
 			<div class="status-button d-inline-block py-2">
 				<img src="/files/status-btn.png" alt="error" width="34px" height="34px">
@@ -262,7 +319,7 @@
 		<!-- Right Image Section -->
 		<div class="col-lg-6 d-none d-md-block p-0">
 			<img src="/files/formimage.png" alt="Admission Image"
-				class="img-fluid w-100 object-fit-cover custom-rounded" style="height:567px;object-fit: cover;">
+				class=" w-100 custom-rounded cstm-stlying">
 		</div>
 
 	</div>

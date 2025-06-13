@@ -11,6 +11,7 @@
   "aghosh_home_name",
   "building_floor",
   "building",
+  "building_type",
   "building_name",
   "aghosh_school",
   "column_break_vnhu",
@@ -104,11 +105,18 @@
    "hidden": 1,
    "label": "Series",
    "options": "AA-R-"
+  },
+  {
+   "fetch_from": "building.type",
+   "fieldname": "building_type",
+   "fieldtype": "Data",
+   "label": "Building Type",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-05 17:42:16.800304",
+ "modified": "2025-06-13 11:42:55.557550",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Rooms",

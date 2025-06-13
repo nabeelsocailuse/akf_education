@@ -10,6 +10,8 @@ class StudentAdmissionTool(Document):
 	def validate(self):
 		if self.admission_start_date < today() and self.admission_end_date < today():
 			frappe.throw("Date must be today or later.")
+		if self.admission_start_date > self.admission_end_date:
+			frappe.throw("Admission start date must be before admission end date.")
 	
 	@frappe.whitelist()
 	def create_admissions(self):

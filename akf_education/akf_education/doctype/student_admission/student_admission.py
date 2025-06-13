@@ -18,6 +18,8 @@ class StudentAdmission(WebsiteGenerator):
 	def validate(self):
 		if self.admission_start_date and self.admission_end_date < today():
 			frappe.throw("Date must be today or later.")
+		if self.admission_start_date and self.admission_end_date < self.admission_start_date:
+			frappe.throw(_("Admission End Date should be greater than Admission Start Date."))
 
 		if not self.route:  # pylint: disable=E0203
 			self.route = "admissions/" + "-".join(self.title.split(" "))

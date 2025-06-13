@@ -37,7 +37,8 @@
   {
    "fieldname": "principle_name",
    "fieldtype": "Data",
-   "label": "Principal Name"
+   "label": "Principal Name",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_qfle",
@@ -97,7 +98,8 @@
    "fieldname": "type_of_school",
    "fieldtype": "Select",
    "label": "Type of School",
-   "options": "\nGovernment School\nPrivate School"
+   "options": "\nGovernment School\nPrivate School",
+   "reqd": 1
   },
   {
    "fetch_from": "aghosh_home_id.aghosh_home_name",
@@ -140,7 +142,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-12 17:29:16.260545",
+ "modified": "2025-06-13 11:20:09.854321",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "External School",
@@ -162,5 +164,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

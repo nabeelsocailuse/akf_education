@@ -1,0 +1,84 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-14 16:09:24.980142",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "student_id",
+  "student_name",
+  "program_enrollment",
+  "column_break_rufs",
+  "transfer_type",
+  "transfer_from",
+  "transfer_to"
+ ],
+ "fields": [
+  {
+   "fieldname": "transfer_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Transfer Type",
+   "options": "\nBeds\nRooms\nBuilding\nAghosh Home",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transfer_from",
+   "fieldtype": "Dynamic Link",
+   "label": "Transfer From",
+   "options": "transfer_type"
+  },
+  {
+   "fieldname": "column_break_rufs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transfer_to",
+   "fieldtype": "Dynamic Link",
+   "label": "Transfer To",
+   "options": "transfer_type"
+  },
+  {
+   "fieldname": "student_id",
+   "fieldtype": "Link",
+   "label": "Student ID",
+   "options": "Student"
+  },
+  {
+   "fetch_from": "student_id.full_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "program_enrollment",
+   "fieldtype": "Link",
+   "label": "Program Enrollment",
+   "options": "Program Enrollment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-06-14 16:17:10.528525",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Shift Student",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -325,14 +325,14 @@
    "default": "0",
    "fieldname": "latest",
    "fieldtype": "Check",
-   "label": "Latest",
+   "label": "Active",
    "read_only": 1
   }
  ],
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-04 16:39:24.615453",
+ "modified": "2025-06-14 13:43:54.039627",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

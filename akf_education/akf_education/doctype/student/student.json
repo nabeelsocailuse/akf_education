@@ -609,11 +609,11 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "\nActive\nInactive\nDropped Out"
+   "options": "\nActive\nAlmuni\nDropped Out"
   }
  ],
  "links": [],
- "modified": "2025-06-12 12:57:52.227943",
+ "modified": "2025-06-14 13:42:52.558173",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

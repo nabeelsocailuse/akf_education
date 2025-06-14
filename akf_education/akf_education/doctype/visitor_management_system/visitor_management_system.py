@@ -17,21 +17,20 @@ def fetch_guardian_student_details(doc):
     guardian = frappe.db.get_value("Guardian", {"guardian_cnic": doc.cnicpassport_no}, "name")
     if not guardian:
         frappe.throw("❌ Guardian not found for this CNIC")
+    # frappe.throw(f"Guardian: {guardian}")
 
     data = frappe.db.sql("""
-                SELECT 
-            s.name AS student_id, 
-            s.first_name
-        FROM `tabStudent` s 
-        INNER JOIN `tabStudent Guardian` sg ON s.name = sg.parent
-        WHERE sg.guardian = %s AND s.enabled = 1
-    """, (guardian,), as_dict=True)
+    SELECT name, full_name
+    FROM `tabStudent`
+    WHERE student_guardian_id = %s
+""", (guardian,), as_dict=True)
+    # frappe.throw(f"Data: {data}")
 
     if not data:
         frappe.throw("❌ Student not available against this guardian.")
         
     for row in data:
         doc.append("table", {
-            "student_id": row.student_id,
-            "student_name": row.first_name
+            "student_id": row.name,
+            "student_name": row.full_name
         })

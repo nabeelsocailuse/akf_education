@@ -259,8 +259,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Student Admission",
-   "link_count": 3,
+   "label": "Transfer of Student",
+   "link_count": 1,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -268,12 +268,21 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Student Applicant",
+   "label": "Student Transfer",
    "link_count": 0,
-   "link_to": "Student Applicant",
+   "link_to": "Student Transfer",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Student Admission",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
   },
   {
    "hidden": 0,
@@ -299,10 +308,20 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Program Enrollment",
-   "link_count": 2,
+   "link_count": 3,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Student Applicant",
+   "link_count": 0,
+   "link_to": "Student Applicant",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   },
   {
    "hidden": 0,
@@ -323,28 +342,9 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Transfer of Student",
-   "link_count": 1,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Shift Student",
-   "link_count": 0,
-   "link_to": "Shift Student",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
   }
  ],
- "modified": "2025-06-14 16:43:34.489512",
+ "modified": "2025-06-14 17:27:37.060306",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Homes",

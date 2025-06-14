@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestShiftStudent(FrappeTestCase):
+class TestStudentTransfer(FrappeTestCase):
 	pass

@@ -18,12 +18,14 @@ def get_executive_dashboard():
         "activity_videos": student_activity_videos(),
         "drawing_activity": student_activity_drawing(),
         "student_with_psychological_assessment": student_with_psychological_assessment(),
-        "charts_data": { 
+        "charts_data": {
             "aghosh_homes_interval_count": num_of_aghosh_homes_present(),
             "aghosh_home_status": get_aghosh_home_status(),
             "childens_registration": childens_registration_intervals(),
-        }
+        },
+        "aghosh_home_locations": get_aghosh_home_locations()  
     }
+
 
 @frappe.whitelist()
 def get_aghosh_home_status():
@@ -119,22 +121,25 @@ def student_with_psychological_assessment():
     """, as_dict=True)
     return data
 
-
 @frappe.whitelist()
 def get_aghosh_home_locations():
     data = frappe.db.sql("""
-        SELECT district, longitude, latitude
+        SELECT aghosh_home_name, longitude, latitude, status
         FROM `tabAghosh Home`
-        WHERE district IS NOT NULL
-          AND longitude IS NOT NULL
-          AND latitude IS NOT NULL;
+        WHERE longitude IS NOT NULL AND latitude IS NOT NULL 
+          AND longitude != '' AND latitude != ''
     """, as_dict=True)
 
     locations = []
     for record in data:
-        locations.append({
-            "coords": [record["latitude"], record["longitude"]],
-            "name": record["district"]
-        })
+        if record["latitude"] and record["longitude"]:
+            locations.append({
+                "coords": [float(record["latitude"]), float(record["longitude"])],
+                "name": record["aghosh_home_name"],
+                "status": record["status"]
+            })
 
     return locations
+
+
+

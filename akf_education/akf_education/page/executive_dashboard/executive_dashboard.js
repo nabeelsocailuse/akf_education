@@ -19,18 +19,17 @@ serverCall = {
     cards: function (page, filters) {
         frappe.call({
             method: `${apiPath}.get_executive_dashboard`,
-            args: {
-                // filters: filters
-            },
+            args: {},
             callback: function (r) {
                 let data = r.message;
                 design.cards(page, data);
                 renderHighcharts(data);
-                renderPakistanMap();
+                renderPakistanMap(data);  
             }
         })
     }
 }
+
 
 design = {
     cards: function (page, data) {
@@ -191,7 +190,7 @@ function renderCharts() {
     renderIcons();
 }
 
-function renderPakistanMap() {
+function renderPakistanMap(data) {
     var mapContainer = document.getElementById("container-map");
 
     if (!mapContainer) {
@@ -200,7 +199,7 @@ function renderPakistanMap() {
     }
 
     var map = L.map("container-map", {
-        center: [30.3753, 69.3451], // Center Pakistan
+        center: [30.3753, 69.3451],
         zoom: 6,
         scrollWheelZoom: false,
     });
@@ -221,40 +220,47 @@ function renderPakistanMap() {
 
     var markers = L.markerClusterGroup();
 
-    var locations = [
-        { coords: [31.5204, 74.3587], name: "Lahore" },
-        { coords: [33.6844, 73.0479], name: "Islamabad" },
-        { coords: [24.8607, 67.0011], name: "Karachi" },
-        { coords: [30.1575, 71.5249], name: "Multan" },
-        { coords: [25.3969, 68.3578], name: "Hyderabad" },
-    ];
+    var iconColors = {
+        "Operational": "green",
+        "Under Construction": "blue",
+        "Inactive": "red"
+    };
 
-    function newMarker(latlng, name) {
-        var marker = new L.marker(latlng).addTo(map);
+    function getMarkerIcon(status) {
+        return new L.Icon({
+            iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${iconColors[status] || "grey"}.png`,
+            shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+    }
+
+    data.aghosh_home_locations.forEach((location) => {
+        var marker = L.marker(location.coords, {
+            icon: getMarkerIcon(location.status)
+        });
+
         marker.bindTooltip(`
             <div class="custom-tooltip-card">
-                <h4>${name}</h4>
-                <p>Some info about ${name}</p>
-                <small> Hello ${name} </small>
+                <h4>${location.name}</h4>
+                <p>Status: ${location.status}</p>
             </div>
         `, {
             permanent: false,
             direction: "top",
             opacity: 0.95,
             sticky: true,
-            className: "leaflet-tooltip-card", 
+            className: "leaflet-tooltip-card",
         });
-        
-    }
 
-    // Adding predefined markers
-    locations.forEach((location) => {
-        newMarker(location.coords, location.name);
+        markers.addLayer(marker);
     });
 
-    // Marker Cluster
     map.addLayer(markers);
 }
+
 
 renderPakistanMap();
 

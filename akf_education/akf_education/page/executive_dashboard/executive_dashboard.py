@@ -14,8 +14,8 @@ def get_executive_dashboard():
         "students_in_shilter": students_in_shilter,
         "sponsored_childrens": sponsored_childrens,
         "unsponsored_childrens": (total_students - sponsored_childrens),
-        "activity_pictures": student_activity_pictures(),
-        "activity_videos": student_activity_videos(),
+        # "activity_pictures": student_activity_pictures(),
+        # "activity_videos": student_activity_videos(),
         "drawing_activity": student_activity_drawing(),
         "student_with_psychological_assessment": student_with_psychological_assessment(),
         "charts_data": {

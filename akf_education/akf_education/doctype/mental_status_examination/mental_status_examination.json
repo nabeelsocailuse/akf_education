@@ -272,8 +272,10 @@
   {
    "fieldname": "student_id",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Student ID",
-   "options": "Student"
+   "options": "Student",
+   "reqd": 1
   },
   {
    "fetch_from": "student_id.aghosh_home_id",
@@ -301,7 +303,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-13 15:48:01.728007",
+ "modified": "2025-06-16 17:03:42.823134",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Mental Status Examination",

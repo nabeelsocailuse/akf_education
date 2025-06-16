@@ -159,7 +159,7 @@ frappe.ui.form.on("Program Enrollment Tool Student", {
           fieldtype: 'MultiSelectList',
           get_data: async () => {
             let donors = await frappe.db.get_list('Donor', {
-              fields: ['donor_name']
+              fields: ['name','donor_name']
             });
             return donors.map(d => d.donor_name);
           },

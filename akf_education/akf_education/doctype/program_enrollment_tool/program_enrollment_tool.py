@@ -170,8 +170,7 @@ class ProgramEnrollmentTool(Document):
 
 		# frappe.msgprint(_("{0} Students have been enrolled").format(total), alert=1)
 
-    
-    
+       
       
   
   	#Optimized Version 

@@ -9,6 +9,7 @@
   "sponsorship_details_section",
   "student_applicant",
   "applicant_name",
+  "donor_id",
   "donor_name"
  ],
  "fields": [
@@ -20,6 +21,7 @@
   {
    "fieldname": "student_applicant",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Student Applicant",
    "options": "Student Applicant",
    "read_only": 1
@@ -27,6 +29,7 @@
   {
    "fieldname": "applicant_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Applicant Name",
    "read_only": 1
   },
@@ -36,12 +39,20 @@
    "in_list_view": 1,
    "label": "Donor Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "donor_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Donor ID",
+   "options": "Donor",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-14 18:14:10.679116",
+ "modified": "2025-06-16 19:55:01.867819",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsors",

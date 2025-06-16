@@ -14,8 +14,8 @@ def get_executive_dashboard():
         "students_in_shilter": students_in_shilter,
         "sponsored_childrens": sponsored_childrens,
         "unsponsored_childrens": (total_students - sponsored_childrens),
-        # "activity_pictures": student_activity_pictures(),
-        # "activity_videos": student_activity_videos(),
+        "activity_pictures": student_activity_pictures(),
+        "activity_videos": student_activity_videos(),
         "drawing_activity": student_activity_drawing(),
         "student_with_psychological_assessment": student_with_psychological_assessment(),
         "charts_data": {
@@ -76,38 +76,41 @@ def childens_registration_intervals():
 
 @frappe.whitelist()
 def student_activity_pictures():
-    data = frappe.db.sql("""
-        SELECT 
-            COUNT(*) AS total_pictures
-        FROM 
-            `tabActivity Images` 
-        WHERE 
-            parenttype = 'Student Activities';
-    """, as_dict=True)
+    # data = frappe.db.sql("""
+    #     SELECT 
+    #         COUNT(*) AS total_pictures
+    #     FROM 
+    #         `tabActivity Images` 
+    #     WHERE 
+    #         parenttype = 'Student Activities';
+    # """, as_dict=True)
+    data = ''
     return data
 
 @frappe.whitelist()
 def student_activity_videos():
-    data = frappe.db.sql("""
-        SELECT 
-            COUNT(*) AS total_videos
-        FROM 
-            `tabActivity Videos` 
-        WHERE 
-            parenttype = 'Student Activities';
-    """, as_dict=True)
+    # data = frappe.db.sql("""
+    #     SELECT 
+    #         COUNT(*) AS total_videos
+    #     FROM 
+    #         `tabActivity Videos` 
+    #     WHERE 
+    #         parenttype = 'Student Activities';
+    # """, as_dict=True)
+    data = ''
     return data
 
 @frappe.whitelist()
 def student_activity_drawing():
-    data = frappe.db.sql("""
-        SELECT 
-            COUNT(*) AS total_drawings
-        FROM 
-            `tabChildren Drawings` 
-        WHERE 
-            parenttype = 'Student Activities';
-    """, as_dict=True)
+    # data = frappe.db.sql("""
+    #     SELECT 
+    #         COUNT(*) AS total_drawings
+    #     FROM 
+    #         `tabChildren Drawings` 
+    #     WHERE 
+    #         parenttype = 'Student Activities';
+    # """, as_dict=True)
+    data = ''
     return data
 
 

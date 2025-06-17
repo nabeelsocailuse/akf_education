@@ -7,7 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "drug",
-  "drug_name__description",
+  "drug_name",
   "dosage",
   "period"
  ],
@@ -15,31 +15,37 @@
   {
    "fieldname": "drug",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Drug",
    "options": "Item"
   },
   {
-   "fetch_from": "drug.item_name",
-   "fieldname": "drug_name__description",
-   "fieldtype": "Data",
-   "label": "Drug Name / Description",
-   "read_only": 1
-  },
-  {
    "fieldname": "dosage",
-   "fieldtype": "Data",
-   "label": "Dosage"
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Dosage",
+   "options": "\n0-0-1\n1-0-0\n1-0-1\n0-1-1\n1-1-0\n1-1-1"
   },
   {
    "fieldname": "period",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Period",
+   "options": "\n3 days\n5 days\n7 days\n10 days\n2 weeks\n1 month"
+  },
+  {
+   "fetch_from": "drug.item_name",
+   "fieldname": "drug_name",
    "fieldtype": "Data",
-   "label": "Period"
+   "in_list_view": 1,
+   "label": "Drug Name / Description",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-03 17:31:23.520157",
+ "modified": "2025-06-17 11:35:33.571724",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Medication Child",

@@ -14,29 +14,34 @@
  "fields": [
   {
    "fieldname": "clinical_procedure",
-   "fieldtype": "Data",
-   "label": "Clinical Procedure"
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Clinical Procedure",
+   "options": "\nVaccination Administration\nPhysical Examination\nVision Screening\nHearing Test\nBMI & Growth Monitoring\nSkin Examination\nCounseling Session\nWound Dressing / Minor Injury Care"
   },
   {
    "fieldname": "procedure_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Procedure Name"
   },
   {
    "fieldname": "referring_practitioner",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Referring Practitioner"
   },
   {
    "fieldname": "date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-24 16:36:55.513427",
+ "modified": "2025-06-17 11:53:51.827526",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Procedures Child",

@@ -7,30 +7,27 @@
  "engine": "InnoDB",
  "field_order": [
   "lab_test",
-  "lab_test_name",
   "comments"
  ],
  "fields": [
   {
    "fieldname": "lab_test",
-   "fieldtype": "Data",
-   "label": "Lab Test"
-  },
-  {
-   "fieldname": "lab_test_name",
-   "fieldtype": "Data",
-   "label": "Lab Test Name"
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Lab Test",
+   "options": "\nComplete Blood Count(CBC)\nVitamin D Test\nThyroid Function Test (TSH, T3, T4)\nIron Studies / Ferritin\nBlood Glucose / HbA1c\nLipid Profile (Cholesterol Test)\nUrine Routine Test\nLiver Function Test (LFT)\nAllergy Panel\nBone Density Test"
   },
   {
    "fieldname": "comments",
    "fieldtype": "Small Text",
+   "in_list_view": 1,
    "label": "Comments"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-24 16:33:50.920915",
+ "modified": "2025-06-17 11:48:39.450580",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Investigation Child",

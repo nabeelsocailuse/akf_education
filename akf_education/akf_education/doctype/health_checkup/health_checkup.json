@@ -26,11 +26,11 @@
   "column_break_zmsr",
   "diagnosis",
   "medications_section",
-  "table_zdxg",
+  "prescription",
   "investigations_section",
-  "table_ihqq",
+  "investigation",
   "procedures_section",
-  "table_vxye",
+  "procedures",
   "follow_up_section",
   "follow_up_date",
   "column_break_tbbo",
@@ -181,21 +181,6 @@
    "fieldname": "local_findings",
    "fieldtype": "Small Text",
    "label": "Local Findings"
-  },
-  {
-   "fieldname": "table_zdxg",
-   "fieldtype": "Table",
-   "options": "Medication Child"
-  },
-  {
-   "fieldname": "table_ihqq",
-   "fieldtype": "Table",
-   "options": "Investigation Child"
-  },
-  {
-   "fieldname": "table_vxye",
-   "fieldtype": "Table",
-   "options": "Procedures Child"
   },
   {
    "fieldname": "child_general_physical_examination_tab",
@@ -551,12 +536,27 @@
    "hidden": 1,
    "label": "Series",
    "options": "AA-HC-.YYYY.-"
+  },
+  {
+   "fieldname": "prescription",
+   "fieldtype": "Table",
+   "options": "Medication Child"
+  },
+  {
+   "fieldname": "investigation",
+   "fieldtype": "Table",
+   "options": "Investigation Child"
+  },
+  {
+   "fieldname": "procedures",
+   "fieldtype": "Table",
+   "options": "Procedures Child"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-13 15:44:06.447640",
+ "modified": "2025-06-17 11:49:30.704356",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",

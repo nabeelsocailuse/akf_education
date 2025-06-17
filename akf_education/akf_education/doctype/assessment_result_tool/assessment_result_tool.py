@@ -28,10 +28,10 @@ class AssessmentResultTool(Document):
 			"Program Enrollment",
 			filters={
 				"student": self.student_id,
-				"latest": 1,
+				"active": 1,
 				"docstatus": 1
 			},
-			fields=["name", "program", "academic_year","latest"],
+			fields=["name", "program", "academic_year","active"],
 			order_by="creation desc",
 			limit=1
 		)

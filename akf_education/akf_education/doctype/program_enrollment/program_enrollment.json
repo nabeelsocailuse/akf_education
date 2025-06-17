@@ -11,7 +11,7 @@
   "student",
   "student_name",
   "enrollment_date",
-  "latest",
+  "active",
   "column_break_4",
   "program",
   "academic_year",
@@ -93,7 +93,8 @@
    "in_standard_filter": 1,
    "label": "Class",
    "options": "Program",
-   "reqd": 1
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "fieldname": "academic_year",
@@ -323,7 +324,7 @@
   },
   {
    "default": "0",
-   "fieldname": "latest",
+   "fieldname": "active",
    "fieldtype": "Check",
    "label": "Active",
    "read_only": 1
@@ -332,7 +333,7 @@
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-14 13:43:54.039627",
+ "modified": "2025-06-17 15:55:38.543642",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

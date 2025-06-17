@@ -52,10 +52,10 @@ class ProgramEnrollment(Document):
 		)
 
 		for e in other_enrollments:
-			frappe.db.set_value("Program Enrollment", e.name, "latest", 0)
+			frappe.db.set_value("Program Enrollment", e.name, "active", 0)
 
-		self.latest= 1
-		frappe.db.set_value("Program Enrollment", self.name, "latest", 1)
+		self.active= 1
+		frappe.db.set_value("Program Enrollment", self.name, "active", 1)
 
   
 	# def before_insert(self):

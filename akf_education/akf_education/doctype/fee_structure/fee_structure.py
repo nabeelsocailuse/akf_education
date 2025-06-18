@@ -27,17 +27,14 @@ class FeeStructure(Document):
 				"program": self.program,
 				"academic_year": self.academic_year,
 				"aghosh_home_id": self.aghosh_home_id,
+				"external_school": self.external_school,
 				"docstatus": ["!=", 2],  # Exclude cancelled documents
 				"name": ["!=", self.name]  # Exclude current doc in case of update
 			}
 		)
 
 		if duplicate:
-			frappe.throw(
-				_("A Fee Structure already exists for Program: {0} and Academic Year: {1} against Aghosh Home: {3}.").format(
-					self.program, self.academic_year, self.aghosh_home_id
-				)
-			)
+			frappe.throw(_(f"A Fee Structure already exists for this Program."))
 
 	def calculate_total(self):
 		"""Calculates total amount."""

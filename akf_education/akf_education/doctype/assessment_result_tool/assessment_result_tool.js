@@ -3,11 +3,18 @@
 
 
 frappe.ui.form.on('Assessment Result Tool', {
-	setup: function(frm) {
+	setup: function (frm) {
 		// frm.add_fetch("assessment_plan", "student_group", "student_group");
 	},
 
-	refresh: function(frm) {
+	refresh: function (frm) {
+		frm.set_query("student_id", function () {
+			return {
+				filters: {
+					status: "Active"
+				},
+			};
+		});
 		// if (frappe.route_options) {
 		// 	frm.set_value("student_group", frappe.route_options.student_group);
 		// 	frm.set_value("assessment_plan", frappe.route_options.assessment_plan);
@@ -20,53 +27,53 @@ frappe.ui.form.on('Assessment Result Tool', {
 	},
 
 	get_subjects: function (frm) {
-    frm.set_value('details', []);
-    // frm.set_value('sponsors', []);
-    frappe.call({
-      method: 'get_courses',
-      doc: frm.doc,
-      callback: function (r) {
-		console.log(r.message);
-        if (r.message) {
-			r.message.forEach(course => {
-                let row = frm.add_child("details");
-                row.subject = course.course;
-            });
-            frm.refresh_field("details");
-        //   frm.set_value('students', r.message)
-        }
-      },
-    });
-  },
+		frm.set_value('details', []);
+		// frm.set_value('sponsors', []);
+		frappe.call({
+			method: 'get_courses',
+			doc: frm.doc,
+			callback: function (r) {
+				console.log(r.message);
+				if (r.message) {
+					r.message.forEach(course => {
+						let row = frm.add_child("details");
+						row.subject = course.course;
+					});
+					frm.refresh_field("details");
+					//   frm.set_value('students', r.message)
+				}
+			},
+		});
+	},
 
-  student_id: function(frm) {
-	if (frm.doc.student_id) {
-            frappe.call({
-                method: 'get_latest_checked_enrollment',
+	student_id: function (frm) {
+		if (frm.doc.student_id) {
+			frappe.call({
+				method: 'get_latest_checked_enrollment',
 				doc: frm.doc,
-                callback: function(r) {
+				callback: function (r) {
 					console.log(r.message[0]);
 					frm.set_value("current_program_enrollment", null);
 					frm.set_value("program", null);
 					frm.set_value("academic_year", null);
-                    if (r.message[0]) {
-                        frm.set_value("current_program_enrollment", r.message[0].name);
-                        frm.set_value("program", r.message[0].program);
-                        frm.set_value("academic_year", r.message[0].academic_year);
-                    } else {
-                        frappe.msgprint("No Program Enrollment found for this student.");
-                    }
-                }
+					if (r.message[0]) {
+						frm.set_value("current_program_enrollment", r.message[0].name);
+						frm.set_value("program", r.message[0].program);
+						frm.set_value("academic_year", r.message[0].academic_year);
+					} else {
+						frappe.msgprint("No Program Enrollment found for this student.");
+					}
+				}
 			});
-        }
-  },
+		}
+	},
 
-  generate_result: function(frm) {
-	if (frm.doc.details && frm.doc.details.length > 0) {
-            frappe.call({
-                method: 'generate_assessment_result',
+	generate_result: function (frm) {
+		if (frm.doc.details && frm.doc.details.length > 0) {
+			frappe.call({
+				method: 'generate_assessment_result',
 				doc: frm.doc,
-                callback: function(r) {
+				callback: function (r) {
 					// console.log(r.message[0]);
 					frm.set_value("student_id", null);
 					frm.set_value("current_program_enrollment", null);
@@ -74,10 +81,10 @@ frappe.ui.form.on('Assessment Result Tool', {
 					frm.set_value("academic_year", null);
 					frm.set_value("details", []);
 					frappe.msgprint("Assessment results generated successfully.");
-                }
+				}
 			});
-        }
-  },
+		}
+	},
 	// assessment_plan: function(frm) {
 	// 	frm.doc.show_submit = false;
 	// 	if(frm.doc.assessment_plan) {

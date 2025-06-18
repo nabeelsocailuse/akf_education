@@ -8,8 +8,6 @@
  "document_type": "Document",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_1",
-  "enabled",
   "section_break_7",
   "column_break_oaxd",
   "naming_series",
@@ -103,10 +101,6 @@
   "connections_tab"
  ],
  "fields": [
-  {
-   "fieldname": "section_break_1",
-   "fieldtype": "Section Break"
-  },
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
@@ -512,12 +506,6 @@
    "label": "Mother's Date of Birth"
   },
   {
-   "default": "1",
-   "fieldname": "enabled",
-   "fieldtype": "Check",
-   "label": "Enabled"
-  },
-  {
    "fieldname": "father_death_certificate",
    "fieldtype": "Attach",
    "label": "Father's Death Certificate"
@@ -606,6 +594,7 @@
    "read_only": 1
   },
   {
+   "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -613,7 +602,7 @@
   }
  ],
  "links": [],
- "modified": "2025-06-14 13:42:52.558173",
+ "modified": "2025-06-18 15:56:16.921464",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

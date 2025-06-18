@@ -38,7 +38,6 @@ class Student(Document):
 	# def on_trash(self):
 	# 	self.delete_guardian()
    
-		
                	 	
 	# def on_update(self):
 	# 	# for each student check whether a customer exists or not if it does not exist then create a customer with customer group student

@@ -191,43 +191,34 @@ function renderCharts() {
 }
 
 function renderPakistanMap(data) {
-    var mapContainer = document.getElementById("container-map");
+    const mapContainer = document.getElementById("container-map");
+    if (!mapContainer) return console.error("Map container not found!");
 
-    if (!mapContainer) {
-        console.error("Map container not found!");
-        return;
-    }
+    if (typeof L === "undefined") return console.error("Leaflet JS not loaded!");
 
-    var map = L.map("container-map", {
+    const map = L.map("container-map", {
         center: [30.3753, 69.3451],
         zoom: 6,
         scrollWheelZoom: false,
     });
-
-    if (typeof L === "undefined") {
-        console.error("Leaflet JS not loaded properly!");
-        return;
-    }
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors",
         maxZoom: 18,
     }).addTo(map);
 
-    setTimeout(() => {
-        map.invalidateSize();
-    }, 500);
+    setTimeout(() => map.invalidateSize(), 500);
 
-    var markers = L.markerClusterGroup();
+    const markers = L.markerClusterGroup();
 
-    var iconColors = {
+    const iconColors = {
         "Operational": "green",
         "Under Construction": "blue",
         "Inactive": "red"
     };
 
-    function getMarkerIcon(status) {
-        return new L.Icon({
+    const getMarkerIcon = (status) =>
+        new L.Icon({
             iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${iconColors[status] || "grey"}.png`,
             shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
             iconSize: [25, 41],
@@ -235,19 +226,42 @@ function renderPakistanMap(data) {
             popupAnchor: [1, -34],
             shadowSize: [41, 41]
         });
-    }
 
-    data.aghosh_home_locations.forEach((location) => {
-        var marker = L.marker(location.coords, {
-            icon: getMarkerIcon(location.status)
-        });
+    // Group locations by lat,lng
+    const groupedHomes = {};
+    data.aghosh_home_locations.forEach(loc => {
+        const key = `${loc.coords[0]},${loc.coords[1]}`;
+        groupedHomes[key] = groupedHomes[key] || [];
+        groupedHomes[key].push(loc);
+    });
 
-        marker.bindTooltip(`
-            <div class="custom-tooltip-card">
-                <h4>${location.name}</h4>
-                <p>Status: ${location.status}</p>
-            </div>
-        `, {
+    Object.values(groupedHomes).forEach(locations => {
+        const { coords } = locations[0];
+        const icon = getMarkerIcon(locations[0].status);
+
+        let tooltipContent;
+
+        if (locations.length > 1) {
+            tooltipContent = `
+                <div class="custom-tooltip-card">
+                    <h4>${locations.length} Aghosh Homes</h4>
+                    <ul class="aghosh-list">
+                        ${locations.map(l => `<li><strong>${l.name}</strong> <small>(${l.status})</small></li>`).join("")}
+                    </ul>
+                </div>
+            `;
+        } else {
+            const loc = locations[0];
+            tooltipContent = `
+                <div class="custom-tooltip-card">
+                    <h4>${loc.name}</h4>
+                    <p>Status: ${loc.status}</p>
+                </div>
+            `;
+        }
+
+        const marker = L.marker(coords, { icon });
+        marker.bindTooltip(tooltipContent, {
             permanent: false,
             direction: "top",
             opacity: 0.95,
@@ -260,12 +274,6 @@ function renderPakistanMap(data) {
 
     map.addLayer(markers);
 }
-
-
-renderPakistanMap();
-
-
-renderPakistanMap();
 
 
 renderPakistanMap();

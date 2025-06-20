@@ -17,6 +17,7 @@ def get_executive_dashboard():
         "activity_pictures": student_activity_pictures(),
         "activity_videos": student_activity_videos(),
         "drawing_activity": student_activity_drawing(),
+        "APRs": APRs_count(),
         "student_with_psychological_assessment": student_with_psychological_assessment(),
         "charts_data": {
             "aghosh_homes_interval_count": num_of_aghosh_homes_present(),
@@ -145,4 +146,11 @@ def get_aghosh_home_locations():
     return locations
 
 
+@frappe.whitelist()
+def APRs_count():
+    data = frappe.db.sql("""
+        SELECT COUNT(*) AS total_count
+        FROM `tabAssessment Result`
+    """, as_dict=True)
 
+    return data

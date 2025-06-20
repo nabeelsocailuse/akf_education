@@ -1,33 +1,38 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-04-07 16:01:23.019115",
+ "creation": "2025-06-20 16:39:58.434044",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "title",
-  "students_drawings"
+  "video_title",
+  "column_break_ohla",
+  "video"
  ],
  "fields": [
   {
-   "fieldname": "students_drawings",
-   "fieldtype": "Attach Image",
-   "label": "Students Drawings"
+   "fieldname": "video_title",
+   "fieldtype": "Data",
+   "label": "Video Title"
   },
   {
-   "fieldname": "title",
-   "fieldtype": "Data",
-   "label": "Title"
+   "fieldname": "column_break_ohla",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "video",
+   "fieldtype": "Attach",
+   "label": "Video"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-04-07 16:38:37.023065",
+ "modified": "2025-06-20 16:40:26.363011",
  "modified_by": "Administrator",
  "module": "Akf Education",
- "name": "Children Drawings",
+ "name": "Activity Videos",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class ChildrenDrawings(Document):
+class ActivityImages(Document):
 	pass

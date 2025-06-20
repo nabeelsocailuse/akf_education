@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-20 16:44:57.754395",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "column_break_zydf",
+  "drawing"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "TItle"
+  },
+  {
+   "fieldname": "column_break_zydf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "drawing",
+   "fieldtype": "Attach",
+   "label": "Drawing"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-06-20 16:45:39.943305",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Child Drawings",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,13 +1,13 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "format:SA-{YYYY}-{###}",
+ "autoname": "naming_series:naming_series:",
  "creation": "2025-04-07 15:42:32.111146",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "aghosh_home_id",
-  "aghosh_home",
+  "aghosh_home_name",
+  "naming_series",
   "column_break_klaj",
   "student_id",
   "student_name",
@@ -21,23 +21,16 @@
   "end_date_time",
   "status",
   "description_section",
-  "small_text_qkzd",
+  "description",
   "column_break_ipiw",
-  "activity_videos_section",
-  "table_vedio",
   "activity_images_section",
-  "table_images",
+  "activity_images",
+  "activity_videos_section",
+  "activity_videos",
   "children_drawings_section",
-  "table_drawing"
+  "child_drawings"
  ],
  "fields": [
-  {
-   "fetch_from": "aghosh_home_id.aghosh_home_name",
-   "fieldname": "aghosh_home",
-   "fieldtype": "Data",
-   "label": "Aghosh Home Name",
-   "read_only": 1
-  },
   {
    "fieldname": "activities_section",
    "fieldtype": "Section Break",
@@ -94,10 +87,6 @@
    "label": "Description"
   },
   {
-   "fieldname": "small_text_qkzd",
-   "fieldtype": "Small Text"
-  },
-  {
    "fieldname": "column_break_ipiw",
    "fieldtype": "Column Break"
   },
@@ -124,41 +113,59 @@
    "options": "Employee"
   },
   {
-   "fieldname": "table_vedio",
-   "fieldtype": "Table",
-   "options": "Activity Videos"
-  },
-  {
-   "fieldname": "table_images",
-   "fieldtype": "Table",
-   "options": "Activity Images"
-  },
-  {
-   "fieldname": "table_drawing",
-   "fieldtype": "Table",
-   "options": "Children Drawings"
-  },
-  {
-   "depends_on": "eval:doc.student_id",
-   "fetch_from": "student_id.first_name",
+   "fetch_from": "student_id.full_name",
    "fieldname": "student_name",
    "fieldtype": "Data",
-   "label": "Student Name"
+   "label": "Student Name",
+   "read_only": 1
   },
   {
    "fieldname": "aghosh_home_id",
    "fieldtype": "Link",
    "label": "Aghosh Home ID",
    "options": "Aghosh Home"
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "SA-.YYYY.-"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "activity_images",
+   "fieldtype": "Table",
+   "options": "Activity Images"
+  },
+  {
+   "fieldname": "activity_videos",
+   "fieldtype": "Table",
+   "options": "Activity Videos"
+  },
+  {
+   "fieldname": "child_drawings",
+   "fieldtype": "Table",
+   "options": "Child Drawings"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-25 11:23:57.193952",
+ "modified": "2025-06-20 16:51:08.798463",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Activities",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -176,5 +183,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

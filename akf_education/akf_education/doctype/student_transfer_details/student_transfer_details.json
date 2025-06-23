@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-21 19:26:23.405349",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "transfer_type",
+  "current",
+  "new",
+  "field_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "transfer_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Transfer Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Current",
+   "read_only": 1
+  },
+  {
+   "fieldname": "new",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "New",
+   "read_only": 1
+  },
+  {
+   "fieldname": "field_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Field Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-06-21 19:31:04.716530",
+ "modified_by": "Administrator",
+ "module": "Akf Education",
+ "name": "Student Transfer Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

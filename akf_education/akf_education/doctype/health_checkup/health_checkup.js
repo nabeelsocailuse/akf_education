@@ -3,6 +3,13 @@
 
 frappe.ui.form.on('Health Checkup', {
     refresh: function(frm) {
+      frm.set_query("student_id", function () {
+			return {
+				filters: {
+					status: "Active"
+				},
+			};
+		});
       frm.fields_dict["prescription"].grid.get_field("drug").get_query = function (doc, cdt, cdn) {
       return {
         filters: {

@@ -12,8 +12,7 @@
   "aghosh_home_id",
   "aghosh_home_name",
   "section_break_doaw",
-  "details",
-  "select_transfer_type"
+  "details"
  ],
  "fields": [
   {
@@ -63,17 +62,12 @@
    "fieldtype": "Table",
    "label": "Details",
    "options": "Student Transfer Details"
-  },
-  {
-   "fieldname": "select_transfer_type",
-   "fieldtype": "Button",
-   "label": "Select Transfer Type"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-06-23 11:42:04.611316",
+ "modified": "2025-06-23 15:44:18.780569",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Transfer",

@@ -86,21 +86,21 @@ var show_dialog = function(frm, table, field_labels) {
 	d.fields_dict["property"].df.onchange = () => {
 		let property = d.get_values().property;
 		d.data.fieldname = property;
-		if(!property){return;}
-		frappe.call({
-			method: 'hrms.hr.utils.get_employee_field_property',
-			args: {employee: frm.doc.employee, fieldname: property},
-			callback: function(r) {
-				if (r.message) {
-					d.data.current = r.message.value;
-					d.data.property = r.message.label;
+		// if(!property){return;}
+		// frappe.call({
+		// 	method: 'hrms.hr.utils.get_employee_field_property',
+		// 	args: {employee: frm.doc.employee, fieldname: property},
+		// 	callback: function(r) {
+		// 		if (r.message) {
+		// 			d.data.current = r.message.value;
+		// 			d.data.property = r.message.label;
 
-					d.set_value('current', r.message.value);
-					render_dynamic_field(d, r.message.datatype, r.message.options, property);
-					d.get_primary_btn().attr('disabled', false);
-				}
-			}
-		});
+		// 			d.set_value('current', r.message.value);
+		// 			render_dynamic_field(d, r.message.datatype, r.message.options, property);
+		// 			d.get_primary_btn().attr('disabled', false);
+		// 		}
+		// 	}
+		// });
 	};
 	d.get_primary_btn().attr('disabled', true);
 	d.data = {};

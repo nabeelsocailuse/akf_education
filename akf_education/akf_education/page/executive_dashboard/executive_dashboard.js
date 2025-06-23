@@ -213,7 +213,7 @@ function renderPakistanMap(data) {
 
     const iconColors = {
         "Operational": "green",
-        "Under Construction": "blue",
+        "Under Construction": "yellow",
         "Inactive": "red"
     };
 

@@ -9,34 +9,16 @@
   "student_name",
   "program_enrollment",
   "column_break_rufs",
-  "transfer_type",
-  "transfer_from",
-  "transfer_to"
+  "aghosh_home_id",
+  "aghosh_home_name",
+  "section_break_doaw",
+  "details",
+  "select_transfer_type"
  ],
  "fields": [
   {
-   "fieldname": "transfer_type",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Transfer Type",
-   "options": "\nBeds\nRooms\nBuilding\nAghosh Home",
-   "reqd": 1
-  },
-  {
-   "fieldname": "transfer_from",
-   "fieldtype": "Dynamic Link",
-   "label": "Transfer From",
-   "options": "transfer_type"
-  },
-  {
    "fieldname": "column_break_rufs",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "transfer_to",
-   "fieldtype": "Dynamic Link",
-   "label": "Transfer To",
-   "options": "transfer_type"
   },
   {
    "fieldname": "student_id",
@@ -56,12 +38,42 @@
    "fieldtype": "Link",
    "label": "Program Enrollment",
    "options": "Program Enrollment"
+  },
+  {
+   "fetch_from": "student_id.aghosh_home_id",
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_doaw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Table",
+   "label": "Details",
+   "options": "Student Transfer Details"
+  },
+  {
+   "fieldname": "select_transfer_type",
+   "fieldtype": "Button",
+   "label": "Select Transfer Type"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-06-14 16:17:10.528525",
+ "modified": "2025-06-23 11:42:04.611316",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Transfer",
@@ -80,5 +92,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

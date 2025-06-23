@@ -3,10 +3,17 @@
 
 frappe.ui.form.on("Student Activities", {
     refresh: function(frm) {
+        // frm.set_query("student_id", function() {
+        //     return {
+        //         filters: {
+        //             aghosh_home_id: frm.doc.aghosh_home_id
+        //         }
+        //     };
+        // });
         frm.set_query("student_id", function() {
             return {
                 filters: {
-                    aghosh_home_id: frm.doc.aghosh_home_id
+                    status: "Active",
                 }
             };
         });

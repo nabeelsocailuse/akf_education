@@ -151,6 +151,7 @@ def APRs_count():
     data = frappe.db.sql("""
         SELECT COUNT(*) AS total_count
         FROM `tabAssessment Result`
+        WHERE docstatus = 1
     """, as_dict=True)
 
     return data

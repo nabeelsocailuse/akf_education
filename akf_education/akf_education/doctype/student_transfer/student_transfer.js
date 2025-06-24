@@ -40,36 +40,47 @@ frappe.ui.form.on("Student Transfer", {
 	},
 
 	setup_property_button: function(frm, table) {
-		frm.fields_dict[table].grid.add_custom_button(__("Add Transfer Type"), () => {
+		frm.fields_dict[table].grid.add_custom_button(__("Add Student Transfer"), () => {
 			if (!frm.doc.student_id) {
 				frappe.msgprint(__("Please select Student first."));
 				return;
 			}
 
-			const allowed_fields = [];
+			// const allowed_fields = [];
 			// const exclude_fields = ["naming_series", "employee", "first_name", "middle_name", "last_name", "marital_status", "ctc",
 			// 	"employee_name", "status", "image", "gender", "date_of_birth", "date_of_joining", "lft", "rgt", "old_parent"];
 
 			// const exclude_field_types = ["HTML", "Section Break", "Column Break", "Button", "Read Only", "Tab Break", "Table"];
 
-			frappe.model.with_doctype("Program Enrollment", () => {
-				const field_label_map = {};
-				frappe.get_meta("Program Enrollment").fields.forEach(d => {
-					field_label_map[d.fieldname] = __(d.label, null, d.parent) + ` (${d.fieldname})`;
-					allowed_fields.push({label: field_label_map[d.fieldname], value: d.fieldname,});
-				});
+			// frappe.model.with_doctype("Student Transfer Details", () => {
+			// 	const field_label_map = {};
+			// 	frappe.get_meta("Student Transfer Details").fields.forEach(d => {
+			// 		field_label_map[d.fieldname] = __(d.label, null, d.parent) + ` (${d.fieldname})`;
+					// if (
+					// 	!in_list(exclude_field_types, d.fieldtype)
+					// 	&& !in_list(exclude_fields, d.fieldname)
+					// 	&& !d.hidden
+					// 	&& !d.read_only
+					// ) {
+						// allowed_fields.push({
+						// 	label: field_label_map[d.fieldname],
+						// 	value: d.fieldname,
+						// });
+					// }
+				// });
 
-				show_dialog(frm, table, allowed_fields);
+				show_dialog(frm, table); // , allowed_fields);
 			});
-		});
-	}
+        },
+		// });
+// 	}
 });
 
-var show_dialog = function(frm, table, field_labels) {
+var show_dialog = function(frm, table) { //, field_labels
 	var d = new frappe.ui.Dialog({
 		title: "Update Property",
 		fields: [
-			{fieldname: "property", label: __("Select Property"), fieldtype: "Autocomplete", options: field_labels},
+			{fieldname: "property", label: __("Select Property"), fieldtype: "Select", options: ["Aghosh Home", "Building", "Rooms", "Beds"]},
 			{fieldname: "current", fieldtype: "Data", label: __("Current"), read_only: true},
 			{fieldname: "new_value", fieldtype: "Data", label: __("New")}
 		],
@@ -86,21 +97,21 @@ var show_dialog = function(frm, table, field_labels) {
 	d.fields_dict["property"].df.onchange = () => {
 		let property = d.get_values().property;
 		d.data.fieldname = property;
-		// if(!property){return;}
-		// frappe.call({
-		// 	method: 'hrms.hr.utils.get_employee_field_property',
-		// 	args: {employee: frm.doc.employee, fieldname: property},
-		// 	callback: function(r) {
-		// 		if (r.message) {
-		// 			d.data.current = r.message.value;
-		// 			d.data.property = r.message.label;
+		if(!property){return;}
+		frappe.call({
+			method: 'hrms.hr.utils.get_employee_field_property',
+			args: {employee: frm.doc.employee, fieldname: property},
+			callback: function(r) {
+				if (r.message) {
+					d.data.current = r.message.value;
+					d.data.property = r.message.label;
 
-		// 			d.set_value('current', r.message.value);
-		// 			render_dynamic_field(d, r.message.datatype, r.message.options, property);
-		// 			d.get_primary_btn().attr('disabled', false);
-		// 		}
-		// 	}
-		// });
+					d.set_value('current', r.message.value);
+					render_dynamic_field(d, r.message.datatype, r.message.options, property);
+					d.get_primary_btn().attr('disabled', false);
+				}
+			}
+		});
 	};
 	d.get_primary_btn().attr('disabled', true);
 	d.data = {};
@@ -165,3 +176,4 @@ var validate_duplicate =  function(frm, table, fieldname){
 	});
 	return duplicate;
 };
+

@@ -10,6 +10,7 @@
  "field_order": [
   "guardian_name",
   "guardian_cnic",
+  "financial_status",
   "relation_with_child",
   "guardian_gender",
   "guardian_address",
@@ -116,10 +117,16 @@
    "fieldname": "guardian_occupation",
    "fieldtype": "Data",
    "label": "Guardian Occupation"
+  },
+  {
+   "fieldname": "financial_status",
+   "fieldtype": "Select",
+   "label": "FInancial Status",
+   "options": "\nPoor\nMediocre\nRich"
   }
  ],
  "links": [],
- "modified": "2025-05-21 12:11:24.591900",
+ "modified": "2025-06-24 21:33:40.300509",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Guardian",

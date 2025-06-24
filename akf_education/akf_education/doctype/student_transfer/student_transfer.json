@@ -1,23 +1,42 @@
 {
  "actions": [],
- "allow_rename": 1,
- "creation": "2025-06-14 16:09:24.980142",
+ "autoname": "naming_series:naming_series",
+ "creation": "2025-06-23 19:01:57.751288",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "student_id",
   "student_name",
-  "program_enrollment",
-  "column_break_rufs",
+  "column_break_myzu",
   "aghosh_home_id",
   "aghosh_home_name",
-  "section_break_doaw",
-  "details"
+  "section_break_gvlh",
+  "details",
+  "section_break_qiex",
+  "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "column_break_rufs",
-   "fieldtype": "Column Break"
+   "fieldname": "section_break_qiex",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Student Transfer",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "ST-.YYYY.-"
   },
   {
    "fieldname": "student_id",
@@ -33,10 +52,8 @@
    "read_only": 1
   },
   {
-   "fieldname": "program_enrollment",
-   "fieldtype": "Link",
-   "label": "Program Enrollment",
-   "options": "Program Enrollment"
+   "fieldname": "column_break_myzu",
+   "fieldtype": "Column Break"
   },
   {
    "fetch_from": "student_id.aghosh_home_id",
@@ -54,7 +71,7 @@
    "read_only": 1
   },
   {
-   "fieldname": "section_break_doaw",
+   "fieldname": "section_break_gvlh",
    "fieldtype": "Section Break"
   },
   {
@@ -65,22 +82,26 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "issingle": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-06-23 15:44:18.780569",
+ "modified": "2025-06-23 20:39:12.996651",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Transfer",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
+   "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

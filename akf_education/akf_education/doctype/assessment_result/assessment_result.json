@@ -9,12 +9,21 @@
  "field_order": [
   "student",
   "student_name",
+  "student_gender",
+  "student_picture",
   "student_father_name",
   "program",
   "promoted_to_class",
+  "position",
+  "class_incharge_sign",
+  "coordinator_sign",
+  "principal_sign",
+  "parent_guardian_sign",
   "column_break_3",
   "aghosh_home_id",
   "aghosh_home_name",
+  "aghosh_home_head",
+  "aghosh_district",
   "academic_year",
   "select_term",
   "assessment_plan",
@@ -232,11 +241,64 @@
    "label": "Select Term",
    "options": "Midterm\nFinal Term",
    "reqd": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.district",
+   "fieldname": "aghosh_district",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Aghosh District"
+  },
+  {
+   "fetch_from": "student.student_picture",
+   "fieldname": "student_picture",
+   "fieldtype": "Attach Image",
+   "label": "Student Picture",
+   "read_only": 1
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position"
+  },
+  {
+   "fieldname": "class_incharge_sign",
+   "fieldtype": "Signature",
+   "label": "Class Incharge Sign"
+  },
+  {
+   "fieldname": "coordinator_sign",
+   "fieldtype": "Signature",
+   "label": "Coordinator Sign"
+  },
+  {
+   "fieldname": "principal_sign",
+   "fieldtype": "Signature",
+   "label": "Principal Sign"
+  },
+  {
+   "fieldname": "parent_guardian_sign",
+   "fieldtype": "Signature",
+   "label": "Parent/Guardian Sign"
+  },
+  {
+   "fetch_from": "student.student_gender",
+   "fieldname": "student_gender",
+   "fieldtype": "Data",
+   "label": "Student Gender",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.employee_name",
+   "fieldname": "aghosh_home_head",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Head",
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-23 12:15:59.678857",
+ "modified": "2025-06-25 01:30:47.814539",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result",

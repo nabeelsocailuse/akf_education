@@ -21,6 +21,7 @@
   "student_gender",
   "student_email_id",
   "column_break_3",
+  "student_picture",
   "student_applicant",
   "status",
   "joining_date",
@@ -599,10 +600,15 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "\nActive\nAlmuni\nDropped Out"
+  },
+  {
+   "fieldname": "student_picture",
+   "fieldtype": "Attach Image",
+   "label": "Student Picture"
   }
  ],
  "links": [],
- "modified": "2025-06-18 15:56:16.921464",
+ "modified": "2025-06-25 00:55:54.194947",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

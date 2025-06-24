@@ -21,6 +21,7 @@
   "guardian_dob",
   "guardian_qualification",
   "guardian_occupation",
+  "guardian_income",
   "section_break_13",
   "students",
   "section_break_8",
@@ -123,10 +124,15 @@
    "fieldtype": "Select",
    "label": "FInancial Status",
    "options": "\nPoor\nMediocre\nRich"
+  },
+  {
+   "fieldname": "guardian_income",
+   "fieldtype": "Data",
+   "label": "Guardian Income"
   }
  ],
  "links": [],
- "modified": "2025-06-24 21:33:40.300509",
+ "modified": "2025-06-24 23:42:50.841004",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Guardian",

@@ -16,6 +16,7 @@ class StudentAdmission(WebsiteGenerator):
 		self.name = self.title
 
 	def validate(self):
+		self.validate_min_max_age()
 		if self.admission_start_date and self.admission_end_date < today():
 			frappe.throw("Date must be today or later.")
 		if self.admission_start_date and self.admission_end_date < self.admission_start_date:
@@ -26,6 +27,14 @@ class StudentAdmission(WebsiteGenerator):
 
 		if self.enable_admission_application and not self.program_details:
 			frappe.throw(_("Please add programs to enable admission application."))
+
+	def validate_min_max_age(self):
+		for row in self.program_details:
+			if row.min_age is not None and row.max_age is not None:
+				if row.max_age <= row.min_age:
+					frappe.throw(
+						_("Max Age must be greater than Min Age in row#{0}").format(row.idx)
+					)
 
 	def get_context(self, context):
 		context.no_cache = 1

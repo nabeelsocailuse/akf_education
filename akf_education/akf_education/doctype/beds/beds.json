@@ -84,7 +84,7 @@
    "fieldname": "category",
    "fieldtype": "Select",
    "label": "Category",
-   "options": "\nSingle\nDouble\nQueen\nKing"
+   "options": "\nSingle\nDouble\nBunk\nQueen\nKing"
   },
   {
    "fieldname": "aghosh_home_id",
@@ -117,7 +117,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-05 17:45:18.126366",
+ "modified": "2025-06-25 12:21:18.147698",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Beds",

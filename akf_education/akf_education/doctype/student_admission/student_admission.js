@@ -2,6 +2,16 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Student Admission', {
+   validate: function(frm) {
+        let seen = new Set();
+        for (let row of frm.doc.program_details) {
+            if (seen.has(row.program)) {
+                frappe.throw(`Duplicate entry: ${row.program} in Eligibility and Details`);
+            }
+            seen.add(row.program);
+        }
+  },
+
   refresh: function(frm) {
         // toggle_principle_field(frm);
         frm.set_query('aghosh_home_id', function() {

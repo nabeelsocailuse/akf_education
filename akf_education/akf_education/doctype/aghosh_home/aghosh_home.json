@@ -28,8 +28,8 @@
   "district",
   "tehsil",
   "column_break_dzja",
-  "longitude",
-  "latitude"
+  "latitude",
+  "longitude"
  ],
  "fields": [
   {
@@ -174,12 +174,12 @@
    "fieldtype": "Select",
    "hidden": 1,
    "label": "Series",
-   "options": "AA-{region_code}-"
+   "options": "AA-{region_code}-####"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-05 12:55:24.773850",
+ "modified": "2025-06-25 11:52:45.062399",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

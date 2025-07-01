@@ -17,13 +17,19 @@
   "sponsored_amount",
   "total_sponsored_amount",
   "section_break_jyyj",
-  "student_applicant",
   "student_id",
   "student_name",
+  "student_picture",
+  "country",
   "column_break_rduq",
   "aghosh_home_id",
   "aghosh_home_name",
-  "amended_from"
+  "region",
+  "amended_from",
+  "signatures_section",
+  "aghosh_administrator",
+  "column_break_qwpq",
+  "program_manager"
  ],
  "fields": [
   {
@@ -100,13 +106,6 @@
    "non_negative": 1
   },
   {
-   "fieldname": "student_applicant",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Student Applicant",
-   "options": "Student Applicant"
-  },
-  {
    "fieldname": "total_sponsored_amount",
    "fieldtype": "Float",
    "label": "Total Sponsored Amount",
@@ -137,12 +136,52 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fetch_from": "student_id.student_picture",
+   "fieldname": "student_picture",
+   "fieldtype": "Attach Image",
+   "label": "Student Picture",
+   "read_only": 1
+  },
+  {
+   "fieldname": "signatures_section",
+   "fieldtype": "Section Break",
+   "label": "Signatures"
+  },
+  {
+   "fieldname": "aghosh_administrator",
+   "fieldtype": "Signature",
+   "label": "Aghosh Administrator"
+  },
+  {
+   "fieldname": "column_break_qwpq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "program_manager",
+   "fieldtype": "Signature",
+   "label": "Program Manager"
+  },
+  {
+   "fetch_from": "student_id.country",
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.region",
+   "fieldname": "region",
+   "fieldtype": "Data",
+   "label": "Region",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-03 17:28:48.721000",
+ "modified": "2025-07-02 00:58:19.045912",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

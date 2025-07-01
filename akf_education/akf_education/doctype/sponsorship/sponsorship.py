@@ -7,13 +7,13 @@ from frappe.model.document import Document
 
 class Sponsorship(Document):
     def before_save(self):
-        self.set_student_id()
+        # self.set_student_id()
         self.calculate_total_amount()
         
-    def set_student_id(self):
-        if self.student_applicant:
-            student = frappe.db.get_value('Student', {'student_applicant': self.student_applicant}, 'name')
-            self.student_id = student or ''
+    # def set_student_id(self):
+    #     if self.student_applicant:
+    #         student = frappe.db.get_value('Student', {'student_applicant': self.student_applicant}, 'name')
+            # self.student_id = student or ''
 
     def calculate_total_amount(self):
         monthsToAdd = 1.0

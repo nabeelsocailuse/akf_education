@@ -41,8 +41,10 @@
   {
    "fieldname": "student_id",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Student ID",
-   "options": "Student"
+   "options": "Student",
+   "reqd": 1
   },
   {
    "fetch_from": "student_id.full_name",
@@ -84,7 +86,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-23 20:39:12.996651",
+ "modified": "2025-06-25 17:36:14.297210",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Transfer",

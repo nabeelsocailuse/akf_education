@@ -42,31 +42,28 @@
   {
    "allow_on_submit": 1,
    "fieldname": "dosage",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "ignore_user_permissions": 1,
    "in_list_view": 1,
    "label": "Dosage",
-   "options": "Prescription Dosage",
    "reqd": 1
   },
   {
    "allow_on_submit": 1,
    "fieldname": "period",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "ignore_user_permissions": 1,
    "in_list_view": 1,
    "label": "Period",
-   "options": "Prescription Duration",
    "reqd": 1
   },
   {
    "allow_in_quick_entry": 1,
    "allow_on_submit": 1,
    "fieldname": "dosage_form",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "ignore_user_permissions": 1,
-   "label": "Dosage Form",
-   "options": "Dosage Form"
+   "label": "Dosage Form"
   },
   {
    "fieldname": "column_break_7",
@@ -126,13 +123,14 @@
  ],
  "istable": 1,
  "links": [],
- "modified": "2023-12-21 14:43:30.321091",
+ "modified": "2025-06-26 16:39:14.414479",
  "modified_by": "Administrator",
- "module": "AKF Education",
+ "module": "Akf Education",
  "name": "Drug Prescription",
  "owner": "Administrator",
  "permissions": [],
  "restrict_to_domain": "AKF Education",
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

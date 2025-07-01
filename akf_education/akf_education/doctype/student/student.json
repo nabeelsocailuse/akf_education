@@ -607,8 +607,9 @@
    "label": "Student Picture"
   }
  ],
+ "image_field": "student_picture",
  "links": [],
- "modified": "2025-06-25 00:55:54.194947",
+ "modified": "2025-07-01 12:45:54.314057",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

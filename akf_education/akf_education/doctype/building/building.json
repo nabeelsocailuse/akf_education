@@ -72,6 +72,7 @@
    "depends_on": "eval:doc.type==\"Hostel\"",
    "fieldname": "building_abbr",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Building Abbr",
    "unique": 1
   },
@@ -121,7 +122,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-12 16:37:00.995391",
+ "modified": "2025-07-01 12:35:00.174296",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",

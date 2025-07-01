@@ -9,8 +9,8 @@
   "naming_series",
   "aghosh_home_id",
   "aghosh_home_name",
-  "building_floor",
   "building",
+  "building_floor",
   "building_type",
   "building_name",
   "aghosh_school",
@@ -88,7 +88,7 @@
   },
   {
    "fieldname": "building_floor",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Building Floor",
    "non_negative": 1
   },
@@ -116,7 +116,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-13 11:42:55.557550",
+ "modified": "2025-07-01 12:36:45.708458",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Rooms",

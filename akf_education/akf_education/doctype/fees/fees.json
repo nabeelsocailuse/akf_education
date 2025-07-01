@@ -78,6 +78,7 @@
   {
    "fieldname": "fee_schedule",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_global_search": 1,
    "label": "Fee Schedule",
    "options": "Fee Schedule",
@@ -195,6 +196,7 @@
   {
    "fieldname": "fee_structure",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Fee Structure",
    "options": "Fee Structure",
    "print_hide": 1
@@ -335,7 +337,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-14 16:34:27.296639",
+ "modified": "2025-07-01 12:42:18.108611",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Fees",

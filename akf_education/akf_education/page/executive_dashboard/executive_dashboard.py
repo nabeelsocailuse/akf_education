@@ -17,12 +17,13 @@ def get_executive_dashboard():
         "activity_pictures": student_activity_pictures(),
         "activity_videos": student_activity_videos(),
         "drawing_activity": student_activity_drawing(),
-        "APRs": APRs_count(),
+        # "APRs": APRs_count(),
         "student_with_psychological_assessment": student_with_psychological_assessment(),
         "charts_data": {
             "aghosh_homes_interval_count": num_of_aghosh_homes_present(),
             "aghosh_home_status": get_aghosh_home_status(),
             "childens_registration": childens_registration_intervals(),
+            "aprs_data": aprs_count() 
         },
         "aghosh_home_locations": get_aghosh_home_locations()  
     }
@@ -56,6 +57,26 @@ def num_of_aghosh_homes_present():
     """, as_dict=True)
     return data
 
+@frappe.whitelist()
+def aprs_count():
+    data = frappe.db.sql("""
+        SELECT
+            pe.academic_year,
+            COUNT(DISTINCT pe.student) AS total_enrolled_students,
+            (
+                SELECT COUNT(DISTINCT ar.student)
+                FROM `tabAssessment Result` ar
+                WHERE ar.academic_year = pe.academic_year
+                AND ar.select_term = 'Final Term'
+                AND ar.docstatus = 1
+            ) AS total_final_term_results_submitted
+        FROM `tabProgram Enrollment` pe
+        WHERE pe.docstatus = 1
+        GROUP BY pe.academic_year
+        ORDER BY pe.academic_year DESC
+    """, as_dict=True)
+
+    return data
 
 @frappe.whitelist()
 def childens_registration_intervals():
@@ -77,52 +98,55 @@ def childens_registration_intervals():
 
 @frappe.whitelist()
 def student_activity_pictures():
-    # data = frappe.db.sql("""
-    #     SELECT 
-    #         COUNT(*) AS total_pictures
-    #     FROM 
-    #         `tabActivity Images` 
-    #     WHERE 
-    #         parenttype = 'Student Activities';
-    # """, as_dict=True)
-    data = ''
+    data = frappe.db.sql("""
+        SELECT 
+            COUNT(*) AS total_pictures
+        FROM 
+            `tabActivity Images`
+        WHERE 
+            parenttype = 'Student Activities'
+    """, as_dict=True)
+    
     return data
+
 
 @frappe.whitelist()
 def student_activity_videos():
-    # data = frappe.db.sql("""
-    #     SELECT 
-    #         COUNT(*) AS total_videos
-    #     FROM 
-    #         `tabActivity Videos` 
-    #     WHERE 
-    #         parenttype = 'Student Activities';
-    # """, as_dict=True)
-    data = ''
+    data = frappe.db.sql("""
+        SELECT 
+            COUNT(*) AS total_videos
+        FROM 
+            `tabActivity Videos`
+        WHERE 
+            parenttype = 'Student Activities'
+    """, as_dict=True)
+    
     return data
+
 
 @frappe.whitelist()
 def student_activity_drawing():
-    # data = frappe.db.sql("""
-    #     SELECT 
-    #         COUNT(*) AS total_drawings
-    #     FROM 
-    #         `tabChildren Drawings` 
-    #     WHERE 
-    #         parenttype = 'Student Activities';
-    # """, as_dict=True)
-    data = ''
+    data = frappe.db.sql("""
+        SELECT 
+            COUNT(*) AS total_drawings
+        FROM 
+            `tabChild Drawings`
+        WHERE 
+            parenttype = 'Student Activities'
+    """, as_dict=True)
+    
     return data
+
 
 
 @frappe.whitelist()
 def student_with_psychological_assessment():
     data = frappe.db.sql("""
-        SELECT COUNT(s.name) AS student_count
-        FROM `tabStudent` s
-        JOIN `tabMental Status Examination` mse ON s.name = mse.student_name
-        WHERE mse.docstatus = 1;
+        SELECT COUNT(DISTINCT student_id) AS student_count
+        FROM `tabMental Status Examination`
+        WHERE docstatus = 1;
     """, as_dict=True)
+    
     return data
 
 @frappe.whitelist()
@@ -146,12 +170,3 @@ def get_aghosh_home_locations():
     return locations
 
 
-@frappe.whitelist()
-def APRs_count():
-    data = frappe.db.sql("""
-        SELECT COUNT(*) AS total_count
-        FROM `tabAssessment Result`
-        WHERE docstatus = 1
-    """, as_dict=True)
-
-    return data

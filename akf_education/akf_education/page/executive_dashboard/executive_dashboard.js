@@ -21,10 +21,13 @@ serverCall = {
             method: `${apiPath}.get_executive_dashboard`,
             args: {},
             callback: function (r) {
+                console.log("API response:", r.message); 
+
                 let data = r.message;
                 design.cards(page, data);
                 renderHighcharts(data);
                 renderPakistanMap(data);  
+                APRs(data);
             }
         })
     }
@@ -310,6 +313,77 @@ function renderIcons() {
         }
     });
 }
+    function APRs(data) {
+    if (!data || !data.charts_data || !data.charts_data.aprs_data) {
+        console.error("No APRs data available in API response!");
+        return;
+    }
+
+    const aprsData = data.charts_data.aprs_data;
+
+
+    const categories = aprsData.map(item => item.academic_year);
+
+
+    const enrolledStudents = aprsData.map(item => item.total_enrolled_students);
+    const finalTermResults = aprsData.map(item => item.total_final_term_results_submitted);
+
+    Highcharts.chart('container_aghosh2', {
+        chart: {
+            type: 'column'
+        },
+
+        title: {
+            text: 'Academic Year-wise Enrollment & Final Term Results',
+            align: 'left'
+        },
+
+        xAxis: {
+            categories: categories,
+            title: {
+                text: 'Academic Year'
+            }
+        },
+
+        yAxis: {
+            allowDecimals: false,
+            min: 0,
+            title: {
+                text: 'Number of Students'
+            },
+            stackLabels: {
+                enabled: true
+            }
+        },
+
+        tooltip: {
+            shared: true,
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>'
+        },
+
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+
+        series: [
+            {
+                name: 'Enrolled Students',
+                data: enrolledStudents,
+                color: '#007BFF'
+            },
+            {
+                name: 'Final Term Results Submitted',
+                data: finalTermResults,
+                color: '#28a745'
+            }
+        ]
+    });
+}
 
 function renderHighcharts(data) {
     // Highcharts.setOptions({
@@ -541,19 +615,18 @@ function renderHighcharts(data) {
         });
     }
     
+
+
+
     setTimeout(() => {
-        children_statistics()
-    }, 500);
-    setTimeout(() => {
-        aghosh_home_statuses()
-    }, 500);
-    setTimeout(() => {
-        aghosh_homes_per_week()
-    }, 500);
-    setTimeout(() => {
-        childens_registrations()
-    }, 500);
+        children_statistics(),
+        aghosh_home_statuses(),
+        aghosh_homes_per_week(),
+        childens_registrations(),
+        APRs(data)
+    }, 500)
+
 }
 
-window.onload = renderPakistanMap;
+// window.onload = renderPakistanMap;
 

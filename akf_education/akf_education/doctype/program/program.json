@@ -2,14 +2,21 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:program_name",
+ "autoname": "prompt",
  "creation": "2015-09-07 12:54:03.609282",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "program_name",
+  "aghosh_home_id",
+  "aghosh_home_name",
+  "school_type",
   "column_break_3",
   "program_abbreviation",
+  "internal_school_id",
+  "internal_school_name",
+  "external_school_id",
+  "external_school_name",
   "section_break_courses",
   "courses",
   "connections_tab"
@@ -20,8 +27,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Program Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "column_break_3",
@@ -30,7 +36,7 @@
   {
    "fieldname": "program_abbreviation",
    "fieldtype": "Data",
-   "in_list_view": 1,
+   "hidden": 1,
    "label": "Program Abbreviation"
   },
   {
@@ -50,6 +56,61 @@
    "fieldtype": "Tab Break",
    "label": "Connections",
    "show_dashboard": 1
+  },
+  {
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "aghosh_home_id.aghosh_home_name",
+   "fieldname": "aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Aghosh Home Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.school_type == \"External\"",
+   "fieldname": "external_school_id",
+   "fieldtype": "Link",
+   "label": "External School ID",
+   "mandatory_depends_on": "eval: doc.school_type == \"External\"",
+   "options": "External School"
+  },
+  {
+   "depends_on": "eval: doc.school_type == \"External\"",
+   "fetch_from": "external_school_id.name_of_school",
+   "fieldname": "external_school_name",
+   "fieldtype": "Data",
+   "label": "External School Name",
+   "mandatory_depends_on": "eval: doc.school_type == \"External\"",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.school_type == \"Internal\"",
+   "fieldname": "internal_school_id",
+   "fieldtype": "Link",
+   "label": "Internal School ID",
+   "mandatory_depends_on": "eval: doc.school_type == \"Internal\"",
+   "options": "Building"
+  },
+  {
+   "fieldname": "school_type",
+   "fieldtype": "Select",
+   "label": "School Type",
+   "options": "\nInternal\nExternal"
+  },
+  {
+   "depends_on": "eval: doc.school_type == \"Internal\"",
+   "fetch_from": "internal_school_id.name_of_school",
+   "fieldname": "internal_school_name",
+   "fieldtype": "Data",
+   "label": "Internal School Name",
+   "mandatory_depends_on": "eval: doc.school_type == \"Internal\"",
+   "read_only": 1
   }
  ],
  "links": [
@@ -94,11 +155,11 @@
    "link_fieldname": "program"
   }
  ],
- "modified": "2025-05-30 09:52:02.744214",
+ "modified": "2025-07-03 13:50:34.470868",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program",
- "naming_rule": "By fieldname",
+ "naming_rule": "Set by user",
  "owner": "Administrator",
  "permissions": [
   {

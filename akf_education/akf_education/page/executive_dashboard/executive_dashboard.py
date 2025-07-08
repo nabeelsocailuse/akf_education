@@ -23,7 +23,10 @@ def get_executive_dashboard():
             "aghosh_homes_interval_count": num_of_aghosh_homes_present(),
             "aghosh_home_status": get_aghosh_home_status(),
             "childens_registration": childens_registration_intervals(),
-            "aprs_data": aprs_count() 
+            "aprs_data": aprs_count(),
+            "operational_home": operational_home(),
+            "under_counstruction": under_counstruction_home(),
+            "inactive": inactive_home(),
         },
         "aghosh_home_locations": get_aghosh_home_locations()  
     }
@@ -169,4 +172,67 @@ def get_aghosh_home_locations():
 
     return locations
 
+
+@frappe.whitelist()
+def operational_home():
+    data = frappe.db.sql("""
+    SELECT count(*) AS operational_count
+    FROM `tabAghosh Home`
+    WHERE status = 'Operational';
+    """,as_dict=True)
+
+    return data
+
+@frappe.whitelist()
+def under_counstruction_home():
+    data = frappe.db.sql("""
+    SELECT count(*) AS under_counstruction_count
+    FROM `tabAghosh Home`
+    WHERE status = 'Under Construction';
+    """,as_dict=True)
+
+    return data
+
+@frappe.whitelist()
+def inactive_home():
+    data = frappe.db.sql("""
+    SELECT count(*) AS inactive_count
+    FROM `tabAghosh Home`
+    WHERE status = 'Inactive';
+    """,as_dict=True)
+
+    return data
+
+@frappe.whitelist()
+def get_operational_aghosh_homes():
+    return frappe.db.get_all(
+        "Aghosh Home",
+        filters={"status": "Operational"},
+        fields=["aghosh_home_name"]
+    )
+
+@frappe.whitelist()
+def get_underCounstruction():
+    return frappe.db.get_all(
+        "Aghosh Home",
+        filters={"status": "Under Construction"},
+        fields=["aghosh_home_name"]
+    )
+
+@frappe.whitelist()
+def get_inactive_homes():
+    return frappe.db.get_all(
+        "Aghosh Home",
+        filters={"status":"Inactive"},
+        fields=["aghosh_home_name"]
+    )
+# @frappe.whitelist()
+# def operational_names():
+#     data = frappe.db.sql("""
+#     SELECT aghosh_home_name 
+#     FROM `tabAghosh Home`
+#     WHERE status = 'Operational';
+#     """,as_dict=True)
+    
+#     return data
 

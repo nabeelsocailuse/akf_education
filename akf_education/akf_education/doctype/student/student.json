@@ -20,6 +20,7 @@
   "blood_group",
   "student_gender",
   "student_email_id",
+  "old_student_id",
   "column_break_3",
   "student_picture",
   "student_applicant",
@@ -605,11 +606,16 @@
    "fieldname": "student_picture",
    "fieldtype": "Attach Image",
    "label": "Student Picture"
+  },
+  {
+   "fieldname": "old_student_id",
+   "fieldtype": "Data",
+   "label": "Old Student ID"
   }
  ],
  "image_field": "student_picture",
  "links": [],
- "modified": "2025-07-01 12:45:54.314057",
+ "modified": "2025-07-03 13:23:33.675722",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

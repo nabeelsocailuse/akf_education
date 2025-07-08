@@ -48,6 +48,10 @@
   .aghosh-list li {
     margin-bottom: 4px;
   }
+
+  h6.f-16 {
+    font-size: 14px !important;
+  }
 </style>
 
 <head>
@@ -74,6 +78,102 @@
   <section class="graphs-section">
     <div class="container">
       <div class="row bullets-cards gx-4 gy-4">
+      <!-- -->
+        <div class="col-12 col-lg-4">
+          <div class="card operational-card rounded-lg fade-up bounce hover-shadow" onclick="showOperationalHomes()">
+            <div class="card-body d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <div class="icon-box">
+                  <i class="fas fa-tools fa-2x"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="numbers">{{ charts_data.operational_home[0].operational_count }}</h5>
+                  <h6 class="label">Operational Aghosh Homes</h6>
+                </div>
+              </div>
+              <i class="fas fa-chevron-right toggle-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="card rounded-lg fade-up bounce hover-shadow" onclick="fetchUnderCounstructionHome()"
+            style="cursor: pointer">
+            <div class="card-body d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <div class="icon-box">
+                  <i class="fas fa-building fa-2x"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="numbers">{{ charts_data.under_counstruction[0].under_counstruction_count }}</h5>
+                  <h6 class="label">Under Construction Aghosh Homes</h6>
+                </div>
+              </div>
+              <i class="fas fa-chevron-right toggle-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="card rounded-lg fade-up bounce hover-shadow" onclick="fetchInactiveHomes()"
+            style="cursor:pointer">
+            <div class="card-body d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <div class="icon-box">
+                  <i class="fas fa-building fa-2x"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="numbers">{{ charts_data.inactive[0].inactive_count }}</h5>
+                  <h6 class="label">Inactive Aghosh Homes</h6>
+                </div>
+              </div>
+              <i class="fas fa-chevron-right toggle-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="card rounded-lg fade-up bounce hover-shadow">
+            <div class="card-body d-flex align-items-center">
+              <div class="icon-box">
+                <i class="fas fa-map-marker-alt fa-2x"></i>
+              </div>
+              <div class="ms-3">
+                <h5 class="numbers">123</h5>
+                <h6 class="label">Number Of Children</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="card rounded-lg fade-up bounce hover-shadow">
+            <div class="card-body d-flex align-items-center">
+              <div class="icon-box">
+                <i class="fas fa-ban fa-2x"></i>
+              </div>
+              <div class="ms-3">
+                <h5 class="numbers">45</h5>
+                <h6 class="label">Building Capicity</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="card rounded-lg fade-up bounce hover-shadow">
+            <div class="card-body d-flex align-items-center">
+              <div class="icon-box">
+                <i class="fas fa-times-circle fa-2x"></i>
+              </div>
+              <div class="ms-3">
+                <h5 class="numbers">7</h5>
+                <h6 class="label">Bed Capicity</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="col-12 col-lg-4">
           <div class="card rounded-lg fade-up bounce ">
             <div class="card-body d-flex align-items-center">
@@ -218,7 +318,7 @@
 
 
         <div class="col-12 col-lg-4 bullets-cards">
-          <div class="card rounded-lg fade-up bounce ">
+          <div class="card rounded-lg fade-up bounce d-none">
             <div class="card-body d-flex align-items-center">
               <div class="icon-box">
                 <i class="fas fa-heartbeat fa-2x"></i>
@@ -237,7 +337,7 @@
               </div>
               <div class="ms-3">
                 <h5 class="numbers">???</h5>
-                <h6 class="label">Profiles</h6>
+                <h6 class="label f-16">Profiles</h6>
               </div>
             </div>
           </div>
@@ -249,7 +349,7 @@
               </div>
               <div class="ms-3">
                 <h5 class="numbers">???</h5>
-                <h6 class="label">Scanned Results</h6>
+                <h6 class="label f-16">Scanned Results</h6>
               </div>
             </div>
           </div>
@@ -272,8 +372,47 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
 
   </section>
 </div>
+
+<script>
+  // function fetchOperationalAghoshHomes() {
+  //   frappe.call({
+  //     method: "akf_education.akf_education.page.executive_dashboard.executive_dashboard.get_operational_aghosh_homes",
+  //     callback: function (r) {
+  //       console.log("Operational Aghosh Homes:", r.message);
+  //     },
+  //     error: function (err) {
+  //       console.error("Error fetching operational homes", err);
+  //     }
+  //   });
+  // }
+
+
+  // function fetchUnderCounstructionHome() {
+  //   frappe.call({
+  //     method: "akf_education.akf_education.page.executive_dashboard.executive_dashboard.get_underCounstruction",
+  //     callback: function (r) {
+  //       console.log("Under construction", r.message);
+  //     },
+  //     error: function (err) {
+  //       console.error("Error fetching", err)
+  //     }
+  //   })
+  // }
+
+  // function fetchInactiveHomes() {
+  //   frappe.call({
+  //     method: "akf_education.akf_education.page.executive_dashboard.executive_dashboard.get_inactive_homes",
+  //     callback: function (r) {
+  //       console.log("Inactive Home:", r.message);
+  //     },
+  //     error: function (err) {
+  //       console.error("Error fetching", err)
+  //     }
+  //   })
+  // }
+</script>

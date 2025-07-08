@@ -1,9 +1,9 @@
 const apiPath = "akf_education.akf_education.page.executive_dashboard.executive_dashboard";
 frappe.pages["executive-dashboard"].on_page_load = function (wrapper) {
     var page = frappe.ui.make_app_page({
-      parent: wrapper,
-      title: "Executive Dashboard",
-      single_column: true,
+        parent: wrapper,
+        title: "Executive Dashboard",
+        single_column: true,
     });
     // const content = frappe.render_template("demopage", {});
     // $(content).appendTo(page.main);
@@ -12,7 +12,7 @@ frappe.pages["executive-dashboard"].on_page_load = function (wrapper) {
     // // On-Scroll Animation
     load_on_scroll_animation();
     add_necessary_css();
-    
+
 };
 
 serverCall = {
@@ -21,12 +21,12 @@ serverCall = {
             method: `${apiPath}.get_executive_dashboard`,
             args: {},
             callback: function (r) {
-                console.log("API response:", r.message); 
+                console.log("API response:", r.message);
 
                 let data = r.message;
                 design.cards(page, data);
                 renderHighcharts(data);
-                renderPakistanMap(data);  
+                renderPakistanMap(data);
                 APRs(data);
             }
         })
@@ -43,7 +43,7 @@ design = {
     }
 }
 
-function load_on_scroll_animation(){
+function load_on_scroll_animation() {
     // On-Scroll Animation
     setTimeout(() => {
         jQuery(function ($) {
@@ -52,44 +52,44 @@ function load_on_scroll_animation(){
                     scrollTop = $(window).scrollTop(),
                     $animatables = $(".fade-up:not(.show)"),
                     $animatablesBounce = $(".bounce:not(.show)");
-    
+
                 if ($animatables.length === 0 && $animatablesBounce.length === 0) {
                     $(window).off("scroll", doAnimations); // Stop listening when all elements are animated
                     return;
                 }
-    
+
                 $animatables.each(function () {
                     var $animatable = $(this);
                     var elementTop = $animatable.offset().top;
                     var elementBottom = elementTop + $animatable.outerHeight();
-    
+
                     if (elementBottom > scrollTop && elementTop < scrollTop + windowHeight) {
                         $animatable.addClass("show");
                     }
                 });
-    
+
                 $animatablesBounce.each(function () {
                     var $animatableBounce = $(this);
                     var elementTop = $animatableBounce.offset().top;
                     var elementBottom = elementTop + $animatableBounce.outerHeight();
-    
+
                     if (elementBottom > scrollTop && elementTop < scrollTop + windowHeight) {
                         $animatableBounce.addClass("show");
                     }
                 });
             };
-    
+
             $(window).on("scroll", doAnimations);
-            $(window).trigger("scroll"); 
+            $(window).trigger("scroll");
         });
     }, 500);
 }
-  
-function add_necessary_css(){
+
+function add_necessary_css() {
     $("<style>")
-      .prop("type", "text/css")
-      .html(
-        `
+        .prop("type", "text/css")
+        .html(
+            `
               .highcharts-figure, .highcharts-data-table table {
                   min-width: 310px; 
                   max-width: 800px;
@@ -101,91 +101,91 @@ function add_necessary_css(){
                   min-width: 310px;
               }
           `
-      )
-      .appendTo("head");
+        )
+        .appendTo("head");
 }
 
-function load_scripts_sequentially(){
+function load_scripts_sequentially() {
     // Clear any previous Highcharts instance
     if (window.Highcharts) {
-      delete window.Highcharts;
+        delete window.Highcharts;
     }
-  
+
     // Use vanilla JavaScript to load scripts sequentially
     loadScriptPromise("https://code.highcharts.com/highcharts.js")
-      .then(() =>
-        loadScriptPromise("https://code.highcharts.com/highcharts-more.js")
-      )
-      .then(() =>
-        loadScriptPromise("https://code.highcharts.com/modules/solid-gauge.js")
-      )
-      .then(() =>
-        loadScriptPromise("https://code.highcharts.com/modules/bullet.js")
-      )
-      .then(() =>
-        loadScriptPromise("https://code.highcharts.com/maps/highmaps.js")
-      )
-      .then(() =>
-        loadScriptPromise("https://code.highcharts.com/maps/modules/exporting.js")
-      )
-      .then(() =>
-        loadScriptPromise(
-          "https://code.highcharts.com/maps/modules/offline-exporting.js"
+        .then(() =>
+            loadScriptPromise("https://code.highcharts.com/highcharts-more.js")
         )
-      )
-      .then(() =>
-        loadScriptPromise("https://code.highcharts.com/modules/exporting.js")
-      )
-      .then(() =>
-        loadScriptPromise("https://code.highcharts.com/modules/export-data.js")
-      )
-      .then(() =>
-        loadScriptPromise("https://code.highcharts.com/modules/accessibility.js")
-      )
-      .then(() =>
-        loadScriptPromise("https://unpkg.com/leaflet@1.7.1/dist/leaflet.js")
-      )
-      .then(() =>
-        loadScriptPromise(
-          "https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"
+        .then(() =>
+            loadScriptPromise("https://code.highcharts.com/modules/solid-gauge.js")
         )
-      )
-  
-      .then(() => {
-        // Add a slight delay to ensure everything is registered
-        setTimeout(() => {
-          if (
-            typeof Highcharts !== "undefined" &&
-            Highcharts.seriesTypes &&
-            Highcharts.seriesTypes.solidgauge
-          ) {
-            renderCharts();
-          } else {
-            console.error(
-              "Highcharts or solidgauge module not properly loaded",
-              typeof Highcharts,
-              Highcharts?.seriesTypes?.solidgauge
-            );
-          }
-        }, 300);
-      })
-      .catch((error) => {
-        console.error("Script loading failed:", error);
-      });
+        .then(() =>
+            loadScriptPromise("https://code.highcharts.com/modules/bullet.js")
+        )
+        .then(() =>
+            loadScriptPromise("https://code.highcharts.com/maps/highmaps.js")
+        )
+        .then(() =>
+            loadScriptPromise("https://code.highcharts.com/maps/modules/exporting.js")
+        )
+        .then(() =>
+            loadScriptPromise(
+                "https://code.highcharts.com/maps/modules/offline-exporting.js"
+            )
+        )
+        .then(() =>
+            loadScriptPromise("https://code.highcharts.com/modules/exporting.js")
+        )
+        .then(() =>
+            loadScriptPromise("https://code.highcharts.com/modules/export-data.js")
+        )
+        .then(() =>
+            loadScriptPromise("https://code.highcharts.com/modules/accessibility.js")
+        )
+        .then(() =>
+            loadScriptPromise("https://unpkg.com/leaflet@1.7.1/dist/leaflet.js")
+        )
+        .then(() =>
+            loadScriptPromise(
+                "https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"
+            )
+        )
+
+        .then(() => {
+            // Add a slight delay to ensure everything is registered
+            setTimeout(() => {
+                if (
+                    typeof Highcharts !== "undefined" &&
+                    Highcharts.seriesTypes &&
+                    Highcharts.seriesTypes.solidgauge
+                ) {
+                    renderCharts();
+                } else {
+                    console.error(
+                        "Highcharts or solidgauge module not properly loaded",
+                        typeof Highcharts,
+                        Highcharts?.seriesTypes?.solidgauge
+                    );
+                }
+            }, 300);
+        })
+        .catch((error) => {
+            console.error("Script loading failed:", error);
+        });
 }
 
 // Helper function to load scripts as promises
 function loadScriptPromise(src) {
-return new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = src;
-    script.async = false; // Important to maintain loading order
-    script.onload = () => {
-    resolve();
-    };
-    script.onerror = () => reject(new Error(`Failed to load script ${src}`));
-    document.head.appendChild(script);
-});
+    return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = src;
+        script.async = false; // Important to maintain loading order
+        script.onload = () => {
+            resolve();
+        };
+        script.onerror = () => reject(new Error(`Failed to load script ${src}`));
+        document.head.appendChild(script);
+    });
 }
 
 function renderCharts() {
@@ -279,7 +279,7 @@ function renderPakistanMap(data) {
 }
 
 
-renderPakistanMap();
+// renderPakistanMap();
 
 function renderIcons() {
     this.series.forEach(series => {
@@ -313,7 +313,7 @@ function renderIcons() {
         }
     });
 }
-    function APRs(data) {
+function APRs(data) {
     if (!data || !data.charts_data || !data.charts_data.aprs_data) {
         console.error("No APRs data available in API response!");
         return;
@@ -393,7 +393,7 @@ function renderHighcharts(data) {
     //         }
     //     }
     // });
-    
+
     const aghoshContainer = document.getElementById("container-aghosh");
     if (!aghoshContainer) {
         console.error("Aghosh Homes chart container not found");
@@ -401,14 +401,14 @@ function renderHighcharts(data) {
     }
     const chartData = data.charts_data;
 
-    function children_statistics(){
+    function children_statistics() {
         // Aghosh Homes Chart
         Highcharts.chart("children-statistics", {
-            chart: { 
+            chart: {
                 type: "pie"
             },
-            title: { 
-                text: null 
+            title: {
+                text: null
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}</b>({point.percentage:.2f}%)'
@@ -418,7 +418,7 @@ function renderHighcharts(data) {
             },
             credits: {
                 enabled: false
-            },        
+            },
             plotOptions: {
                 pie: {
                     allowPointSelect: true,
@@ -440,23 +440,23 @@ function renderHighcharts(data) {
             series: [{
                 colorByPoint: true,
                 data: [
-                    { name: "Orphaned", y: data.total_students }, 
-                    { name: "In Shelter Homes", y: data.students_in_shilter }, 
-                    { name: "Sponsored", y: data.sponsored_childrens }, 
-                    { name: "Unsponsored", y: data.total_students - data.sponsored_childrens } 
+                    { name: "Orphaned", y: data.total_students },
+                    { name: "In Shelter Homes", y: data.students_in_shilter },
+                    { name: "Sponsored", y: data.sponsored_childrens },
+                    { name: "Unsponsored", y: data.total_students - data.sponsored_childrens }
                 ]
             }]
         });
     }
-    
+
     function aghosh_home_statuses() {
         let guage = chartData.aghosh_home_status;
-    
+
         // Default values
         let operational = 0;
         let underConstruction = 0;
         let inactive = 0;
-    
+
         guage.forEach(item => {
             if (item.status === 'Operational') {
                 operational = item.total;
@@ -466,21 +466,21 @@ function renderHighcharts(data) {
                 inactive = item.total;
             }
         });
-    
+
         Highcharts.chart('speedygauge', {
             chart: {
                 type: 'pie',
-                height: Math.min(window.innerHeight * 0.5, 300), 
+                height: Math.min(window.innerHeight * 0.5, 300),
             },
-    
+
             title: {
                 text: null
             },
-    
+
             tooltip: {
                 pointFormat: '<b>{point.percentage:.1f}%</b> ({point.y})'
             },
-    
+
             plotOptions: {
                 pie: {
                     innerSize: '60%',
@@ -495,7 +495,7 @@ function renderHighcharts(data) {
                     }
                 }
             },
-    
+
             series: [{
                 name: 'Homes',
                 colorByPoint: true,
@@ -515,11 +515,11 @@ function renderHighcharts(data) {
             }]
         });
     }
-    
 
-    function aghosh_homes_per_week(){
+
+    function aghosh_homes_per_week() {
         const ahic = chartData.aghosh_homes_interval_count;
-        const areaspline = ahic.map(row => [ `Year ${row.Year}`, row.aghosh_home]);
+        const areaspline = ahic.map(row => [`Year ${row.Year}`, row.aghosh_home]);
 
         Highcharts.chart("container-aghosh", {
             chart: { type: "areaspline" },
@@ -566,8 +566,18 @@ function renderHighcharts(data) {
             }]
         });
     }
-
-    function childens_registrations(){
+    //      function fetchOperationalAghoshHomes() {
+    //     frappe.call({
+    //       method: "akf_education.akf_education.page.executive_dashboard.executive_dashboard.get_operational_aghosh_homes",
+    //       callback: function (r) {
+    //         console.log("Operational Aghosh Homes:", r.message);
+    //       },
+    //       error: function (err) {
+    //         console.error("Error fetching operational homes", err);
+    //       }
+    //     });
+    //   }
+    function childens_registrations() {
         let cregister = chartData.childens_registration;
 
         let years = cregister.map(row => row.Year);
@@ -614,19 +624,73 @@ function renderHighcharts(data) {
             }]
         });
     }
-    
+
 
 
 
     setTimeout(() => {
         children_statistics(),
-        aghosh_home_statuses(),
-        aghosh_homes_per_week(),
-        childens_registrations(),
-        APRs(data)
+            aghosh_home_statuses(),
+            aghosh_homes_per_week(),
+            childens_registrations(),
+            APRs(data)
     }, 500)
 
 }
 
 // window.onload = renderPakistanMap;
 
+window.fetchHomes = function ({ method, title, indicator }) {
+  frappe.call({
+    method: method,
+    callback: function (r) {
+      const data = r.message || [];
+
+      if (data.length === 0) {
+        frappe.msgprint(`No ${title} found.`);
+        return;
+      }
+
+      const htmlList = `
+        <div style="padding-left: 0.5rem;">
+          <ul style="padding-left: 1.2rem; margin: 0; list-style-type: disc;">
+            ${data.map(item => `<li>${item.aghosh_home_name}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+
+      frappe.msgprint({
+        title: title,
+        message: htmlList,
+        indicator: indicator,
+      });
+    },
+  });
+};
+
+//operational
+window.showOperationalHomes = function () {
+  fetchHomes({
+    method: "akf_education.akf_education.page.executive_dashboard.executive_dashboard.get_operational_aghosh_homes",
+    title: "Operational Aghosh Homes",
+    indicator: "green",
+  });
+};
+
+//under construction
+window.fetchUnderCounstructionHome = function () {
+  fetchHomes({
+    method: "akf_education.akf_education.page.executive_dashboard.executive_dashboard.get_underCounstruction",
+    title: "Under Construction Aghosh Homes",
+    indicator: "blue",
+  });
+};
+
+//inactive
+window.fetchInactiveHomes = function () {
+  fetchHomes({
+    method: "akf_education.akf_education.page.executive_dashboard.executive_dashboard.get_inactive_homes",
+    title: "Inactive Aghosh Homes",
+    indicator: "red",
+  });
+};

@@ -199,32 +199,26 @@
    "label": "Aghosh Home Info"
   },
   {
-   "depends_on": "eval:doc.school_type==\"Internal\"",
    "fieldname": "building",
    "fieldtype": "Link",
    "label": "Building",
-   "mandatory_depends_on": "eval:doc.school_type==\"Internal\"",
    "options": "Building"
   },
   {
-   "depends_on": "eval:doc.school_type==\"Internal\"",
    "fieldname": "bed",
    "fieldtype": "Link",
    "label": "Bed",
-   "options": "Beds",
-   "read_only": 1
+   "options": "Beds"
   },
   {
    "fieldname": "column_break_rnkv",
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:doc.school_type==\"Internal\"",
    "fieldname": "room",
    "fieldtype": "Link",
    "label": "Room",
-   "options": "Rooms",
-   "read_only": 1
+   "options": "Rooms"
   },
   {
    "fieldname": "section_break_sndc",
@@ -297,12 +291,10 @@
    "options": "External School"
   },
   {
-   "depends_on": "eval:doc.school_type == \"Internal\"\n",
    "fetch_from": "building.building_name",
    "fieldname": "building_name",
    "fieldtype": "Data",
    "label": "Building Name",
-   "mandatory_depends_on": "eval:doc.school_type==\"Internal\"",
    "read_only": 1
   },
   {
@@ -333,7 +325,7 @@
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-17 15:55:38.543642",
+ "modified": "2025-07-03 13:33:42.979881",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

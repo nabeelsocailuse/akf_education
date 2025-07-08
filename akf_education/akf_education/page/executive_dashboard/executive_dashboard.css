@@ -382,3 +382,18 @@ button:hover {
 /* .custom-tooltip-card {
   background-color: yellow;
 } */
+/* .operational-card {
+    transition: all 0.3s ease;
+  }
+
+  .operational-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .toggle-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .toggle-icon.rotate {
+    transform: rotate(180deg);
+  } */

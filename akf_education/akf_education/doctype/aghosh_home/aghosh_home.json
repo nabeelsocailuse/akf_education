@@ -16,6 +16,9 @@
   "status",
   "established_date",
   "address",
+  "total_cameras",
+  "active_camera_count",
+  "inactive_camera_count",
   "head_of_aghosh_home_section",
   "employee_id",
   "employee_name",
@@ -69,7 +72,7 @@
   },
   {
    "fieldname": "latitude",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "label": "Latitude"
   },
   {
@@ -86,7 +89,7 @@
   },
   {
    "fieldname": "longitude",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "label": "Longitude"
   },
   {
@@ -175,11 +178,26 @@
    "hidden": 1,
    "label": "Series",
    "options": "AA-{region_code}-####"
+  },
+  {
+   "fieldname": "total_cameras",
+   "fieldtype": "Int",
+   "label": "Total Cameras"
+  },
+  {
+   "fieldname": "active_camera_count",
+   "fieldtype": "Int",
+   "label": "Active Camera Count"
+  },
+  {
+   "fieldname": "inactive_camera_count",
+   "fieldtype": "Int",
+   "label": "Inactive Camera Count"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-25 11:52:45.062399",
+ "modified": "2025-07-03 16:22:21.484620",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

@@ -290,6 +290,13 @@ def create_or_update_guardian(stud): # mubarrim (under working)
 		student_id= frappe.db.get_value("Student", {"student_applicant": stud.name},"name")
 		frappe.db.set_value("Student", student_id, "student_guardian_id", guardian.name)
 		frappe.db.set_value("Student", student_id, "student_guardian_name", guardian.guardian_name)
+		# student = frappe.get_doc("Student", student_id)
+		# student.append("guardians", {
+		# 	"guardian": guardian.name,  # Link field (likely pointing to Guardian Doctype)
+		# 	"guardian_name": guardian.guardian_name,  # Optional display field
+		# 	# Add other child table fields as needed
+		# })
+		# student.save()
 		# frappe.msgprint(f"Guardian {guardian.name} updated for student {stud.student_name}")
 	else:
 		guardian = frappe.new_doc("Guardian")
@@ -307,4 +314,11 @@ def create_or_update_guardian(stud): # mubarrim (under working)
 		student_id= frappe.db.get_value("Student", {"student_applicant": stud.name},"name")
 		frappe.db.set_value("Student", student_id, "student_guardian_id", guardian.name)
 		frappe.db.set_value("Student", student_id, "student_guardian_name", guardian.guardian_name)
+		# student = frappe.get_doc("Student", student_id)
+		# student.append("guardians", {
+		# 	"guardian": guardian.name,  # Link field (likely pointing to Guardian Doctype)
+		# 	"guardian_name": guardian.guardian_name,  # Optional display field
+		# 	# Add other child table fields as needed
+		# })
+		# student.save()
 		# frappe.msgprint(f"Guardian {guardian.name} created for student {stud.student_name}")

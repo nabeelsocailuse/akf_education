@@ -19,6 +19,7 @@ app_include_css =[
 
 ]
 app_include_js = [
+    # "/assets/akf_education/js/highcharts.js",
     # "/assets/akf_education/js/highcharts-more.js",
     # "/assets/akf_education/js/solid_gauge.js",
     "/assets/akf_education/js/leaflet.js",

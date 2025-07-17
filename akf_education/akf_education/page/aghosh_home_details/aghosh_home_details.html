@@ -1,0 +1,313 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Info Cards</title>
+  <meta charset="UTF-8">
+  <title>Info Cards - Bootstrap 3</title>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- font awosome link -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/apps/akf_education/akf_education/akf_education/page/aghosh_home_details/aghosh_home_details.css">
+  <!-- Highcharts CDN -->
+</head>
+
+<!-- Cards Section -->
+<div class="container">
+    <div class="row justify-content-center d-flex">
+        <div class="col-sm-6 col-md-3">
+            <div class="info-card bg-blue">
+                <div class="info-icon icon-blue">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="info-title">Total Children</div>
+                <div class="info-value">285</div>
+                <div class="info-sub text-primary">+12 this month</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="info-card bg-orange">
+                <div class="info-icon icon-orange">
+                    <i class="fas fa-bed"></i>
+                </div>
+                <div class="info-title">Total Beds</div>
+                <div class="info-value">320</div>
+                <div class="info-sub text-danger">95% occupancy</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="info-card bg-pink">
+                <div class="info-icon icon-red">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="info-title">Total Rooms</div>
+                <div class="info-value">48</div>
+                <div class="info-sub text-danger">All functional</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="info-card bg-green">
+                <div class="info-icon icon-green">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="info-title">Sponsored Children</div>
+                <div class="info-value">198</div>
+                <div class="info-sub text-success">69% of total</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Children Demographics Charts -->
+<div class="container mt-3">
+    <h2 class="section-title">Children Demographics</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="chart-card">
+                <div class="card-header bg-blue-dark"><i></i> Class-wise Summary</div>
+                <div class="card-body">
+                    <div id="classChart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="chart-card">
+                <div class="card-header bg-orange-dark"><i></i> Age-wise Summary</div>
+                <div class="card-body">
+                    <div id="ageChart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="chart-card">
+                <div class="card-header bg-purple-dark"><i></i> Donor-wise Summary</div>
+                <div class="card-body">
+                    <div id="donorChart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sponsorship Breakdown -->
+<div class="container  mt-4">
+    <div class="mb-3 title">Sponsorship Breakdown</div>
+    <div class="chart-container">
+        <div id="sponsorshipChart"></div>
+    </div>
+    <div class="row g-3">
+        <div class="col-sm-6 col-md-2">
+            <div class="stat-card">
+                <h4>45</h4>
+                <p>Head Office</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"
+                        style="width: 45%; background-color: hsl(35, 100%, 67.5%);"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="stat-card">
+                <h4>68</h4>
+                <p>Single Sponsored</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"
+                        style="width: 68%; background-color: hsl(35, 100%, 56%);"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="stat-card">
+                <h4>52</h4>
+                <p>Double Sponsored</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"
+                        style="width: 52%; background-color: hsl(35, 100%, 64%);"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="stat-card">
+                <h4>33</h4>
+                <p>Triple Sponsored</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"
+                        style="width: 33%; background-color: hsl(35, 100%, 73.5%);"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="stat-card">
+                <h4>74</h4>
+                <p>Local Sponsored</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"
+                        style="width: 74%; background-color: hsl(35, 100%, 53%);"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="stat-card">
+                <h4>22</h4>
+                <p>Regional Sponsored</p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"
+                        style="width: 22%; background-color: hsl(35, 100%, 79%);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Staff Summary -->
+<div class="container mt-4">
+    <div class="title mb-3">Staff Summary</div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-custom start-card">
+                <div class="d-flex align-items-center">
+                    <i class="me-2 fas fa-user card-icon"></i>
+                    <div class="card-body">
+                        <h4 class="mb-0 fw-bold">28</h4>
+                        <p>Permanent Staff</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-custom start-card">
+                <div class="d-flex align-items-center">
+                    <i class="me-2 fas fa-users card-icon"></i>
+                    <div class="card-body">
+                        <h4 class="mb-0 fw-bold">12</h4>
+                        <p>Contractual Staff</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-custom start-card">
+                <div class="d-flex align-items-center">
+                    <i class="me-2 fas fa-clock card-icon"></i>
+                    <div class="card-body">
+                        <h4 class="mb-0 fw-bold">5</h4>
+                        <p>Interns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card card-custom stat-card chart-container">
+                <div class="chart-header">Staff Distribution</div>
+                <div id="pieChart" style="width:100%; height:300px;"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-custom stat-card chart-container">
+                <div class="chart-header">Staff by Department</div>
+                <div id="barChart" style="width:100%; height:300px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Special Needs Children -->
+<div class="container">
+    <div class="title mb-3">Special Needs Children</div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="info-card-lg">
+                <div class="info-icon icon-blue">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="info-title">Disabled Children</div>
+                <div class="info-value">18 <span class="ms-2">(6.3% of total)</span></div>
+                <div class="info-sub">Children with physical or mental disabilities receiving specialized care</div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="info-card-lg">
+                <div class="info-icon icon-blue">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="info-title">Children with Glasses</div>
+                <div class="info-value">18 <span class="ms-2">(6.3% of total)</span></div>
+                <div class="info-sub">Children with physical or mental disabilities receiving specialized care</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Academic Performance -->
+<div class="container mt-4">
+    <h4 class="fw-bold mb-4">Academic Performance</h4>
+    <div class="smal-card row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card p-3">
+                <div class="metric-value passRate">89%</div>
+                <div class="metric-title">Overall Pass Rate</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <div class="metric-value avgScore">85.2</div>
+                <div class="metric-title">Average Score</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <div class="metric-value attendance">94%</div>
+                <div class="metric-title">Attendance Rate</div>
+            </div>
+        </div>
+    </div>
+    <div class="card ">
+        <h6 class="fw-bold mb-3">Academic Performance Trends</h6>
+        <div id="performanceChart" style="height: 400px;"></div>
+    </div>
+</div>
+
+<!-- Security Monitoring -->
+<div class="container mt-4">
+    <h4 class="mb-4 fw-bold">Security Monitoring</h4>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="monitor-card">
+                <div class="icon-box bg-blue">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div>
+                    <div class="card-value">24</div>
+                    <div class="card-label">Total Cameras</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="monitor-card">
+                <div class="icon-box bg-green">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div>
+                    <div class="card-value">22</div>
+                    <div class="card-label">Active Cameras</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="monitor-card">
+                <div class="icon-box bg-red">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div>
+                    <div class="card-value">2</div>
+                    <div class="card-label">Inactive Cameras</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>

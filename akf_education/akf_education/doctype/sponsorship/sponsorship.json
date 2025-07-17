@@ -1,6 +1,5 @@
 {
  "actions": [],
- "allow_rename": 1,
  "autoname": "format:SP-{donor_id}-{donor_name}-{#####}",
  "creation": "2025-02-21 19:01:40.893788",
  "doctype": "DocType",
@@ -19,17 +18,12 @@
   "section_break_jyyj",
   "student_id",
   "student_name",
-  "student_picture",
-  "country",
   "column_break_rduq",
-  "aghosh_home_id",
-  "aghosh_home_name",
-  "region",
   "amended_from",
   "signatures_section",
   "aghosh_administrator",
   "column_break_qwpq",
-  "program_manager"
+  "aghosh_program_manager"
  ],
  "fields": [
   {
@@ -113,21 +107,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "student_id.aghosh_home_id",
-   "fieldname": "aghosh_home_id",
-   "fieldtype": "Link",
-   "label": "Aghosh Home ID",
-   "options": "Aghosh Home",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "aghosh_home_id.aghosh_home_name",
-   "fieldname": "aghosh_home_name",
-   "fieldtype": "Data",
-   "label": "Aghosh Home Name",
-   "read_only": 1
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -138,20 +117,13 @@
    "search_index": 1
   },
   {
-   "fetch_from": "student_id.student_picture",
-   "fieldname": "student_picture",
-   "fieldtype": "Attach Image",
-   "label": "Student Picture",
-   "read_only": 1
-  },
-  {
    "fieldname": "signatures_section",
    "fieldtype": "Section Break",
    "label": "Signatures"
   },
   {
    "fieldname": "aghosh_administrator",
-   "fieldtype": "Signature",
+   "fieldtype": "Attach Image",
    "label": "Aghosh Administrator"
   },
   {
@@ -159,29 +131,15 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "program_manager",
-   "fieldtype": "Signature",
-   "label": "Program Manager"
-  },
-  {
-   "fetch_from": "student_id.country",
-   "fieldname": "country",
-   "fieldtype": "Data",
-   "label": "Country",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "aghosh_home_id.region",
-   "fieldname": "region",
-   "fieldtype": "Data",
-   "label": "Region",
-   "read_only": 1
+   "fieldname": "aghosh_program_manager",
+   "fieldtype": "Attach Image",
+   "label": "Aghosh Program Manager"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-02 00:58:19.045912",
+ "modified": "2025-07-15 15:06:29.744786",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

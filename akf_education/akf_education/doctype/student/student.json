@@ -223,7 +223,6 @@
   {
    "fieldname": "guardians",
    "fieldtype": "Table",
-   "hidden": 1,
    "label": "Guardians",
    "options": "Student Guardian"
   },
@@ -615,7 +614,7 @@
  ],
  "image_field": "student_picture",
  "links": [],
- "modified": "2025-07-03 13:23:33.675722",
+ "modified": "2025-07-16 17:25:47.680016",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

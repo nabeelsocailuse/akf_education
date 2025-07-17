@@ -18,7 +18,7 @@ frappe.ui.form.on('Health Checkup', {
         }
       };
     };
-      calculate_hygiene_score(frm);
+      // calculate_hygiene_score(frm);
   
       // 2️⃣ Set up your student_id filter
       frm.set_query("student", function() {

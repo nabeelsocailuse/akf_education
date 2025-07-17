@@ -1,0 +1,320 @@
+        :root {
+            --padding-base: 20px;
+            --border-radius-base: 8px;
+        }
+
+        body {
+                background-color: #f4f9fd;
+                padding: var(--padding-base);
+                font-family: 'Inter', sans-serif;
+        }
+
+        .card.card-custom.start-card p {
+                font-size: 14px;
+                color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+                margin-bottom: 0px;
+                /* margin-left: 56px; */
+        }
+
+        .info-card {
+                border-radius: var(--border-radius-base);
+                padding: var(--padding-base);
+                position: relative;
+                overflow: hidden;
+                min-height: 150px;
+                margin-bottom: 20px;
+                color: #111;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-icon {
+                position: absolute;
+                top: var(--padding-base);
+                right: var(--padding-base);
+                background: #fff;
+                border-radius: var(--border-radius-base);
+                padding: var(--padding-base);
+                font-size: 14px;
+                color: white;
+        }
+
+        .bg-blue {
+                background-color: #eef5ff;
+        }
+
+        .bg-orange {
+                background-color: #fff5ec;
+        }
+
+        .bg-pink {
+                background-color: #ffeeee;
+        }
+
+        .bg-green {
+                background-color: #e8fcf3;
+        }
+
+        .icon-blue {
+                background-color: #255bd1;
+        }
+
+        .icon-orange {
+                background-color: #f15b2a;
+        }
+
+        .icon-red {
+                background-color: #eb3f4c;
+        }
+
+        .icon-green {
+                background-color: #2ab58b;
+        }
+
+       .chart-card .bg-blue-dark {
+                background-color: #255bd1;
+        }
+
+        .chart-card .bg-orange-dark {
+                background-color: #f15b2a;
+        }
+
+        .chart-card .bg-purple-dark {
+                background-color: #7d48e3;
+        }
+
+        .info-value {
+                font-size: 30px;
+                font-weight: bold;
+                margin-block: 6px;
+        }
+
+        .info-sub {
+                font-size: 14px;
+                font-weight: 500;
+        }
+
+        .info-title {
+                margin-bottom: 5px;
+                font-weight: 700;
+                color: rgb(55 65 81 / 1);
+                letter-spacing: -0.025em;
+                font-size: 14px;
+        }
+
+        .section-title {
+                text-align: center;
+                font-weight: bold;
+                font-size: 2rem;
+                color: black;
+                margin-bottom: 30px;
+                position: relative;
+        }
+
+        .section-title::after {
+                content: '';
+                width: 160px;
+                height: 4px;
+                background: #3f80f7;
+                display: block;
+                margin: 6px auto 0;
+                border-radius: var(--border-radius-base);
+        }
+
+        .chart-card {
+                border-radius: var(--border-radius-base);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+                padding: 0;
+                overflow: hidden;
+        }
+
+        .chart-card .card-header {
+                font-weight: bold;
+                font-size: 1.2rem;
+                color: white;
+                padding: 15px 20px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+        }
+
+        .chart-card .card-header i {
+                font-size: 12px;
+                background: white;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+        }
+
+        .card.card-custom.start-card .card-body,.chart-card .card-body {
+                background: #fff;
+                padding: 0px;
+        }
+
+        .highcharts-credits {
+                display: none !important;
+        }
+
+        .stat-card {
+                background: #fff;
+                border-radius: var(--border-radius-base);
+                padding: var(--padding-base);
+                text-align: center;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card h4 {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 5px;
+        }
+
+        .stat-card p {
+                margin: 0;
+                font-weight: 500;
+                font-size: 13px;
+                color: #444;
+        }
+
+        .stat-card .progress {
+                height: 5px;
+                margin-top: 10px;
+                border-radius: var(--border-radius-base);
+        }
+
+        .chart-header {
+                font-weight: bold;
+                font-size: 1.2rem;
+                color: rgb(0, 0, 0);
+                padding: var(--padding-base);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+        }
+
+        .title {
+                font-weight: bold;
+                font-size: 22px;
+        }
+
+        .card-icon {
+                background-color: #f4a261;
+                font-size: 18px;
+                color: white;
+                vertical-align: middle;
+                padding: var(--padding-base);
+                border-radius: var(--border-radius-base);
+        }
+
+        .card-custom.chart-container {
+                padding: var(--padding-base);
+                background-color: white;
+                margin-bottom: 24px;
+                border-radius: var(--border-radius-base);
+        }
+
+        .info-card-lg {
+                border-radius: var(--border-radius-base);
+                padding: var(--padding-base);
+                position: relative;
+                overflow: hidden;
+                min-height: 150px;
+                color: #111;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                background-color: white;
+        }
+
+        .info-card-lg .info-title {
+                font-size: 18px;
+        }
+
+        .info-card-lg .info-icon {
+                position: absolute;
+                top: var(--padding-base);
+                right: var(--padding-base);
+                border-radius: var(--border-radius-base);
+                padding: var(--padding-base);
+                font-size: 18px;
+                color: white;
+        }
+
+        .info-card-lg .info-value {
+                font-size: 28px;
+                font-weight: bold;
+                margin-block: 10px 20px;
+        }
+
+        .info-card-lg .info-value span {
+                font-size: 16px;
+                font-weight: 500;
+                /* margin-block: 12px 34px;/ */
+                color: rgb(107 114 128 / 1);
+        }
+
+        .info-card-lg .info-sub {
+                font-size: 14px;
+                color: rgb(75 85 99 / 1);
+        }
+
+        .start-card.card,.card,.smal-card .card {
+                border-radius: var(--border-radius-base);
+                border: 1px solid #e0e0e0;
+                text-align: start;
+                box-shadow: none;
+                padding: var(--padding-base);
+        }
+
+        .metric-title {
+                font-size: 14px;
+                color: #777;
+        }
+
+        .metric-value {
+                font-size: 28px;
+                font-weight: bold;
+        }
+
+        .monitor-card {
+                border: 1px solid #e3e3e3;
+                background-color: white;
+                border-radius: var(--border-radius-base);
+                padding: var(--padding-base);
+                display: flex;
+                align-items: center;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .icon-box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                border-radius: var(--border-radius-base);
+                color: #fff;
+                margin-right: 15px;
+        }
+
+        .monitor-card .bg-blue {
+                background-color: #00bcd4;
+        }
+
+        .monitor-card .bg-green {
+                background-color: #4caf50;
+        }
+
+        .monitor-card .bg-red {
+                background-color: #f44336;
+        }
+
+        .card-label {
+                font-size: 14px;
+                color: #555;
+                margin-top: 2px;
+        }
+
+        .card-value {
+                font-size: 24px;
+                font-weight: 700;
+                color: #111;
+        }

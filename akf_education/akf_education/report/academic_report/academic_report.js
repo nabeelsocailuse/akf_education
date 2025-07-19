@@ -3,6 +3,11 @@
 
 frappe.query_reports["Academic Report"] = {
 	"filters": [
-
+		{
+			"fieldname":"aghosh_home_id",
+			"label": __("Aghosh Home ID"),
+			"fieldtype": "Link",
+			"options": "Aghosh Home"
+		},
 	]
 };

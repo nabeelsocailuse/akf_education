@@ -84,8 +84,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "District",
-   "options": "District",
-   "reqd": 1
+   "options": "District"
   },
   {
    "fieldname": "longitude",
@@ -197,7 +196,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-19 12:36:00.503049",
+ "modified": "2025-07-19 17:37:07.596764",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

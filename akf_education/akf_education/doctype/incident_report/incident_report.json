@@ -56,7 +56,8 @@
   {
    "fieldname": "detailed_description",
    "fieldtype": "Small Text",
-   "label": "Detailed Description"
+   "label": "Detailed Description",
+   "mandatory_depends_on": "eval: doc.incident_type == 'Others'"
   },
   {
    "fieldname": "column_break_kuwi",
@@ -199,7 +200,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-19 14:54:57.180074",
+ "modified": "2025-07-19 17:38:28.054702",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Incident Report",

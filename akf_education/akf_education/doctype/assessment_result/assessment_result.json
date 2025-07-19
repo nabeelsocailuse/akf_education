@@ -224,6 +224,7 @@
    "read_only": 1
   },
   {
+   "depends_on": "eval: doc.select_term == \"Final Term\"",
    "fieldname": "promoted_to_class",
    "fieldtype": "Link",
    "label": "Promoted To Class",
@@ -298,7 +299,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-25 01:30:47.814539",
+ "modified": "2025-07-19 13:23:34.495773",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result",

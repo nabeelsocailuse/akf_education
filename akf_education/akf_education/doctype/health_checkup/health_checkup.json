@@ -125,7 +125,8 @@
    "fieldname": "symptoms",
    "fieldtype": "Table MultiSelect",
    "label": "Symptoms",
-   "options": "Patient Encounter Symptom"
+   "options": "Patient Encounter Symptom",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_zmsr",
@@ -135,7 +136,8 @@
    "fieldname": "diagnosis",
    "fieldtype": "Table MultiSelect",
    "label": "Diagnosis",
-   "options": "Patient Encounter Diagnosis"
+   "options": "Patient Encounter Diagnosis",
+   "reqd": 1
   },
   {
    "description": "Drug Prescription",
@@ -556,7 +558,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-17 11:49:30.704356",
+ "modified": "2025-07-19 12:48:53.163025",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Health Checkup",

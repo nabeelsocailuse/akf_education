@@ -206,7 +206,7 @@
                 border-radius: var(--border-radius-base);
         }
 
-        .card-custom.chart-container {
+        .card-custom.chart-container,.chart-container {
                 padding: var(--padding-base);
                 background-color: white;
                 margin-bottom: 24px;

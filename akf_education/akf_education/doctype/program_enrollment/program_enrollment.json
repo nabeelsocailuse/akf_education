@@ -133,7 +133,6 @@
    "label": "Enrolled courses"
   },
   {
-   "allow_on_submit": 1,
    "fieldname": "courses",
    "fieldtype": "Table",
    "label": "Courses",
@@ -325,7 +324,7 @@
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-03 13:33:42.979881",
+ "modified": "2025-07-19 13:25:56.345856",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

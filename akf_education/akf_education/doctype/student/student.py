@@ -210,10 +210,10 @@ class Student(Document):
 			)
 
 	def update_applicant_status(self):
-		"""Updates Student Applicant status to Admitted"""
+		"""Updates Student Applicant status to Enrolled"""
 		if self.student_applicant:
 			frappe.db.set_value(
-				"Student Applicant", self.student_applicant, "application_status", "Admitted"
+				"Student Applicant", self.student_applicant, "application_status", "Enrolled"
 			)
 
 	# End of Validate Functions

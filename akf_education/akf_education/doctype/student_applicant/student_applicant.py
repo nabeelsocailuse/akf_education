@@ -92,7 +92,7 @@ class StudentApplicant(Document):
 			student_admission
 			and student_admission.max_age
 			and date_diff(
-				nowdate(), add_years(getdate(self.date_of_birth), student_admission.max_age)
+				nowdate(), add_years(getdate(self.date_of_birth), student_admission.max_age + 2)
 			)
 			> 0
 		):

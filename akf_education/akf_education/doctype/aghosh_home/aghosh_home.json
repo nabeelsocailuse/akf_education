@@ -108,7 +108,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status ",
-   "options": "\nUnder Construction\nOperational\nInactive",
+   "options": "\nUnder Planning\nUnder Construction\nOperational\nInactive",
    "reqd": 1
   },
   {
@@ -197,7 +197,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-03 16:22:21.484620",
+ "modified": "2025-07-19 12:36:00.503049",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",
@@ -221,5 +221,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "aghosh_home_name",
  "track_changes": 1
 }

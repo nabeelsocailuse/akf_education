@@ -64,8 +64,9 @@
   {
    "fieldname": "type",
    "fieldtype": "Select",
+   "in_standard_filter": 1,
    "label": "Type ",
-   "options": "\nHostel\nSchool\nAdmin Block\nDispensary\nMosque\nResidential Block\nMess Hall",
+   "options": "\nHostel\nSchool\nAdmin Block\nDispensary\nMosque\nResidential Block\nMess Hall\nVocational Training Center",
    "reqd": 1
   },
   {
@@ -122,7 +123,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-01 12:35:00.174296",
+ "modified": "2025-07-19 12:42:14.220695",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Building",

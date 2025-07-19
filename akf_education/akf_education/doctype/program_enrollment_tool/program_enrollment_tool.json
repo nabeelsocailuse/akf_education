@@ -41,7 +41,7 @@
    "fieldname": "program",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Program",
+   "label": "Class",
    "options": "Program",
    "reqd": 1
   },
@@ -164,7 +164,7 @@
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-06-20 15:02:57.630333",
+ "modified": "2025-07-19 12:43:18.771673",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment Tool",

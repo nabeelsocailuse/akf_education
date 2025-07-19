@@ -1,18 +1,18 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "autoname": "naming_series:naming_series",
  "creation": "2025-03-18 14:13:06.949802",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "incident_details_section",
-  "incident_id",
-  "reported_by",
+  "naming_series",
   "incident_type",
+  "severity_level",
   "detailed_description",
   "column_break_kuwi",
+  "reported_by",
   "location",
-  "severity_level",
   "incident_date_time",
   "attachment",
   "persons_involved_tab",
@@ -40,11 +40,6 @@
    "fieldname": "incident_details_section",
    "fieldtype": "Section Break",
    "label": "Incident Details"
-  },
-  {
-   "fieldname": "incident_id",
-   "fieldtype": "Int",
-   "label": "Incident ID"
   },
   {
    "fieldname": "reported_by",
@@ -81,8 +76,10 @@
   {
    "fieldname": "severity_level",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Severity Level ",
-   "options": "\nLow\nMedium\nHigh\nCritical"
+   "options": "\nLow\nMedium\nHigh\nCritical",
+   "reqd": 1
   },
   {
    "fieldname": "attachment",
@@ -191,14 +188,22 @@
    "fieldname": "check_ksmu",
    "fieldtype": "Check",
    "label": "Follow-up Required"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "AA-IR-.YYYY.-"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-05 10:03:37.208089",
+ "modified": "2025-07-19 14:54:57.180074",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Incident Report",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -216,5 +221,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

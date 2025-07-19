@@ -25,6 +25,7 @@
   "student_picture",
   "student_applicant",
   "status",
+  "deceased_reason",
   "joining_date",
   "date_of_admission",
   "disability",
@@ -599,7 +600,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "\nActive\nAlmuni\nDropped Out"
+   "options": "\nActive\nAlmuni\nDropped Out\nDeceased"
   },
   {
    "fieldname": "student_picture",
@@ -610,11 +611,18 @@
    "fieldname": "old_student_id",
    "fieldtype": "Data",
    "label": "Old Student ID"
+  },
+  {
+   "depends_on": "eval: doc.status == 'Deceased'",
+   "fieldname": "deceased_reason",
+   "fieldtype": "Small Text",
+   "label": "Deceased Reason",
+   "mandatory_depends_on": "eval: doc.status == 'Deceased'"
   }
  ],
  "image_field": "student_picture",
  "links": [],
- "modified": "2025-07-16 17:25:47.680016",
+ "modified": "2025-07-19 14:21:15.929627",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

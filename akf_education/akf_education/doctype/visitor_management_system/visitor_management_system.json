@@ -142,7 +142,7 @@
   {
    "fieldname": "visitor_badge_issued",
    "fieldtype": "Select",
-   "label": "Visitor Badge Issued",
+   "label": "Visitor Card Issued",
    "options": "\nYes\nNo"
   },
   {
@@ -197,13 +197,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.purpose_of_visit == \"Meeting Resident\"\n",
-   "fieldname": "table",
-   "fieldtype": "Table",
-   "options": "Student Details Child",
-   "read_only": 1
-  },
-  {
    "collapsible": 1,
    "fieldname": "security_details_section",
    "fieldtype": "Section Break",
@@ -214,11 +207,19 @@
    "fieldname": "security_checks_section",
    "fieldtype": "Section Break",
    "label": "Security Checks"
+  },
+  {
+   "depends_on": "eval:doc.purpose_of_visit == \"Meeting Resident\"\n",
+   "fieldname": "table",
+   "fieldtype": "Table",
+   "label": "Guardian of",
+   "options": "Student Details Child",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-10 18:45:12.296438",
+ "modified": "2025-07-19 14:29:25.860061",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Visitor Management System",

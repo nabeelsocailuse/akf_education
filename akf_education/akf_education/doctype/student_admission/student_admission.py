@@ -6,7 +6,7 @@ import frappe
 from frappe import _
 from frappe.utils import nowdate
 from frappe.website.website_generator import WebsiteGenerator
-from frappe.utils import today
+from frappe.utils import getdate,today
 
 
 class StudentAdmission(WebsiteGenerator):
@@ -17,7 +17,7 @@ class StudentAdmission(WebsiteGenerator):
 
 	def validate(self):
 		self.validate_min_max_age()
-		if self.admission_start_date and self.admission_end_date < today():
+		if self.admission_start_date and self.admission_end_date < getdate(today()):
 			frappe.throw("Date must be today or later.")
 		if self.admission_start_date and self.admission_end_date < self.admission_start_date:
 			frappe.throw(_("Admission End Date should be greater than Admission Start Date."))

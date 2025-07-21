@@ -12,10 +12,10 @@
   "aghosh_home_id",
   "aghosh_home_name",
   "activities_section",
+  "organizer",
   "organizer_name",
   "activity_name",
   "location",
-  "organizer",
   "category",
   "column_break_qzxa",
   "start_date_time",
@@ -112,7 +112,7 @@
   {
    "fieldname": "organizer",
    "fieldtype": "Link",
-   "label": "Organizer",
+   "label": "Organizer ID",
    "options": "Employee"
   },
   {
@@ -164,14 +164,16 @@
    "options": "Child Drawings"
   },
   {
+   "fetch_from": "organizer.employee_name",
    "fieldname": "organizer_name",
    "fieldtype": "Data",
-   "label": "Organizer Name"
+   "label": "Organizer Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-19 13:21:39.724308",
+ "modified": "2025-07-21 10:39:37.568145",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Activities",

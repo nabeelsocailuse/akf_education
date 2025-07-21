@@ -8,6 +8,7 @@
   "observation_tab",
   "student_id",
   "student_name",
+  "student_gender",
   "column_break_kxdq",
   "aghosh_home_id",
   "aghosh_home_name",
@@ -16,10 +17,16 @@
   "naming_series",
   "observations_section",
   "appearance_points",
+  "speech",
+  "affect",
   "column_break_gcwb",
-  "conversation",
-  "column_break_wzzn",
   "eye_contact",
+  "body_type",
+  "any_illness_in_family",
+  "what_mental_disorder",
+  "column_break_wzzn",
+  "conversation",
+  "body_language",
   "column_break_dwuw",
   "physical_connection",
   "section_break_bpbu",
@@ -48,7 +55,11 @@
   "decision_making",
   "facial_expressions",
   "column_break_tpwk",
-  "column_break_xima",
+  "movements",
+  "posture",
+  "attitude_to_interviewer",
+  "facial_expression",
+  "section_break_ovoe",
   "amended_from"
  ],
  "fields": [
@@ -83,7 +94,7 @@
    "fieldname": "eye_contact",
    "fieldtype": "Select",
    "label": "Eye Contact",
-   "options": "\nSuitable\nAvoid eye contact\nStaring\nOthers"
+   "options": "\nAppropriate\nPoor\nStaring\nOthers"
   },
   {
    "fieldname": "physical_connection",
@@ -245,10 +256,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_xima",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -298,12 +305,84 @@
    "hidden": 1,
    "label": "Series",
    "options": "AA-MSE-.YYYY.-"
+  },
+  {
+   "fieldname": "speech",
+   "fieldtype": "Select",
+   "label": "Speech",
+   "options": "\nCLear\nTalkative\nRapid\nPressured\nSlow\nSlurred\nStuttering\nMonotonous\nOthers"
+  },
+  {
+   "fieldname": "affect",
+   "fieldtype": "Select",
+   "label": "Affect",
+   "options": "\nFlat\nAppropriate\nElated\nEuphoric\nSad\nAnxious\nOthers"
+  },
+  {
+   "fetch_from": "student_id.student_gender",
+   "fieldname": "student_gender",
+   "fieldtype": "Data",
+   "label": "Student Gender",
+   "read_only": 1
+  },
+  {
+   "fieldname": "body_type",
+   "fieldtype": "Select",
+   "label": "Body Type",
+   "options": "\nOverweight\nUnderweight\nFit\nOthers"
+  },
+  {
+   "fieldname": "any_illness_in_family",
+   "fieldtype": "Select",
+   "label": "Any Illness in Family",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval: doc.any_illness_in_family == 'Yes'",
+   "fieldname": "what_mental_disorder",
+   "fieldtype": "Data",
+   "label": "What Mental Disorder",
+   "mandatory_depends_on": "eval: doc.any_illness_in_family == 'Yes'"
+  },
+  {
+   "fieldname": "body_language",
+   "fieldtype": "Select",
+   "label": "Body Language",
+   "options": "\nAppropriate\nAgitated\nRestless\nAnxious\nComposed\nOthers"
+  },
+  {
+   "fieldname": "movements",
+   "fieldtype": "Select",
+   "label": "Movements",
+   "options": "\nAppropriate\nCorporative\nComplaint"
+  },
+  {
+   "fieldname": "posture",
+   "fieldtype": "Select",
+   "label": "Posture",
+   "options": "\nAppropriate\nCorporative\nComplaint"
+  },
+  {
+   "fieldname": "attitude_to_interviewer",
+   "fieldtype": "Select",
+   "label": "Attitude to Interviewer",
+   "options": "\nAppropriate\nCorporative\nComplaint"
+  },
+  {
+   "fieldname": "section_break_ovoe",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "facial_expression",
+   "fieldtype": "Select",
+   "label": "Facial Expression",
+   "options": "\nSmiling\nBlank\nBlush"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-16 17:03:42.823134",
+ "modified": "2025-07-21 21:11:36.095200",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Mental Status Examination",

@@ -16,25 +16,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Reports Master",
-   "link_count": 1,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Sponsorship Details",
-   "link_count": 0,
-   "link_to": "Sponsorship Details",
-   "link_type": "Report",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Sponsorship",
    "link_count": 2,
    "link_type": "DocType",
@@ -352,9 +333,68 @@
    "link_type": "Page",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports Master",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Academic Report",
+   "link_count": 0,
+   "link_to": "Academic Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Sibling Details - Report",
+   "link_count": 0,
+   "link_to": "Sibling Details - Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Financial Details - Report",
+   "link_count": 0,
+   "link_to": "Financial Details - Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Health and Hygiene - Report",
+   "link_count": 0,
+   "link_to": "Health and Hygiene - Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Showcause - Report",
+   "link_count": 0,
+   "link_to": "Showcause - Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-07-15 17:20:59.373324",
+ "modified": "2025-07-21 17:19:32.777263",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Homes",

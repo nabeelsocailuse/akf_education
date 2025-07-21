@@ -23,12 +23,9 @@ def get_columns():
         _("Class") + ":Link/Program:140",
         # _("Status") + ":Data:140",
         _("Academic Year") + ":Link/Academic Year:140",
-        _("Total Intallments") + ":Int:140",
-        _("Principal Amount") + ":Currency:140",
-        _("Amount Paid") + ":Currency:140",
-        _("Pending Amount") + ":Currency:140",
-        _("Loan Status") + ":Select:140",
-        _("Repayment Start Date") + ":Date:140",
+        _("Total Marks") + ":Int:140",
+        _("Obtained Marks") + ":Int:140",
+        _("Percentage") + ":Percent:140",
     ]
     return columns
 
@@ -41,16 +38,16 @@ def get_data(filters):
 def get_conditions(filters):
     conditions = ""
 
-    if filters.get("company"):
-        conditions += " AND company = %(company)s"
-    if filters.get("applicant"):
-        conditions += " AND applicant = %(applicant)s"
-    if filters.get("branch"):
-        conditions += " AND branch = %(branch)s"
-    if filters.get("loan_type"):
-        conditions += " AND loan_type = %(loan_category)s"
-    if filters.get("repayment_start_date"):
-        conditions += " AND repayment_start_date = %(repayment_start_date)s"
+    # if filters.get("company"):
+    #     conditions += " AND company = %(company)s"
+    # if filters.get("applicant"):
+    #     conditions += " AND applicant = %(applicant)s"
+    # if filters.get("branch"):
+    #     conditions += " AND branch = %(branch)s"
+    # if filters.get("loan_type"):
+    #     conditions += " AND loan_type = %(loan_category)s"
+    # if filters.get("repayment_start_date"):
+    #     conditions += " AND repayment_start_date = %(repayment_start_date)s"
 
     return conditions
 
@@ -60,21 +57,17 @@ def get_query_result(filters):
     result = frappe.db.sql(
         """
         SELECT 
-			company,
-			applicant,
-			applicant_name,
-            branch, 
-            loan_application,
-            name,
-            loan_category,
-            repayment_periods,
-            total_payment,
-            total_amount_paid,
-            (total_payment-total_amount_paid),
-            status,
-            repayment_start_date
+			aghosh_home_id,
+            aghosh_home_name,
+            student,
+            student_name,
+            program,
+            academic_year,
+            total_marks,
+            total_obtained_marks,
+            total_percentage
         FROM 
-            `tabLoan`
+            `tabAssessment Result`
         WHERE
             docstatus != 2
         {0}

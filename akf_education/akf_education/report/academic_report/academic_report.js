@@ -9,5 +9,36 @@ frappe.query_reports["Academic Report"] = {
 			"fieldtype": "Link",
 			"options": "Aghosh Home"
 		},
+		// {
+		// 	"fieldname":"status",
+		// 	"label": __("Status"),
+		// 	"fieldtype": "Select",
+		// 	"options": [
+		// 		{"value": "0", "label": __("Draft")},
+		// 		{"value": "1", "label": __("Submitted")},
+		// 	]
+		// },
+		{
+			"fieldname":"percentage",
+			"label": __("Percentage"),
+			"fieldtype": "Select",
+			"options": [
+				{"value": "0", "label": __("All")},
+				{"value": "1", "label": __("Above 75%")},
+				{"value": "2", "label": __("Below 75%")},
+			]
+		},
+		{
+			"fieldname":"academic_year",
+			"label": __("Academic Year"),
+			"fieldtype": "Link",
+			"options": "Academic Year",
+		},
+		{
+			"fieldname":"program",
+			"label": __("Class"),
+			"fieldtype": "Link",
+			"options": "Program"
+		},
 	]
 };

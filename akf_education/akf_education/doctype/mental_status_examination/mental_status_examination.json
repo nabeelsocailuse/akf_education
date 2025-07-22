@@ -17,16 +17,22 @@
   "naming_series",
   "observations_section",
   "appearance_points",
+  "description_of_appearance",
   "speech",
+  "description_of_speech",
   "affect",
+  "description_of_affect",
   "column_break_gcwb",
   "eye_contact",
+  "description_of_eye_contact",
   "body_type",
+  "description_of_body_type",
   "any_illness_in_family",
-  "what_mental_disorder",
+  "mental_disorder",
   "column_break_wzzn",
   "conversation",
   "body_language",
+  "description_of_body_language",
   "column_break_dwuw",
   "physical_connection",
   "section_break_bpbu",
@@ -310,7 +316,7 @@
    "fieldname": "speech",
    "fieldtype": "Select",
    "label": "Speech",
-   "options": "\nCLear\nTalkative\nRapid\nPressured\nSlow\nSlurred\nStuttering\nMonotonous\nOthers"
+   "options": "\nClear\nTalkative\nRapid\nPressured\nSlow\nSlurred\nStuttering\nMonotonous\nOthers"
   },
   {
    "fieldname": "affect",
@@ -336,13 +342,6 @@
    "fieldtype": "Select",
    "label": "Any Illness in Family",
    "options": "\nYes\nNo"
-  },
-  {
-   "depends_on": "eval: doc.any_illness_in_family == 'Yes'",
-   "fieldname": "what_mental_disorder",
-   "fieldtype": "Data",
-   "label": "What Mental Disorder",
-   "mandatory_depends_on": "eval: doc.any_illness_in_family == 'Yes'"
   },
   {
    "fieldname": "body_language",
@@ -377,12 +376,61 @@
    "fieldtype": "Select",
    "label": "Facial Expression",
    "options": "\nSmiling\nBlank\nBlush"
+  },
+  {
+   "depends_on": "eval: doc.appearance_points == 'Others'",
+   "fieldname": "description_of_appearance",
+   "fieldtype": "Small Text",
+   "label": "Description of Appearance",
+   "mandatory_depends_on": "eval: doc.appearance_points == 'Others'"
+  },
+  {
+   "depends_on": "eval: doc.eye_contact == 'Others'",
+   "fieldname": "description_of_eye_contact",
+   "fieldtype": "Small Text",
+   "label": "Description of Eye Contact",
+   "mandatory_depends_on": "eval: doc.eye_contact == 'Others'"
+  },
+  {
+   "depends_on": "eval: doc.any_illness_in_family == 'Yes'",
+   "fieldname": "mental_disorder",
+   "fieldtype": "Data",
+   "label": "Mental Disorder",
+   "mandatory_depends_on": "eval: doc.any_illness_in_family == 'Yes'"
+  },
+  {
+   "depends_on": "eval: doc.body_type == 'Others'",
+   "fieldname": "description_of_body_type",
+   "fieldtype": "Small Text",
+   "label": "Description of Body Type",
+   "mandatory_depends_on": "eval: doc.body_type == 'Others'"
+  },
+  {
+   "depends_on": "eval: doc.body_language == 'Others'",
+   "fieldname": "description_of_body_language",
+   "fieldtype": "Small Text",
+   "label": "Description of Body Language",
+   "mandatory_depends_on": "eval: doc.body_language == 'Others'"
+  },
+  {
+   "depends_on": "eval: doc.speech == 'Others'",
+   "fieldname": "description_of_speech",
+   "fieldtype": "Small Text",
+   "label": "Description of Speech",
+   "mandatory_depends_on": "eval: doc.speech == 'Others'"
+  },
+  {
+   "depends_on": "eval: doc.affect == 'Others'",
+   "fieldname": "description_of_affect",
+   "fieldtype": "Small Text",
+   "label": "Description of Affect",
+   "mandatory_depends_on": "eval: doc.affect == 'Others'"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-21 21:11:36.095200",
+ "modified": "2025-07-22 18:05:47.302032",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Mental Status Examination",

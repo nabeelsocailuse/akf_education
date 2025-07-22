@@ -16,35 +16,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Sponsorship",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Sponsorship",
-   "link_count": 0,
-   "link_to": "Sponsorship",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Donor",
-   "link_count": 0,
-   "link_to": "Donor",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Fees",
    "link_count": 3,
    "link_type": "DocType",
@@ -392,9 +363,28 @@
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sponsorship",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sponsorship",
+   "link_count": 0,
+   "link_to": "Sponsorship",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-07-21 17:19:32.777263",
+ "modified": "2025-07-22 15:47:20.171218",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Homes",

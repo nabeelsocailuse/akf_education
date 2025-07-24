@@ -8,6 +8,7 @@
   "details_section",
   "donor_id",
   "donor_name",
+  "donor_type",
   "sponsorship_tenure",
   "tenure_period",
   "column_break_kvqm",
@@ -134,12 +135,19 @@
    "fieldname": "aghosh_program_manager",
    "fieldtype": "Attach Image",
    "label": "Aghosh Program Manager"
+  },
+  {
+   "fetch_from": "donor_id.donor_type",
+   "fieldname": "donor_type",
+   "fieldtype": "Data",
+   "label": "Donor Type",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-15 15:06:29.744786",
+ "modified": "2025-07-23 10:05:34.734291",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

@@ -8,6 +8,8 @@
   "naming_series",
   "student_id",
   "student_name",
+  "transfer_type",
+  "transfer_date",
   "column_break_myzu",
   "aghosh_home_id",
   "aghosh_home_name",
@@ -81,12 +83,23 @@
    "fieldtype": "Table",
    "label": "Details",
    "options": "Student Transfer Details"
+  },
+  {
+   "fieldname": "transfer_type",
+   "fieldtype": "Select",
+   "label": "Transfer Type",
+   "options": "\nAghosh Home\nBuilding\nRoom\nBed"
+  },
+  {
+   "fieldname": "transfer_date",
+   "fieldtype": "Date",
+   "label": "Transfer Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-25 17:36:14.297210",
+ "modified": "2025-07-23 12:48:49.220254",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Transfer",

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class Complaint(Document):
+class Symptoms(Document):
 	pass

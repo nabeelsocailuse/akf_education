@@ -3,30 +3,30 @@
  "allow_copy": 1,
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:complaints",
+ "autoname": "field:symptom",
  "creation": "2017-02-15 12:25:28.045267",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "complaints"
+  "symptom"
  ],
  "fields": [
   {
-   "fieldname": "complaints",
+   "fieldname": "symptom",
    "fieldtype": "Data",
    "ignore_xss_filter": 1,
    "in_list_view": 1,
-   "label": "Complaints",
+   "label": "Symptom",
    "reqd": 1,
    "unique": 1
   }
  ],
  "links": [],
- "modified": "2025-02-27 15:34:14.830221",
+ "modified": "2025-07-28 12:40:32.273621",
  "modified_by": "Administrator",
  "module": "Akf Education",
- "name": "Complaint",
+ "name": "Symptoms",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
@@ -56,9 +56,10 @@
   }
  ],
  "quick_entry": 1,
- "search_fields": "complaints",
+ "search_fields": "symptom",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "complaints"
+ "title_field": "symptom",
+ "track_changes": 1
 }

@@ -1,17 +1,35 @@
-frappe.pages['aghosh-home-details'].on_page_load = function(wrapper) {
+let filters = {};
+frappe.pages['aghosh-home-details'].on_page_load = function (wrapper) {
 	var page = frappe.ui.make_app_page({
 		parent: wrapper,
 		title: 'Aghosh Home Details',
 		single_column: true
 	});
-	serverCall.cards(page, {});
+	// serverCall.cards(page, {});
+	filters.add(page);
 };
+filters = {
+	add: function (page) {
+		let branch = page.add_field({
+			fieldname: "aghosh_home",
+			label: __("Aghosh Homes"),
+			fieldtype: "Link",
+			options: "Aghosh Home",
+			default: "",
+			reqd: 1,
+			change: (e) => {
+				// fetchDashboardData(page);
+				serverCall.cards(page, {});
+			},
+		});
+	}
+}
 
 const serverCall = {
 	cards: function (page, filters) {
 		frappe.call({
 			method: 'akf_education.akf_education.page.aghosh_home_details.aghosh_home_details.get_aghosh_home_dashboard',
-			args: {},
+			args: { filters: filters },
 			callback: function (r) {
 				let data = r.message;
 				design.cards(page, data);
@@ -35,12 +53,69 @@ const design = {
 };
 
 function renderHighcharts() {
+	// frappe.call({
+	//     method: "frappe.client.get_list",
+	//     args: {
+	//         doctype: "Aghosh Home",
+	//         fields: ["name"],
+	//         filters: {
+	//             status: "Operational"
+	//         },
+	//         limit_page_length: 100
+	//     },
+	//     callback: function (r) {
+	//         const dropdown = document.getElementById("aghosh-dropdown");
+	//         dropdown.innerHTML = ""; // clear placeholder
+
+	//         if (r.message.length === 0) {
+	//             dropdown.innerHTML = `<a class="dropdown-item disabled">No Operational Homes</a>`;
+	//             return;
+	//         }
+
+	//         r.message.forEach(home => {
+	//             const item = document.createElement("a");
+	//             item.className = "dropdown-item";
+	//             item.href = `/app/aghosh-home/${home.name}`; // or use onclick to handle logic
+	//             item.textContent = home.name;
+	//             dropdown.appendChild(item);
+	//         });
+	//     }
+	// });
+
+	// frappe.call({
+	//     method: "frappe.client.get_list",
+	//     args: {
+	//         doctype: "Aghosh Home",
+	//         fields: ["name","aghosh_home_name"],
+	//         filters: {
+	//             status: "Operational"
+	//         },
+	//         limit_page_length: 100
+	//     },
+	//     callback: function (r) {
+	//         const dropdown = document.getElementById("aghosh-list");
+	//         dropdown.innerHTML = ""; // clear previous options
+
+	//         if (!r.message || r.message.length === 0) {
+	//             dropdown.innerHTML = `<li><a class="dropdown-item disabled">No Operational Homes</a></li>`;
+	//             return;
+	//         }
+
+	//         r.message.forEach(home => {
+	//             dropdown.innerHTML += `<li aria-selected="true">
+	//               <a><p title="${home.name}"><strong>${home.name}</strong></p></a>
+	//             </li>`;
+	//         });
+	//     }
+	// });
+
+
 	// Chart: Class-wise Summary
 	if (document.getElementById('classChart')) {
 		Highcharts.chart('classChart', {
 			chart: { type: 'pie', backgroundColor: 'transparent' },
 			title: { text: null },
-            exporting: { enabled: false },
+			exporting: { enabled: false },
 			tooltip: { pointFormat: '{series.name}: <b>{point.y}</b>' },
 			plotOptions: {
 				pie: {
@@ -64,7 +139,7 @@ function renderHighcharts() {
 				]
 			}]
 		});
-        
+
 	}
 
 	// Chart: Age-wise Summary
@@ -72,7 +147,7 @@ function renderHighcharts() {
 		Highcharts.chart('ageChart', {
 			chart: { type: 'column', backgroundColor: 'transparent' },
 			title: { text: null },
-            exporting: { enabled: false },
+			exporting: { enabled: false },
 			xAxis: {
 				categories: ['5-8 years', '9-12 years', '13-16 years', '17-20 years'],
 				crosshair: true
@@ -100,7 +175,7 @@ function renderHighcharts() {
 		Highcharts.chart('donorChart', {
 			chart: { type: 'line', backgroundColor: 'transparent' },
 			title: { text: null },
-            exporting: { enabled: false },
+			exporting: { enabled: false },
 			xAxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] },
 			yAxis: { title: { text: null } },
 			tooltip: { shared: true, valueSuffix: '' },
@@ -123,9 +198,9 @@ function renderHighcharts() {
 				text: 'Children by Sponsorship Type',
 				align: 'left',
 				style: { fontWeight: 'bold', fontSize: '16px' }
-                
+
 			},
-            exporting: { enabled: false },
+			exporting: { enabled: false },
 			xAxis: {
 				categories: ['Head Office', 'Single Sponsored', 'Double Sponsored', 'Triple Sponsored', 'Local Sponsored', 'Regional Sponsored'],
 				labels: { rotation: -35 }
@@ -146,7 +221,7 @@ function renderHighcharts() {
 		Highcharts.chart('pieChart', {
 			chart: { type: 'pie' },
 			title: { text: '' },
-            exporting: { enabled: false },
+			exporting: { enabled: false },
 			series: [{
 				name: 'Staff',
 				colorByPoint: true,
@@ -164,7 +239,7 @@ function renderHighcharts() {
 		Highcharts.chart('barChart', {
 			chart: { type: 'column' },
 			title: { text: '' },
-            exporting: { enabled: false },
+			exporting: { enabled: false },
 			xAxis: { categories: ['Administration', 'Education', 'Healthcare', 'Maintenance'] },
 			yAxis: { title: { text: '' } },
 			series: [{
@@ -181,7 +256,7 @@ function renderHighcharts() {
 		Highcharts.chart('performanceChart', {
 			chart: { type: 'areaspline', backgroundColor: 'transparent' },
 			title: { text: null },
-            exporting: { enabled: false },
+			exporting: { enabled: false },
 			xAxis: {
 				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
 				tickmarkPlacement: 'on',

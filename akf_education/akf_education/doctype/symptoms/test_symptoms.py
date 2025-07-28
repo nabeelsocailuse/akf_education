@@ -4,5 +4,5 @@
 import unittest
 
 
-class TestComplaint(unittest.TestCase):
+class TestSymptoms(unittest.TestCase):
 	pass

@@ -1,11 +1,12 @@
 {
  "actions": [],
- "autoname": "format:SP-{donor_id}-{donor_name}-{#####}",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-02-21 19:01:40.893788",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "details_section",
+  "naming_series",
   "donor_id",
   "donor_name",
   "donor_type",
@@ -20,6 +21,7 @@
   "student_id",
   "student_name",
   "column_break_rduq",
+  "aghosh_home_id",
   "amended_from",
   "signatures_section",
   "aghosh_administrator",
@@ -142,16 +144,31 @@
    "fieldtype": "Data",
    "label": "Donor Type",
    "read_only": 1
+  },
+  {
+   "fetch_from": "student_id.aghosh_home_id",
+   "fieldname": "aghosh_home_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Aghosh Home ID",
+   "options": "Aghosh Home"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "AA-SP-.YYYY.-"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-23 10:05:34.734291",
+ "modified": "2025-07-29 17:09:44.906228",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

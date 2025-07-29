@@ -17,6 +17,7 @@
   "attachment",
   "persons_involved_tab",
   "affected_person",
+  "affected_person_name",
   "emergency_contact_notified",
   "column_break_dvcb",
   "witnesses",
@@ -196,11 +197,18 @@
    "hidden": 1,
    "label": "Series",
    "options": "AA-IR-.YYYY.-"
+  },
+  {
+   "fetch_from": "affected_person.full_name",
+   "fieldname": "affected_person_name",
+   "fieldtype": "Data",
+   "label": "Affected Person Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-19 17:38:28.054702",
+ "modified": "2025-07-29 11:14:59.245398",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Incident Report",

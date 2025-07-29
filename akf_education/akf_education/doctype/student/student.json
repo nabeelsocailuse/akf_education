@@ -28,6 +28,8 @@
   "deceased_reason",
   "joining_date",
   "date_of_admission",
+  "wear_glasses",
+  "disabled_child",
   "disability",
   "hifz",
   "guardian_contact_number",
@@ -479,9 +481,11 @@
    "read_only": 1
   },
   {
+   "depends_on": "eval:doc.disabled_child == 'Yes'",
    "fieldname": "disability",
    "fieldtype": "Data",
-   "label": "Disability"
+   "label": "Disability",
+   "mandatory_depends_on": "eval:doc.disabled_child == 'Yes'"
   },
   {
    "fieldname": "date_of_admission",
@@ -618,11 +622,23 @@
    "fieldtype": "Small Text",
    "label": "Deceased Reason",
    "mandatory_depends_on": "eval: doc.status == 'Deceased'"
+  },
+  {
+   "fieldname": "disabled_child",
+   "fieldtype": "Select",
+   "label": "Disabled Child",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "wear_glasses",
+   "fieldtype": "Select",
+   "label": "Wear Glasses",
+   "options": "\nYes\nNo"
   }
  ],
  "image_field": "student_picture",
  "links": [],
- "modified": "2025-07-19 14:21:15.929627",
+ "modified": "2025-07-29 14:16:37.162247",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student",

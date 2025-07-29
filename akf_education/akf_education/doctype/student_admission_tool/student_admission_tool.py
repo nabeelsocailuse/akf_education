@@ -27,7 +27,7 @@ class StudentAdmissionTool(Document):
 		})
 		for row in self.admission_table:
 			if not row.program:
-				frappe.throw("Program is missing for Aghosh Home.")
+				frappe.throw("Class is missing for Aghosh Home.")
 			if not row.minimum_age or not row.maximum_age:
 				frappe.throw ("Age limit missing")
     

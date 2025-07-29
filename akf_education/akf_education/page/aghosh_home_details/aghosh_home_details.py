@@ -1,18 +1,24 @@
 import frappe
 @frappe.whitelist()
-def get_aghosh_home_dashboard(filters=None):
-    # total_students = frappe.db.count("Student")
+def get_aghosh_home_dashboard(aghosh_home_id=None):
+
     # students_in_shilter = frappe.db.count("Program Enrollment", filters={"bed": ["!=", ""]})
-    # sponsored_childrens = frappe.db.sql("""SELECT COUNT(DISTINCT student_id)
-    #             FROM `tabSponsorship`
-    #             WHERE ifnull(donor_id,"")!="";
-    #             """)[0][0] or 0
-
+    sponsored_childrens = frappe.db.sql("""SELECT COUNT(DISTINCT student_id)
+                FROM `tabSponsorship`
+                WHERE ifnull(donor_id,"")!="" and aghosh_home_id = %s
+                AND docstatus = 1
+            """, (aghosh_home_id,), as_list=True)[0][0] or 0
     return {
-
-        # "total_students": total_students,
-        # "students_in_shilter": students_in_shilter,
-        # "sponsored_childrens": sponsored_childrens,
+        "aghosh_home_name": frappe.db.get_value("Aghosh Home", aghosh_home_id, "aghosh_home_name") if aghosh_home_id else None,
+        "total_students": total_students(aghosh_home_id),
+        "total_beds": total_beds(aghosh_home_id),
+        "total_rooms": total_rooms(aghosh_home_id),
+        "sponsored_childrens": sponsored_childrens,
+        "total_cameras": total_cameras(aghosh_home_id),
+        "active_cameras": active_cameras(aghosh_home_id),
+        "inactive_cameras": inactive_cameras(aghosh_home_id),
+        "disabled_students": disabled_students(aghosh_home_id),
+        "children_with_glasses": children_with_glasses(aghosh_home_id),
         # "unsponsored_childrens": (total_students - sponsored_childrens),
         # "activity_pictures": student_activity_pictures(),
         # "activity_videos": student_activity_videos(),
@@ -31,6 +37,37 @@ def get_aghosh_home_dashboard(filters=None):
         # "aghosh_home_locations": get_aghosh_home_locations()  
     }
 
+@frappe.whitelist()
+def total_students(aghosh_home_id=None):
+    return frappe.db.count("Student", filters={"aghosh_home_id": aghosh_home_id})
+
+@frappe.whitelist()
+def total_beds(aghosh_home_id=None):
+    return frappe.db.count("Beds", filters={"aghosh_home_id": aghosh_home_id})
+
+@frappe.whitelist()
+def total_rooms(aghosh_home_id=None):
+    return frappe.db.count("Rooms", filters={"aghosh_home_id": aghosh_home_id})
+
+@frappe.whitelist()
+def total_cameras(aghosh_home_id=None):
+    return frappe.db.get_value("Aghosh Home", aghosh_home_id, "total_cameras") or 0
+
+@frappe.whitelist()
+def active_cameras(aghosh_home_id=None):
+    return frappe.db.get_value("Aghosh Home", aghosh_home_id, "active_camera_count") or 0
+
+@frappe.whitelist()
+def inactive_cameras(aghosh_home_id=None):
+    return frappe.db.get_value("Aghosh Home", aghosh_home_id, "inactive_camera_count") or 0
+
+@frappe.whitelist()
+def disabled_students(aghosh_home_id=None):
+    return frappe.db.count("Student", filters={"aghosh_home_id": aghosh_home_id, "disabled_child": "Yes"})
+
+@frappe.whitelist()
+def children_with_glasses(aghosh_home_id=None):
+    return frappe.db.count("Student", filters={"aghosh_home_id": aghosh_home_id, "wear_glasses": "Yes"})
 
 # @frappe.whitelist()
 # def get_aghosh_home_status():

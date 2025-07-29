@@ -10,8 +10,8 @@ frappe.pages['aghosh-home-details'].on_page_load = function (wrapper) {
 };
 filters = {
 	add: function (page) {
-		let branch = page.add_field({
-			fieldname: "aghosh_home",
+		let aghosh_home_id = page.add_field({
+			fieldname: "aghosh_home_id",
 			label: __("Aghosh Homes"),
 			fieldtype: "Link",
 			options: "Aghosh Home",
@@ -29,7 +29,7 @@ const serverCall = {
 	cards: function (page, filters) {
 		frappe.call({
 			method: 'akf_education.akf_education.page.aghosh_home_details.aghosh_home_details.get_aghosh_home_dashboard',
-			args: { filters: filters },
+			args: { aghosh_home_id: page.fields_dict.aghosh_home_id.get_value() },
 			callback: function (r) {
 				let data = r.message;
 				design.cards(page, data);
@@ -40,75 +40,29 @@ const serverCall = {
 
 const design = {
 	cards: function (page, data) {
-		$("#container-fluid").remove();
+		$("#aghosh_dashboard").remove();
 		const content = frappe.render_template("aghosh_home_details", data);
 		const main = page.main;
 		$(content).appendTo(main);
 
 		// ⬅️ Call chart rendering after DOM is ready
 		setTimeout(() => {
-			renderHighcharts();
+			renderHighcharts(data);
 		}, 0);
 	}
 };
 
-function renderHighcharts() {
-	// frappe.call({
-	//     method: "frappe.client.get_list",
-	//     args: {
-	//         doctype: "Aghosh Home",
-	//         fields: ["name"],
-	//         filters: {
-	//             status: "Operational"
-	//         },
-	//         limit_page_length: 100
-	//     },
-	//     callback: function (r) {
-	//         const dropdown = document.getElementById("aghosh-dropdown");
-	//         dropdown.innerHTML = ""; // clear placeholder
-
-	//         if (r.message.length === 0) {
-	//             dropdown.innerHTML = `<a class="dropdown-item disabled">No Operational Homes</a>`;
-	//             return;
-	//         }
-
-	//         r.message.forEach(home => {
-	//             const item = document.createElement("a");
-	//             item.className = "dropdown-item";
-	//             item.href = `/app/aghosh-home/${home.name}`; // or use onclick to handle logic
-	//             item.textContent = home.name;
-	//             dropdown.appendChild(item);
-	//         });
-	//     }
-	// });
-
-	// frappe.call({
-	//     method: "frappe.client.get_list",
-	//     args: {
-	//         doctype: "Aghosh Home",
-	//         fields: ["name","aghosh_home_name"],
-	//         filters: {
-	//             status: "Operational"
-	//         },
-	//         limit_page_length: 100
-	//     },
-	//     callback: function (r) {
-	//         const dropdown = document.getElementById("aghosh-list");
-	//         dropdown.innerHTML = ""; // clear previous options
-
-	//         if (!r.message || r.message.length === 0) {
-	//             dropdown.innerHTML = `<li><a class="dropdown-item disabled">No Operational Homes</a></li>`;
-	//             return;
-	//         }
-
-	//         r.message.forEach(home => {
-	//             dropdown.innerHTML += `<li aria-selected="true">
-	//               <a><p title="${home.name}"><strong>${home.name}</strong></p></a>
-	//             </li>`;
-	//         });
-	//     }
-	// });
-
+function renderHighcharts(data) {
+	dashboard_title.innerHTML = data.aghosh_home_name;
+	total_students_count.innerHTML = data.total_students || 0;
+	total_beds_count.innerHTML = data.total_beds || 0;
+	total_rooms_count.innerHTML = data.total_rooms || 0;
+	sponsored_childrens_count.innerHTML = data.sponsored_childrens || 0;
+	total_cameras_count.innerHTML = data.total_cameras || 0;
+	active_cameras_count.innerHTML = data.active_cameras || 0;
+	inactive_cameras_count.innerHTML = data.inactive_cameras || 0;
+	disabled_student_count.innerHTML = data.disabled_students || 0;
+	children_with_glasses_count.innerHTML = data.children_with_glasses || 0;
 
 	// Chart: Class-wise Summary
 	if (document.getElementById('classChart')) {

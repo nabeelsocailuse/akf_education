@@ -63,6 +63,10 @@ function renderHighcharts(data) {
 	inactive_cameras_count.innerHTML = data.inactive_cameras || 0;
 	disabled_student_count.innerHTML = data.disabled_students || 0;
 	children_with_glasses_count.innerHTML = data.children_with_glasses || 0;
+	permanent_staff_count.innerHTML = data.permanent_staff || 0;
+	contract_staff_count.innerHTML = data.contract_staff || 0;
+	intern_staff_count.innerHTML = data.intern_staff || 0;
+	// staff_distributionPie.innerHTML = data.staff_distribution_pie;
 
 	// Chart: Class-wise Summary
 	if (document.getElementById('classChart')) {
@@ -77,7 +81,7 @@ function renderHighcharts(data) {
 					cursor: 'pointer',
 					dataLabels: {
 						enabled: true,
-						format: '{point.name}: {point.y}',
+						format: '{point.class_group}: {point.y}',
 						style: { fontSize: '13px' }
 					}
 				}
@@ -85,12 +89,7 @@ function renderHighcharts(data) {
 			series: [{
 				name: 'Students',
 				colorByPoint: true,
-				data: [
-					{ name: 'Class 1-3', y: 85 },
-					{ name: 'Class 4-6', y: 92 },
-					{ name: 'Class 7-9', y: 78 },
-					{ name: 'Class 10-12', y: 45 }
-				]
+				data: data.class_wise_summary
 			}]
 		});
 
@@ -103,7 +102,7 @@ function renderHighcharts(data) {
 			title: { text: null },
 			exporting: { enabled: false },
 			xAxis: {
-				categories: ['5-8 years', '9-12 years', '13-16 years', '17-20 years'],
+				categories: data.age_wise_summary.categories,
 				crosshair: true
 			},
 			yAxis: { min: 0, title: { text: null } },
@@ -111,14 +110,14 @@ function renderHighcharts(data) {
 				shared: true,
 				useHTML: true,
 				headerFormat: '<b>{point.key}</b><br>',
-				pointFormat: 'count: <b>{point.y}</b>'
+				pointFormat: 'Students: <b>{point.y}</b>'
 			},
 			plotOptions: {
 				column: { pointPadding: 0.2, borderWidth: 0, borderRadius: 4 }
 			},
 			series: [{
-				name: 'Children',
-				data: [65, 98, 87, 40],
+				name: 'Students by Age',
+				data: data.age_wise_summary.y,
 				color: '#f15b2a'
 			}]
 		});
@@ -171,34 +170,30 @@ function renderHighcharts(data) {
 	}
 
 	// Chart: Staff Distribution Pie
-	if (document.getElementById('pieChart')) {
-		Highcharts.chart('pieChart', {
+	if (document.getElementById('staff_distributionPie')) {
+		Highcharts.chart('staff_distributionPie', {
 			chart: { type: 'pie' },
 			title: { text: '' },
 			exporting: { enabled: false },
 			series: [{
 				name: 'Staff',
 				colorByPoint: true,
-				data: [
-					{ name: 'Permanent Staff', y: 28, color: '#f4a261' },
-					{ name: 'Contractual Staff', y: 12, color: '#f4b261' },
-					{ name: 'Interns', y: 5, color: '#f4c261' }
-				]
+				data: data.staff_distribution_pie
 			}]
 		});
 	}
 
 	// Chart: Staff by Department
-	if (document.getElementById('barChart')) {
-		Highcharts.chart('barChart', {
+	if (document.getElementById('staff_by_department')) {
+		Highcharts.chart('staff_by_department', {
 			chart: { type: 'column' },
 			title: { text: '' },
 			exporting: { enabled: false },
-			xAxis: { categories: ['Administration', 'Education', 'Healthcare', 'Maintenance'] },
+			xAxis: { categories: data.staff_by_department["categories"] },
 			yAxis: { title: { text: '' } },
 			series: [{
 				name: 'Staff',
-				data: [10, 15, 8, 7],
+				data: data.staff_by_department["counts"],
 				color: '#f4a261',
 				dataLabels: { enabled: true, color: '#333' }
 			}]

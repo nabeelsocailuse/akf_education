@@ -651,10 +651,20 @@ window.fetchHomes = function ({ method, title, indicator }) {
         return;
       }
 
-      const htmlList = `
+    //   const htmlList = `
+    //     <div style="padding-left: 0.5rem;">
+    //       <ul style="padding-left: 1.2rem; margin: 0; list-style-type: disc;">
+    //         ${data.map(item => `<li><a href="/app/aghosh-home-details?aghosh_home_id=${item.name}" onclick="
+    //              frappe.route_options = { aghosh_home_id: '${item.name}' };
+    //              frappe.set_route('app/aghosh-home-details');
+    //            ">${item.aghosh_home_name}</a></li>`).join("")}
+    //       </ul>
+    //     </div>
+    //   `;
+    const htmlList = `
         <div style="padding-left: 0.5rem;">
           <ul style="padding-left: 1.2rem; margin: 0; list-style-type: disc;">
-            ${data.map(item => `<li>${item.aghosh_home_name}</li>`).join("")}
+            ${data.map(item => `<li><a href="/app/aghosh-home-details" onclick='openAghoshHomeDetails("${item.name}")'>${item.aghosh_home_name}</a></li>`).join("")}
           </ul>
         </div>
       `;
@@ -667,6 +677,12 @@ window.fetchHomes = function ({ method, title, indicator }) {
     },
   });
 };
+
+function openAghoshHomeDetails(aghosh_home_id){
+    // frappe.set_route('aghosh-home-details');
+    localStorage.setItem('flag', "yes");
+    localStorage.setItem('aghosh_home_id', aghosh_home_id);
+}
 
 //operational
 window.showOperationalHomes = function () {

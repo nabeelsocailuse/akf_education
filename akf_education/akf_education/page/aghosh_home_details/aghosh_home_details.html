@@ -17,7 +17,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="info-title">Total Children</div>
-                    <div class="info-value" id="total_students_count">285</div>
+                    <div class="info-value" id="total_students_count"></div>
                     <div class="info-sub text-primary"></div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
         <div class="row g-3">
             <div class="col-sm-6 col-md-2">
                 <div class="stat-card">
-                    <h4>45</h4>
+                    <h4 id="head_office_count"></h4>
                     <p>Head Office</p>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar"
@@ -104,37 +104,7 @@
             </div>
             <div class="col-sm-6 col-md-2">
                 <div class="stat-card">
-                    <h4>68</h4>
-                    <p>Single Sponsored</p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar"
-                            style="width: 68%; background-color: hsl(35, 100%, 56%);"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-2">
-                <div class="stat-card">
-                    <h4>52</h4>
-                    <p>Double Sponsored</p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar"
-                            style="width: 52%; background-color: hsl(35, 100%, 64%);"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-2">
-                <div class="stat-card">
-                    <h4>33</h4>
-                    <p>Triple Sponsored</p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar"
-                            style="width: 33%; background-color: hsl(35, 100%, 73.5%);"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-2">
-                <div class="stat-card">
-                    <h4>74</h4>
+                    <h4 id="local_sponsored_count"></h4>
                     <p>Local Sponsored</p>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar"
@@ -144,11 +114,41 @@
             </div>
             <div class="col-sm-6 col-md-2">
                 <div class="stat-card">
-                    <h4>22</h4>
+                    <h4 id="regional_sponsored_count"></h4>
                     <p>Regional Sponsored</p>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar"
                             style="width: 22%; background-color: hsl(35, 100%, 79%);"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-2">
+                <div class="stat-card">
+                    <h4 id="single_sponsored_count"></h4>
+                    <p>Single Sponsored</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar"
+                            style="width: 68%; background-color: hsl(35, 100%, 56%);"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-2">
+                <div class="stat-card">
+                    <h4 id="double_sponsored_count"></h4>
+                    <p>Double Sponsored</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar"
+                            style="width: 52%; background-color: hsl(35, 100%, 64%);"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-2">
+                <div class="stat-card">
+                    <h4 id="triple_sponsored_count"></h4>
+                    <p>Triple Sponsored</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar"
+                            style="width: 33%; background-color: hsl(35, 100%, 73.5%);"></div>
                     </div>
                 </div>
             </div>
@@ -240,22 +240,16 @@
     <div class="mt-4">
         <h4 class="fw-bold mb-4">Academic Performance</h4>
         <div class="smal-card row g-3 mb-4">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card p-3">
-                    <div class="metric-value passRate">89%</div>
+                    <div class="metric-value passRate" id="overall_pass_rate"></div>
                     <div class="metric-title">Overall Pass Rate</div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card p-3">
-                    <div class="metric-value avgScore">85.2</div>
+                    <div class="metric-value avgScore" id="average_score"></div>
                     <div class="metric-title">Average Score</div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <div class="metric-value attendance">94%</div>
-                    <div class="metric-title">Attendance Rate</div>
                 </div>
             </div>
         </div>

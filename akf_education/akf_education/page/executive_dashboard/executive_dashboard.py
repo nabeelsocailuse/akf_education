@@ -208,7 +208,7 @@ def get_operational_aghosh_homes():
     return frappe.db.get_all(
         "Aghosh Home",
         filters={"status": "Operational"},
-        fields=["aghosh_home_name"]
+        fields=["aghosh_home_name", "name"]
     )
 
 @frappe.whitelist()

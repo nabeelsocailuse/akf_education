@@ -6,6 +6,7 @@ def get_aghosh_home_dashboard(aghosh_home_id=None):
                                             WHERE ifnull(donor_id,"")!="" and aghosh_home_id = %s
                                             AND docstatus = 1
                                         """, (aghosh_home_id,), as_list=True)[0][0] or 0
+    # frappe.throw(f"Sponsored Childrens: {sponsored_childrens}")
     return {
         "aghosh_home_name": frappe.db.get_value("Aghosh Home", aghosh_home_id, "aghosh_home_name") if aghosh_home_id else None,
         "total_students": total_students(aghosh_home_id),
@@ -23,7 +24,12 @@ def get_aghosh_home_dashboard(aghosh_home_id=None):
         "staff_distribution_pie": staff_distribution_pie(aghosh_home_id),
         "staff_by_department": staff_by_department(aghosh_home_id),
         "class_wise_summary": class_wise_summary(aghosh_home_id),
-        "age_wise_summary": age_wise_summary(aghosh_home_id)
+        "age_wise_summary": age_wise_summary(aghosh_home_id),
+        "donor_wise_summary": donor_wise_summary(),
+        "sponsorship_breakdown": sponsorship_breakdown(),
+        "performance": performance(),
+        "overall_pass_rate": overall_pass_rate(),
+        "average_score": average_score(),
     }
 
 @frappe.whitelist()
@@ -170,3 +176,159 @@ def age_wise_summary(aghosh_home_id=None):
         "categories": categories,
         "y": y
     }
+
+@frappe.whitelist()
+def donor_wise_summary():
+    data = frappe.db.sql(f"""
+                            SELECT 
+                                donor_type,
+                                DATE_FORMAT(creation, '%b %Y') AS month_label,
+                                COUNT(*) AS total
+                            FROM `tabSponsorship`
+                            WHERE creation >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+                            AND donor_type IN ('Alkhidmat International Network Member', 'Individual Donor', 'Corporate Donor')
+                            GROUP BY donor_type, YEAR(creation), MONTH(creation)
+                            ORDER BY YEAR(creation), MONTH(creation)
+                        """, as_dict=True)
+    donor_colors = {
+    "Alkhidmat International Network Member": "#1a5df0",
+    "Individual Donor": "#f68a0a",
+    "Corporate Donor": "#d43f3a"
+    }
+    
+    months = sorted(list({row.month_label for row in data}))
+    # frappe.throw(f"months: {months}")
+
+    donor_series = {
+    "Individual Donor": [0]*len(months),
+    "Corporate Donor": [0]*len(months),
+    "Alkhidmat International Network Member": [0]*len(months)
+    }
+
+    for row in data:
+        month_index = months.index(row.month_label)
+        donor_series[row.donor_type][month_index] = row.total
+
+    chart_series = [
+        {
+            "name": donor_type,
+            "data": donor_series[donor_type],
+            "color": donor_colors[donor_type]
+        }
+        for donor_type in donor_series
+    ]
+
+    return {
+        "categories": months,
+        "series": chart_series
+    }
+
+
+@frappe.whitelist()
+def sponsorship_breakdown():
+    # 1️⃣ Count Single/Double/Triple Sponsored students
+    single = frappe.db.sql("""
+        SELECT COUNT(*) as total FROM (
+            SELECT student_id FROM `tabSponsorship` GROUP BY student_id HAVING COUNT(*) = 1
+        ) t
+    """)[0][0]
+
+    double = frappe.db.sql("""
+        SELECT COUNT(*) as total FROM (
+            SELECT student_id FROM `tabSponsorship` GROUP BY student_id HAVING COUNT(*) = 2
+        ) t
+    """)[0][0]
+
+    triple = frappe.db.sql("""
+        SELECT COUNT(*) as total FROM (
+            SELECT student_id FROM `tabSponsorship` GROUP BY student_id HAVING COUNT(*) = 3
+        ) t
+    """)[0][0]
+
+    # 2️⃣ Count Sponsorship by Type
+    head_office = frappe.db.count("Sponsorship", {"sponsorship_type": "Head Office"})
+    local = frappe.db.count("Sponsorship", {"sponsorship_type": "Local Sponsored"})
+    regional = frappe.db.count("Sponsorship", {"sponsorship_type": "Regional Sponsored"})
+
+    # 3️⃣ Combine for Chart
+    result = [{
+        "name": "Sponsorship Type",
+        "data": [single, double, triple, head_office, local, regional],
+        "color": "#f39c12"
+    }]
+    # frappe.throw(f"result: {result[0]['data'][0]}")
+    return result
+
+@frappe.whitelist()
+def performance():
+    data = frappe.db.sql("""
+                            SELECT 
+                                academic_year,
+                                SUM(CASE WHEN total_percentage BETWEEN 40 AND 60 THEN 1 ELSE 0 END) AS range_40_60,
+                                SUM(CASE WHEN total_percentage BETWEEN 61 AND 80 THEN 1 ELSE 0 END) AS range_61_80,
+                                SUM(CASE WHEN total_percentage BETWEEN 81 AND 100 THEN 1 ELSE 0 END) AS range_81_100
+                            FROM `tabAssessment Result`
+                            WHERE select_term = 'Final Term' AND docstatus = 1
+                            GROUP BY academic_year
+                            ORDER BY academic_year DESC
+                            LIMIT 5
+                        """, as_dict=True)
+
+    # Reverse to show oldest first
+    data = list(reversed(data))
+
+    categories = [row.academic_year for row in data]
+    range_40_60 = [row.range_40_60 for row in data]
+    range_61_80 = [row.range_61_80 for row in data]
+    range_81_100 = [row.range_81_100 for row in data]
+
+    result = [
+        { "name": "40% - 60%", "data": range_40_60, "color": "#007bff" },
+        { "name": "61% - 80%", "data": range_61_80, "color": "#28a745" },
+        { "name": "81% - 100%", "data": range_81_100, "color": "#9b59b6" }
+    ]
+    return { "categories": categories, "series": result }
+
+@frappe.whitelist()
+def overall_pass_rate():
+    data = frappe.db.sql("""
+                            SELECT 
+                                academic_year,
+                                COUNT(*) AS total_students,
+                                SUM(CASE WHEN total_percentage >= 40 THEN 1 ELSE 0 END) AS passed_students
+                            FROM `tabAssessment Result`
+                            WHERE select_term = 'Final Term'
+                            GROUP BY academic_year
+                            ORDER BY academic_year DESC
+                            LIMIT 5
+                        """, as_dict=True)
+    
+    data = list(reversed(data))
+
+    # categories = [row.academic_year for row in data]
+    overall_pass_rate = [
+        round((row.passed_students / row.total_students) * 100, 2) if row.total_students else 0
+        for row in data
+    ]
+    # frappe.throw(f"pass_rate: {pass_rate}")
+    return overall_pass_rate
+
+@frappe.whitelist()
+def average_score():
+    data = frappe.db.sql("""
+                            SELECT 
+                                academic_year,
+                                ROUND(AVG(total_percentage), 2) AS avg_score
+                            FROM `tabAssessment Result`
+                            WHERE select_term = 'Final Term' AND docstatus = 1
+                            GROUP BY academic_year
+                            ORDER BY academic_year DESC
+                            LIMIT 5
+                        """, as_dict=True)
+    
+    data = list(reversed(data))
+
+    # categories = [row.academic_year for row in data]
+    average_score = [round(row.avg_score, 2) if row.avg_score is not None else 0 for row in data]
+    # frappe.throw(f"avg_score: {avg_score}")
+    return average_score

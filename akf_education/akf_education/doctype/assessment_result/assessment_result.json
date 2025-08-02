@@ -76,11 +76,9 @@
    "reqd": 1
   },
   {
-   "fetch_from": "student.student_name",
+   "fetch_from": "student.full_name",
    "fieldname": "student_name",
    "fieldtype": "Data",
-   "in_global_search": 1,
-   "in_list_view": 1,
    "label": "Student Name",
    "read_only": 1
   },
@@ -299,7 +297,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-19 13:23:34.495773",
+ "modified": "2025-08-01 15:39:13.305617",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result",

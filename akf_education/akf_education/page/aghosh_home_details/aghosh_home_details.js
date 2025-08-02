@@ -6,30 +6,52 @@ frappe.pages['aghosh-home-details'].on_page_load = function (wrapper) {
 		single_column: true
 	});
 	// serverCall.cards(page, {});
+	// const route = frappe.get_route();
 	filters.add(page);
 };
 filters = {
 	add: function (page) {
+		const flag = localStorage.getItem('flag');
+		const aghosh_home = localStorage.getItem('aghosh_home_id');
+
 		let aghosh_home_id = page.add_field({
 			fieldname: "aghosh_home_id",
 			label: __("Aghosh Homes"),
 			fieldtype: "Link",
 			options: "Aghosh Home",
-			default: "",
+			default: aghosh_home,
 			reqd: 1,
+			get_query: function () {
+                return {
+                    filters: {
+                        status: "Operational"  // Only show operational homes
+                    }
+                };
+            },
 			change: (e) => {
 				// fetchDashboardData(page);
-				serverCall.cards(page, {});
+				serverCall.cards(page, {'aghosh_home_id': aghosh_home_id.get_value()});
 			},
 		});
+		
+		if(flag=="yes"){
+			// console.log(typeof(flag));
+			// console.log(aghosh_home);
+			serverCall.cards(page, {'aghosh_home_id': aghosh_home});
+			localStorage.setItem('flag', 'no');
+			localStorage.setItem('aghosh_home_id', '');
+		}
+		
 	}
+	
 }
 
 const serverCall = {
 	cards: function (page, filters) {
+		
 		frappe.call({
 			method: 'akf_education.akf_education.page.aghosh_home_details.aghosh_home_details.get_aghosh_home_dashboard',
-			args: { aghosh_home_id: page.fields_dict.aghosh_home_id.get_value() },
+			args: filters,
 			callback: function (r) {
 				let data = r.message;
 				design.cards(page, data);
@@ -66,6 +88,14 @@ function renderHighcharts(data) {
 	permanent_staff_count.innerHTML = data.permanent_staff || 0;
 	contract_staff_count.innerHTML = data.contract_staff || 0;
 	intern_staff_count.innerHTML = data.intern_staff || 0;
+	head_office_count.innerHTML = data.sponsorship_breakdown[0]['data'][0] || 0;
+	local_sponsored_count.innerHTML = data.sponsorship_breakdown[0]['data'][1] || 0;
+	regional_sponsored_count.innerHTML = data.sponsorship_breakdown[0]['data'][2] || 0;
+	single_sponsored_count.innerHTML = data.sponsorship_breakdown[0]['data'][3] || 0;
+	double_sponsored_count.innerHTML = data.sponsorship_breakdown[0]['data'][4] || 0;
+	triple_sponsored_count.innerHTML = data.sponsorship_breakdown[0]['data'][5] || 0;
+	overall_pass_rate.innerHTML = data.overall_pass_rate ? data.overall_pass_rate + '%' : '0%';
+	average_score.innerHTML = data.average_score ? data.average_score : '0';
 	// staff_distributionPie.innerHTML = data.staff_distribution_pie;
 
 	// Chart: Class-wise Summary
@@ -129,17 +159,13 @@ function renderHighcharts(data) {
 			chart: { type: 'line', backgroundColor: 'transparent' },
 			title: { text: null },
 			exporting: { enabled: false },
-			xAxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] },
+			xAxis: { categories: data.donor_wise_summary.categories },
 			yAxis: { title: { text: null } },
 			tooltip: { shared: true, valueSuffix: '' },
 			plotOptions: {
 				line: { marker: { enabled: true, radius: 5 } }
 			},
-			series: [
-				{ name: 'individual', data: [45, 52, 48, 55, 60, 65], color: '#1a5df0' },
-				{ name: 'corporate', data: [22, 25, 29, 28, 32, 35], color: '#f68a0a' },
-				{ name: 'government', data: [15, 18, 20, 23, 25, 27], color: '#d43f3a' }
-			]
+			series: data.donor_wise_summary.series
 		});
 	}
 
@@ -149,23 +175,19 @@ function renderHighcharts(data) {
 			chart: { type: 'column', backgroundColor: 'transparent' },
 			title: {
 				text: 'Children by Sponsorship Type',
-				align: 'left',
+				align: 'center',
 				style: { fontWeight: 'bold', fontSize: '16px' }
 
 			},
 			exporting: { enabled: false },
 			xAxis: {
-				categories: ['Head Office', 'Single Sponsored', 'Double Sponsored', 'Triple Sponsored', 'Local Sponsored', 'Regional Sponsored'],
+				categories: ['Single Sponsored', 'Double Sponsored', 'Triple Sponsored', 'Head Office', 'Local Sponsored', 'Regional Sponsored'],
 				labels: { rotation: -35 }
 			},
 			yAxis: { min: 0, title: { text: null } },
 			tooltip: { pointFormat: 'Count: <b>{point.y}</b>' },
 			plotOptions: { column: { borderRadius: 4 } },
-			series: [{
-				name: 'Children',
-				data: [45, 68, 52, 33, 74, 22],
-				color: '#f39c12'
-			}]
+			series: data.sponsorship_breakdown
 		});
 	}
 
@@ -207,7 +229,7 @@ function renderHighcharts(data) {
 			title: { text: null },
 			exporting: { enabled: false },
 			xAxis: {
-				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+				categories: data.performance.categories,
 				tickmarkPlacement: 'on',
 				title: { enabled: false }
 			},
@@ -215,11 +237,7 @@ function renderHighcharts(data) {
 			tooltip: { shared: true, valueSuffix: '' },
 			credits: { enabled: false },
 			plotOptions: { areaspline: { fillOpacity: 0.3 } },
-			series: [
-				{ name: 'avgScore', data: [78, 82, 81, 85, 87, 89], color: '#007bff' },
-				{ name: 'passRate', data: [85, 86, 84, 88, 90, 91], color: '#28a745' },
-				{ name: 'attendance', data: [92, 90, 95, 96, 97, 98], color: '#9b59b6' }
-			]
+			series: data.performance.series
 		});
 	}
 }

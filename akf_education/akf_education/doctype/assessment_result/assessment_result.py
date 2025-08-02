@@ -16,6 +16,8 @@ class AssessmentResult(Document):
 	def validate(self):
 		self.set_percentage()
 		self.set_totals()
+		self.set_total_percentage()
+		
 		# education.education.validate_student_belongs_to_group(
 		# 	self.student, self.student_group
 		# )
@@ -29,7 +31,13 @@ class AssessmentResult(Document):
 				if row.score > row.maximum_score:
 					frappe.throw(_(f"Total Marks cannot be greater than Obtained Marks, Row: {row.idx}"))
 				row.percentage= (row.score / row.maximum_score) * 100
-	
+
+	def set_total_percentage(self):
+		if(self.total_obtained_marks and self.total_marks):
+			if self.total_obtained_marks > self.total_marks:
+				frappe.throw(_(f"Total Marks cannot be greater than Obtained Marks"))
+			self.total_percentage= (self.total_obtained_marks / self.total_marks) * 100
+
 	def set_totals(self):
 		if self.details:
 			total_marks = 0.0

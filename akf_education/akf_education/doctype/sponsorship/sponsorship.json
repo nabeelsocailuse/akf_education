@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "autoname": "naming_series:naming_series",
  "creation": "2025-02-21 19:01:40.893788",
  "doctype": "DocType",
@@ -7,9 +8,7 @@
  "field_order": [
   "details_section",
   "naming_series",
-  "donor_id",
-  "donor_name",
-  "donor_type",
+  "sponsorship_type",
   "sponsorship_tenure",
   "tenure_period",
   "column_break_kvqm",
@@ -17,6 +16,11 @@
   "end_date",
   "sponsored_amount",
   "total_sponsored_amount",
+  "donor_details_section",
+  "donor_id",
+  "donor_name",
+  "donor_type",
+  "column_break_mwog",
   "section_break_jyyj",
   "student_id",
   "student_name",
@@ -159,12 +163,27 @@
    "hidden": 1,
    "label": "Series",
    "options": "AA-SP-.YYYY.-"
+  },
+  {
+   "fieldname": "donor_details_section",
+   "fieldtype": "Section Break",
+   "label": "Donor Details"
+  },
+  {
+   "fieldname": "column_break_mwog",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sponsorship_type",
+   "fieldtype": "Select",
+   "label": "Sponsorship Type",
+   "options": "\nHead Office\nLocal Sponsored\nRegional Sponsored"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-29 17:09:44.906228",
+ "modified": "2025-08-01 11:27:52.229384",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

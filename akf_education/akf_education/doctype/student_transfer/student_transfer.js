@@ -55,11 +55,19 @@ frappe.ui.form.on("Student Transfer", {
     },
     transfer_type: function(frm) {
         frappe.call({
-            method: "akf_education.akf_education.doctype.student_transfer.student_transfer.prefill_transfer_scenario",
-            args: {},
+            method: "prefill_transfer_scenario",
+            doc: frm.doc,
             callback: function(r) {
-                if (r.message) {
-                }
+                frm.refresh_fields([
+                    "new_aghosh_home_id",
+                    "new_aghosh_home_name",
+                    "new_building_id",
+                    "new_building_name",
+                    "new_room_id",
+                    "new_room_number",
+                    "new_bed_id",
+                    "new_bed_number"
+                ]);
             }
         });
     }

@@ -68,22 +68,22 @@ def children_with_glasses(aghosh_home_id=None):
 @frappe.whitelist()
 def permanent_staff(aghosh_home_id=None):
     aghosh_branch=frappe.db.get_value("Aghosh Home", aghosh_home_id, "branch")
-    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Confirm"})
+    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Confirm", "status": "Active"})
 
 @frappe.whitelist()
 def contract_staff(aghosh_home_id=None):
     aghosh_branch=frappe.db.get_value("Aghosh Home", aghosh_home_id, "branch")
-    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Contract"})
+    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Contract", "status": "Active"})
 
 @frappe.whitelist()
 def probation_staff(aghosh_home_id=None):
     aghosh_branch=frappe.db.get_value("Aghosh Home", aghosh_home_id, "branch")
-    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Probation"})
+    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Probation", "status": "Active"})
 
 @frappe.whitelist()
 def intern_staff(aghosh_home_id=None):
     aghosh_branch=frappe.db.get_value("Aghosh Home", aghosh_home_id, "branch")
-    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Intern"})
+    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Intern", "status": "Active"})
 
 ####        Staff Distribution Pie Chart Data        ####
 # Note: The pie chart data is expected to be in the format:

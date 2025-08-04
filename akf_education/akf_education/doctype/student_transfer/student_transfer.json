@@ -8,6 +8,8 @@
   "naming_series",
   "student_id",
   "student_name",
+  "program",
+  "academic_year",
   "column_break_myzu",
   "transfer_type",
   "transfer_date",
@@ -20,7 +22,7 @@
   "old_building_id",
   "old_building_name",
   "new_building_id",
-  "new_building_home",
+  "new_building_name",
   "column_break_pbrd",
   "old_room_id",
   "old_room_number",
@@ -150,15 +152,6 @@
    "label": "New Building ID",
    "mandatory_depends_on": "eval: doc.transfer_type != 'Room' && doc.transfer_type != 'Bed'",
    "options": "Building"
-  },
-  {
-   "depends_on": "eval: doc.transfer_type != 'Room' && doc.transfer_type != 'Bed'",
-   "fetch_from": "new_building_id.building_name",
-   "fieldname": "new_building_home",
-   "fieldtype": "Data",
-   "label": "New Building Home",
-   "mandatory_depends_on": "eval: doc.transfer_type != 'Room' && doc.transfer_type != 'Bed'",
-   "read_only": 1
   },
   {
    "depends_on": "eval: doc.transfer_type != 'Bed'",
@@ -298,12 +291,35 @@
    "fieldtype": "Data",
    "label": "Old Bed Number",
    "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.transfer_type != 'Room' && doc.transfer_type != 'Bed'",
+   "fetch_from": "new_building_id.building_name",
+   "fieldname": "new_building_name",
+   "fieldtype": "Data",
+   "label": "New Building Name",
+   "mandatory_depends_on": "eval: doc.transfer_type != 'Room' && doc.transfer_type != 'Bed'",
+   "read_only": 1
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "Academic Year",
+   "options": "Academic Year",
+   "read_only": 1
+  },
+  {
+   "fieldname": "program",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Program",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-04 16:46:46.696547",
+ "modified": "2025-08-04 20:39:43.672824",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Transfer",

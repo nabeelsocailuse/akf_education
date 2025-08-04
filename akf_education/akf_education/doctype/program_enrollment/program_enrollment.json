@@ -33,7 +33,9 @@
   "building",
   "building_name",
   "room",
+  "room_number",
   "bed",
+  "bed_number",
   "section_break_vsaj",
   "student_category",
   "student_batch_name",
@@ -59,7 +61,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "student.student_name",
+   "fetch_from": "student.full_name",
    "fieldname": "student_name",
    "fieldtype": "Read Only",
    "in_global_search": 1,
@@ -319,12 +321,26 @@
    "fieldtype": "Check",
    "label": "Active",
    "read_only": 1
+  },
+  {
+   "fetch_from": "room.room_number",
+   "fieldname": "room_number",
+   "fieldtype": "Data",
+   "label": "Room Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "bed.bed_number",
+   "fieldname": "bed_number",
+   "fieldtype": "Data",
+   "label": "Bed Number",
+   "read_only": 1
   }
  ],
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-19 13:25:56.345856",
+ "modified": "2025-08-04 13:13:16.143225",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

@@ -12,25 +12,32 @@
   "transfer_type",
   "transfer_date",
   "transfer_details_section",
-  "current_aghosh_home_id",
-  "current_aghosh_home_name",
+  "old_aghosh_home_id",
+  "old_aghosh_home_name",
   "new_aghosh_home_id",
   "new_aghosh_home_name",
   "column_break_jaup",
-  "current_building_id",
-  "current_building_name",
+  "old_building_id",
+  "old_building_name",
   "new_building_id",
   "new_building_home",
   "column_break_pbrd",
-  "current_room_id",
-  "current_room_number",
+  "old_room_id",
+  "old_room_number",
   "new_room_id",
   "new_room_number",
   "column_break_rodk",
-  "current_bed_id",
-  "current_bed_number",
+  "old_bed_id",
+  "old_bed_number",
   "new_bed_id",
   "new_bed_number",
+  "school_details_section",
+  "school_type",
+  "column_break_qtto",
+  "internal_school",
+  "internal_school_name",
+  "external_school",
+  "external_school_name",
   "section_break_gvlh",
   "details",
   "section_break_qiex",
@@ -56,7 +63,7 @@
    "fieldtype": "Select",
    "hidden": 1,
    "label": "Series",
-   "options": "ST-.YYYY.-"
+   "options": "AA-ST-.YYYY.-"
   },
   {
    "fieldname": "student_id",
@@ -108,13 +115,6 @@
    "label": "Transfer Details"
   },
   {
-   "fieldname": "current_aghosh_home_id",
-   "fieldtype": "Link",
-   "label": "Current Aghosh Home ID",
-   "options": "Aghosh Home",
-   "read_only": 1
-  },
-  {
    "fieldname": "column_break_jaup",
    "fieldtype": "Column Break"
   },
@@ -125,55 +125,6 @@
   {
    "fieldname": "column_break_rodk",
    "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "current_aghosh_home_id.aghosh_home_name",
-   "fieldname": "current_aghosh_home_name",
-   "fieldtype": "Data",
-   "label": "Current Aghosh Home Name",
-   "read_only": 1
-  },
-  {
-   "fieldname": "current_building_id",
-   "fieldtype": "Link",
-   "label": "Current Building ID",
-   "options": "Building",
-   "read_only": 1
-  },
-  {
-   "fieldname": "current_room_id",
-   "fieldtype": "Link",
-   "label": "Current Room ID",
-   "options": "Rooms",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "current_building_id.building_name",
-   "fieldname": "current_building_name",
-   "fieldtype": "Data",
-   "label": "Current Building Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "current_room_id.room_number",
-   "fieldname": "current_room_number",
-   "fieldtype": "Data",
-   "label": "Current Room Number",
-   "read_only": 1
-  },
-  {
-   "fieldname": "current_bed_id",
-   "fieldtype": "Link",
-   "label": "Current Bed ID",
-   "options": "Beds",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "current_bed_id.bed_number",
-   "fieldname": "current_bed_number",
-   "fieldtype": "Data",
-   "label": "Current Bed Number",
-   "read_only": 1
   },
   {
    "depends_on": "eval: doc.transfer_type == 'Aghosh Home'",
@@ -242,12 +193,117 @@
    "label": "New Bed Number",
    "mandatory_depends_on": "eval: doc.transfer_type",
    "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.transfer_type == 'Aghosh Home'",
+   "fieldname": "school_details_section",
+   "fieldtype": "Section Break",
+   "label": "School Details"
+  },
+  {
+   "fieldname": "school_type",
+   "fieldtype": "Select",
+   "label": "School Type",
+   "mandatory_depends_on": "eval: doc.transfer_type == 'Aghosh Home'",
+   "options": "\nInternal\nExternal"
+  },
+  {
+   "fieldname": "column_break_qtto",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.school_type == 'Internal'",
+   "fieldname": "internal_school",
+   "fieldtype": "Link",
+   "label": "Internal School",
+   "mandatory_depends_on": "eval: doc.school_type == 'Internal'",
+   "options": "Building"
+  },
+  {
+   "depends_on": "eval: doc.school_type == 'External'",
+   "fieldname": "external_school",
+   "fieldtype": "Link",
+   "label": "External School",
+   "mandatory_depends_on": "eval: doc.school_type == 'External'",
+   "options": "External School"
+  },
+  {
+   "depends_on": "eval: doc.school_type == 'Internal'",
+   "fetch_from": "internal_school.name_of_school",
+   "fieldname": "internal_school_name",
+   "fieldtype": "Data",
+   "label": "Internal School Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.school_type == 'External'",
+   "fetch_from": "external_school.name_of_school",
+   "fieldname": "external_school_name",
+   "fieldtype": "Data",
+   "label": "External School Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_aghosh_home_id",
+   "fieldtype": "Link",
+   "label": "Old Aghosh Home ID",
+   "options": "Aghosh Home",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "old_aghosh_home_id.aghosh_home_name",
+   "fieldname": "old_aghosh_home_name",
+   "fieldtype": "Data",
+   "label": "Old Aghosh Home Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_building_id",
+   "fieldtype": "Link",
+   "label": "Old Building ID",
+   "options": "Building",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "old_building_id.building_name",
+   "fieldname": "old_building_name",
+   "fieldtype": "Data",
+   "label": "Old Building Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_room_id",
+   "fieldtype": "Link",
+   "label": "Old Room ID",
+   "options": "Rooms",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "old_room_id.room_number",
+   "fieldname": "old_room_number",
+   "fieldtype": "Data",
+   "label": "Old Room Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_bed_id",
+   "fieldtype": "Link",
+   "label": "Old Bed ID",
+   "options": "Beds",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "old_bed_id.bed_number",
+   "fieldname": "old_bed_number",
+   "fieldtype": "Data",
+   "label": "Old Bed Number",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-29 16:54:28.254961",
+ "modified": "2025-08-04 16:46:46.696547",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Student Transfer",

@@ -20,21 +20,22 @@ def get_aghosh_home_dashboard(aghosh_home_id=None):
         "children_with_glasses": children_with_glasses(aghosh_home_id),
         "permanent_staff": permanent_staff(aghosh_home_id),
         "contract_staff": contract_staff(aghosh_home_id),
+        "probation_staff": probation_staff(aghosh_home_id),
         "intern_staff": intern_staff(aghosh_home_id),
         "staff_distribution_pie": staff_distribution_pie(aghosh_home_id),
         "staff_by_department": staff_by_department(aghosh_home_id),
         "class_wise_summary": class_wise_summary(aghosh_home_id),
         "age_wise_summary": age_wise_summary(aghosh_home_id),
-        "donor_wise_summary": donor_wise_summary(),
-        "sponsorship_breakdown": sponsorship_breakdown(),
-        "performance": performance(),
-        "overall_pass_rate": overall_pass_rate(),
-        "average_score": average_score(),
+        "donor_wise_summary": donor_wise_summary(aghosh_home_id),
+        "sponsorship_breakdown": sponsorship_breakdown(aghosh_home_id),
+        "performance": performance(aghosh_home_id),
+        "overall_pass_rate": overall_pass_rate(aghosh_home_id),
+        "average_score": average_score(aghosh_home_id),
     }
 
 @frappe.whitelist()
 def total_students(aghosh_home_id=None):
-    return frappe.db.count("Student", filters={"aghosh_home_id": aghosh_home_id})
+    return frappe.db.count("Student", filters={"aghosh_home_id": aghosh_home_id, "status": "Active"})
 
 @frappe.whitelist()
 def total_beds(aghosh_home_id=None):
@@ -58,21 +59,26 @@ def inactive_cameras(aghosh_home_id=None):
 
 @frappe.whitelist()
 def disabled_students(aghosh_home_id=None):
-    return frappe.db.count("Student", filters={"aghosh_home_id": aghosh_home_id, "disabled_child": "Yes"})
+    return frappe.db.count("Student", filters={"aghosh_home_id": aghosh_home_id, "disabled_child": "Yes", "status": "Active"})
 
 @frappe.whitelist()
 def children_with_glasses(aghosh_home_id=None):
-    return frappe.db.count("Student", filters={"aghosh_home_id": aghosh_home_id, "wear_glasses": "Yes"})
+    return frappe.db.count("Student", filters={"aghosh_home_id": aghosh_home_id, "wear_glasses": "Yes", "status": "Active"})
 
 @frappe.whitelist()
 def permanent_staff(aghosh_home_id=None):
     aghosh_branch=frappe.db.get_value("Aghosh Home", aghosh_home_id, "branch")
-    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Permanent"})
+    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Confirm"})
 
 @frappe.whitelist()
 def contract_staff(aghosh_home_id=None):
     aghosh_branch=frappe.db.get_value("Aghosh Home", aghosh_home_id, "branch")
     return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Contract"})
+
+@frappe.whitelist()
+def probation_staff(aghosh_home_id=None):
+    aghosh_branch=frappe.db.get_value("Aghosh Home", aghosh_home_id, "branch")
+    return frappe.db.count("Employee", filters={"branch": aghosh_branch,"employment_type": "Probation"})
 
 @frappe.whitelist()
 def intern_staff(aghosh_home_id=None):
@@ -90,19 +96,21 @@ def staff_distribution_pie(aghosh_home_id=None):
     data = frappe.db.sql("""
     SELECT
         CASE 
-            WHEN employment_type = 'Permanent' THEN 'Permanent Staff'
+            WHEN employment_type = 'Confirm' THEN 'Permanent Staff'
             WHEN employment_type = 'Contract' THEN 'Contractual Staff'
+            WHEN employment_type = 'Probation' THEN 'Probation Staff'
             WHEN employment_type = 'Intern' THEN 'Interns'
         END as name,
         COUNT(*) as y,
         CASE 
-            WHEN employment_type = 'Permanent' THEN '#f4a261'
+            WHEN employment_type = 'Confirm' THEN '#f4a261'
             WHEN employment_type = 'Contract' THEN '#f4b261'
             WHEN employment_type = 'Intern' THEN '#f4c261'
+            WHEN employment_type = 'Probation' THEN '#f4d261'
         END as color
     FROM `tabEmployee`
     WHERE branch = %s 
-      AND employment_type IN ('Permanent', 'Contract', 'Intern')
+      AND employment_type IN ('Confirm', 'Contract', 'Intern', 'Probation')
     GROUP BY employment_type
 """, (aghosh_branch,), as_dict=True)
     
@@ -116,10 +124,11 @@ def staff_by_department(aghosh_home_id=None):
                                 department,
                                 COUNT(*) as count
                             FROM `tabEmployee`
-                            WHERE branch = %s AND employment_type IN ('Permanent', 'Contract', 'Intern')
+                            WHERE branch = %s
                             GROUP BY department
                             ORDER BY department
                         """, (aghosh_branch,), as_dict=True)
+    # employment_type IN ('Confirm', 'Contract', 'Intern')
     
     categories = [row.department or "Not Assigned" for row in data]
     counts = [row.count for row in data]
@@ -162,7 +171,7 @@ def age_wise_summary(aghosh_home_id=None):
                     END as age_group,
                     COUNT(*) as y
                 FROM `tabStudent`
-                WHERE aghosh_home_id = %s
+                WHERE aghosh_home_id = %s AND status = 'Active'
                 GROUP BY age_group
                 ORDeR BY age_group         
             """, (aghosh_home_id,), as_dict=True)
@@ -178,7 +187,7 @@ def age_wise_summary(aghosh_home_id=None):
     }
 
 @frappe.whitelist()
-def donor_wise_summary():
+def donor_wise_summary(aghosh_home_id=None):
     data = frappe.db.sql(f"""
                             SELECT 
                                 donor_type,
@@ -186,7 +195,8 @@ def donor_wise_summary():
                                 COUNT(*) AS total
                             FROM `tabSponsorship`
                             WHERE creation >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
-                            AND donor_type IN ('Alkhidmat International Network Member', 'Individual Donor', 'Corporate Donor')
+                            AND donor_type IN ('Alkhidmat International Network Member', 'Individual Donor', 'Corporate Donor') 
+                            AND aghosh_home_id = '{aghosh_home_id}' AND docstatus = 1
                             GROUP BY donor_type, YEAR(creation), MONTH(creation)
                             ORDER BY YEAR(creation), MONTH(creation)
                         """, as_dict=True)
@@ -225,30 +235,36 @@ def donor_wise_summary():
 
 
 @frappe.whitelist()
-def sponsorship_breakdown():
+def sponsorship_breakdown(aghosh_home_id=None):
     # 1️⃣ Count Single/Double/Triple Sponsored students
     single = frappe.db.sql("""
         SELECT COUNT(*) as total FROM (
-            SELECT student_id FROM `tabSponsorship` GROUP BY student_id HAVING COUNT(*) = 1
+            SELECT student_id FROM `tabSponsorship`
+            WHERE ifnull(donor_id,"")!="" and aghosh_home_id = %s AND docstatus = 1
+            GROUP BY student_id HAVING COUNT(*) = 1
         ) t
-    """)[0][0]
+    """, (aghosh_home_id,),)[0][0]
 
     double = frappe.db.sql("""
         SELECT COUNT(*) as total FROM (
-            SELECT student_id FROM `tabSponsorship` GROUP BY student_id HAVING COUNT(*) = 2
+            SELECT student_id FROM `tabSponsorship`
+            WHERE ifnull(donor_id,"")!="" and aghosh_home_id = %s AND docstatus = 1
+            GROUP BY student_id HAVING COUNT(*) = 2
         ) t
-    """)[0][0]
+    """, (aghosh_home_id,),)[0][0]
 
     triple = frappe.db.sql("""
         SELECT COUNT(*) as total FROM (
-            SELECT student_id FROM `tabSponsorship` GROUP BY student_id HAVING COUNT(*) = 3
+            SELECT student_id FROM `tabSponsorship`
+            WHERE ifnull(donor_id,"")!="" and aghosh_home_id = %s AND docstatus = 1
+            GROUP BY student_id HAVING COUNT(*) = 3
         ) t
-    """)[0][0]
+    """, (aghosh_home_id,),)[0][0]
 
     # 2️⃣ Count Sponsorship by Type
-    head_office = frappe.db.count("Sponsorship", {"sponsorship_type": "Head Office"})
-    local = frappe.db.count("Sponsorship", {"sponsorship_type": "Local Sponsored"})
-    regional = frappe.db.count("Sponsorship", {"sponsorship_type": "Regional Sponsored"})
+    head_office = frappe.db.count("Sponsorship", {"sponsorship_type": "Head Office", "aghosh_home_id": aghosh_home_id, "docstatus": 1})
+    local = frappe.db.count("Sponsorship", {"sponsorship_type": "Local Sponsored", "aghosh_home_id": aghosh_home_id, "docstatus": 1})
+    regional = frappe.db.count("Sponsorship", {"sponsorship_type": "Regional Sponsored", "aghosh_home_id": aghosh_home_id, "docstatus": 1})
 
     # 3️⃣ Combine for Chart
     result = [{
@@ -260,7 +276,7 @@ def sponsorship_breakdown():
     return result
 
 @frappe.whitelist()
-def performance():
+def performance(aghosh_home_id=None):
     data = frappe.db.sql("""
                             SELECT 
                                 academic_year,
@@ -268,11 +284,11 @@ def performance():
                                 SUM(CASE WHEN total_percentage BETWEEN 61 AND 80 THEN 1 ELSE 0 END) AS range_61_80,
                                 SUM(CASE WHEN total_percentage BETWEEN 81 AND 100 THEN 1 ELSE 0 END) AS range_81_100
                             FROM `tabAssessment Result`
-                            WHERE select_term = 'Final Term' AND docstatus = 1
+                            WHERE select_term = 'Final Term' AND docstatus = 1 AND aghosh_home_id = %s
                             GROUP BY academic_year
                             ORDER BY academic_year DESC
                             LIMIT 5
-                        """, as_dict=True)
+                        """, (aghosh_home_id,), as_dict=True)
 
     # Reverse to show oldest first
     data = list(reversed(data))
@@ -290,19 +306,19 @@ def performance():
     return { "categories": categories, "series": result }
 
 @frappe.whitelist()
-def overall_pass_rate():
+def overall_pass_rate(aghosh_home_id=None):
     data = frappe.db.sql("""
                             SELECT 
                                 academic_year,
                                 COUNT(*) AS total_students,
                                 SUM(CASE WHEN total_percentage >= 40 THEN 1 ELSE 0 END) AS passed_students
                             FROM `tabAssessment Result`
-                            WHERE select_term = 'Final Term'
+                            WHERE select_term = 'Final Term' and docstatus = 1 AND aghosh_home_id = %s
                             GROUP BY academic_year
                             ORDER BY academic_year DESC
                             LIMIT 5
-                        """, as_dict=True)
-    
+                        """, (aghosh_home_id,), as_dict=True)
+
     data = list(reversed(data))
 
     # categories = [row.academic_year for row in data]
@@ -314,18 +330,18 @@ def overall_pass_rate():
     return overall_pass_rate
 
 @frappe.whitelist()
-def average_score():
+def average_score(aghosh_home_id=None):
     data = frappe.db.sql("""
                             SELECT 
                                 academic_year,
                                 ROUND(AVG(total_percentage), 2) AS avg_score
                             FROM `tabAssessment Result`
-                            WHERE select_term = 'Final Term' AND docstatus = 1
+                            WHERE select_term = 'Final Term' AND docstatus = 1 AND aghosh_home_id = %s
                             GROUP BY academic_year
                             ORDER BY academic_year DESC
                             LIMIT 5
-                        """, as_dict=True)
-    
+                        """, (aghosh_home_id,), as_dict=True)
+
     data = list(reversed(data))
 
     # categories = [row.academic_year for row in data]

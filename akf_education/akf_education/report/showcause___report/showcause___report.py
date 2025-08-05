@@ -53,7 +53,7 @@ def get_query_result(filters):
         """
         SELECT 
             affected_person,
-            "child_name",
+            affected_person_name,
             incident_type,
             incident_date_time,
             closure_date

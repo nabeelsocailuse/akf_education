@@ -16,6 +16,7 @@ class StudentTransfer(Document):
 	def on_submit(self):
 		self.create_program_enrollment()
 
+	@frappe.whitelist()
 	def get_program_enrollment(self):
 		if not self.student_id:
 			frappe.throw("Student ID is required to proceed.")

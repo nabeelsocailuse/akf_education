@@ -52,7 +52,8 @@
    "fieldname": "incident_type",
    "fieldtype": "Select",
    "label": "Incident Type",
-   "options": "\nSafety\nSecurity\nMedical\nBehavioral\nProperty Damage\nOthers"
+   "options": "\nSafety\nSecurity\nMedical\nBehavioral\nProperty Damage\nOthers",
+   "reqd": 1
   },
   {
    "fieldname": "detailed_description",
@@ -97,7 +98,8 @@
    "fieldname": "affected_person",
    "fieldtype": "Link",
    "label": "Affected Person",
-   "options": "Student"
+   "options": "Student",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_dvcb",
@@ -208,7 +210,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-29 11:14:59.245398",
+ "modified": "2025-08-05 12:03:58.147102",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Incident Report",

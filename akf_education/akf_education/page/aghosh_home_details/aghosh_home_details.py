@@ -110,7 +110,8 @@ def staff_distribution_pie(aghosh_home_id=None):
         END as color
     FROM `tabEmployee`
     WHERE branch = %s 
-      AND employment_type IN ('Confirm', 'Contract', 'Intern', 'Probation')
+        AND employment_type IN ('Confirm', 'Contract', 'Intern', 'Probation')
+        AND status = 'Active'
     GROUP BY employment_type
 """, (aghosh_branch,), as_dict=True)
     
@@ -124,7 +125,7 @@ def staff_by_department(aghosh_home_id=None):
                                 department,
                                 COUNT(*) as count
                             FROM `tabEmployee`
-                            WHERE branch = %s
+                            WHERE branch = %s AND status = 'Active'
                             GROUP BY department
                             ORDER BY department
                         """, (aghosh_branch,), as_dict=True)

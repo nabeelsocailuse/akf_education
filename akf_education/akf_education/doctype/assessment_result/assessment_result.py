@@ -17,6 +17,7 @@ class AssessmentResult(Document):
 		self.set_percentage()
 		self.set_totals()
 		self.set_total_percentage()
+		self.validate_program_enrollment()
 		
 		# education.education.validate_student_belongs_to_group(
 		# 	self.student, self.student_group
@@ -24,6 +25,27 @@ class AssessmentResult(Document):
 		# self.validate_maximum_score()
 		# self.validate_grade()
 		self.validate_duplicate()
+
+	def validate_program_enrollment(self):
+		program_enrollment = frappe.get_all(
+			"Program Enrollment",
+			filters={
+				"student": self.student,
+				"academic_year": self.academic_year,
+				"program": self.program,
+				# "docstatus": ("!=", 2),
+				"active": 1,
+			},
+			fields=["name"],
+		)
+		# frappe.throw(f"{program_enrollment}")
+
+		if not program_enrollment:
+			frappe.throw(
+				_("No Program Enrollment found for Student: '<b>{0}</b>' in Academic Year: '{1}' for '{2}'").format(
+					self.student_name, self.academic_year, self.program
+				)
+			)
 
 	def set_percentage(self):
 		for row in self.details:
@@ -78,10 +100,12 @@ class AssessmentResult(Document):
 				"name": ("not in", [self.name]),
 				"student": self.student,
 				"academic_year": self.academic_year,
+				"program": self.program,
 				"docstatus": ("!=", 2),
 				"select_term": "Final Term",
 			},
 		)
+		# frappe.throw(f"{assessment_result}")
 		if assessment_result:
 			frappe.throw(
 				_("Assessment Result record {0} already exists.").format(

@@ -15,10 +15,6 @@
   "program",
   "promoted_to_class",
   "position",
-  "class_incharge_sign",
-  "coordinator_sign",
-  "principal_sign",
-  "parent_guardian_sign",
   "column_break_3",
   "aghosh_home_id",
   "aghosh_home_name",
@@ -32,6 +28,12 @@
   "assessment_group",
   "academic_term",
   "grading_scale",
+  "signatures_section",
+  "coordinator_sign",
+  "principal_sign",
+  "column_break_bupq",
+  "class_incharge_sign",
+  "parent_guardian_sign",
   "section_break_5",
   "details",
   "section_break_8",
@@ -172,7 +174,8 @@
    "fieldname": "academic_year",
    "fieldtype": "Link",
    "label": "Academic Year",
-   "options": "Academic Year"
+   "options": "Academic Year",
+   "reqd": 1
   },
   {
    "fieldname": "course",
@@ -232,7 +235,9 @@
    "fieldname": "program",
    "fieldtype": "Link",
    "label": "Class",
-   "options": "Program"
+   "options": "Program",
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "fieldname": "select_term",
@@ -262,22 +267,22 @@
   },
   {
    "fieldname": "class_incharge_sign",
-   "fieldtype": "Signature",
+   "fieldtype": "Attach Image",
    "label": "Class Incharge Sign"
   },
   {
    "fieldname": "coordinator_sign",
-   "fieldtype": "Signature",
+   "fieldtype": "Attach Image",
    "label": "Coordinator Sign"
   },
   {
    "fieldname": "principal_sign",
-   "fieldtype": "Signature",
+   "fieldtype": "Attach Image",
    "label": "Principal Sign"
   },
   {
    "fieldname": "parent_guardian_sign",
-   "fieldtype": "Signature",
+   "fieldtype": "Attach Image",
    "label": "Parent/Guardian Sign"
   },
   {
@@ -293,11 +298,20 @@
    "fieldtype": "Data",
    "label": "Aghosh Home Head",
    "read_only": 1
+  },
+  {
+   "fieldname": "signatures_section",
+   "fieldtype": "Section Break",
+   "label": "SIgnatures"
+  },
+  {
+   "fieldname": "column_break_bupq",
+   "fieldtype": "Column Break"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-01 15:39:13.305617",
+ "modified": "2025-08-05 18:01:34.184139",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result",

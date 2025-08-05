@@ -17,7 +17,8 @@ class StudentAdmission(WebsiteGenerator):
 
 	def validate(self):
 		self.validate_min_max_age()
-		if self.admission_start_date and self.admission_end_date < getdate(today()):
+		# if self.admission_start_date and self.admission_end_date < getdate(today()):
+		if self.admission_start_date and getdate(self.admission_end_date) < getdate(today()):
 			frappe.throw("Date must be today or later.")
 		if self.admission_start_date and self.admission_end_date < self.admission_start_date:
 			frappe.throw(_("Admission End Date should be greater than Admission Start Date."))

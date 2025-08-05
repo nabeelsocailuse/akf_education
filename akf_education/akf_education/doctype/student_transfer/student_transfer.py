@@ -14,6 +14,9 @@ class StudentTransfer(Document):
 		# self.prefill_transfer_scenario()
 	
 	def on_submit(self):
+		if not self.new_building_id or  not self.new_room_id or not self.new_bed_id:
+			frappe.throw("Building, Room, and Bed information is required for transfer.")
+			
 		self.create_program_enrollment()
 
 	@frappe.whitelist()

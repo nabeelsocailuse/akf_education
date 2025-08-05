@@ -210,8 +210,6 @@ class ProgramEnrollment(Document):
 		frappe.msgprint(f"Fees record created successfully for Student: {self.student}", alert=True)
 
 
-       
-
 	def get_all_course_enrollments(self):
 		course_enrollment_names = frappe.get_list(
 			"Course Enrollment", filters={"program_enrollment": self.name}

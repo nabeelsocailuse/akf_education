@@ -117,6 +117,8 @@ class StudentTransfer(Document):
 		program_enrollment.program = self.program
 		program_enrollment.academic_year = self.academic_year
 		# program_enrollment.active = 1  # Set the new enrollment as active
+		self.program_enrollment = program_enrollment.name  # Store the name of the new program enrollment
+		program_enrollment.student_transfer = self.name  # Link the program enrollment to this transfer document
 
 		program_enrollment.insert()
 		frappe.msgprint("New Program Enrollment created successfully for Student ID: {}".format(self.student_id))

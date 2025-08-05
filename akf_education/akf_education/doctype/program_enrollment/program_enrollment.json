@@ -11,6 +11,7 @@
   "student",
   "student_name",
   "enrollment_date",
+  "student_transfer",
   "active",
   "column_break_4",
   "program",
@@ -335,12 +336,19 @@
    "fieldtype": "Data",
    "label": "Bed Number",
    "read_only": 1
+  },
+  {
+   "fieldname": "student_transfer",
+   "fieldtype": "Link",
+   "label": "Against Student Transfer",
+   "options": "Student Transfer",
+   "read_only": 1
   }
  ],
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-04 13:13:16.143225",
+ "modified": "2025-08-05 15:25:08.478618",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment",

@@ -6,7 +6,7 @@ def get_executive_dashboard():
     students_in_shilter = frappe.db.count("Program Enrollment", filters={"bed": ["!=", ""]})
     sponsored_childrens = frappe.db.sql("""SELECT COUNT(DISTINCT student_id)
                 FROM `tabSponsorship`
-                WHERE ifnull(donor_id,"")!="";
+                WHERE docstatus = 1 AND ifnull(donor_id,"")!="";
                 """)[0][0] or 0
 
     return {

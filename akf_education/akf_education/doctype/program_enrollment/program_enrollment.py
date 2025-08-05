@@ -79,7 +79,7 @@ class ProgramEnrollment(Document):
 				"building": self.building,
 				"room": self.room,
 				"bed": self.bed,
-				"active": 1,
+				# "active": 1,
 				"docstatus": ("<", 2),
 				"name": ("!=", self.name),
 			},

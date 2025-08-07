@@ -58,6 +58,9 @@ class ProgramEnrollmentTool(Document):
 					)
 					.where(program_enrollment.program == self.program)
 					.where(program_enrollment.academic_year == self.academic_year)
+					.where(program_enrollment.aghosh_home_id == self.aghosh_home_id)
+					.where(program_enrollment.active == 1)
+					.where(program_enrollment.docstatus == 1)
 				)
 				if self.academic_term:
 					students = students.where(program_enrollment.academic_term == self.academic_term)
@@ -179,33 +182,6 @@ class ProgramEnrollmentTool(Document):
 		if not self.students:
 			frappe.throw(_("No students found in the Students table"))
 
-		# total = len(self.students)
-		# sponsorship_created = 0 
-
-		# for i, student in enumerate(self.students):
-			# frappe.publish_realtime(
-			# 	"program_enrollment_tool", {"progress": [i + 1, total]}, user=frappe.session.user
-			# )
-
-			# # Skip student if no donors selected
-			# if not student.selected_donors:
-			# 	frappe.log_error(
-			# 		title="Sponsorship Creation",
-			# 		message="Skipping sponsorship creation due to missing donors.\nStudent: {0}".format(student.student_name or "Unknown")
-			# 	)
-			# 	continue  # Skip rest of this iteration entirely
-
-			# # Now only check this if donor(s) exist
-			# if not all([student.student_applicant, student.student_name]):
-			# 	frappe.log_error(
-			# 		title="Sponsorship Creation",
-			# 		message="Skipping sponsorship creation due to missing applicant or name.\nDetails: {0}".format(frappe.as_json(student.as_dict()))
-			# 	)
-			# 	continue
-
-			# # Create sponsorships for each donor
-			# donor_list = student.selected_donors.split(", ")
-			# print(f"This is our donor{donor_list}")
 		if self.sponsors:
 			for sponsor in self.sponsors:
 				sponsorship = frappe.new_doc("Sponsorship")
@@ -221,25 +197,6 @@ class ProgramEnrollmentTool(Document):
 		# else:
 		# 	frappe.msgprint(_("No Sponsorship records were created."), alert=True)
         
-    
-# @frappe.whitelist()
-# def get_buildings_by_aghosh_home(aghosh_home_id):
-#     if not aghosh_home_id:
-#         frappe.response["http_status_code"] = 400
-#         return {"error": "Aghosh Home ID is required"}
-
-#     buildings = frappe.get_all(
-#         "Building",
-#         filters={"aghosh_home_id": aghosh_home_id},
-#         fields=["name", "type_enum"],
-#         order_by="creation asc",  
-#         limit_page_length=1  
-#     )
-
-#     if buildings:
-#         return {"name": buildings[0]["name"]}  
-#     else:
-#         return {"name": None}  
     
 
 def get_fee_structure_components(doc, program, academic_year,aghosh_home_id, external_school):

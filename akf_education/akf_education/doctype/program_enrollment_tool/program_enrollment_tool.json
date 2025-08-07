@@ -92,10 +92,10 @@
    "label": "Enrollment Details"
   },
   {
+   "depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "fieldname": "new_program",
    "fieldtype": "Link",
-   "hidden": 1,
-   "label": "New Program",
+   "label": "New Class",
    "mandatory_depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "options": "Program"
   },
@@ -116,10 +116,11 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "fieldname": "new_academic_year",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "New Academic Year",
+   "mandatory_depends_on": "eval:doc.get_students_from==\"Program Enrollment\"",
    "options": "Academic Year"
   },
   {
@@ -164,7 +165,7 @@
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-07-19 12:43:18.771673",
+ "modified": "2025-08-07 16:23:11.734833",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Program Enrollment Tool",

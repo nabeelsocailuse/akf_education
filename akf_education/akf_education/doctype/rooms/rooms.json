@@ -84,7 +84,7 @@
    "fieldname": "room_category",
    "fieldtype": "Select",
    "label": "Room Category",
-   "options": "\nDormitory\nStaff Room\nGuest Room\nComputer Lab\nMasjid\nConference Room\nMeeting Room\nActivity Hall\nSecurity Room\nPantry\nStaff Accomodation\nAccount & Admin Office\nStore Room"
+   "options": "\nDormitory\nStaff Room\nGuest Room\nComputer Lab\nMasjid\nConference Room\nMeeting Room\nActivity Hall\nSecurity Room\nPantry\nStaff Accomodation\nAccount & Admin Office\nStore Room\nIT Room\nLibrary"
   },
   {
    "fieldname": "building_floor",
@@ -116,7 +116,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-19 13:09:38.099485",
+ "modified": "2025-08-07 16:25:08.374875",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Rooms",

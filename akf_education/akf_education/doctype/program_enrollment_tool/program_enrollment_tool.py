@@ -194,7 +194,7 @@ class ProgramEnrollmentTool(Document):
 		if self.sponsors:
 			for sponsor in self.sponsors:
 				sponsorship = frappe.new_doc("Sponsorship")
-				sponsorship.student_applicant = sponsor.student_applicant
+				sponsorship.student_id = sponsor.student_applicant
 				sponsorship.donor_id = sponsor.donor_id
 				sponsorship.aghosh_home_id = self.aghosh_home_id
 				sponsorship.insert(ignore_permissions=True)

@@ -37,6 +37,12 @@ class Sponsorship(Document):
             frappe.throw("Branch is required to create a donation entry.")
         if not self.intention:
             frappe.throw("Intention is required to create a donation entry.")
+        if not self.sponsorship_tenure:
+            frappe.throw("Sponsorship Tenure is required to create a donation entry.")
+        if not self.tenure_period:
+            frappe.throw("Tenure Period is required to create a donation entry.")        
+        if not self.sponsored_amount:
+            frappe.throw("Sponsored Amount is required to create a donation entry.")
         
         donation_entry = frappe.new_doc("Donation")
         donation_entry.donor_identity = 'Known'

@@ -46,8 +46,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Sponsorship Tenure",
-   "options": "\nMonthly\nQuarterly\nYearly",
-   "reqd": 1
+   "options": "\nMonthly\nQuarterly\nYearly"
   },
   {
    "fieldname": "column_break_kvqm",
@@ -58,8 +57,7 @@
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Tenure Period",
-   "non_negative": 1,
-   "reqd": 1
+   "non_negative": 1
   },
   {
    "fieldname": "section_break_jyyj",
@@ -74,8 +72,7 @@
    "fieldname": "start_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Start Date",
-   "reqd": 1
+   "label": "Start Date"
   },
   {
    "fieldname": "end_date",
@@ -115,8 +112,7 @@
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Sponsored Amount",
-   "non_negative": 1,
-   "reqd": 1
+   "non_negative": 1
   },
   {
    "fieldname": "total_sponsored_amount",
@@ -243,7 +239,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-07 19:49:05.454302",
+ "modified": "2025-08-11 15:34:01.992050",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

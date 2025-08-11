@@ -55,6 +55,15 @@ class ProgramEnrollmentTool(Document):
 						program_enrollment.student_name,
 						program_enrollment.student_batch_name,
 						program_enrollment.student_category,
+						# program_enrollment.building,
+						# program_enrollment.building_name,
+						# program_enrollment.room,
+						# program_enrollment.room_number,
+						# program_enrollment.bed,
+						# program_enrollment.bed_number,
+						# program_enrollment.school_type,
+						# program_enrollment.internal_school,
+						# program_enrollment.internal_school_name
 					)
 					.where(program_enrollment.program == self.program)
 					.where(program_enrollment.academic_year == self.academic_year)

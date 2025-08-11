@@ -3,10 +3,13 @@
 
 frappe.ui.form.on("Sponsorship", {
 	refresh(frm) {
-        // if (frm.doc.student_applicant) {
-        //     frappe.db.get_value('Student', { student_applicant: frm.doc.student_applicant }, 'name')
-        //         .then(r => frm.set_value('student_id', r.message?.name || ''));
-        // }  
+            frm.set_query("student_id", function() {
+                return {
+                    filters: {
+                        "status": "Active"
+                    }
+                };
+            });
 	},
 
     start_date(frm){

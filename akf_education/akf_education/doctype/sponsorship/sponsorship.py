@@ -7,13 +7,10 @@ from frappe.model.document import Document
 
 class Sponsorship(Document):
     def before_save(self):
-        # self.set_student_id()
         self.calculate_total_amount()
-        
-    # def set_student_id(self):
-    #     if self.student_applicant:
-    #         student = frappe.db.get_value('Student', {'student_applicant': self.student_applicant}, 'name')
-            # self.student_id = student or ''
+    
+    def on_submit(self):
+        self.create_donation_entry()
 
     def calculate_total_amount(self):
         monthsToAdd = 1.0
@@ -27,7 +24,34 @@ class Sponsorship(Document):
                 
             self.total_sponsored_amount = monthsToAdd*self.sponsored_amount*self.tenure_period
 
-    
-    
+
+    # donation_entry.fund_class_id = self.fund_class_id
+    # donation_entry.intention = self.intention
+    # donation_entry.donor_id = self.donor_id
+    # donation_entry.donation_amount = self.sponsored_amount
+    # donation_entry.due_date = self.end_date
+    def create_donation_entry(self):
+        if not self.fund_class_id:
+            frappe.throw("Fund Class ID is required to create a donation entry.")
+        if not self.branch:
+            frappe.throw("Branch is required to create a donation entry.")
+        if not self.intention:
+            frappe.throw("Intention is required to create a donation entry.")
+        
+        donation_entry = frappe.new_doc("Donation")
+        donation_entry.donor_identity = 'Known'
+        donation_entry.contribution_type = 'Pledge'
+        donation_entry.currency = 'PKR'
+        donation_entry.company = self.company
+        donation_entry.donation_cost_center = self.branch
+        donation_entry.append("payment_detail", {
+        "fund_class_id": self.fund_class_id,
+        "donation_type": self.intention,
+        "donor_id": self.donor_id,
+        "donation_amount": self.sponsored_amount,
+        "due_date": self.end_date
+        })
+
+        donation_entry.insert()
 
 	

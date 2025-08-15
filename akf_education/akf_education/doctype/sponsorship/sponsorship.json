@@ -36,6 +36,7 @@
   "donation_details_section",
   "company",
   "fund_class_id",
+  "donation",
   "column_break_lcjc",
   "intention",
   "branch"
@@ -101,7 +102,7 @@
    "options": "Student"
   },
   {
-   "fetch_from": "student_id.first_name",
+   "fetch_from": "student_id.full_name",
    "fieldname": "student_name",
    "fieldtype": "Data",
    "label": "Student Name",
@@ -234,12 +235,19 @@
    "fieldtype": "Link",
    "label": "Branch",
    "options": "Cost Center"
+  },
+  {
+   "fieldname": "donation",
+   "fieldtype": "Link",
+   "label": "Donation",
+   "options": "Donation",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-11 15:34:01.992050",
+ "modified": "2025-08-11 16:00:18.793820",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Sponsorship",

@@ -57,7 +57,7 @@ class Sponsorship(Document):
         "donation_amount": self.sponsored_amount,
         "due_date": self.end_date
         })
-
         donation_entry.insert()
+        self.donation = donation_entry.name
 
 	

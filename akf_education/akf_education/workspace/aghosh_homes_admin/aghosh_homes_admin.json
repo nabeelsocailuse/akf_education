@@ -11,7 +11,7 @@
  "idx": 0,
  "indicator_color": "",
  "is_hidden": 0,
- "label": "Aghosh Homes",
+ "label": "Aghosh Homes Admin",
  "links": [
   {
    "hidden": 0,
@@ -384,10 +384,10 @@
    "type": "Link"
   }
  ],
- "modified": "2025-07-31 23:20:11.460257",
+ "modified": "2025-08-15 11:47:31.870675",
  "modified_by": "Administrator",
  "module": "Akf Education",
- "name": "Aghosh Homes",
+ "name": "Aghosh Homes Admin",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -453,5 +453,5 @@
    "type": "DocType"
   }
  ],
- "title": "Aghosh Homes"
+ "title": "Aghosh Homes Admin"
 }

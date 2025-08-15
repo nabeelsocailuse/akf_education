@@ -26,8 +26,10 @@ app_include_js = [
     "/assets/akf_education/js/leaflet.markercluster.js",
     # "/assets/akf_education/js/jquery.min.js",
     # "/assets/akf_education/js/jquery.bootstrap.min.js",
-#     "/assets/akf_education/js/jquery.dataTables.min.js",
-#     "/assets/akf_education/js/jquery-3.7.1.min.js"
+    #"/assets/akf_education/js/jquery.dataTables.min.js",
+    #"/assets/akf_education/js/jquery-3.7.1.min.js"
+    "/assets/akf_education/js/role_redirect.js"
+    
 ]
 
 # include js, css files in header of web template
@@ -187,6 +189,7 @@ scheduler_events = {
 
 # before_tests = "akf_education.install.before_tests"
 
+
 # Overriding Methods
 # ------------------------------
 #
@@ -219,6 +222,8 @@ scheduler_events = {
 # ----------
 # before_job = ["akf_education.utils.before_job"]
 # after_job = ["akf_education.utils.after_job"]
+# on_login = "akf_education.akf_education.api.redirect_on_login.redirect_on_login"
+
 
 # User Data Protection
 # --------------------

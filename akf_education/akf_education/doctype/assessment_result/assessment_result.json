@@ -45,6 +45,7 @@
   "total_score",
   "grade",
   "section_break_13",
+  "scanned_result",
   "comment",
   "amended_from"
  ],
@@ -307,11 +308,16 @@
   {
    "fieldname": "column_break_bupq",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "scanned_result",
+   "fieldtype": "Attach",
+   "label": "Scanned Result"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-05 18:01:34.184139",
+ "modified": "2025-08-15 11:51:17.283308",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Assessment Result",

@@ -20,7 +20,8 @@
   "affected_person_name",
   "emergency_contact_notified",
   "column_break_dvcb",
-  "witnesses",
+  "witness_id",
+  "witness_name",
   "immediate_actions_taken",
   "investigation",
   "invistigated_by",
@@ -112,12 +113,6 @@
    "options": "\nYes\nNo"
   },
   {
-   "fieldname": "witnesses",
-   "fieldtype": "Link",
-   "label": "Witnesses",
-   "options": "Employee"
-  },
-  {
    "fieldname": "immediate_actions_taken",
    "fieldtype": "Select",
    "label": "Immediate Actions Taken",
@@ -206,11 +201,24 @@
    "fieldtype": "Data",
    "label": "Affected Person Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "witness_id",
+   "fieldtype": "Link",
+   "label": "Witness ID",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "witness_id.employee_name",
+   "fieldname": "witness_name",
+   "fieldtype": "Data",
+   "label": "Witness Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-05 12:03:58.147102",
+ "modified": "2025-08-18 14:32:48.869309",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Incident Report",

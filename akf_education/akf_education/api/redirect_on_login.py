@@ -53,3 +53,22 @@
 #     if frappe.local.request.path == "/login" and "Manager Aghosh Homes" in roles:
 #         frappe.local.flags.redirect_location = "/app/executive-dashboard"
 #         raise frappe.Redirect
+
+import frappe
+
+@frappe.whitelist()
+def reroute():
+    user = frappe.session.user
+    roles = frappe.get_roles(user)
+    if "Central Office Focal Person" in roles:
+        # frappe.msgprint(f"User: {user}, Roles: {roles}")
+    #     return "/app/executive-dashboard"
+    # else:
+    #     return "/app/home"
+        # frappe.local.response["type"] = "redirect"
+        # frappe.local.response["location"] = "/app/executive-dashboard"
+        # frappe.local.flags.redirect_location = "/app/executive-dashboard"
+        # raise frappe.Redirect
+        frappe.local.response["home_page"] = "/app/executive-dashboard"
+
+ 

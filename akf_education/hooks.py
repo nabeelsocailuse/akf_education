@@ -64,9 +64,10 @@ app_include_js = [
 # home_page = "login"
 
 # website user home page (by Role)
-# role_home_page = {
-# 	"Role": "home_page"
-# }
+role_home_page = {
+	# "Role": "home_page"
+    # "Manager Aghosh Homes": "executive-dashboard"
+}
 
 # Generators
 # ----------
@@ -194,7 +195,8 @@ scheduler_events = {
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "akf_education.event.get_events"
+	# "frappe.desk.doctype.event.event.get_events": "akf_education.event.get_events"
+    # 'frappe.desk.desktop.get_home_page': 'akf_education.akf_education.api.redirect_on_login.reroute'
 # }
 #
 # each overriding function accepts a `data` argument;
@@ -224,6 +226,8 @@ scheduler_events = {
 # after_job = ["akf_education.utils.after_job"]
 # on_login = "akf_education.akf_education.api.redirect_on_login.redirect_on_login"
 
+# auth_hooks = ["akf_education.akf_education.api.redirect_on_login.reroute"]
+
 
 # User Data Protection
 # --------------------
@@ -252,9 +256,10 @@ scheduler_events = {
 # Authentication and authorization
 # --------------------------------
 
-# auth_hooks = [
-# 	"akf_education.auth.validate"
-# ]
+auth_hooks = [
+	# "akf_education.auth.validate"
+    "akf_education.akf_education.api.redirect_on_login.reroute"
+]
 
 # Automatically update python controller files with type annotations for this app.
 # export_python_type_annotations = True

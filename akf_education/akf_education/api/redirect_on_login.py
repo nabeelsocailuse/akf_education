@@ -4,10 +4,15 @@ import frappe
 def reroute():
     user = frappe.session.user
     roles = frappe.get_roles(user)
+
+    frappe.local.response["home_page"] = "/app/self-service"
     
     if "Central Office Focal Person" in roles:
         frappe.local.response["home_page"] = "/app/executive-dashboard"
-    elif "Manager Aghosh Homes" or "Aghosh Administrator" in roles:
+        return
+    elif "Manager Aghosh Homes" in roles:
         frappe.local.response["home_page"] = "/app/aghosh-home-details"
-    elif "Employee" in roles:
-        frappe.local.response["home_page"] = "/app/self-service"
+        return 
+    elif "Aghosh Administrator" in roles:
+        frappe.local.response["home_page"] = "/app/aghosh-home-details"
+        return

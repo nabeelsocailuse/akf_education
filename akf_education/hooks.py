@@ -10,14 +10,13 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css =[
-    # "/assets/akf_education/css/jquery.dataTables.min.css",
-    # "/assets/akf_education/css/bootstrap-table.min.css",
-    # "/assets/akf_education/css/bootstrap.min.css",
-    # "/assets/akf_education/css/index.css",
+# app_include_css =[
+#     "/assets/akf_education/css/jquery.dataTables.min.css",
+#     "/assets/akf_education/css/bootstrap-table.min.css",
+#     "/assets/akf_education/css/bootstrap.min.css",
+#     "/assets/akf_education/css/index.css",
+# ]
 
-
-]
 app_include_js = [
     # "/assets/akf_education/js/highcharts.js",
     # "/assets/akf_education/js/highcharts-more.js",
@@ -28,7 +27,7 @@ app_include_js = [
     # "/assets/akf_education/js/jquery.bootstrap.min.js",
     #"/assets/akf_education/js/jquery.dataTables.min.js",
     #"/assets/akf_education/js/jquery-3.7.1.min.js"
-    "/assets/akf_education/js/role_redirect.js"
+    "/assets/akf_education/js/workspace_redirect.js"
     
 ]
 
@@ -64,10 +63,9 @@ app_include_js = [
 # home_page = "login"
 
 # website user home page (by Role)
-role_home_page = {
-	# "Role": "home_page"
-    # "Manager Aghosh Homes": "executive-dashboard"
-}
+# role_home_page = {
+# 	"Role": "home_page"
+# }
 
 # Generators
 # ----------

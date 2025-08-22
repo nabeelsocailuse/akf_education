@@ -18,6 +18,14 @@ frappe.ui.form.on("Promote Student", {
                 },
             };
         });
+
+        frm.set_query("new_program", function () {
+            return {
+                filters: {
+                    aghosh_home_id: frm.doc.aghosh_home_id,
+                },
+            };
+        });
     },
 
     get_students: function (frm) {

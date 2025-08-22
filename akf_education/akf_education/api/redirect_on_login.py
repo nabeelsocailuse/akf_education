@@ -9,3 +9,5 @@ def reroute():
         frappe.local.response["home_page"] = "/app/executive-dashboard"
     elif "Manager Aghosh Homes" or "Aghosh Administrator" in roles:
         frappe.local.response["home_page"] = "/app/aghosh-home-details"
+    elif "Employee" in roles:
+        frappe.local.response["home_page"] = "/app/self-service"

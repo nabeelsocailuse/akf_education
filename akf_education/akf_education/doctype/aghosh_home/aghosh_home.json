@@ -140,6 +140,7 @@
   {
    "fieldname": "employee_id",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "Employee ID",
    "mandatory_depends_on": "eval: doc.status == \"Operational\"",
    "options": "Employee"
@@ -196,7 +197,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-19 17:37:07.596764",
+ "modified": "2025-08-25 12:17:58.103202",
  "modified_by": "Administrator",
  "module": "Akf Education",
  "name": "Aghosh Home",

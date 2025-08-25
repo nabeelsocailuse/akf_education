@@ -226,3 +226,13 @@ def get_inactive_homes():
         filters={"status":"Inactive"},
         fields=["aghosh_home_name"]
     )
+# @frappe.whitelist()
+# def operational_names():
+#     data = frappe.db.sql("""
+#     SELECT aghosh_home_name 
+#     FROM `tabAghosh Home`
+#     WHERE status = 'Operational';
+#     """,as_dict=True)
+    
+#     return data
+

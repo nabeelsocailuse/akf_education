@@ -162,7 +162,7 @@ app_include_js = [
 scheduler_events = {
     "cron": {
         "0 0 1 * *": [  # At 00:00 on day-of-month 1
-            "akf_education.akf_education.api.fee_cron.generate_monthly_fees"
+            "akf_education.akf_education.api.fee_cron.create_monthly_fees"
         ]
     }
 	# "all": [
